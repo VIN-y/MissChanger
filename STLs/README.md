@@ -24,6 +24,6 @@ The endstops assembly is held in place by replacing the original two M3x30mm bol
 
 
 
-![20240218_221143.jpg](/home/vinny/Project/Github/MissChanger/images/20240218_221143.jpg)
+![20240218_221143.jpg](/images/20240218_221143.jpg)
 
 
