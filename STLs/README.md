@@ -20,6 +20,12 @@ All STLs are pre-orientated.
 
 ### Assembly:
 
-The endstops assembly is held in place by replacing the original two M3x30mm bolts with two M3x35mm bolts, which passed through the holes on the Y motor mount assembly. The X endstop trigger is mounted to the back of the original Tap_Center using an M3x30mm bolt, which go through centre hole of the linear rail.
+The endstops assembly is held in place by replacing the original two M3x30mm bolts with two M3x35mm bolts, which passed through the holes on the Y motor mount assembly. 
+
+The X endstop trigger is mounted to the back of the original Tap_Center using an M3x30mm bolt, which go through centre hole of the linear rail. 
+
+
 ![20240218_221143.jpg](/images/20240218_221143.jpg)
+![20240218_221143.jpg](/images/20240218_222328.jpg)
+
 ![20240218_221143.jpg](/images/20240218_222328.jpg)
