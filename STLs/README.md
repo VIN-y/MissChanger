@@ -54,6 +54,6 @@ The locker required a M3x12mm bolt on the side, as shown in the picture below.
 
 For the tap front. There is the coresponding slot for the pogo pins pad. Then there are also aligner-pin slots for 4 of the 3mm sleeves (2 on each side).
 
-**Note:** The sleeves can be pressed in from both sides.
+**Note:** (1) The sleeves can be pressed in from both sides. (2) You do not need to add the threaded inserts on to the tap upper, as shown.
 
 ![20240218_221143.jpg](/images/20240219_185221.jpg)
