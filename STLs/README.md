@@ -38,7 +38,7 @@ The X endstop trigger is mounted to the back of the original "Tap_Center" using 
 
 The tool changer mechanism requires 3 modded pieces: the tap front, the print-head rear, and the locker.
 
-For the print-head rear. Two threaded inserts are needed. There is a insert slot for the pogo pin pad on the side. On the other side, are aligner pin slots to mate with the dock; which will need 2 of 3mm sleeves. Finally, on the back, there are 2 of 3x20mm chamferred pins, which are pressed into place (they will butt up against the threaded 
+For the print-head rear. Two threaded inserts are needed. There is a insert slot for the pogo pins pad on the side. On the other side, are aligner-pin slots to mate with the dock; which will need 2 of 3mm sleeves. Finally, on the back, there are 2 of 3x20mm chamferred pins, which are pressed into place (they will butt up against the threaded 
 
 The locker required a M3x12mm bolt on the side, as shown in the picture below.
 
@@ -52,4 +52,8 @@ The locker required a M3x12mm bolt on the side, as shown in the picture below.
 
 
 
-For the tap front. 
+For the tap front. There is the coresponding slot for the pogo pins pad. Then there are also aligner-pin slots for 4 of the 3mm sleeves (2 on each side).
+
+**Note:** The sleeves can be pressed in from both sides.
+
+![20240218_221143.jpg](/images/20240219_185221.jpg)
