@@ -24,7 +24,7 @@ All STLs are pre-orientated.
 
 The endstops assembly is held in place by replacing the original two M3x30mm bolts with two M3x35mm bolts, which passed through the holes on the Y motor mount assembly. 
 
-The X endstop trigger is mounted to the back of the original Tap_Center using an M3x30mm bolt, which go through centre hole of the linear rail. There is a slot to add a M3 nut on the trigger.
+The X endstop trigger is mounted to the back of the original "Tap_Center" using an M3x30mm bolt, which go through centre hole of the linear rail. There is a slot to add a M3 nut on the trigger.
 
 **Note:** Do not insert the threaded insert for the centre hole, see picture below. Alternatively (if you are reusing parts from a functional Voron-Tap), the threading can be drilled out with a 3mm bit.
 
@@ -42,7 +42,7 @@ For the print-head rear. Two threaded inserts are needed. There is a insert slot
 
 The locker required a M3x12mm bolt on the side, as shown in the picture below.
 
-**Note:** (1) the pogo pin pad on the print-head rear needs to be female, as the pins would be live during operation. (2) the chamfer on the pin should be increased (rounded if possible), for better mating procedure.
+**Note:** (1) the pogo pin pad on the print-head rear needs to be female, as the pins would be live during operation. (2) the chamfer on the pin should be increased (rounded if possible), for better mating action. (3) [reminder] the locker need to be printed with auto-painted supports, in the default orientation.
 
 ![20240218_221143.jpg](/images/20240218_231424.jpg)
 
