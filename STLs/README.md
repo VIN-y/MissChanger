@@ -32,7 +32,7 @@ Note: Do not insert the threaded insert for the centre hole, see picture below. 
 
 ![20240218_221143.jpg](/images/20240218_222328.jpg)
 
-![20240218_221143.jpg](/images/20240218_222328.jpg)
+![20240218_221143.jpg](/images/20240218_223816.jpg)
 
 
 
@@ -44,8 +44,8 @@ For the print-head rear. Two threaded inserts are needed. There is a insert slot
 
 The locker required a M3x12mm bolt on the side, as shown in the picture below.
 
+![20240218_221143.jpg](/images/20240218_231424.jpg)
+
+![20240218_221143.jpg](/images/20240218_231502.jpg)
+
 ![20240218_221143.jpg](/images/20240218_231551.jpg)
-
-![20240218_221143.jpg](/images/20240218_222328.jpg)
-
-![20240218_221143.jpg](/images/20240218_222328.jpg)
