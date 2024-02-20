@@ -20,7 +20,7 @@ All STLs are pre-orientated.
 
 # ASSEMBLING
 
-### Endstops Assembly
+## Endstops Assembly
 
 The endstops assembly is held in place by replacing the original two M3x30mm bolts with two M3x35mm bolts, which passed through the holes on the Y motor mount assembly. 
 
@@ -34,15 +34,19 @@ The X endstop trigger is mounted to the back of the original "Tap_Center" using 
 
 ![20240218_221143.jpg](/images/20240218_223816.jpg)
 
-### Tool Changer
+## Tool Changer
 
 The tool changer mechanism requires 3 modded pieces: the tap front, the print-head rear, and the locker.
 
-For the print-head rear. Two threaded inserts are needed. There is a insert slot for the pogo pins pad on the side. On the other side, are aligner-pin slots to mate with the dock; which will need 2 of 3mm sleeves. Finally, on the back, there are 2 of 3x20mm chamferred pins, which are pressed into place (they will butt up against the threaded 
+For the print-head rear. Two threaded inserts are needed. There is a insert slot for the pogo pins pad on the side (for the tap sensor). On the other side, are aligner-pin slots to mate with the dock; which will need 2 of 3mm sleeves. Finally, on the back, there are 2 of 3x20mm chamferred pins, which are pressed into place (they will butt up against the threaded 
 
 The locker required a M3x12mm bolt on the side, as shown in the picture below.
 
-**Note:** (1) the pogo pin pad on the print-head rear needs to be female, as the pins would be live during operation. (2) the chamfer on the pin should be increased (rounded if possible), for better mating action. (3) [reminder] the locker need to be printed with auto-painted supports, in the default orientation.
+**Note:** 
+(1) the pogo pin pad on the print-head rear needs to be female, as the pins would be live during operation. 
+(2) the chamfer on the pin should be increased (rounded if possible), for better mating action. 
+(3) the locker is a consumable (although no cycle life time is available currently). Therefore, it is recommended to have at least 1 spare per toolhead.
+(4) [reminder] the locker need to be printed with auto-painted supports, in the default orientation.
 
 ![20240218_221143.jpg](/images/20240218_231424.jpg)
 
@@ -50,10 +54,12 @@ The locker required a M3x12mm bolt on the side, as shown in the picture below.
 
 ![20240218_221143.jpg](/images/20240218_231551.jpg)
 
-
-
-For the tap front. There is the coresponding slot for the pogo pins pad. Then there are also aligner-pin slots for 4 of the 3mm sleeves (2 on each side).
+For the tap front. There is the corresponding slot for the pogo pins pad. Then there are also aligner-pin slots for 4 of the 3mm sleeves (2 on each side).
 
 **Note:** (1) The sleeves can be pressed in from both sides. (2) You do not need to add the threaded inserts on to the tap upper, as shown.
 
 ![20240218_221143.jpg](/images/20240219_185221.jpg)
+
+## Dock
+
+TBD
