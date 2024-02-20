@@ -12,6 +12,10 @@ Misschanger aims to be a tool-changing mechanism that is compatible with both Vo
 
 At the moment, it is only compatible with the Stealth Burner toolhead, with the Revo-Voron hotend.
 
+## Assembly
+
+Assembly steps are in the "STLs" folder.
+
 ## Software
 
 This project use the same [toolchanger extension](https://github.com/viesturz/klipper-toolchanger/) and Klipper setup as [tapchanger](https://github.com/viesturz/tapchanger/).
