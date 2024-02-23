@@ -16,6 +16,8 @@ At the moment, it is only compatible with the Stealth Burner toolhead, with the 
 
 Assembly steps are in the "STLs" folder.
 
+The BOM only includes parts that are specific to this tool changer; and it is current a work-in-progress.
+
 ## Software
 
 This project use the same [toolchanger extension](https://github.com/viesturz/klipper-toolchanger/) and Klipper setup as [tapchanger](https://github.com/viesturz/tapchanger/).
