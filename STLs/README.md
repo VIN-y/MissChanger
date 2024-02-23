@@ -64,9 +64,18 @@ For the tap front. There is the corresponding slot for the pogo pins pad. Then t
 
 ## Cabling
 
-![20240218_221143.jpg](/images/20240219_185221.jpg)
+XLR connectors are used for easy connect/disconnect of the toolheads. 
+However, they are not hot-plugs. The `printer.cfg` need to be edit and the printer need to be restart to add/remove toolheads.
 
-The Canbus cable 
+Cable length from connector to toolhead is 780-800mm, with the Retractable Reel Clip cable tied  250mm from the end of the connector.  
+
+Detail wiring. TBD.
+
+PTFE tubes panel. TBD.
+
+![20240223_155728.jpg](/images/20240223_155728.jpg)
+
+![20240223_163258.jpg](/images/20240223_163258.jpg)
 
 ## Dock
 
