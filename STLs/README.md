@@ -18,8 +18,6 @@ All STLs are pre-orientated.
 
 - The current Locker will need to be printed in the default orientation, with auto-painted support. (Built-in support will be add in later revisions)
 
-
-
 # ASSEMBLING
 
 ## Endstops Assembly
@@ -40,7 +38,7 @@ The X endstop trigger is mounted to the back of the original "Tap_Center" using 
 
 The tool changer mechanism requires 3 modded pieces: the Tap Front, the Print-head Rear, and the Locker.
 
-For the Print-head Rear. Two threaded inserts are needed. There is a insert slot for the pogo pins pad on the side (for the tap sensor). On the other side, are aligner-pin slots to mate with the dock; which will need 2 of 3mm sleeves. Finally, on the back, there are 2 of 3x20mm chamferred pins, which are pressed into place (they will butt up against the threaded 
+For the Print-head Rear. 2 threaded inserts are needed, which is for 2 of M3x35mm, to attach with the toolhead main body. There is a insert slot for the pogo pins pad on the side (for the tap sensor). On the other side, are aligner-pin slots to mate with the dock; which will need 2 of 3mm sleeves. Finally, on the back, there are 2 of 3x20mm chamferred pins, which are pressed into place (they will butt up against the threaded 
 
 The Locker required a M3x12mm bolt on the side, as shown in the picture below.
 
@@ -65,14 +63,25 @@ For the Tap Front. There is the corresponding slot for the pogo pins pad. Then t
 
 ## Cabling
 
-XLR connectors are used for easy connect/disconnect of the toolheads. 
-However, they are not hot-plugs. The `printer.cfg` need to be edit and the printer need to be restart to add/remove toolheads.
+XLR connectors are used for easy connect/disconnect of the toolheads. However, they are not hot-plugs. The `printer.cfg` need to be edit and the printer need to be restart to add/remove toolheads. The connector pin wiring is:
 
-Cable length from connector to toolhead is 780-800mm, with the Retractable Reel Clip cable tied  250mm from the end of the connector. The Reel Clip is hooked to the top with a M3 springed T-nut and a M3x16mm bolt.
+- Pin 1: Power +
+
+- Pin 2: CAN +
+
+- Pin 3: CAN -
+
+- Pin 4: Power -
+
+Cable length from connector to toolhead is 780-800mm, with the Retractable Reel Clip cable tied  250mm from the end of the connector. The Reel Clip is hooked to the top with a M3 spring T-nut and a M3x16mm bolt.
+
+The XLR_Mount is attached with a M3x10mm bolt and T-nut. 
 
 Detail wiring. TBD.
 
 PTFE tubes panel. TBD.
+
+**Note:** Don't plug your XLR devices into the panel.
 
 ![20240223_155728.jpg](/images/20240223_155728.jpg)
 
