@@ -45,7 +45,7 @@ The <u>Locker</u> required a M3x12mm bolt on the side, as shown in the picture b
 For the <u>Tap Front</u>. There is the corresponding slot for the pogo pins pad. Then there are also aligner-pin slots for 4 of the 3mm sleeves (2 on each side). The M3 bolts of need to leave a 4.10-4.20mm gap, as shown in the picture below; and both sides need to be as even as possible.
 
 **Note:** 
-(1) the pogo pin pad on the print-head rear needs to be female.
+(1) the pogo pin pad on the print-head rear needs to be female, as the pins would be live during operation. 
 (2) the chamfer on the pin should be increased (rounded if possible), for better mating action. 
 (3) the locker is a consumable (although no cycle life time is available currently). Therefore, it is recommended to have at least 1 spare per toolhead.
 (4) [reminder] the locker need to be printed with auto-painted supports, in the default orientation.
