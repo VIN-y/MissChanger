@@ -16,7 +16,9 @@ All STLs are pre-orientated.
 
 **Note:**
 
-- The current Locker will need to be printed in the set orientation and with support. (Built-in support will be add in later revision)
+- The current Locker will need to be printed in the default orientation, with auto-painted support. (Built-in support will be add in later revisions)
+
+
 
 # ASSEMBLING
 
