@@ -44,7 +44,7 @@ For the Print-head Rear. Two threaded inserts are needed. There is a insert slot
 
 The Locker required a M3x12mm bolt on the side, as shown in the picture below.
 
-For the Tap Tront. There is the corresponding slot for the pogo pins pad. Then there are also aligner-pin slots for 4 of the 3mm sleeves (2 on each side).
+For the Tap Front. There is the corresponding slot for the pogo pins pad. Then there are also aligner-pin slots for 4 of the 3mm sleeves (2 on each side). The M3 bolts of need to leave a 4.10-4.20mm gap, as shown in the picture below; and both sides need to be as even as possible.
 
 **Note:** 
 (1) the pogo pin pad on the print-head rear needs to be female, as the pins would be live during operation. 
