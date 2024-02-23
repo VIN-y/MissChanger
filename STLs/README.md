@@ -28,7 +28,7 @@ The endstops assembly is held in place by replacing the original two M3x30mm bol
 
 The X endstop trigger is mounted to the back of the original "Tap_Center" using an M3x30mm bolt, which go through centre hole of the linear rail. There is a slot to add a M3 nut on the trigger.
 
-**Note:** Do not insert the threaded insert for the centre hole, see picture below. Alternatively (if you are reusing parts from a functional Voron-Tap), the threading can be drilled out with a 3mm bit.
+**Note:** Do not insert the threaded insert for the centre hole, see picture below. Alternatively (if you are reusing parts from another Voron-Tap assembly), the threading can be drilled out with a 3mm bit.
 
 ![20240218_221143.jpg](/images/20240218_221143.jpg)
 
