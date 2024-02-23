@@ -54,11 +54,19 @@ The locker required a M3x12mm bolt on the side, as shown in the picture below.
 
 ![20240218_221143.jpg](/images/20240218_231551.jpg)
 
+![20240223_151039.jpg](/images/20240223_151039.jpg)
+
 For the tap front. There is the corresponding slot for the pogo pins pad. Then there are also aligner-pin slots for 4 of the 3mm sleeves (2 on each side).
 
 **Note:** (1) The sleeves can be pressed in from both sides. (2) You do not need to add the threaded inserts on to the tap upper, as shown.
 
 ![20240218_221143.jpg](/images/20240219_185221.jpg)
+
+## Cabling
+
+![20240218_221143.jpg](/images/20240219_185221.jpg)
+
+The Canbus cable 
 
 ## Dock
 
