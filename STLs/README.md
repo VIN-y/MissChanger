@@ -16,7 +16,9 @@ All STLs are pre-orientated.
 
 **Note:**
 
-- The current Locker will need to be printed in the default orientation, with auto-painted support. (Built-in support will be add in later revisions)
+- The testing Locker will need to be printed in the default orientation, with auto-painted support. (Built-in support will be add in later revisions)
+- The "alpha" folder contains the latest files that are in development.
+- Files with a version number attached are still in testing, and is subjected to changes.
 
 # ASSEMBLING
 
