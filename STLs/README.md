@@ -22,9 +22,9 @@ All STLs are pre-orientated.
 
 ## Endstops Assembly
 
-The endstops assembly is held in place by replacing the original two M3x30mm bolts with two M3x35mm bolts, which passed through the holes on the Y motor mount assembly. 
+The <u>endstops assembly</u> is held in place by replacing the original two M3x30mm bolts with two M3x35mm bolts, which passed through the holes on the Y motor mount assembly. 
 
-The X endstop trigger is mounted to the back of the original "Tap_Center" using an M3x30mm bolt, which go through centre hole of the linear rail. There is a slot to add a M3 nut on the trigger.
+The <u>X endstop trigger</u> is mounted to the back of the original "Tap_Center" using an M3x30mm bolt, which go through centre hole of the linear rail. There is a slot to add a M3 nut on the trigger.
 
 **Note:** Do not insert the threaded insert for the centre hole, see picture below. Alternatively (if you are reusing parts from another Voron-Tap assembly), the threading can be drilled out with a 3mm bit.
 
@@ -36,13 +36,13 @@ The X endstop trigger is mounted to the back of the original "Tap_Center" using 
 
 ## Tool Changer
 
-The tool changer mechanism requires 3 modded pieces: the Tap Front, the Print-head Rear, and the Locker.
+The tool changer mechanism requires 3 modded pieces: the <u>Tap Front</u>, the <u>Printhead Rear</u>, and the <u>Locker</u>.
 
-For the Print-head Rear. 2 threaded inserts are needed, which is for 2 of M3x35mm, to attach with the toolhead main body. There is a insert slot for the pogo pins pad on the side (for the tap sensor). On the other side, are aligner-pin slots to mate with the dock; which will need 2 of 3mm sleeves. Finally, on the back, there are 2 of 3x20mm chamferred pins, which are pressed into place (they will butt up against the threaded 
+For the <u>Printhead Rear</u>. 2 threaded inserts are needed, which is for 2 of M3x35mm, to attach with the toolhead main body. There is a insert slot for the pogo pins pad on the side (for the tap sensor). On the other side, are aligner-pin slots to mate with the dock; which will need 2 of 3mm sleeves. Finally, on the back, there are 2 of 3x20mm chamferred pins, which are pressed into place (they will butt up against the threaded 
 
-The Locker required a M3x12mm bolt on the side, as shown in the picture below.
+The <u>Locker</u> required a M3x12mm bolt on the side, as shown in the picture below.
 
-For the Tap Front. There is the corresponding slot for the pogo pins pad. Then there are also aligner-pin slots for 4 of the 3mm sleeves (2 on each side). The M3 bolts of need to leave a 4.10-4.20mm gap, as shown in the picture below; and both sides need to be as even as possible.
+For the <u>Tap Front</u>. There is the corresponding slot for the pogo pins pad. Then there are also aligner-pin slots for 4 of the 3mm sleeves (2 on each side). The M3 bolts of need to leave a 4.10-4.20mm gap, as shown in the picture below; and both sides need to be as even as possible.
 
 **Note:** 
 (1) the pogo pin pad on the print-head rear needs to be female, as the pins would be live during operation. 
@@ -63,7 +63,7 @@ For the Tap Front. There is the corresponding slot for the pogo pins pad. Then t
 
 ## Cabling
 
-XLR connectors are used for easy connect/disconnect of the toolheads. However, they are not hot-plugs. The `printer.cfg` need to be edit and the printer need to be restart to add/remove toolheads. The connector pin wiring is:
+XLR connectors are used for easy connect/disconnect of the toolheads. However, they are not hot-plugs. The `printer.cfg` needs to be edited and the printer needs to be restart to add/remove toolheads. The connector pin wiring is:
 
 - Pin 1: Power +
 
@@ -75,7 +75,7 @@ XLR connectors are used for easy connect/disconnect of the toolheads. However, t
 
 Cable length from connector to toolhead is 780-800mm, with the Retractable Reel Clip cable tied  250mm from the end of the connector. The Reel Clip is hooked to the top with a M3 spring T-nut and a M3x16mm bolt.
 
-The XLR_Mount is attached with a M3x10mm bolt and T-nut. 
+The <u>XLR_Mount</u> is attached with a M3x10mm bolt and T-nut. 
 
 Detail wiring. TBD.
 
