@@ -18,7 +18,6 @@ All STLs are pre-orientated.
 
 - The testing Locker will need to be printed in the default orientation, with auto-painted support. (Built-in support will be add in later revisions)
 - The "alpha" folder contains the latest files that are in development.
-- Files with a version number attached are still in testing, and is subjected to changes.
 
 # ASSEMBLING
 
@@ -28,7 +27,11 @@ The <u>endstops assembly</u> is held in place by replacing the original two M3x3
 
 The <u>X endstop trigger</u> is mounted to the back of the original "Tap_Center" using an M3x30mm bolt, which go through centre hole of the linear rail. There is a slot to add a M3 nut on the trigger.
 
-**Note:** Do not insert the threaded insert for the centre hole, see picture below. Alternatively (if you are reusing parts from another Voron-Tap assembly), the threading can be drilled out with a 3mm bit.
+**Note:** 
+
+(1) Do not insert the threaded insert for the centre hole, see picture below. Alternatively (if you are reusing parts from another Voron-Tap assembly), the threading can be drilled out with a 3mm bit.
+
+(2) If you have the default Voron endstops assembly, which uses the Y drag chain, then you don't need this endstop assembly. Nevertheless, you will still need the `[homming_overide]` function (given in `Software/homing-TC.cfg`) function; as it contain the needed commands to initialise multiple toolheads.
 
 ![20240218_221143.jpg](/images/20240218_221143.jpg)
 
@@ -92,3 +95,5 @@ PTFE tubes panel. TBD.
 ## Dock
 
 TBD
+
+ 
