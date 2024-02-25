@@ -12,6 +12,8 @@ The endstops assembly is a remixing of the endstops carrier from [MrTeliP](https
 
 Misschanger aims to be a tool-changing mechanism that is compatible with both Voron Trident and Voron 2.4. While also retaining the MGN9H tapping system of Voron-Tap.
 
+This tool-changer have been tested to work fine, printing at 200mm/s and 5000mm/s^2.
+
 At the moment, it is only compatible with the Stealth Burner toolhead, with the Revo-Voron hotend, and the Voron 2.4.
 
 ## Assembly

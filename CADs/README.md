@@ -7,4 +7,3 @@ Parts that are reused from [Stealthburner](https://github.com/VoronDesign/Voron-
 **Note:**
 
 - The "alpha" folder contains the latest files that are in development.
-- Files with a version number attached are still in testing, and is subjected to changes.
