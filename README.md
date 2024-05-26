@@ -10,7 +10,7 @@ This project was inspired by [Stealthchanger](https://github.com/Stealthchanger/
 
 - The exhaust cover is a remix of that from [Fiction](https://github.com/VoronDesign/VoronUsers/tree/main/printer_mods/Fiction/Exhaust_cover).
 
-![20240223_185152.jpg](/images/20240223_185152.jpg)
+![20240223_185152.jpg](./images/20240223_185152.jpg)
 
 ## Description
 
