@@ -1,6 +1,6 @@
 # MissChanger
 
-[![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/a_vinny)
+[![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/D1D4XU3KH)
 
 A Stealth Burner tool-change system for Voron 2.4 and Trident.
 
@@ -14,9 +14,9 @@ This project was inspired by [Stealthchanger](https://github.com/Stealthchanger/
 
 ## Description
 
-Misschanger aims to be a tool-changing mechanism that is compatible with both Voron Trident and Voron 2.4. While also retaining the MGN9H tapping system of Voron-Tap.
+MissChanger aims to be a tool-changing mechanism that is compatible with both Voron Trident and Voron 2.4. While also retaining the MGN9H tapping system of Voron-Tap.
 
-This tool-changer have been tested to work fine, printing at 200mm/s and 5000mm/s^2.
+This tool-changer have been tested to work fine, printing at 200mm/s and 5000mm/s^2. Nevertheless, speed is of no priority for this project.
 
 At the moment, it is only compatible with: 
 
