@@ -36,4 +36,10 @@ The BOM only includes parts that are specific to this tool changer; and it is TB
 
 This project use the same [toolchanger extension](https://github.com/viesturz/klipper-toolchanger/) and Klipper setup as [tapchanger](https://github.com/viesturz/tapchanger/).
 
-Further instructions are still TBD.
+
+
+Some config files are available in the **Software** folder. Nevertheless, they are not ready even for an alpha release. Further instructions are still TBD.
+
+
+
+**DO NOT PROCESS UNLESS YOU KNOW WHAT YOU ARE DOING.**
