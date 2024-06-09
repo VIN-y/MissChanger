@@ -10,6 +10,8 @@ This project was inspired by [Stealthchanger](https://github.com/Stealthchanger/
 
 - The exhaust cover is a remix of that from [Fiction](https://github.com/VoronDesign/VoronUsers/tree/main/printer_mods/Fiction/Exhaust_cover).
 
+- The Nudge calibration switch is from [zruncho3d](https://github.com/zruncho3d/nudge).
+
 ![20240223_185152.jpg](./images/20240223_185152.jpg)
 
 ## Description
@@ -36,10 +38,6 @@ The BOM only includes parts that are specific to this tool changer; and it is TB
 
 This project use the same [toolchanger extension](https://github.com/viesturz/klipper-toolchanger/) and Klipper setup as [tapchanger](https://github.com/viesturz/tapchanger/).
 
-
-
 Some config files are available in the **Software** folder. Nevertheless, they are not ready even for an alpha release. Further instructions are still TBD.
-
-
 
 **DO NOT PROCESS UNLESS YOU KNOW WHAT YOU ARE DOING.**

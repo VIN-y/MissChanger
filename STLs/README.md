@@ -4,4 +4,7 @@
 
 - Electronic configuration is TBD.
 
-- Software instruction is TBD.
+
+## Software instruction
+
+### Calibration
