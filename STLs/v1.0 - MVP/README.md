@@ -9,13 +9,39 @@
 | T0           | Reference toolhead                                                                                |
 | G28          | this command to home all (XYZ).                                                                   |
 
-
-
 ## 2. Assembly
 
-TBD
+### 2.1. Dock
 
+**Dock BOM:**
 
+| Quantity | Item                      |
+| -------- | ------------------------- |
+| 10       | M3x16mm bolts             |
+| 04       | M3x8mm bolts              |
+| 01       | M3x10mm countersunk bolts |
+| 13       | M3x5x4mm threaded inserts |
+| 02       | M3 washers                |
+
+*Note: the Dock BOM is only for a single dock. Additional docking bay will requires:*
+
+- *(2 of) M3x16mm bolts*
+
+- *(1 of) M3x10mm countersunk bolts*
+
+- *(3 of) M3x5x4mm threaded inserts*
+
+- *(2 of) M2x10mm self-tapping screw*
+
+- *(2 of) M2 washers*
+
+- *(4 of) 3x20mm rounded pins*
+
+- *(1 of) 0.2mm oven liner cut-out*
+
+- *(1 of) 0.2mm feeler gauge (10mm wide)*
+
+Follow this video guide for the dock assembly: [MissChanger - Build Guide - Dock ](https://youtu.be/sSsay7bBFj0)
 
 ## 3. Calibration
 
@@ -37,8 +63,6 @@ TBD
    
    - **gcode_x_offset** / **gcode_y_offset** / **gcode_z_offset** are used to account for the XYZ different between the nozzles, based on a reference nozzle.
 
-
-
 ### 3.2. Calibrate Reference Toolhead
 
 1. Mount toolhead T0.
@@ -57,21 +81,15 @@ TBD
 
 *Note: it is key that you get the z_offset correct for the T0, as it will be used to extrapolate other offsets later on. Therefore, it is worth diverge from the instruction, if you have a preferred way to set your the z-offset.*
 
-
-
 ### 3.3. Nudge Probe Calibration
 
 *Note: It is worth mentions that there are other ways to calibrate your offsets beside the Nudge, such as the visual based solution from [Ember](https://www.emberprototypes.com/products/cxc) or the calibration print that you can get from [Printables](https://www.printables.com/model/201707-x-y-and-z-calibration-tool-for-idex-dual-extruder-). Each with their pros and cons, in term of accuracy and cost. However, Nudge is currently the only way to calibrate all relevant offsets.*
-
-
 
 At this stage, you should have:
 
 - The Nudge probe assembled, tested, and installed.
 
 - T0 z_offset calibrated.
-
-
 
 This section will guide you through the calibration of the `trigger_to_bottom_z` for the probe, which will allow you to automate the z_offsets of the toolheads that are not T0.
 
@@ -87,11 +105,7 @@ This section will guide you through the calibration of the `trigger_to_bottom_z`
 10. Look at the proposed offset and compare it to the recorded `z_offset` from step 1. Take the different and put it in the `trigger_to_bottom_z:` in `[tools_calibrate]`. Be mindful of the direction, remember: **Decrease -> higher nozzle**.
 11. Restart and repeat steps 8-10 until the proposed z-offset to be +-0.01mm of the recorded `z_offset` in step 1. 
 
-
-
 Your Nudge probe is ready.
-
-
 
 ### 3.4. Other toolheads
 
@@ -116,8 +130,6 @@ Your Nudge probe is ready.
 6. Run `CALIBRATE_ALL_OFFSETS`. - the process is automatic.
 
 7. Run `SAVE_CONFIG`
-
-
 
 ## 4. Software
 
