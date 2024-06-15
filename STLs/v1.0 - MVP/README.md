@@ -11,6 +11,16 @@
 
 ## 2. Assembly
 
+**Print parameters:**
+
+* All parts are pre-orientated in the STLs.
+
+* 40% infill
+
+* 4 walls
+
+* ABS or ASA
+
 ### 2.1. Dock
 
 **Dock BOM:**
