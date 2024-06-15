@@ -25,13 +25,20 @@
 
 **Dock BOM:**
 
-| Quantity | Item                      |
-| -------- | ------------------------- |
-| 10       | M3x16mm bolts             |
-| 04       | M3x8mm bolts              |
-| 01       | M3x10mm countersunk bolts |
-| 13       | M3x5x4mm threaded inserts |
-| 02       | M3 washers                |
+| Quantity | Item                           |
+| -------- | ------------------------------ |
+| 10       | M3x16mm bolts                  |
+| 4        | M3x8mm bolts                   |
+| 1        | M3x10mm countersunk bolts      |
+| 13       | M3x5x4mm threaded inserts      |
+| 2        | M3 washers                     |
+| 4        | M2x10mm self-tapping screw     |
+| 2        | M2 washers                     |
+| 4        | 3x20mm rounded pins            |
+| 1        | 0.2mm oven liner cut-out       |
+| 1        | 0.2mm feeler gauge (10mm wide) |
+| 2        | 10x467mm solid aluminium rods  |
+| 1        | brass brush                    |
 
 *Note: the Dock BOM is only for a single dock. Additional docking bay will requires:*
 
