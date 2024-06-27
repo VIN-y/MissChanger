@@ -62,15 +62,23 @@ Note: the Dock BOM is only for a single dock. Additional docking bay will requir
 
 Follow this video guide for the dock assembly: [MissChanger - Build Guide - Dock](https://youtu.be/sSsay7bBFj0)
 
-### 2.3. Calibration Probe
+### 2.3. XLR Panels
 
-### 2.4. XLR Panels
+### 2.4. Tool-head and Endstops Assembly
 
+### 2.5. Calibration Probe
 
+### 2.6. Wiring
+
+In this section, it is assumed that you have already have a working print, i.e. with the controller board connected and working. Therefore, no instruction will be given for the wiring of the controller, SBC, Z-axis motors, etc.
+
+#### CAN bus tool-head wiring diagram is as follow:
+
+![](./images/MissChanger%20CAN%20wiring.jpg)
 
 ## 3. Hardware Alignment
 
-
+TBD
 
 ## 4. Software Calibration
 
@@ -123,21 +131,33 @@ At this stage, you should have:
 This section will guide you through the calibration of the `trigger_to_bottom_z` for the probe, which will allow you to automate the z_offsets of the toolheads that are not T0.
 
 1. Go to **printer.cfg** and record the `z-offset` for `#*# [tool_probe T0]`, which should be at (or near) the bottom of the file
+
 2. Download the [calibrate-offsets.cfg](https://github.com/VIN-y/MissChanger/blob/main/Software/Functions%20and%20Marcros/calibrate-offsets.cfg), add it into your config folder, and make the preference to it in the **printer.cfg** file:
    
    ```
    [include calibrate-offsets.cfg]
    ```
+
 3. Open `calibrate-offsets.cfg`
+
 4. Set it to the correct pin in `[tools_calibrate]`
+
 5. Set the approximate XY location of the Nudge pin in `[gcode_macro _CALIBRATE_MOVE_OVER_PROBE]`
+
 6. Save and restart
+
 7. Mount toolhead **T0** and make sure it's nozzle is clean
+
 8. **<mark>!!! MAKE SURE THE NUDGE PROBE IS NOT MOUNTED !!!</mark>** - only applicable to the removable Nudge setup
+
 9. Run `G28` and `QUAD_GANTRY_LEVEL`
+
 10. Mount the Nudge probe
+
 11. Run `CALIBRATE_NPO` - **BUT, DO NOT SAVE**
+
 12. Look at the proposed offset and compare it to the recorded `z_offset` from step 1. Take the different and put it in the `trigger_to_bottom_z:` in `[tools_calibrate]`. Be mindful of the direction, remember: **Decrease -> higher nozzle**.
+
 13. Restart and repeat steps 8-10 until the proposed z-offset to be +-0.01mm of the recorded `z_offset` in step 1
 
 Your Nudge probe is ready.
@@ -170,6 +190,6 @@ Your Nudge probe is ready.
 
 9. Run `SAVE_CONFIG`
 
-## 5. ###
+## 5.
 
 TBD
