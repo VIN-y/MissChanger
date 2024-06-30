@@ -6,6 +6,37 @@ Assembly and wiring instructions for each version are in the respective folder a
 
 ## 2. Software
 
+The plugin for MissChanger is a fork of [klipper-toolchanger](https://github.com/viesturz/klipper-toolchanger), for [Tapchanger](https://github.com/viesturz/tapchanger), and it is available via GitHub at [VIN-y/klipper-toolchanger](https://github.com/VIN-y/klipper-toolchanger).
+
+### KIAUH (Optional)
+
+[KIAUH](https://github.com/dw-0/kiauh) is a script that assists you in installing Klipper on a Linux operating system that has already been flashed to your Raspberry Pi's (or other SBC's) SD card.
+
+This script is recommended for the purpose of managing Klipper updates. The klipper-toolchanger extension is 
+
+### Installation
+
+To install the plugin, run the following installation script using the following command over SSH. This script will download this GitHub repository to your RaspberryPi home directory, and symlink the files in the Klipper extra folder.
+
+```
+wget -O - https://raw.githubusercontent.com/VIN-y/klipper-toolchanger/test-machine/install.sh | bash
+```
+
+Then, add the following to your **moonraker.conf** to enable automatic updates:
+
+```
+[update_manager klipper-toolchanger]
+type: git_repo
+channel: dev
+path: ~/klipper-toolchanger
+origin: https://github.com/VIN-y/klipper-toolchanger.git
+managed_services: klipper
+primary_branch: main
+install_script: install.sh
+```
+
+### Configuration
+
 TBD
 
 ## 3. Calibration
