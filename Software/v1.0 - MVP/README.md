@@ -1,0 +1,29 @@
+# Background and Description
+
+This section aims to provide the detail descriptions to each file included in this folder, which are need for MissChanger. The files included in this folder are meant to serve as sample configs, to be read, understood, and modified.
+
+## Config files
+
+### calibrate-offsets.cfg
+
+TBD
+
+### homing.cfg
+
+TBD
+
+### printer.cfg
+
+TBD
+
+### T*.cfg
+
+TBD
+
+### toolchanger.cfg
+
+TBD
+
+### macro-*.cfg
+
+TBD
