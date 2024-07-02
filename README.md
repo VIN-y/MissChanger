@@ -1,51 +1,72 @@
 # MissChanger
 
-[![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/D1D4XU3KH)
-
 A Stealth Burner tool-change system for Voron 2.4 and Trident.
 
-This project was inspired by [Stealthchanger](https://github.com/Stealthchanger/Toolchanger), [TapChanger](https://github.com/viesturz/tapchanger/), and [Voron-Tap](https://github.com/VoronDesign/Voron-Tap/).
+This project was inspired by [Stealthchanger](https://github.com/Stealthchanger/Toolchanger) and [TapChanger](https://github.com/viesturz/tapchanger/).
 
-- The endstops assembly is a remix of that from [MrTeliP](https://www.printables.com/model/325765-voron-24r2-pg7-cable-gland-and-endstop).
+- The Center_Tap for the Tap&Change system is from [Voron-Tap](https://github.com/VoronDesign/Voron-Tap/)
 
-- The exhaust cover is a remix of that from [Fiction](https://github.com/VoronDesign/VoronUsers/tree/main/printer_mods/Fiction/Exhaust_cover).
+- The endstops assembly is a remix of that from [MrTeliP](https://www.printables.com/model/325765-voron-24r2-pg7-cable-gland-and-endstop)
 
-- The Nudge calibration switch is from [zruncho3d](https://github.com/zruncho3d/nudge).
+- The exhaust cover is a remix of that from [Fiction](https://github.com/VoronDesign/VoronUsers/tree/main/printer_mods/Fiction/Exhaust_cover)
+
+- The Nudge calibration switch is from [zruncho3d](https://github.com/zruncho3d/nudge)
 
 ![20240223_185152.jpg](./images/20240609_222649.jpg)
 
-
-
 ## Description
 
-MissChanger aims to be a tool-changing mechanism that is compatible with both Voron Trident and Voron 2.4. While also retaining the MGN9H tapping system of Voron-Tap.
+MissChanger aims to be a tool-changing upgrade that is compatible with both Voron Trident and Voron 2.4. While also retaining the MGN9H tapping system of Voron-Tap. In addition, MissChanger is designed with the ability to quickly and tool-lessly convert between tool changer mode and single nozzle mode (for when you need the full print volume of the stock printer).
 
-This tool-changer have been tested to work fine, printing at 200mm/s and 5000mm/s^2. Nevertheless, speed is of no priority for this project.
+## Version Status
 
-At the moment, it is only compatible with: 
+| Version | Status    | Remarks                                                                                                                                                                                                                                                                                                                                                                                        |
+| ------- | --------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| V1.0    | Alpha     | **MVP** (Minimum Viable Product)<br/><br/>The design is frozen. No further CAD modification will be done. Back-end software is function, i.e. with caveats. Documentation and instructions are published, but are incomplete, and require further works.<br/><br/>*Note: The purpose of this version is to provide the bare minimum hardware requirements to have the MissChanger up and run.* |
+| v0.0    | Abandoned | The design has been proven to lack durability in the testing phase.                                                                                                                                                                                                                                                                                                                            |
 
-* Stealth Burner toolhead
+## Compatibility
+
+#### Printer:
+
+- Voron 2.4 printer
+
+#### Toolhead:
+
+* Stealth Burner toolhead (up to 5, for the 350mm version)
+
+#### Hotend:
 
 * Revo-Voron hotend
 
-* Voron 2.4 printer
-
-
-
 ## Assembly
 
-Assembly steps are in the "STLs" folder.
-
-The BOM only includes parts that are specific to this tool changer; and it is TBD.
-
-
+BOM, STLs, and instructions for each version of are in their associated sub-folder in the [STLs and Instructions](./STLs%20and%20Instructions) folder.
 
 ## Software
 
-This project use the same [toolchanger extension](https://github.com/viesturz/klipper-toolchanger/) and Klipper setup as [tapchanger](https://github.com/viesturz/tapchanger/).
+The plugin for MissChanger is a fork of [klipper-toolchanger](https://github.com/viesturz/klipper-toolchanger), for [Tapchanger](https://github.com/viesturz/tapchanger), and it is available via GitHub at [VIN-y/klipper-toolchanger](https://github.com/VIN-y/klipper-toolchanger). Installation and configuration steps are outlined in the [STLs and Instructions](./STLs%20and%20Instructions) folder.
 
-Some config files are available in the **Software** folder. Nevertheless, they are not ready even for an alpha release. Further instructions are still TBD.
+Sample config files and their descriptions are available in the [Software](./Software) folder. MissChanger deviate greatly from the design of Tapchanger and Draftshift (Stealthchanger); thus, it's config files are not compatible upstream.
 
+Other recommended software:
 
+* [KIAUH](https://github.com/dw-0/kiauh) - For the purpose of managing Klipper updates, to handle any potential incompatibility issues, whenever there is a major Klipper update.
 
-**DO NOT PROCESS UNLESS YOU KNOW WHAT YOU ARE DOING.**
+## Other information
+
+### Offset Types
+
+There are 2 type of offsets for each tool-head:
+
+- **x_offset** / **y_offset** / **z_offset** - which are the default offsets that most people are used to, which will be referred to as probe offset moving forward. They are sort of like hard-coded values (they are not); in that, they are pretty hard to work with downstream, i.e. in the configs
+
+- **gcode_x_offset** / **gcode_y_offset** / **gcode_z_offset** - these are like the an on-the-fly adjustment to for the gcode. This the stuff you adjust when you do baby-stepping mid-print
+
+For the purpose of the tool-changer:
+
+- **x_offset** and **y_offset** will not be used
+
+- **z_offset** is to be calibrated for all toolheads
+
+- **gcode_x_offset** / **gcode_y_offset** / **gcode_z_offset** are used to account for the XYZ different between the nozzles, based on a reference nozzle
