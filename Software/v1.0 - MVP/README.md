@@ -6,7 +6,7 @@ This section aims to provide the detail descriptions to each file included in th
 
 ### calibrate-offsets.cfg
 
-TBD
+This file contain the configuration for the calibration probe, with `[tools_calibrate]`.
 
 ### homing.cfg
 

@@ -17,7 +17,7 @@ This section aims to provide a guide through the installation process of the sof
 To install the [VIN-y/klipper-toolchanger](https://github.com/VIN-y/klipper-toolchanger) plugin, run the following installation script using the following command over SSH. This script will download this GitHub repository to your RaspberryPi home directory, and symlink the files in the Klipper extra folder.
 
 ```
-wget -O - https://raw.githubusercontent.com/VIN-y/klipper-toolchanger/test-machine/install.sh | bash
+wget -O - https://raw.githubusercontent.com/VIN-y/klipper-toolchanger/main/install.sh | bash
 ```
 
 Then, add the following to your **moonraker.conf** to enable automatic updates:
@@ -97,21 +97,20 @@ gcode:
 
 The following files are contains the key settings and macros that are needed for the printer:
 
-* `calibrate-offsets.cfg` 
+* `calibrate-offsets.cfg`
 
 * `homing.cfg` 
 
 * `toolchanger.cfg`
+1. Add them to your folder and include them into your `printer.cfg`, at the top:
+   
+   ```
+   [include homing.cfg]
+   [include calibrate-offsets.cfg]
+   [include toolchanger.cfg]
+   ```
 
-Add them to your folder and include them into your `printer.cfg`, at the top:
-
-```
-[include homing.cfg]
-[include calibrate-offsets.cfg]
-[include toolchanger.cfg]
-```
-
-Also in `printer.cfg`, disable `[safe_z_home]` (commented-out or deleted).
+2. Also in `printer.cfg`, disable `[safe_z_home]` (commented-out or deleted).
 
 *Note: Further configuration in the `calibrate-offsets.cfg`  will be needed to calibrate the calibration probe, see section 3.*
 
@@ -169,7 +168,7 @@ Use the `T0-SB2209-Revo-LDO.cfg` as references.
    
    * Extruder PID is correctly set and applied (no error, no bouncing temperature)
 
-5* Calibrate z-offset, see section 3.1.
+5. Calibrate dock position, see section 3.1.
 
 #### 2.5. Make the other toolhead config files
 
@@ -191,7 +190,13 @@ However, these configs tends to be points of customisation for the user. Therefo
 
 ## 3. Calibration
 
-### 3.1. Calibrate Reference Toolhead
+### 3.1. Calibrate Dock Position
+
+TBD
+
+### 3.2. Calibrate Offsets
+
+#### Calibrate Reference Toolhead
 
 1. Mount toolhead T0
 
@@ -209,7 +214,7 @@ However, these configs tends to be points of customisation for the user. Therefo
 
 *Note: it is key that you get the z_offset correct for the T0, as it will be used to extrapolate other offsets later on. Therefore, it is worth diverge from the instruction, if you have a preferred way to set your the z-offset.*
 
-### 3.2. Nudge Probe Calibration
+#### Nudge Probe Calibration
 
 At this stage, you should have:
 
@@ -219,11 +224,11 @@ At this stage, you should have:
 
 This section will guide you through the calibration of the `trigger_to_bottom_z` for the probe, which will allow you to automate the z_offsets of the toolheads that are not T0. This should be your go to variable to adjust whenever you ran into z-offset issue.
 
-#### Steps:
+##### Steps:
 
 1. Go to **`printer.cfg`** and record the `z-offset` for `#*# [tool_probe T0]`, which should be at (or near) the bottom of the file
 
-2. Download the [calibrate-offsets.cfg](https://github.com/VIN-y/MissChanger/blob/main/Software/calibrate-offsets.cfg), add it into your config folder, and include it into the **`printer.cfg`** file:
+2. Download the [calibrate-offsets.cfg](https://github.com/VIN-y/MissChanger/blob/main/Software/v1.0%20-%20MVP/calibrate-offsets.cfg), add it into your config folder (if you have not already done so), and include it into the **`printer.cfg`** file:
    
    ```
    [include calibrate-offsets.cfg]
@@ -255,9 +260,9 @@ Your Nudge probe is ready.
 
 *Note: It is worth mentions that there are other ways to calibrate your offsets beside the Nudge, such as the visual based solution from [Ember](https://www.emberprototypes.com/products/cxc) or the calibration print that you can get from [Printables](https://www.printables.com/model/201707-x-y-and-z-calibration-tool-for-idex-dual-extruder-). Each with their pros and cons, in term of accuracy and cost. However, Nudge is currently the only way to calibrate all relevant offsets.*
 
-### 3.3. Other toolheads
+#### Other toolheads
 
-#### Steps:
+##### Steps:
 
 1. Mount toolhead T0 and make sure it's nozzle is clean
 
