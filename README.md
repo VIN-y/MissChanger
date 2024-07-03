@@ -37,7 +37,7 @@ MissChanger aims to be a tool-changing upgrade that is compatible with both Voro
 
 #### Hotend:
 
-* Revo-Voron hotend
+* Revo-Voron
 
 ## Assembly
 
@@ -61,7 +61,7 @@ There are 2 type of offsets for each tool-head:
 
 - **x_offset** / **y_offset** / **z_offset** - which are the default offsets that most people are used to, which will be referred to as probe offset moving forward. They are sort of like hard-coded values (they are not); in that, they are pretty hard to work with downstream, i.e. in the configs
 
-- **gcode_x_offset** / **gcode_y_offset** / **gcode_z_offset** - these are like the an on-the-fly adjustment to for the gcode. This the stuff you adjust when you do baby-stepping mid-print
+- **gcode_x_offset** / **gcode_y_offset** / **gcode_z_offset** - these are like for on-the-fly adjustment to for the gcode. This the stuff you adjust when you do baby-stepping mid-print
 
 For the purpose of the tool-changer:
 
@@ -70,3 +70,9 @@ For the purpose of the tool-changer:
 - **z_offset** is to be calibrated for all toolheads
 
 - **gcode_x_offset** / **gcode_y_offset** / **gcode_z_offset** are used to account for the XYZ different between the nozzles, based on a reference nozzle
+
+## Support
+
+If you have any question, you can reach me:
+
+* `@vin` in the [Voron Toolchangers Discord](https://discord.gg/bAe3annp)
