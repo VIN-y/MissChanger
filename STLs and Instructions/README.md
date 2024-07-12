@@ -1,18 +1,20 @@
 # INSTRUCTION
 
+## 1. Introduction
+
 Although the setting up the config for MissChanger will change aspect of your printer, it is still recommended that you start the project with a functional printer and add one toolhead at a time.
 
- This document will not guide you through the set up of CAN bus, please refer to the manufacture manual for that.
+This document will not guide you through the set up of CAN bus, please refer to the manufacture manual for that.
 
-## 1. Hardware
+## 2. Hardware
 
 Assembly and wiring instructions for each version are in the respective folder above.
 
-## 2. Software
+## 3. Software
 
 This section aims to provide a guide through the installation process of the software and setup the config.
 
-### Installation
+### 3.1. Installation
 
 To install the [VIN-y/klipper-toolchanger](https://github.com/VIN-y/klipper-toolchanger) plugin, run the following installation script using the following command over SSH. This script will download this GitHub repository to your RaspberryPi home directory, and symlink the files in the Klipper extra folder.
 
@@ -20,7 +22,7 @@ To install the [VIN-y/klipper-toolchanger](https://github.com/VIN-y/klipper-tool
 wget -O - https://raw.githubusercontent.com/VIN-y/klipper-toolchanger/main/install.sh | bash
 ```
 
-Then, add the following to your **moonraker.conf** to enable automatic updates:
+Then, add the following to your `moonraker.conf` to enable automatic updates:
 
 ```
 [update_manager klipper-toolchanger]
@@ -33,11 +35,11 @@ primary_branch: main
 install_script: install.sh
 ```
 
-### Configuration
+### 3.2. Configuration
 
 The configuration files can be found in the [Software](https://github.com/VIN-y/MissChanger/tree/main/Software) folder, where further descriptions of each config file are also placed. The steps are as follow:
 
-#### 2.1. Create the session variable section in `printer.cfg`
+#### 3.2.1 Create the session variable section in `printer.cfg`
 
 This section need to be just before the `SAVE_CONFIG` section, as shown in the sample `printer.cfg`. The content of the session variable section is as follow:
 
@@ -91,9 +93,9 @@ gcode:
 
 *Note: As you may have notice, this section includes `[include]` functions, which is typically placed at the top of the file, and the `[quad_gantry_level]`  function, which you may already have in your `printer.cfg`.*
 
-* If you already have `[quad_gantry_level]`(or`[z_tilt]` , for Trident) before-hand, then you can cut and paste it in place of the one in the session variable section. <u>However, you will need to increase the y position of the  front 2</u> `points:` <u>to 130, as shown above, to avoid crashing into the dock.</u>
+* If you already have `[quad_gantry_level]` before-hand, then you can cut and paste it in place of the one in the session variable section. <u>However, you will need to increase the y position of the  front 2</u> `points:` <u>to 130, as shown above, to avoid crashing into the dock.</u>
 
-#### 2.2. Add the necessary config
+#### 3.2.2. Add the necessary config
 
 The following files are contains the key settings and macros that are needed for the printer:
 
@@ -114,7 +116,7 @@ The following files are contains the key settings and macros that are needed for
 
 *Note: Further configuration in the `calibrate-offsets.cfg`  will be needed to calibrate the calibration probe, see section 3.*
 
-#### 2.3. Make the reference toolhead config file
+#### 3.2.3. Make the reference toolhead config file
 
 Use the `T0-SB2209-Revo-LDO.cfg` as references.
 
@@ -152,7 +154,7 @@ Use the `T0-SB2209-Revo-LDO.cfg` as references.
 
 *Note: At this point, the printer should be able to have a firmware restart without (or with minor) errors.*
 
-#### 2.4. Calibrate and Test T0
+#### 3.2.4. Calibrate and Test T0
 
 1. Remove the dock and any attached toolhead other than T0 (for safety reason).
 
@@ -170,13 +172,13 @@ Use the `T0-SB2209-Revo-LDO.cfg` as references.
 
 5. Calibrate dock position, see section 3.1.
 
-#### 2.5. Make the other toolhead config files
+#### 3.2.5. Make the other toolhead config files
 
 Use `T1-SB2209-Revo-LDO.cfg` and the reference toolhead config file as references. Make, calibrate and test the config files for the other toolheads.
 
 *Note: It is advised this is done one toolhead at a time.*
 
-#### 2.6 Other macros
+#### 3.2.6. Other macros
 
 The `macro-*.cfg` files contains the useful macros, such as:
 
@@ -188,15 +190,15 @@ The `macro-*.cfg` files contains the useful macros, such as:
 
 However, these configs tends to be points of customisation for the user. Therefore, included files are intended to be inspirations for your own macros. The contains commands and functionalities that may not be presented on the user's printer, i.e. lighting and skew profile.
 
-## 3. Calibration
+## 4. Calibration
 
-### 3.1. Calibrate Dock Position
+### 4.1. Calibrate Dock Position
 
 TBD
 
-### 3.2. Calibrate Offsets
+### 4.2. Calibrate Offsets
 
-#### Calibrate Reference Toolhead
+#### 4.2.1. Calibrate Reference Toolhead
 
 1. Mount toolhead T0
 
@@ -208,13 +210,15 @@ TBD
    
    - Save it, **BUT DON'T RESTART**
 
-3. Run `PROBE_CALIBRATE` on the console and go through the process with the normal paper test
+3. Run `G28` and `QUAD_GANTRY_LEVEL`
 
-4. Run `SAVE_CONFIG` - which will restart your printer
+4. Run `PROBE_CALIBRATE` on the console and go through the process with the normal paper test
+
+5. Run `SAVE_CONFIG` - which will restart your printer
 
 *Note: it is key that you get the z_offset correct for the T0, as it will be used to extrapolate other offsets later on. Therefore, it is worth diverge from the instruction, if you have a preferred way to set your the z-offset.*
 
-#### Nudge Probe Calibration
+#### 4.2.2. Nudge Probe Calibration
 
 At this stage, you should have:
 
@@ -228,39 +232,33 @@ This section will guide you through the calibration of the `trigger_to_bottom_z`
 
 1. Go to **`printer.cfg`** and record the `z-offset` for `#*# [tool_probe T0]`, which should be at (or near) the bottom of the file
 
-2. Download the [calibrate-offsets.cfg](https://github.com/VIN-y/MissChanger/blob/main/Software/v1.0%20-%20MVP/calibrate-offsets.cfg), add it into your config folder (if you have not already done so), and include it into the **`printer.cfg`** file:
-   
-   ```
-   [include calibrate-offsets.cfg]
-   ```
+2. Open `calibrate-offsets.cfg`
 
-3. Open `calibrate-offsets.cfg`
+3. Set it to the correct `pin:` in `[tools_calibrate]`
 
-4. Set it to the correct pin in `[tools_calibrate]`
+4. Set the approximate XY location of the Nudge pin in `[gcode_macro _CALIBRATE_MOVE_OVER_PROBE]`
 
-5. Set the approximate XY location of the Nudge pin in `[gcode_macro _CALIBRATE_MOVE_OVER_PROBE]`
+5. Save and restart
 
-6. Save and restart
+6. Mount toolhead **T0** and make sure it's nozzle is clean
 
-7. Mount toolhead **T0** and make sure it's nozzle is clean
+7. **<mark>!!! MAKE SURE THE NUDGE PROBE IS NOT MOUNTED !!!</mark>** 
 
-8. **<mark>!!! MAKE SURE THE NUDGE PROBE IS NOT MOUNTED !!!</mark>** 
+8. Run `G28` and `QUAD_GANTRY_LEVEL`
 
-9. Run `G28` and `QUAD_GANTRY_LEVEL`
+9. Mount the Nudge probe
 
-10. Mount the Nudge probe
+10. Run `CALIBRATE_NPO` - **BUT, DO NOT SAVE**
 
-11. Run `CALIBRATE_NPO` - **BUT, DO NOT SAVE**
+11. Look at the proposed offset and compare it to the recorded `z_offset` from step 1. Take the different and put it in the `trigger_to_bottom_z:` in `[tools_calibrate]`. Be mindful of the direction, remember: **Decrease -> higher nozzle**.
 
-12. Look at the proposed offset and compare it to the recorded `z_offset` from step 1. Take the different and put it in the `trigger_to_bottom_z:` in `[tools_calibrate]`. Be mindful of the direction, remember: **Decrease -> higher nozzle**.
-
-13. Restart and repeat steps 8-10 until the proposed z-offset to be +-0.01mm of the recorded `z_offset` in step 1
+12. Restart and repeat steps 8-10 until the proposed z-offset to be +-0.01mm of the recorded `z_offset` in step 1
 
 Your Nudge probe is ready. 
 
 *Note: It is worth mentions that there are other ways to calibrate your offsets beside the Nudge, such as the visual based solution from [Ember](https://www.emberprototypes.com/products/cxc) or the calibration print that you can get from [Printables](https://www.printables.com/model/201707-x-y-and-z-calibration-tool-for-idex-dual-extruder-). Each with their pros and cons, in term of accuracy and cost. However, Nudge is currently the only way to calibrate all relevant offsets.*
 
-#### Other toolheads
+#### 4.2.3. Other toolhead(s)
 
 ##### Steps:
 
