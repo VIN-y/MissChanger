@@ -47,23 +47,23 @@ All parts are designed to be print with the following parameters:
 | 1        | Brass brush                                    |
 | 1        | Rubber band                                    |
 
-Note: the Dock BOM is only for a single dock. Additional docking bay will requires:
+*Note: the Dock BOM is only for a single dock. Additional docking bay will requires:*
 
-- (2 of) M3x16mm bolts
+- *(2 of) M3x16mm bolts*
 
-- (1 of) M3x10mm countersunk bolts
+- *(1 of) M3x10mm countersunk bolts*
 
-- (3 of) M3x5x4mm threaded inserts
+- *(3 of) M3x5x4mm threaded inserts*
 
-- (2 of) M2x10mm self-tapping screw
+- *(2 of) M2x10mm self-tapping screw*
 
-- (2 of) M2 washers
+- *(2 of) M2 washers*
 
-- (4 of) 3x20mm rounded pins
+- *(4 of) 3x20mm rounded pins*
 
-- (1 of) 0.2mm oven liner cut-out
+- *(1 of) 0.2mm oven liner cut-out*
 
-- (1 of) 0.2mm feeler gauge (10mm wide)
+- *(1 of) 0.2mm feeler gauge (10mm wide)*
 
 #### Steps and note:
 
@@ -73,31 +73,41 @@ Note: the Dock BOM is only for a single dock. Additional docking bay will requir
 
 #### BOM:
 
-| Quantity | Item                                                                                       |
-| -------- | ------------------------------------------------------------------------------------------ |
-| N/A      | All printed parts in the [XLR_Panels](./XLR_Panels) folder                                 |
-| 4        | M3x10mm bolts                                                                              |
-| 8        | M3x6mm countersunk bolts                                                                   |
-| 8        | M3x5x4mm threaded inserts                                                                  |
-| 4        | 4-Pin XLR Female Jack Panel Mount                                                          |
-| 1m       | CAN bus cable                                                                              |
-| 2        | WAGO Mounting carrier;<br/>221 Series - 4 mm²;<br/>for DIN-35 rail mounting/screw mounting |
-| 2        | 221 Wago 3 Port                                                                            |
-| 2        | 221 Wago 5 Port                                                                            |
+| Quantity | Item                                                                                   |
+| -------- | -------------------------------------------------------------------------------------- |
+| N/A      | All printed parts in the [XLR_Panels](./XLR_Panels) folder                             |
+| 4        | M3x10mm bolts                                                                          |
+| 8        | M3x6mm countersunk bolts                                                               |
+| 8        | M3x5x4mm threaded inserts                                                              |
+| 4        | 4-Pin XLR Female Jack Panel Mount                                                      |
+| 2        | WAGO Mounting carrier; 221 Series - 4 mm²;<br/>for DIN-35 rail mounting/screw mounting |
+| 2        | 221 WAGO 3 Port                                                                        |
+| 2        | 221 WAGO 5 Port                                                                        |
+| 1m       | CAN bus cable                                                                          |
+
+#### Steps and note:
+
+- TBD
 
 ### 3.3. Tool-head and Endstops Assembly
 
 #### BOM:
 
-| Quantity | Item                                                       |
-| -------- | ---------------------------------------------------------- |
-| N/A      | All printed parts in the [Tap&Change](./Tap&Change) folder |
-|          | M3                                                         |
-|          |                                                            |
-|          |                                                            |
-|          |                                                            |
+| Quantity | Item                                                                                                                                                                                                                                                                                                                                                                       |
+| -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| N/A      | All printed parts in the [Tap&Change](./Tap&Change) folder                                                                                                                                                                                                                                                                                                                 |
+| N/A      | [Voron-Stealthburner](https://github.com/VoronDesign/Voron-Stealthburner) toolhead(s)<br/>(Due the complexity of the Stealburner and the number of variants it has, no stl. has been transferred to this repository. Please go to the official Voron repository for those files.)<br/>*Note: This guide will assumes that the Stealburner has been built and ready to go.* |
+| N/A      | printed parts in the [SB22xx_&_CW2](./SB22xx_&_CW2) folder<br/>(only applicable if you are using the Clockwork 2 extruder and the SB22xx toolhead board)                                                                                                                                                                                                                   |
+|          |                                                                                                                                                                                                                                                                                                                                                                            |
+| 4        | M3 nuts                                                                                                                                                                                                                                                                                                                                                                    |
+
+#### Steps and note:
+
+* TBD
 
 ### 3.4. Calibration Probe
+
+![](./images/20240605_232257.jpg)
 
 #### BOM:
 
@@ -130,6 +140,6 @@ Note: the Dock BOM is only for a single dock. Additional docking bay will requir
 
 In this section, it is assumed that you have already have a working print, i.e. with the controller board connected and working. Therefore, no instruction will be given for the wiring of the controller, SBC, Z-axis motors, etc.
 
-#### CAN bus tool-head wiring diagram is as follow:
+#### CAN bus tool-head wiring diagram:
 
-![](./images/MissChanger%20CAN%20wiring.jpg)
+![CAN_wiring](./images/CAN_wiring.jpg)

@@ -228,7 +228,7 @@ At this stage, you should have:
 
 This section will guide you through the calibration of the `trigger_to_bottom_z` for the probe, which will allow you to automate the z_offsets of the toolheads that are not T0. This should be your go to variable to adjust whenever you ran into z-offset issue.
 
-##### Steps:
+#### Steps and note:
 
 1. Go to **`printer.cfg`** and record the `z-offset` for `#*# [tool_probe T0]`, which should be at (or near) the bottom of the file
 
@@ -260,7 +260,7 @@ Your Nudge probe is ready.
 
 #### 4.2.3. Other toolhead(s)
 
-##### Steps:
+#### Steps and note:
 
 1. Mount toolhead T0 and make sure it's nozzle is clean
 
