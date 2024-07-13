@@ -37,6 +37,7 @@ This file contains:
 * `[homing_override]`
   
   * custom homing routine, with nozzle and umbilical clearance moves and Y is homed before X.
+  * It requires the session variable `_home` in `printer.cfg`
 
 ### toolchanger.cfg
 
