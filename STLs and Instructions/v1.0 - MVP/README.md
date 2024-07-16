@@ -100,6 +100,10 @@ All parts are designed to be print with the following parameters:
 | N/A      | printed parts in the [SB22xx_&_CW2](./SB22xx_&_CW2) folder<br/>(only applicable if you are using the Clockwork 2 extruder and the SB22xx toolhead board)                                                                                                                                                                                                                   |
 |          |                                                                                                                                                                                                                                                                                                                                                                            |
 | 4        | M3 nuts                                                                                                                                                                                                                                                                                                                                                                    |
+| 4        | M3x5x4mm threaded inserts                                                                                                                                                                                                                                                                                                                                                  |
+| 2        | M3x4.6x3mm threaded inserts                                                                                                                                                                                                                                                                                                                                                |
+| 1m       | CAN bus cable                                                                                                                                                                                                                                                                                                                                                              |
+| 4        | Sleeve Bearing 3mm Bore x 5mm OD x 5mm Length Plain Bearings                                                                                                                                                                                                                                                                                                               |
 
 #### Steps and note:
 
@@ -111,22 +115,22 @@ All parts are designed to be print with the following parameters:
 
 #### BOM:
 
-| Quantity | Item                                                                                                                        |
-| -------- | --------------------------------------------------------------------------------------------------------------------------- |
-| N/A      | All printed parts in the [Nudge](./Nudge) folder                                                                            |
-| N/A      | [Nudge probe](https://github.com/zruncho3d/nudge) assembly<br/>But, come back to this documentation for software and set up |
-| 2        | M3x25mm countersunk bolts                                                                                                   |
-| 1        | M3x16mm bolts                                                                                                               |
-| 2        | M3x20mm bolts                                                                                                               |
-| 1        | M3 washers                                                                                                                  |
-| 2        | M3 T-nuts                                                                                                                   |
-| 1        | M3x5x4mm threaded inserts                                                                                                   |
-| 6        | Magnets 6mm x 3mm                                                                                                           |
-| 2        | 3x20mm  pins (optional, rounded)                                                                                            |
-| 2        | Sleeve Bearing 3mm Bore x 5mm OD x 5mm Length Plain Bearings                                                                |
-| 1        | 2 pins connector pair (of whatever type you have)                                                                           |
-| 1        | JST male connector                                                                                                          |
-| 1m       | 26 AWG wiring                                                                                                               |
+| Quantity | Item                                                                                                               |
+| -------- | ------------------------------------------------------------------------------------------------------------------ |
+| N/A      | All printed parts in the [Nudge](./Nudge) folder                                                                   |
+| N/A      | [Nudge probe](https://github.com/zruncho3d/nudge) assembly<br/>But, use this documentation for software and set up |
+| 2        | M3x25mm countersunk bolts                                                                                          |
+| 1        | M3x16mm bolts                                                                                                      |
+| 2        | M3x20mm bolts                                                                                                      |
+| 1        | M3 washers                                                                                                         |
+| 2        | M3 T-nuts                                                                                                          |
+| 1        | M3x5x4mm threaded inserts                                                                                          |
+| 6        | 6x3mm Magnets                                                                                                      |
+| 2        | 3x20mm  pins (optional, rounded)                                                                                   |
+| 2        | Sleeve Bearing 3mm Bore x 5mm OD x 5mm Length Plain Bearings                                                       |
+| 1        | 2 pins connector pair (of whatever type you have)                                                                  |
+| 1        | JST male connector                                                                                                 |
+| 1m       | 26 AWG wiring                                                                                                      |
 
 #### Steps and note:
 

@@ -105,12 +105,12 @@ The following files are contains the key settings and macros that are needed for
 
 * `toolchanger.cfg`
 1. Add them to your folder and include them into your `printer.cfg`, at the top:
-   
-   ```
-   [include homing.cfg]
-   [include calibrate-offsets.cfg]
-   [include toolchanger.cfg]
-   ```
+
+```
+[include homing.cfg]
+[include calibrate-offsets.cfg]
+[include toolchanger.cfg]
+```
 
 2. Also in `printer.cfg`, disable `[safe_z_home]` (commented-out or deleted).
 
@@ -150,7 +150,7 @@ Use the `T0-SB2209-Revo-LDO.cfg` as references.
    
    * `[tool T0]` - associate the items above to T0 and provide tool specific variables (which will need to be adjusted later).
 
-3. Include the config into the session variable, as shown in the code block in section 2.1.
+3. Ensure/Include that the session variables are in `printer.cfg`, as shown in the code block in section 2.1.
 
 *Note: At this point, the printer should be able to have a firmware restart without (or with minor) errors.*
 
