@@ -49,11 +49,24 @@ This file contains:
 
 * `[toolchanger]`
   
-  * configuration for tool change actions
+  * This is the configurator for tool change actions
   
   * It requires the session variable `_WIPE_TOWER_LOCATION` in `printer.cfg`
   
   * Input shaper should be ran for each toolhead and manually save to the respective toolhead config file. Alternatively, if all your toolhead are the same and/or the machine is intended to be ran at low speed, you can run the input shaper once, for T0, and save it to the `# Default shaper params` in `toolchanger.cfg`.
+  
+  * Note in the `params_sb_misschanger_path:`. The marked lines (see below) are for increasing the reliability of the tool change. It is most useful in testing and break-in a new toolhead. However, once the mechanism is mechanically smooth for all toolhead, these motions are no longer needed and can be commented out for faster tool change.
+    
+    ```
+    {'x':0,        'y':-65,     'f':0.60},    # Wiggle...
+    {'x':0,        'y':-70,     'f':0.60},    # ...wingle
+    {'x':0,        'y':-75,     'f':0.60},    # Wiggle...
+    {'x':0,        'y':-70,     'f':0.60},    # ...wingle
+    {'x':0,        'y':-75,     'f':0.40},    # Wiggle...
+    {'x':0,        'y':-70,     'f':0.40},    # ...wingle
+    {'x':0,        'y':-75,     'f':0.30},    # Wiggle...
+    {'x':0,        'y':-70,     'f':0.30},    # ...wingle
+    ```
 
 * `[gcode_macro M104]`
   
