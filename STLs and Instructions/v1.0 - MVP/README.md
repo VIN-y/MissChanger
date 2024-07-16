@@ -12,6 +12,8 @@
 
 - Metal ruler
 
+- Pliers
+
 ## 2. Print parameters
 
 All parts are designed to be print with the following parameters:
@@ -24,6 +26,8 @@ All parts are designed to be print with the following parameters:
 
 - ABS or ASA
 
+- No support
+
 ## 3. Assembly
 
 ### 3.1. Dock
@@ -33,8 +37,8 @@ All parts are designed to be print with the following parameters:
 | Quantity | Item                                           |
 | -------- | ---------------------------------------------- |
 | N/A      | All printed parts in the [Dock](./Dock) folder |
-| 10       | M3x16mm bolts                                  |
-| 4        | M3x8mm bolts                                   |
+| 10       | M3x16mm socket head bolts                      |
+| 4        | M3x8mm socket head bolts                       |
 | 1        | M3x10mm countersunk bolts                      |
 | 13       | M3x5x4mm threaded inserts                      |
 | 2        | M3 washers                                     |
@@ -76,7 +80,7 @@ All parts are designed to be print with the following parameters:
 | Quantity | Item                                                                                   |
 | -------- | -------------------------------------------------------------------------------------- |
 | N/A      | All printed parts in the [XLR_Panels](./XLR_Panels) folder                             |
-| 4        | M3x10mm bolts                                                                          |
+| 4        | M3x10mm socket head bolts                                                              |
 | 8        | M3x6mm countersunk bolts                                                               |
 | 8        | M3x5x4mm threaded inserts                                                              |
 | 4        | 4-Pin XLR Female Jack Panel Mount                                                      |
@@ -98,12 +102,39 @@ All parts are designed to be print with the following parameters:
 | N/A      | All printed parts in the [Tap&Change](./Tap&Change) folder                                                                                                                                                                                                                                                                                                                 |
 | N/A      | [Voron-Stealthburner](https://github.com/VoronDesign/Voron-Stealthburner) toolhead(s)<br/>(Due the complexity of the Stealburner and the number of variants it has, no stl. has been transferred to this repository. Please go to the official Voron repository for those files.)<br/>*Note: This guide will assumes that the Stealburner has been built and ready to go.* |
 | N/A      | printed parts in the [SB22xx_&_CW2](./SB22xx_&_CW2) folder<br/>(only applicable if you are using the Clockwork 2 extruder and the SB22xx toolhead board)                                                                                                                                                                                                                   |
-|          |                                                                                                                                                                                                                                                                                                                                                                            |
+| 1        | **PTFE_Panel** in the [others](./others) folder                                                                                                                                                                                                                                                                                                                            |
+| 2        | M3x4mm countersunk bolts                                                                                                                                                                                                                                                                                                                                                   |
+| 2        | M3x20mm button head bolts                                                                                                                                                                                                                                                                                                                                                  |
+| 4        | M3x8mm button head bolts                                                                                                                                                                                                                                                                                                                                                   |
+| 8        | M3x6mm button head bolts                                                                                                                                                                                                                                                                                                                                                   |
+| 2        | M3x50mm socket head bolts                                                                                                                                                                                                                                                                                                                                                  |
+| 2        | M3x40mm socket head bolts                                                                                                                                                                                                                                                                                                                                                  |
+| 2        | M3x35mm socket head bolts                                                                                                                                                                                                                                                                                                                                                  |
+| 2        | M3x30mm socket head bolts                                                                                                                                                                                                                                                                                                                                                  |
+| 2        | M3x16mm socket head bolts                                                                                                                                                                                                                                                                                                                                                  |
+| 1        | M3x12mm socket head bolts                                                                                                                                                                                                                                                                                                                                                  |
+| 2        | M3x8mm socket head bolts                                                                                                                                                                                                                                                                                                                                                   |
+| 1        | M3x6mm socket head bolts                                                                                                                                                                                                                                                                                                                                                   |
+| 4        | M2x10mm self-tapping screw                                                                                                                                                                                                                                                                                                                                                 |
+| 8        | M3 washers                                                                                                                                                                                                                                                                                                                                                                 |
 | 4        | M3 nuts                                                                                                                                                                                                                                                                                                                                                                    |
-| 4        | M3x5x4mm threaded inserts                                                                                                                                                                                                                                                                                                                                                  |
-| 2        | M3x4.6x3mm threaded inserts                                                                                                                                                                                                                                                                                                                                                |
-| 1m       | CAN bus cable                                                                                                                                                                                                                                                                                                                                                              |
+| 8        | M3x5x4mm threaded inserts                                                                                                                                                                                                                                                                                                                                                  |
+| 2        | M3x4.6x3mm threaded inserts<br/>(this is an over-site left from design phase and will be change to M3x5x4mm threaded inserts in the next version)                                                                                                                                                                                                                          |
+| 4        | 6x3mm Magnets. Shorter ones are OK.<br/>N52 are preferred, but N35 can work.                                                                                                                                                                                                                                                                                               |
 | 4        | Sleeve Bearing 3mm Bore x 5mm OD x 5mm Length Plain Bearings                                                                                                                                                                                                                                                                                                               |
+| 4        | 3x15mm, 304 stainless steel round head pins                                                                                                                                                                                                                                                                                                                                |
+| 1        | Voron Opto Tap PCB (24v recommended)                                                                                                                                                                                                                                                                                                                                       |
+| 1        | XT30(2+2) Female connector                                                                                                                                                                                                                                                                                                                                                 |
+| 4        | Zip tie 3.6mm (or slightly smaller) x 100                                                                                                                                                                                                                                                                                                                                  |
+| 1        | PTFE tube connector                                                                                                                                                                                                                                                                                                                                                        |
+| 1        | PTFE tube straight connector                                                                                                                                                                                                                                                                                                                                               |
+| 1        | PC4-M10 Straight Pneumatic Fitting                                                                                                                                                                                                                                                                                                                                         |
+| 2        | Micro switches                                                                                                                                                                                                                                                                                                                                                             |
+| 1        | XLR Plug                                                                                                                                                                                                                                                                                                                                                                   |
+| 1m       | Cable Tidy Sleeve, [Amazon link](https://www.amazon.co.uk/dp/B08CFJB8ZM)                                                                                                                                                                                                                                                                                                   |
+| 1m       | CAN bus cable                                                                                                                                                                                                                                                                                                                                                              |
+| 1m       | 2mm ID 4mm OD PTFE tube                                                                                                                                                                                                                                                                                                                                                    |
+| 1m       | 0.8mm steel wire                                                                                                                                                                                                                                                                                                                                                           |
 
 #### Steps and note:
 
@@ -120,12 +151,12 @@ All parts are designed to be print with the following parameters:
 | N/A      | All printed parts in the [Nudge](./Nudge) folder                                                                   |
 | N/A      | [Nudge probe](https://github.com/zruncho3d/nudge) assembly<br/>But, use this documentation for software and set up |
 | 2        | M3x25mm countersunk bolts                                                                                          |
-| 1        | M3x16mm bolts                                                                                                      |
-| 2        | M3x20mm bolts                                                                                                      |
+| 1        | M3x16mm socket head bolts                                                                                          |
+| 2        | M3x20mm socket head bolts                                                                                          |
 | 1        | M3 washers                                                                                                         |
 | 2        | M3 T-nuts                                                                                                          |
 | 1        | M3x5x4mm threaded inserts                                                                                          |
-| 6        | 6x3mm Magnets                                                                                                      |
+| 6        | 6x3mm Magnets. Shorter ones are OK.<br/>N52 are preferred, but N35 can work.                                       |
 | 2        | 3x20mm  pins (optional, rounded)                                                                                   |
 | 2        | Sleeve Bearing 3mm Bore x 5mm OD x 5mm Length Plain Bearings                                                       |
 | 1        | 2 pins connector pair (of whatever type you have)                                                                  |
