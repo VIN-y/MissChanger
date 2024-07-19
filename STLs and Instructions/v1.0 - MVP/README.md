@@ -95,6 +95,8 @@ All parts are designed to be print with the following parameters:
 
 ### 3.3. Tool-head and Endstops Assembly
 
+![](./images/20240531_214047.jpg)
+
 #### BOM:
 
 | Quantity | Item                                                                                                                                                                                                                                                                                                                                                                       |
@@ -102,6 +104,8 @@ All parts are designed to be print with the following parameters:
 | N/A      | All printed parts in the [Tap&Change](./Tap&Change) folder                                                                                                                                                                                                                                                                                                                 |
 | N/A      | [Voron-Stealthburner](https://github.com/VoronDesign/Voron-Stealthburner) toolhead(s)<br/>(Due the complexity of the Stealburner and the number of variants it has, no stl. has been transferred to this repository. Please go to the official Voron repository for those files.)<br/>*Note: This guide will assumes that the Stealburner has been built and ready to go.* |
 | N/A      | printed parts in the [SB22xx_&_CW2](./SB22xx_&_CW2) folder<br/>(only applicable if you are using the Clockwork 2 extruder and the SB22xx toolhead board)                                                                                                                                                                                                                   |
+| 1        | 50 mm MGN9 rail                                                                                                                                                                                                                                                                                                                                                            |
+| 1        | MGN 9H carriage                                                                                                                                                                                                                                                                                                                                                            |
 | 1        | **PTFE_Panel** in the [others](./others) folder                                                                                                                                                                                                                                                                                                                            |
 | 2        | M3x4mm countersunk bolts                                                                                                                                                                                                                                                                                                                                                   |
 | 2        | M3x20mm button head bolts                                                                                                                                                                                                                                                                                                                                                  |
@@ -119,7 +123,7 @@ All parts are designed to be print with the following parameters:
 | 8        | M3 washers                                                                                                                                                                                                                                                                                                                                                                 |
 | 4        | M3 nuts                                                                                                                                                                                                                                                                                                                                                                    |
 | 8        | M3x5x4mm threaded inserts                                                                                                                                                                                                                                                                                                                                                  |
-| 2        | M3x4.6x3mm threaded inserts<br/>(this is an over-site left from design phase and will be change to M3x5x4mm threaded inserts in the next version)                                                                                                                                                                                                                          |
+| 2        | M3x4.6x3mm threaded inserts                                                                                                                                                                                                                                                                                                                                                |
 | 4        | 6x3mm Magnets. Shorter ones are OK.<br/>N52 are preferred, but N35 can work.                                                                                                                                                                                                                                                                                               |
 | 4        | Sleeve Bearing 3mm Bore x 5mm OD x 5mm Length Plain Bearings                                                                                                                                                                                                                                                                                                               |
 | 4        | 3x15mm, 304 stainless steel round head pins                                                                                                                                                                                                                                                                                                                                |
@@ -138,7 +142,17 @@ All parts are designed to be print with the following parameters:
 
 #### Steps and note:
 
-* TBD
+1. Some components are from the Voron Tap system.
+
+![](./images/magnets.jpg)
+
+![](./images/built-in_support.webp)
+
+![](./images/threaded_inserts.webp)
+
+2. New components / assembly.
+
+![](./images/tap_center.webp)
 
 ### 3.4. Calibration Probe
 
