@@ -91,9 +91,12 @@ All parts are designed to be print with the following parameters:
 
 #### Steps and note:
 
-- TBD
+- See the wiring diagram in section 3.5
+- Video: <mark>TBD</mark>
 
 ### 3.3. Tool-head and Endstops Assembly
+
+![](./images/tap&change_assembly.jpg)
 
 ![](./images/20240531_214047.jpg)
 
@@ -142,7 +145,11 @@ All parts are designed to be print with the following parameters:
 
 #### Steps and note:
 
-1. Some components are from the Voron Tap system.
+1. Preparation, some are the same as Voron Tap.
+
+![](./images/rail_prepare_1.webp)
+
+![](./images/rail_prepare_0.webp)
 
 ![](./images/magnets.jpg)
 
@@ -150,9 +157,31 @@ All parts are designed to be print with the following parameters:
 
 ![](./images/threaded_inserts.webp)
 
-2. New components / assembly.
+2. Preparation, other components.
 
 ![](./images/tap_center.webp)
+
+![](./images/x-trigger.webp)
+
+![](./images/tap&change1.webp)
+
+![](./images/tap&change2.webp)
+
+![](./images/tap&change3.webp)
+
+![](./images/tap&change4.webp)
+
+3. Assembly - <mark>TBC</mark>
+
+![](./images/endstop_ass.webp)
+
+![](./images/center_ass.webp)
+
+![](./images/tap&change_ass1.webp)
+
+![](./images/tap&change_ass2.webp)
+
+<mark>TBC</mark>
 
 ### 3.4. Calibration Probe
 
