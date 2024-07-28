@@ -75,4 +75,4 @@ For the purpose of the tool-changer:
 
 If you have any question, you can reach me:
 
-* `@vin` in the [Voron Toolchangers](https://discord.gg/Gt5XCCwv)
+* `@vin` in the [Voron Toolchangers](https://discord.gg/Gt5XCCwv) discord
