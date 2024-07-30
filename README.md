@@ -19,10 +19,10 @@ MissChanger aims to be a tool-changing upgrade that is compatible with both Voro
 
 ## Version Status
 
-| Version | Status                                                                                                                                                                         | Remarks                                                                                                                                                                      |
-| ------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| v1.0    | Beta<br/><br/>- The design is frozen.<br/>- Back-end software is functional.<br/>- User-side config samples are published.<br/>- Documentation and instructions are published. | **MVP** (Minimum Viable Product)<br/><br/>The purpose of the v1.x group is to provide the option with the bare minimum hardware required to have the MissChanger up and run. |
-| v0.0    | Abandoned                                                                                                                                                                      | The design has been proven to lack durability in the testing phase.                                                                                                          |
+| Version | Status                                                                                                                                                | Remarks                                                                                                                                                                      |
+| ------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| v1.0    | **Beta**<br/><br/>Detail:<br/>- The design is frozen.<br/>- Plug-in is functional.<br/>- config samples are published.<br/>- Documentation published. | **MVP** (Minimum Viable Product)<br/><br/>The purpose of the v1.x group is to provide the option with the bare minimum hardware required to have the MissChanger up and run. |
+| v0.0    | Abandoned                                                                                                                                             | The design has been proven to lack durability in the testing phase.                                                                                                          |
 
 ## Compatibility
 
