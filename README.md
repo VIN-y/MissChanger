@@ -2,42 +2,42 @@
 
 A Stealth Burner tool-change system for Voron 2.4 and Trident.
 
-This project was inspired by [Stealthchanger](https://github.com/Stealthchanger/Toolchanger) and [TapChanger](https://github.com/viesturz/tapchanger/).
+* This project was inspired by [Stealthchanger](https://github.com/Stealthchanger/Toolchanger) and [TapChanger](https://github.com/viesturz/tapchanger/) 
+- The Center_Tap for the Tap&Change system is from [Voron-Tap](https://github.com/VoronDesign/Voron-Tap/) 
 
-- The Center_Tap for the Tap&Change system is from [Voron-Tap](https://github.com/VoronDesign/Voron-Tap/)
+- The endstops assembly is a remix of that from [MrTeliP](https://www.printables.com/model/325765-voron-24r2-pg7-cable-gland-and-endstop) 
 
-- The endstops assembly is a remix of that from [MrTeliP](https://www.printables.com/model/325765-voron-24r2-pg7-cable-gland-and-endstop)
+- The exhaust cover is a remix of that from [Fiction](https://github.com/VoronDesign/VoronUsers/tree/main/printer_mods/Fiction/Exhaust_cover) 
 
-- The exhaust cover is a remix of that from [Fiction](https://github.com/VoronDesign/VoronUsers/tree/main/printer_mods/Fiction/Exhaust_cover)
-
-- The Nudge calibration switch is from [zruncho3d](https://github.com/zruncho3d/nudge)
+- The Nudge calibration switch is from [zruncho3d](https://github.com/zruncho3d/nudge) 
 
 ![20240223_185152.jpg](./images/20240609_222649.jpg)
 
 ## Description
 
-MissChanger aims to be a tool-changing upgrade that is compatible with both Voron Trident and Voron 2.4. While also retaining the MGN9H tapping system of Voron-Tap. In addition, MissChanger is designed with the ability to quickly and tool-lessly convert between tool changer mode and single nozzle mode (for when you need the full print volume of the stock printer).
+MissChanger aims to be a tool-changing upgrade that is compatible with both Voron Trident and Voron 2.4 (Trident compatibility is pending). While also retaining the MGN9H tapping system of Voron-Tap. In addition, MissChanger is designed with the ability to quickly and toollessly convert between tool changer mode and single nozzle mode (for when you need the full print volume of the stock printer).
 
 ## Version Status
 
-| Version | Status    | Remarks                                                                                                                                                                                                                                                                                                                                                                                                                                    |
-| ------- | --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| V1.0    | Alpha     | **MVP** (Minimum Viable Product)<br/><br/>The purpose of this version is to provide the bare minimum hardware requirements to have the MissChanger up and run.<br/><br/>Status: The design is frozen, no further CAD work will be done for this version. Back-end software is functional. User-side config samples are published, but is still in the work (bug fixing). Documentation and instructions are published, but are incomplete. |
-| v0.0    | Abandoned | The design has been proven to lack durability in the testing phase.                                                                                                                                                                                                                                                                                                                                                                        |
+| Version | Status                                                                                                                                                                         | Remarks                                                                                                                                                                      |
+| ------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| v1.0    | Beta<br/><br/>- The design is frozen.<br/>- Back-end software is functional.<br/>- User-side config samples are published.<br/>- Documentation and instructions are published. | **MVP** (Minimum Viable Product)<br/><br/>The purpose of the v1.x group is to provide the option with the bare minimum hardware required to have the MissChanger up and run. |
+| v0.0    | Abandoned                                                                                                                                                                      | The design has been proven to lack durability in the testing phase.                                                                                                          |
 
 ## Compatibility
 
-#### Printer:
+#### Printers:
 
 - Voron 2.4 printer
 
-#### Toolhead:
+#### Toolheads:
 
 * Stealth Burner toolhead (up to 5, for the 350mm version)
 
-#### Hotend:
+#### Hotends:
 
 * Revo-Voron
+* Phaetus Dragon
 
 ## Assembly
 
