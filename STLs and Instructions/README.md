@@ -8,7 +8,19 @@ This document will not guide you through the set up of CAN bus, please refer to 
 
 ## 2. Hardware
 
-Assembly and wiring instructions for each version are in the respective folder above.
+### 2.1. MissChanger
+
+Assembly and wiring guides for each version are in the respective folder above.
+
+### 2.2. Mods
+
+The following mods are either not recommended or known to be not compatible with MissChanger:
+
+1. GE5C bearing z mount. - This mod offer too much flexibility to the gantry, allowing it to sag when the z motors are disabled/un-powered.
+
+2. Beefy front idlers. - The cut off on the dock can only fit the stock front idlers.
+
+3. AWD. - The cut off on the dock can only fit the stock front idlers.
 
 ## 3. Software
 
@@ -150,7 +162,7 @@ Use the `T0-SB2209-Revo-LDO.cfg` as references.
    
    * `[tool T0]` - associate the items above to T0 and provide tool specific variables (which will need to be adjusted later).
 
-3. Ensure/Include that the session variables are in `printer.cfg`, as shown in the code block in section 2.1.
+3. Ensure/Include that the session variables are in `printer.cfg`, as shown in the code block in section 3.2.1.
 
 *Note: At this point, the printer should be able to have a firmware restart without (or with minor) errors.*
 
@@ -170,17 +182,41 @@ Use the `T0-SB2209-Revo-LDO.cfg` as references.
    
    * Extruder PID is correctly set and applied (no error, no bouncing temperature)
 
-5. Calibrate dock position, see section 3.1.
+5. Calibrate dock position, see section 4.1.1.
 
 #### 3.2.5. Make the other toolhead config files
 
-Use `T1-SB2209-Revo-LDO.cfg` and the reference toolhead config file as references. Make, calibrate and test the config files for the other toolheads.
+1. Use `T1-SB2209-Revo-LDO.cfg` config file as references. Make, calibrate and test the config files for the other toolheads.
 
-*Note: It is advised this is done one toolhead at a time.*
+2. Replace the `canbus_uuid` for that of your particular toolhead.
+
+3. Copy and paste the following section into the `printer.cfg` under the "SAVE_CONFIG" section, if they are not already there. Swap out `[tool T1]`, `[tool_probe T1]`, and `[extruder1]` for the relevant toolhead. - *Note: the numbers in these section are temporary and you will need to calibrate them next.*
+   
+   ```
+   #*# [tool T1]
+   #*# gcode_x_offset = 0.0
+   #*# gcode_y_offset = 0.0
+   #*# gcode_z_offset = 0.0
+   #*#
+   #*# [tool_probe T1]
+   #*# z_offset = 0.0
+   #*#
+   #*# [extruder1]
+   #*# control = pid
+   #*# pid_kp = 36.501
+   #*# pid_ki = 4.124
+   #*# pid_kd = 80.760
+   ```
+
+4. Calibrate the dock physical position, see section 4.1.1.
+
+5. Calibrate the park position, see section 4.1.2.
+
+6. Test the tool-change function
+
+7. (optional) Calibrate input shaper, see section 4.1.3
 
 #### 3.2.6. Other macros
-
-The `macro-*.cfg` files contains the useful macros, such as:
 
 * `PRINT_START`
 
@@ -192,9 +228,94 @@ However, these configs tends to be points of customisation for the user. Therefo
 
 ## 4. Calibration
 
-### 4.1. Calibrate Dock Position
+### 4.1. Calibrate Hardware Position
 
-TBD
+#### 4.1.1. Dock calibration
+
+Video guide: [MissChanger - Build Guide - Dock Calibration - YouTube](https://youtu.be/Xxpi4Nll_MY) 
+
+#### 4.1.2. Park position calibration
+
+1. Remove the dock and all toolheads, except T0
+   
+   * If you have already set up the MissChanger software, you can use the `PRINTER_CONFIG_TOGGLE` in `toolchanger.cfg`. - *Note: this need to be run before you remove the toolheads.*
+   
+   * This is to avoid collisions with the dock; whether because the software has not been set up or the front idler sag too much toward the front.
+
+2. Check that T0 is mounted to the gantry
+
+3. Run `G28` and `QUAD_GANTRY_LEVEL`
+
+4. Disable the motors and gently push the gantry back (but not all the way to the back)
+
+5. Reinstall the dock and other toolheads
+
+6. Mount the toolhead whose position needs to be calibrated
+
+7. Run `G28`
+
+8. Run `G1 Z150 F9000`
+
+9. On the web interface, add `0.1` and remove `100` in the `Move distance increments X & Y axes (in mm)` in `Setting > Control` - *Note: This is temporary for this step only, and can be changed back after.*
+
+10. Set the dock at the empty position, i.e. at the bottom of the ramp.
+    ![](./images/20240730_194812.jpg)
+
+11. Use the web interface, nudge the toolhead into the correct x-position. This can be tested by nudging the y-position to see which side of the toolhead touch the dock first. Then adjusts it, such that both side of the dock would touch the dock at the same time.
+    ![](./images/20240730_195442.jpg)
+
+12. Copy and paste the current x-coordinate into the `params_park_x:` of the config file of the current toolhead
+
+13. Save it, **BUT DON'T RESTART**
+
+14. If the aluminium rods of your bar-ends are reasonably straight, then the calibration is finished, just skip to the last step.
+
+15. Nudge the y-position until the dock is at the peak of the ramp.
+
+16. Run:
+    
+    ```
+    G91
+    G1 Y+80 F6000
+    G90
+    ```
+
+17. Copy and paste the current y-coordinate into the `params_park_y:` of the config file of the current toolhead
+
+18. Save it
+
+19. Run `FIRMWARE_RESTART`
+
+#### 4.1.3. Input Shaper (optional)
+
+*Note: To avoid Klippers from throwing errors, the parameters for input shaper are pre-populated in* `toolchanger.cfg` *and in each toolhead config files. Nevertheless, it is best to calibrate it for each available toolhead.*
+
+1. Enable (un-comment) the `[adxl345]` and `[resonance_tester]` in the config of toolhead that is to be calibrated
+
+2. Disable (comment out) the `[adxl345]` and `[resonance_tester]` in the config of the other toolheads
+
+3. Save & Restart
+
+4. Mount the toolhead that is to be calibrated
+
+5. Run `G28` and `QUAD_GANTRY_LEVEL`
+
+6. Run `SHAPER_CALIBRATE` - **BUT, DO NOT SAVE**
+
+7. From the console output, save the following parameters into the toolhead config (at the bottom of the `[tool Tx]` section)
+   
+   ```
+   params_input_shaper_type_x: ...
+   params_input_shaper_freq_x: ...
+   params_input_shaper_damping_ratio_x: ...
+   params_input_shaper_type_y: ...
+   params_input_shaper_freq_y: ...
+   params_input_shaper_damping_ratio_y: ...
+   ```
+
+8. Save & Restart
+
+
 
 ### 4.2. Calibrate Offsets
 

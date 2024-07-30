@@ -108,7 +108,10 @@ All parts are designed to be print with the following parameters:
 
 ![](./images/tap&change_ass2.webp)
 
-4. Assembly 2, the part that is too difficult to document in writing. Follow the video guides bellow.
+4.A note on belt tension. It is advised that you leave at least 15.5mm between the front idler slider and the idler body (see picture below). This is to give the maximum around of room for the front idler to travel before colliding with the dock's bar-ends.
+![](./images/20240730_201311.jpg)
+
+5. Assembly 2, the part that is too difficult to document in writing. Follow the video guides bellow.
    
    * Part 1: [MissChanger - Build Guide - Tool-head (part 1) - YouTube](https://youtu.be/jWHPMaVIBcA) 
    
