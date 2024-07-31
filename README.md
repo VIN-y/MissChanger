@@ -19,10 +19,19 @@ MissChanger aims to be a tool-changing upgrade that is compatible with both Voro
 
 ## Version Status
 
-| Version | Status                                                                                                                                                | Remarks                                                                                                                                                                      |
-| ------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| v1.0    | **Beta**<br/><br/>Detail:<br/>- The design is frozen.<br/>- Plug-in is functional.<br/>- config samples are published.<br/>- Documentation published. | **MVP** (Minimum Viable Product)<br/><br/>The purpose of the v1.x group is to provide the option with the bare minimum hardware required to have the MissChanger up and run. |
-| v0.0    | Abandoned                                                                                                                                             | The design has been proven to lack durability in the testing phase.                                                                                                          |
+| Version | Status    | Remarks                                                                                                                                                                      |
+| ------- | --------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| v1.0    | Beta      | **MVP** (Minimum Viable Product)<br/><br/>The purpose of the v1.x group is to provide the option with the bare minimum hardware required to have the MissChanger up and run. |
+| v0.0    | Abandoned | The design has been proven to lack durability in the testing phase.                                                                                                          |
+
+### Status definition
+
+| Terminology |                                                                                                                                                                                                                                                                                                                                                                        |
+| ----------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Release     | All relevant components are completed and packaged.                                                                                                                                                                                                                                                                                                                    |
+| Beta        | All relevant components are completed and packaged, see [Releases](./Releases). However, no user testing has been done.<br/>Depending on the feedback from the beta, the relevant version might be used as the release version. Another beta version may be created to implement any significant changes.<br/>Note: All CAD works are considered "significant change". |
+| Alpha       | Functionally working, but changes are still being made.<br/>CAD design is frozen (locked in).<br/>No (or incomplete) documentations.                                                                                                                                                                                                                                   |
+| Abandoned   | Old test design, that is no longer persuaded.                                                                                                                                                                                                                                                                                                                          |
 
 ## Compatibility
 
