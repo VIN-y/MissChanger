@@ -83,6 +83,12 @@ For the purpose of the tool-changer:
 ## Recommendations
 
 1. Keep toolheads as similar as possible. - The more variations there are between toolheads (i.e. control board, hotend system, etc.), the more tuning will be need for each of them.
+2. The following mods are either not recommended or known to be not compatible with MissChanger:
+   1. GE5C bearing z mount - This mod offer too much flexibility to the gantry, allowing it to sag when the z motors are disabled/un-powered.
+   
+   2. Beefy front idlers - The cut off on the dock can only fit the stock front idlers.
+   
+   3. AWD - The cut off on the dock can only fit the stock front idlers.
 
 ## Support
 

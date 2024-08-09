@@ -94,19 +94,7 @@ Nevertheless, the tests have also reveals the following cons:
 
 ## 2. Hardware
 
-### 2.1. MissChanger
-
 Assembly and wiring guides for each version are in the respective folder above.
-
-### 2.2. Mods
-
-The following mods are either not recommended or known to be not compatible with MissChanger:
-
-1. GE5C bearing z mount - This mod offer too much flexibility to the gantry, allowing it to sag when the z motors are disabled/un-powered.
-
-2. Beefy front idlers - The cut off on the dock can only fit the stock front idlers.
-
-3. AWD - The cut off on the dock can only fit the stock front idlers.
 
 ## 3. Software
 
