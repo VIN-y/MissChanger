@@ -6,6 +6,92 @@ Although the setting up the config for MissChanger will change aspect of your pr
 
 This document will not guide you through the set up of CAN bus, please refer to the manufacture manual for that.
 
+### Status definition
+
+| Terms     |                                                                                                                                                                                                                                                                                                                                 |
+| --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Release   | Finalised.<br>All relevant components are finished and tested.                                                                                                                                                                                                                                                                  |
+| Beta      | All relevant components are locked in and packaged, see [Releases](./Releases). However, no user tests or feedback has been done.<br>Note: Depending on the feedback from the beta, the relevant version might be updated into the release version. However, if significant changes are required, another version will be made. |
+| Alpha     | Functionally working.<br>CAD designs are locked in (frozen) but with no (or incomplete) documentations.                                                                                                                                                                                                                         |
+| Bleeding  | Everything are subjected to changes.                                                                                                                                                                                                                                                                                            |
+| Abandoned | Old design that is no longer persuaded.                                                                                                                                                                                                                                                                                         |
+
+#### v1.[series] - MVP (Minimum Viable Product)
+
+The purpose of v1.x series is to provide the option with the bare minimum hardware required to have the MissChanger up and run. This series is for those who are price conscious or do not need a dedicated tool-changer, as the most expensive part of the build will be the toolheads themselves.
+
+Nevertheless, being designed as the MVP results in some fundamental flaws across the designs of v1.[series], which will be addressed in v2.x series. These flaws are:
+
+- Loss of z build volume (at around 200-250mm maximum z) - due to tangled umbilicals
+
+- Lack of space between the toolhead and the front doors - Causing them to collide whenever there is a tool-change
+
+- Low compatibility with user mods (i.e. idler mods)
+
+#### v2.[series] - Tool-changer first design
+
+The purpose of v2.[series] is to overcomes the inherent flaws of v1.[series] noted above. However, this will be increase the price of the system, with more components added.
+
+### Versions
+
+| Version | Status    | Remarks                                                                          |
+| ------- | --------- | -------------------------------------------------------------------------------- |
+| v0.0    | Abandoned | The design has been proven to lack durability in the testing phase.              |
+| v1.0    | Beta 1    | Although functional, several reliability and usability problems have been found. |
+| v1.1    | Bleeding  | Fixes problems found in v1.0.                                                    |
+
+#### v0.0 - Original idea
+
+This was the original idea for MissChanger, which was developed up to the point where it can be used for test prints. It was discovered that the mechanism would wears down after ~2000 cycles and lost the precision needed for Quad Gantry Level.
+
+No further work will be done for this design, and documentations are not available.
+
+#### v1.0 - Beta 1
+
+This is the first version of MissChanger for others to pick-up and build upon. Through testing, it shows the following pros:
+
+- The tool-change mechanism is reliable (with ~5000 cycles on T0, thus far)
+
+- The stock front z-motors can carry the weight of the dock and 4 toolheads, ~2.5 kg
+
+- The safety mechanism functions as intended, where the dock's Bar Ends will flex, before the dock are pushed into misalignment, before the front z-motors skip steps, before any damage is done. - This is in the event that the front gantry tilts down too far, causing the idlers to crash into the bottom corners of the dock.
+
+- The umbilicals does not get tangled until at least Z200, and printer is still functional up to Z250 with some limitation around the edge of the build area.
+
+- The system can be toggled between single toolhead and multi-toolheads mode without the use of any tool, in about 20-60s.
+
+- Tool-change speed is relatively fast, ~8s
+
+- Probe accuracy is very high, with `samples_tolerance: 0.00275` on all toolhead
+
+- The Nudge calibration probe is very accurate and reliable
+
+Nevertheless, the tests have also reveals the following cons:
+
+- Tap&Change pieces are too fragile and would crack in the event of toolhead crash or with lower tolerance printed parts
+
+- Incompatibility with GE5C bearing z mount for the Voron 2.4
+
+- Incompatibility with front idler mods
+
+- Tolerance for front gantry tilt is still too low
+
+- Friction mounted toolheads are susceptible to be bumped loose by door closing
+
+- There are limits to the material combination in a tool changer, due to the shared chamber and bed temperatures
+
+- The PTFE tube influences the curve of the umbilical more than everything else, except the top panel of the printer
+
+- Input shaper result is worse than that of the original Voron Tap
+
+#### v1.1 - Bleeding
+
+- Adds magnets to the docking system to hold onto the toolhead more securely when docked
+
+- Increase wall thickness of the Tap&Change pieces
+
+- Migrate the project files to Ondsel, the CAD software
+
 ## 2. Hardware
 
 ### 2.1. MissChanger
@@ -16,11 +102,11 @@ Assembly and wiring guides for each version are in the respective folder above.
 
 The following mods are either not recommended or known to be not compatible with MissChanger:
 
-1. GE5C bearing z mount. - This mod offer too much flexibility to the gantry, allowing it to sag when the z motors are disabled/un-powered.
+1. GE5C bearing z mount - This mod offer too much flexibility to the gantry, allowing it to sag when the z motors are disabled/un-powered.
 
-2. Beefy front idlers. - The cut off on the dock can only fit the stock front idlers.
+2. Beefy front idlers - The cut off on the dock can only fit the stock front idlers.
 
-3. AWD. - The cut off on the dock can only fit the stock front idlers.
+3. AWD - The cut off on the dock can only fit the stock front idlers.
 
 ## 3. Software
 
@@ -315,8 +401,6 @@ Video guide: [MissChanger - Build Guide - Dock Calibration - YouTube](https://yo
 
 8. Save & Restart
 
-
-
 ### 4.2. Calibrate Offsets
 
 #### 4.2.1. Calibrate Reference Toolhead
@@ -351,7 +435,7 @@ This section will guide you through the calibration of the `trigger_to_bottom_z`
 
 #### Steps and note:
 
-1. Go to **`printer.cfg`** and record the `z-offset` for `#*# [tool_probe T0]`, which should be at (or near) the bottom of the file
+1. Go to `printer.cfg` and record the `z-offset` for `#*# [tool_probe T0]`, which should be at (or near) the bottom of the file
 
 2. Open `calibrate-offsets.cfg`
 
@@ -387,11 +471,13 @@ Your Nudge probe is ready.
 
 2. <mark>**!!! MAKE SURE THE NUDGE PROBE IS NOT MOUNTED !!!**</mark> 
 
-3. Run `G28` and `QUAD_GANTRY_LEVEL`
+3. Heat all toolhead to 150C and wait ~3 mins for them to stabilised - some hotends have large heat block, which may not be fully thermally expanded.
 
-4. Make sure all nozzles are clean
+4. Run `G28` and `QUAD_GANTRY_LEVEL`
 
-5. Go to each toolhead config, comment out:
+5. Make sure all nozzles are clean
+
+6. Go to each toolhead config, comment out:
    
    - gcode_x_offset
    
@@ -401,10 +487,10 @@ Your Nudge probe is ready.
    
    - z_offset
 
-6. Save it, **BUT DON'T RESTART**
+7. Save it, **BUT DON'T RESTART**
 
-7. Mount the Nudge probe
+8. Mount the Nudge probe
 
-8. Run `CALIBRATE_OFFSETS` - the process is automatic, and you can specify a specific tool-head
+9. Run `CALIBRATE_OFFSETS` - the process is automatic, and you can specify a specific tool-head
 
-9. Run `SAVE_CONFIG`
+10. Run `SAVE_CONFIG`
