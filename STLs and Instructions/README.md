@@ -16,11 +16,11 @@ Assembly and wiring guides for each version are in the respective folder above.
 
 The following mods are either not recommended or known to be not compatible with MissChanger:
 
-1. GE5C bearing z mount. - This mod offer too much flexibility to the gantry, allowing it to sag when the z motors are disabled/un-powered.
+1. GE5C bearing z mount - This mod offer too much flexibility to the gantry, allowing it to sag when the z motors are disabled/un-powered.
 
-2. Beefy front idlers. - The cut off on the dock can only fit the stock front idlers.
+2. Beefy front idlers - The cut off on the dock can only fit the stock front idlers.
 
-3. AWD. - The cut off on the dock can only fit the stock front idlers.
+3. AWD - The cut off on the dock can only fit the stock front idlers.
 
 ## 3. Software
 
@@ -315,8 +315,6 @@ Video guide: [MissChanger - Build Guide - Dock Calibration - YouTube](https://yo
 
 8. Save & Restart
 
-
-
 ### 4.2. Calibrate Offsets
 
 #### 4.2.1. Calibrate Reference Toolhead
@@ -351,7 +349,7 @@ This section will guide you through the calibration of the `trigger_to_bottom_z`
 
 #### Steps and note:
 
-1. Go to **`printer.cfg`** and record the `z-offset` for `#*# [tool_probe T0]`, which should be at (or near) the bottom of the file
+1. Go to `printer.cfg` and record the `z-offset` for `#*# [tool_probe T0]`, which should be at (or near) the bottom of the file
 
 2. Open `calibrate-offsets.cfg`
 
@@ -387,11 +385,13 @@ Your Nudge probe is ready.
 
 2. <mark>**!!! MAKE SURE THE NUDGE PROBE IS NOT MOUNTED !!!**</mark> 
 
-3. Run `G28` and `QUAD_GANTRY_LEVEL`
+3. Heat all toolhead to 150C and wait ~3 mins for them to stabilised - some hotends have large heat block, which may not be fully thermally expanded.
 
-4. Make sure all nozzles are clean
+4. Run `G28` and `QUAD_GANTRY_LEVEL`
 
-5. Go to each toolhead config, comment out:
+5. Make sure all nozzles are clean
+
+6. Go to each toolhead config, comment out:
    
    - gcode_x_offset
    
@@ -401,10 +401,10 @@ Your Nudge probe is ready.
    
    - z_offset
 
-6. Save it, **BUT DON'T RESTART**
+7. Save it, **BUT DON'T RESTART**
 
-7. Mount the Nudge probe
+8. Mount the Nudge probe
 
-8. Run `CALIBRATE_OFFSETS` - the process is automatic, and you can specify a specific tool-head
+9. Run `CALIBRATE_OFFSETS` - the process is automatic, and you can specify a specific tool-head
 
-9. Run `SAVE_CONFIG`
+10. Run `SAVE_CONFIG`
