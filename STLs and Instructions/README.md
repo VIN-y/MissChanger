@@ -404,3 +404,7 @@ Your Nudge probe is ready.
 The printer bed shape need to be set as shown below, to avoid collisions with the dock during printing. 
 
 ![](./images/Slicer_bed_shape.png)
+
+Although, you might want to tune your own speed profile for the best performance. Here is a slow and reliable profile to get you started with.
+
+![](./images/Slicer_Speed.png)
