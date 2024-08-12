@@ -64,7 +64,7 @@ Other recommended software:
 
 ## Other information
 
-### Offset Types
+### 1. Offset Types
 
 There are 2 type of offsets for each tool-head:
 
@@ -80,10 +80,36 @@ For the purpose of the tool-changer:
 
 - **gcode_x_offset** / **gcode_y_offset** / **gcode_z_offset** are used to account for the XYZ different between the nozzles, based on a reference nozzle
 
+### 2. X0-Y0 location
+
+<mark>This is **an important point** to keep in mind.</mark> Other toolchanger projects might have done this differently. It is important to know how your build area is set up, to avoid collisions and potential damages.
+
+MissChanger use the same build area configuration as the origin Voron 350mm, see the code block below. This build area set up stay the same between the single-toolhead  and the multi-toolheads mode, providing consistency. No matter which mode you are in, `G1 X{number} Y{number}`  will bring the gantry to the same spot above the build plate. Also, the creator's (that is me) finds negative coordinates confusing.
+
+```
+[stepper_x]
+...
+position_min: 0               # X-axis minimum travel - software limit
+position_endstop: 350         # Mechanical reset point coordinates for X-axis (change to 350 for 350 models)
+position_max: 350             # X-axis maximum travel - software limit (change to 350 for 350 models)
+...
+
+[stepper_y]
+...
+position_min: 0               # Y-axis minimum travel - software limit
+position_endstop: 350         # Mechanical reset point coordinates for Y-axis (change to 350 for 350 models)
+position_max: 350             # Y-axis maximum travel - software limit (change to 350 for 350 models)
+...
+```
+
+Nevertheless, this behaviour can be change in the config, by bring the settings for `[stepper_x]` and `[stepper_y]` under the `Session Variables` section.
+
 ## Recommendations
 
 1. Keep toolheads as similar as possible. - The more variations there are between toolheads (i.e. control board, hotend system, etc.), the more tuning will be need for each of them.
+
 2. The following mods are either not recommended or known to be not compatible with MissChanger:
+   
    1. GE5C bearing z mount - This mod offer too much flexibility to the gantry, allowing it to sag when the z motors are disabled/un-powered.
    
    2. Beefy front idlers - The cut off on the dock can only fit the stock front idlers.

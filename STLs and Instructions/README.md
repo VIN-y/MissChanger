@@ -398,3 +398,9 @@ Your Nudge probe is ready.
 9. Run `CALIBRATE_OFFSETS` - the process is automatic, and you can specify a specific tool-head
 
 10. Run `SAVE_CONFIG`
+
+### Slicer Profile
+
+The printer bed shape need to be set as shown below, to avoid collisions with the dock during printing. 
+
+![](./images/Slicer_bed_shape.png)
