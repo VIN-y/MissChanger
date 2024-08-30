@@ -4,7 +4,13 @@ This document aims to outline the lesson learned in trying to combine different 
 
 ## Summary
 
-TBD
+1. The shared resources for all toolhead are: chamber, bed, speed profile. This limits:
+   
+   * The material combination. In which, low temp filament cannot be used in a hot chamber. Also, the bed temperature have to be a compromised to fit the material being combine.
+   
+   * The print speed is limited by that of the lowest flow rate among the material, like PLA.
+
+2. TBD
 
 ## General
 
@@ -37,6 +43,8 @@ TBD
 1. This is the easiest material to work with.
 
 2. PLA works very well as a support material for PETG. It does not curl (wrap) during print, form fine strings.
+
+3. The speed profile for PLA is difference than that of PETG and other material. The max flow rate is not as high.
 
 ## PETG
 
