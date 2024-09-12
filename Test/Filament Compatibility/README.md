@@ -10,7 +10,11 @@ This document aims to outline the lesson learned in trying to combine different 
    
    * The print speed is limited by that of the lowest flow rate among the material, like PLA.
 
-2. TBD
+2. Due to the order of tool changes in Prusa Slicer a "PAUSE" operation might happen before the expected layer.
+   
+   * Because the slicer aims to minimise the number of tool changes, it will print the next layer with the initialised toolhead. Then, registers the next toolhead as the next layer.
+
+3. Each material have different preference for z-offset (on the same toolhead).
 
 ## General
 
@@ -60,6 +64,13 @@ This document aims to outline the lesson learned in trying to combine different 
 
 2. This material is not ideal for internal parts, where the nozzle need to pass over another part, regardless of the material of that other part. as the strings coming off the nozzle will be locked into the other items and potentially weaken them, or lock up the interface between them.
 
+3. PETG oozing pressure is higher than other materials. The nozzle plug will need to apply pressure to the nozzle to keep the material inside. This is unlike PLA and ABS, where no (or, very little) pressure is needed.
+
+4. PETG lightly sticks to Teflon oven-liner, which will degrades the liner over time.
+
+5. It is advised to set an idle temp for this material and enable the "Ooze Prevention" function in the slicer to mitigate the ooze build-up problem with PETG.
+
 ## ABS
 
 1. This material cannot be printed with PLA or PETG, as the chamber temperature is will cause PLA and PETG to soften and clog in the extruder.
+2. The same z-offset that give perfect ABS first layer is too much for PETG and cause blobbing.
