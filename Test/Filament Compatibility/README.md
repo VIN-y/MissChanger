@@ -9,12 +9,12 @@ This document aims to outline the lesson learned in trying to combine different 
    * The material combination. In which, low temp filament cannot be used in a hot chamber. Also, the bed temperature have to be a compromised to fit the material being combine.
    
    * The print speed is limited by that of the lowest flow rate among the material, like PLA.
+   
+   * Materials have different preference for z-offset (on the same toolhead) depending on whether it need a enclosure or not, due to thermal expansion of the frame.
 
 2. Due to the order of tool changes in Prusa Slicer a "PAUSE" operation might happen before the expected layer.
    
    * Because the slicer aims to minimise the number of tool changes, it will print the next layer with the initialised toolhead. Then, registers the next toolhead as the next layer.
-
-3. Each material have different preference for z-offset (on the same toolhead).
 
 ## General
 
@@ -22,7 +22,7 @@ This document aims to outline the lesson learned in trying to combine different 
    
    * Use one to made the support for the other
    
-   * Print-in-place hinges with very tight tolerance. Mechanism with wall-to-wall gap between the parts can go down to 0.15mm.
+   * Print-in-place hinges with very tight tolerance. Mechanism with wall-to-wall gap between the parts can go down to 0.15mm. Further reduction in the tolerance can be achieved; however, below 0.15mm the coefficient of friction between the material will start taking it's tow.
    
    However, there are challenges:
    
@@ -31,10 +31,13 @@ This document aims to outline the lesson learned in trying to combine different 
 2. The wipe tower needs to be configured for non-chemically compatible:
    
    * The `Wipe tower extruder:` setting (which set the material of the wipe tower shell) should to be set to the toolhead that is responsible for the more stringy material. For example, if you are printing PLA and PETG, you will need to set the tower shell material to PETG. This will allows the material more time and extrusion pressure to stabilise at the tip of the nozzle, without increasing the size and material usage for the wipe tower.
+   * There are limitations to the way that the wipe tower is done as it is now (09.2024). Since you can only specified a single nozzle as the `Wipe tower extruder:`, if you have 2 PETG nozzles (or any other stringie material) and at least 1 PLA nozzle (a material that is not compatible with the for-mentioned material), at least 1 of the PETG nozzle will have to deal with the risk of priming onto a layer of PLA. If the prime onto the PLA layer fails to adhere, the excess material will blob onto to the nozzle and leads to other problems.
 
 3. The heated chamber that ABS like to have, ~55°C, will cause PLA and PETG to soften and clog in the extruder. This suggest a limitation to a tool-changer system. Even though the different tool-head allows different materials to be printed together, all working materials are still subjected to the same build environment (i.e. chamber and bed). Therefore, there is a limit to what material can be mixed in a print; regardless of their chemical compatibility.
 
-4. There is no logic to what the bed temp should be for a multi-material print in the slicer. It just pick that of the first material being extruded.
+4. The shared chamber also cause problems due to thermal expansion of the frame. This cause the Z-offset preference of ABS to differ from that of PETG and PLA, on the same nozzle. This means that all nozzle will need to be re-calibrated when switching between ABS and PETG/PLA. 
+
+5. There is no logic to what the bed temp should be for a multi-material print in the slicer. It just pick that of the first material being extruded.
    
    This is raised an interesting point, as the normal bed temp for PETG, ~85°C, is too hot for PLA and that of PLA, ~55°C is too low for PETG.
    
@@ -46,7 +49,7 @@ This document aims to outline the lesson learned in trying to combine different 
 
 1. This is the easiest material to work with.
 
-2. PLA works very well as a support material for PETG. It does not curl (wrap) during print, form fine strings.
+2. PLA works very well as a support material for PETG. It does not curl (warp) or form fine strings.
 
 3. The speed profile for PLA is difference than that of PETG and other material. The max flow rate is not as high.
 
@@ -73,4 +76,4 @@ This document aims to outline the lesson learned in trying to combine different 
 ## ABS
 
 1. This material cannot be printed with PLA or PETG, as the chamber temperature is will cause PLA and PETG to soften and clog in the extruder.
-2. The same z-offset that give perfect ABS first layer is too much for PETG and cause blobbing.
+2. The same z-offset that give perfect ABS first layer is too much for PETG and cause blobbing. This is due to the chamber temperature causing the frame to expand for ABS.
