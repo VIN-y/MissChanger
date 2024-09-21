@@ -11,7 +11,7 @@ A Stealth Burner tool-change system for Voron 2.4 and Trident.
 
 - The Nudge calibration switch is from [zruncho3d](https://github.com/zruncho3d/nudge) 
 
-![20240223_185152.jpg](./images/20240609_222649.jpg)
+![20240223_185152.jpg](./images/20240921_201730.jpg)
 
 ## Description
 
@@ -48,23 +48,33 @@ Other recommended software:
 
 ## Roadmap
 
-### v1.[series]
+### v1
 
-- [ ] Lock in the Tap&Change and dock design for all future versions
+- [x] Lock in the Tap&Change and dock design for all future versions. - v1.1 is the final version for MissChanger under the current scope.
+
+- [ ] Print capability test, material combination:
+  
+  - [x] ABS
+  
+  - [x] PLA
+  
+  - [x] PETG
+  
+  - [ ] TPU
+  
+  - [ ] PET
+
+### v2
 
 - [ ] Trident compatibility (i.e. additional calibration probe mount design)
 
-- [ ] Print capability test, material combination
+- [ ] Regain lost z build volume, with a top hat.
 
-### v2.[series]
-
-- [ ] Regain lost z build volume - with a top hat
-
-- [ ] Increase space between the toolhead and the front doors and compatibility with user mods - with a new dock that integrates into a "fridge door" of 20x20mm aluminium extrusion 
+- [x] Increase space between the toolhead and the front doors and compatibility with user mods - with a new dock that integrates into a "fridge door" of 20x20mm aluminium extrusion - A much simpler solution has been adopted, i.e. 3D-printed spacers.
 
 ## Other information
 
-### 1. Offset Types
+### Offset Types
 
 There are 2 type of offsets for each tool-head:
 
@@ -80,9 +90,9 @@ For the purpose of the tool-changer:
 
 - **gcode_x_offset** / **gcode_y_offset** / **gcode_z_offset** are used to account for the XYZ different between the nozzles, based on a reference nozzle
 
-### 2. X0-Y0 location
+### Physical location of `X0 Y0`
 
-<mark>This is **an important point** to keep in mind.</mark> Other toolchanger projects might have done this differently. It is important to know how your build area is set up, to avoid collisions and potential damages.
+<mark>This is **an important point** to keep in mind.</mark> It is important to know how your build area is set up, to avoid collisions and potential damages.
 
 MissChanger use the same build area configuration as the origin Voron 350mm, see the code block below. This build area set up stay the same between the single-toolhead  and the multi-toolheads mode, providing consistency. No matter which mode you are in, `G1 X{number} Y{number}`  will bring the gantry to the same spot above the build plate. Also, the creator's (that is me) finds negative coordinates confusing.
 
@@ -116,8 +126,19 @@ Nevertheless, this behaviour can be change in the config, by bring the settings 
    
    3. AWD - The cut off on the dock can only fit the stock front idlers.
 
+## Status definition
+
+| Terms     |                                                                                                                                                                                                                                                                                                                                                  |
+| --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Release   | Finalised.<br>All relevant components and documentations are finished and tested.                                                                                                                                                                                                                                                                |
+| Beta      | All relevant components are locked in and packaged, see [Releases](./Releases). However, with no test or feedback.<br>Note: Depending on the feedback from the beta, the relevant version might be updated into the release version. However, if significant changes are required, another version will be made and start at the bleeding state. |
+| Alpha     | Functionally working.<br>CAD designs are locked <br>No (or incomplete) documentations                                                                                                                                                                                                                                                            |
+| Bleeding  | Everything are subjected to changes.                                                                                                                                                                                                                                                                                                             |
+| Abandoned | Old design that is no longer persuaded.                                                                                                                                                                                                                                                                                                          |
+
 ## Support
 
 If you have any question, you can reach me:
 
 * `@vin` in the [Voron Toolchangers](https://discord.gg/Gt5XCCwv) discord
+* `@vinny_69 V2.6365` in the [VORONDesign](https://discord.gg/voron) discord
