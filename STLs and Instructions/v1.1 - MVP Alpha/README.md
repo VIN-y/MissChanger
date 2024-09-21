@@ -36,7 +36,11 @@ All parts are designed to be print with the following parameters:
 | ---------------------------------------------- | ----- |
 | All printed parts in the [Dock](./Dock) folder |       |
 
-#### Steps and note:
+#### Steps:
+
+
+
+#### Note:
 
 * Follow this video guide for the dock assembly: [MissChanger - Build Guide - Dock](https://youtu.be/sSsay7bBFj0)
 * Follow this video guide for the dock calibration: [MissChanger - Build Guide - Dock Calibration](https://youtu.be/Xxpi4Nll_MY?si=lm0ChZX1qIrD1tWC)
@@ -57,9 +61,7 @@ All parts are designed to be print with the following parameters:
 
 ### 3.3. Tool-head and Endstops Assembly
 
-![](./images/tap&change_assembly.jpg)
 
-![](./images/20240531_214047.jpg)
 
 #### BOM:
 

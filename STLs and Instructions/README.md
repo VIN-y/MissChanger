@@ -2,7 +2,7 @@
 
 ## 1. Introduction
 
-Although the setting up the config for MissChanger will change aspect of your printer, it is still recommended that you start the project with a functional printer and add one toolhead at a time.
+Although the setting up the config for MissChanger will change some aspects of your printer, it is still recommended that you start the project with a functional printer and add one toolhead at a time.
 
 This document will not guide you through the set up of CAN bus, please refer to the manufacture manual for that.
 

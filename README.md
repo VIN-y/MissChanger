@@ -48,19 +48,29 @@ Other recommended software:
 
 ## Roadmap
 
-### v1.[series]
+### v1
 
-- [ ] Lock in the Tap&Change and dock design for all future versions
+- [x] Lock in the Tap&Change and dock design for all future versions. - v1.1 is the final version for MissChanger under the current scope.
+
+- [ ] Print capability test, material combination:
+  
+  - [x] ABS
+  
+  - [x] PLA
+  
+  - [x] PETG
+  
+  - [ ] PET
+  
+  - [ ] TPU
+
+### v2
 
 - [ ] Trident compatibility (i.e. additional calibration probe mount design)
 
-- [ ] Print capability test, material combination
+- [ ] Regain lost z build volume, with a top hat.
 
-### v2.[series]
-
-- [ ] Regain lost z build volume - with a top hat
-
-- [ ] Increase space between the toolhead and the front doors and compatibility with user mods - with a new dock that integrates into a "fridge door" of 20x20mm aluminium extrusion 
+- [x] Increase space between the toolhead and the front doors and compatibility with user mods - with a new dock that integrates into a "fridge door" of 20x20mm aluminium extrusion - The much simpler solution has been adopted, i.e. 3D-printed spacers.
 
 ## Other information
 
@@ -80,9 +90,9 @@ For the purpose of the tool-changer:
 
 - **gcode_x_offset** / **gcode_y_offset** / **gcode_z_offset** are used to account for the XYZ different between the nozzles, based on a reference nozzle
 
-### 2. X0-Y0 location
+### 2. Physical location of `X0 Y0`
 
-<mark>This is **an important point** to keep in mind.</mark> Other toolchanger projects might have done this differently. It is important to know how your build area is set up, to avoid collisions and potential damages.
+<mark>This is **an important point** to keep in mind.</mark> It is important to know how your build area is set up, to avoid collisions and potential damages.
 
 MissChanger use the same build area configuration as the origin Voron 350mm, see the code block below. This build area set up stay the same between the single-toolhead  and the multi-toolheads mode, providing consistency. No matter which mode you are in, `G1 X{number} Y{number}`  will bring the gantry to the same spot above the build plate. Also, the creator's (that is me) finds negative coordinates confusing.
 
