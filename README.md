@@ -74,6 +74,16 @@ Other recommended software:
 
 ## Other information
 
+### Status definition
+
+| Terms     |                                                                                                                                                                                                                                                                                                                                                  |
+| --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Release   | Finalised.<br>All relevant components and documentations are finished and tested.                                                                                                                                                                                                                                                                |
+| Beta      | All relevant components are locked in and packaged, see [Releases](./Releases). However, with no test or feedback.<br>Note: Depending on the feedback from the beta, the relevant version might be updated into the release version. However, if significant changes are required, another version will be made and start at the bleeding state. |
+| Alpha     | Functionally working.<br>CAD designs are locked <br>No (or incomplete) documentations                                                                                                                                                                                                                                                            |
+| Bleeding  | Everything are subjected to changes.                                                                                                                                                                                                                                                                                                             |
+| Abandoned | Old design that is no longer persuaded.                                                                                                                                                                                                                                                                                                          |
+
 ### Offset Types
 
 There are 2 type of offsets for each tool-head:
@@ -125,16 +135,6 @@ Nevertheless, this behaviour can be change in the config, by bring the settings 
    2. Beefy front idlers - The cut off on the dock can only fit the stock front idlers.
    
    3. AWD - The cut off on the dock can only fit the stock front idlers.
-
-## Status definition
-
-| Terms     |                                                                                                                                                                                                                                                                                                                                                  |
-| --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| Release   | Finalised.<br>All relevant components and documentations are finished and tested.                                                                                                                                                                                                                                                                |
-| Beta      | All relevant components are locked in and packaged, see [Releases](./Releases). However, with no test or feedback.<br>Note: Depending on the feedback from the beta, the relevant version might be updated into the release version. However, if significant changes are required, another version will be made and start at the bleeding state. |
-| Alpha     | Functionally working.<br>CAD designs are locked <br>No (or incomplete) documentations                                                                                                                                                                                                                                                            |
-| Bleeding  | Everything are subjected to changes.                                                                                                                                                                                                                                                                                                             |
-| Abandoned | Old design that is no longer persuaded.                                                                                                                                                                                                                                                                                                          |
 
 ## Support
 
