@@ -2,31 +2,13 @@
 
 These folder contains all the .step files that are produced for this project.
 
-## Status definition
+## v1 - MVP (Minimum Viable Product)
 
-| Terms     |                                                                                                                                                                                                                                                                                                                                 |
-| --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Release   | Finalised.<br>All relevant components are finished and tested.                                                                                                                                                                                                                                                                  |
-| Beta      | All relevant components are locked in and packaged, see [Releases](./Releases). However, no user tests or feedback has been done.<br>Note: Depending on the feedback from the beta, the relevant version might be updated into the release version. However, if significant changes are required, another version will be made. |
-| Alpha     | Functionally working.<br>CAD designs are locked in (frozen) but with no (or incomplete) documentations.                                                                                                                                                                                                                         |
-| Bleeding  | Everything are subjected to changes.                                                                                                                                                                                                                                                                                            |
-| Abandoned | Old design that is no longer persuaded.                                                                                                                                                                                                                                                                                         |
+The purpose of **v1** is to provide the option with the bare minimum hardware required to have the MissChanger up and run. This series is for those who are price conscious or do not need a dedicated tool-changer all the time, as the most expensive part of the build will be the toolheads themselves.
 
-### v1.[series] - MVP (Minimum Viable Product)
+## v2 - Tool-changer focused design
 
-The purpose of v1.x series is to provide the option with the bare minimum hardware required to have the MissChanger up and run. This series is for those who are price conscious or do not need a dedicated tool-changer, as the most expensive part of the build will be the toolheads themselves.
-
-Nevertheless, being designed as the MVP results in some fundamental flaws across the designs of v1.[series], which will be addressed in v2.x series. These flaws are:
-
-- Loss of z build volume (at around 200-250mm maximum z) - due to tangled umbilicals
-
-- Lack of space between the toolhead and the front doors - Causing them to collide whenever there is a tool-change
-
-- Low compatibility with user mods (i.e. idler mods)
-
-### v2.[series] - Tool-changer first design
-
-The purpose of v2.[series] is to overcomes the inherent flaws of v1.[series] noted above. However, this will be increase the price of the system, with more components added.
+The purpose of **v2** is to overcomes the inherent flaws of v1.[series] noted above. However, this will be increase the price of the system, with more components added.
 
 ## Versions Summary
 
@@ -34,7 +16,7 @@ The purpose of v2.[series] is to overcomes the inherent flaws of v1.[series] not
 | ------- | --------- | -------------------------------------------------------------------------------- |
 | v0.0    | Abandoned | The design has been proven to lack durability in the testing phase.              |
 | v1.0    | Beta 1    | Although functional, several reliability and usability problems have been found. |
-| v1.1    | Bleeding  | Fixes problems found in v1.0.                                                    |
+| v1.1    | Alpha     | Fixes problems found in v1.0.                                                    |
 
 ## Design History
 
@@ -78,14 +60,20 @@ Nevertheless, the tests have also reveals the following cons:
 
 - There are limits to the material combination in a tool changer, due to the shared chamber and bed temperatures
 
-- The PTFE tube influences the curve of the umbilical more than everything else, except the top panel of the printer
+- The PTFE tube influences the curve of the umbilical more than everything else, beside the top panel
 
 - Input shaper result is worse than that of the original Voron Tap
 
 #### v1.1 - Bleeding
 
+- Migrate the project files to Ondsel, the CAD software, and tighten up part-to-part tolerances
+
 - Adds magnets to the docking system to hold onto the toolhead more securely when docked
 
 - Increase wall thickness of the Tap&Change pieces
 
-- Migrate the project files to Ondsel, the CAD software
+- Add door buffer
+
+- Add silicon liner layer for nozzle plug
+
+- Passed reliability test with 4100 continuous toolchanges at random z-positions
