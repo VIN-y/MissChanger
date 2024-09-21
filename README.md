@@ -11,7 +11,7 @@ A Stealth Burner tool-change system for Voron 2.4 and Trident.
 
 - The Nudge calibration switch is from [zruncho3d](https://github.com/zruncho3d/nudge) 
 
-![20240223_185152.jpg](./images/20240609_222649.jpg)
+![20240223_185152.jpg](./images/20240921_201730.jpg)
 
 ## Description
 
@@ -60,9 +60,9 @@ Other recommended software:
   
   - [x] PETG
   
-  - [ ] PET
-  
   - [ ] TPU
+  
+  - [ ] PET
 
 ### v2
 
@@ -70,11 +70,11 @@ Other recommended software:
 
 - [ ] Regain lost z build volume, with a top hat.
 
-- [x] Increase space between the toolhead and the front doors and compatibility with user mods - with a new dock that integrates into a "fridge door" of 20x20mm aluminium extrusion - The much simpler solution has been adopted, i.e. 3D-printed spacers.
+- [x] Increase space between the toolhead and the front doors and compatibility with user mods - with a new dock that integrates into a "fridge door" of 20x20mm aluminium extrusion - A much simpler solution has been adopted, i.e. 3D-printed spacers.
 
 ## Other information
 
-### 1. Offset Types
+### Offset Types
 
 There are 2 type of offsets for each tool-head:
 
@@ -90,7 +90,7 @@ For the purpose of the tool-changer:
 
 - **gcode_x_offset** / **gcode_y_offset** / **gcode_z_offset** are used to account for the XYZ different between the nozzles, based on a reference nozzle
 
-### 2. Physical location of `X0 Y0`
+### Physical location of `X0 Y0`
 
 <mark>This is **an important point** to keep in mind.</mark> It is important to know how your build area is set up, to avoid collisions and potential damages.
 
@@ -131,3 +131,4 @@ Nevertheless, this behaviour can be change in the config, by bring the settings 
 If you have any question, you can reach me:
 
 * `@vin` in the [Voron Toolchangers](https://discord.gg/Gt5XCCwv) discord
+* `@vinny_69 V2.6365` in the [VORONDesign](https://discord.gg/voron) discord
