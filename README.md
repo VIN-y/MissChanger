@@ -50,15 +50,15 @@ Other recommended software:
 
 ### v1
 
-- [x] Lock in the Tap&Change and dock design for all future versions. - v1.1 is the final version for MissChanger under the current scope.
+- [x] ~~Lock in the Tap&Change and dock design for all future versions.~~ - v1.1 is the final version for the Tap&Change system for the Stealthburner.
 
 - [ ] Print capability test, material combination:
   
-  - [x] ABS
+  - [x] ~~ABS~~
   
-  - [x] PLA
+  - [x] ~~PLA~~
   
-  - [x] PETG
+  - [x] ~~PETG~~
   
   - [ ] TPU
   
@@ -70,7 +70,7 @@ Other recommended software:
 
 - [ ] Regain lost z build volume, with a top hat.
 
-- [x] Increase space between the toolhead and the front doors and compatibility with user mods - with a new dock that integrates into a "fridge door" of 20x20mm aluminium extrusion - A much simpler solution has been adopted, i.e. 3D-printed spacers.
+- [x] ~~Increase space between the toolhead and the front doors and compatibility with user mods - with a new dock that integrates into a "fridge door" of 20x20mm aluminium extrusion~~ - A much simpler solution has been adopted, i.e. 3D-printed spacers.
 
 ## Other information
 
@@ -90,7 +90,7 @@ For the purpose of the tool-changer:
 
 - **gcode_x_offset** / **gcode_y_offset** / **gcode_z_offset** are used to account for the XYZ different between the nozzles, based on a reference nozzle
 
-### Physical location of `X0 Y0`
+### Build area set up
 
 <mark>This is **an important point** to keep in mind.</mark> It is important to know how your build area is set up, to avoid collisions and potential damages.
 
