@@ -128,7 +128,13 @@ Nevertheless, this behaviour can be change in the config, by bring the settings 
 
 1. Keep toolheads as similar as possible. - The more variations there are between toolheads (i.e. control board, hotend system, etc.), the more tuning will be need for each of them.
 
-2. The following mods are either not recommended or known to be not compatible with MissChanger:
+2. The following mods are not needed but is recommended to enhance the capability of MissChanger:
+   
+   1. [Nevermore StealthMax](https://github.com/nevermore3d/StealthMax) - to regulate the chamber temperature, to allow PETG/PLA printing with the door closed; which will allow them to be combined with ABS.
+   
+   2. 
+
+3. The following mods are either not recommended or known to be not compatible with MissChanger:
    
    1. GE5C bearing z mount - This mod offer too much flexibility to the gantry, allowing it to sag when the z motors are disabled/un-powered.
    
