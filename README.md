@@ -56,6 +56,8 @@ Other recommended software:
   
   - [x] ~~ABS~~
   
+  - [ ] ASA
+  
   - [x] ~~PLA~~
   
   - [x] ~~PETG~~
@@ -63,6 +65,8 @@ Other recommended software:
   - [ ] TPU
   
   - [ ] PET
+  
+  - [ ] PC
 
 ### v2
 
