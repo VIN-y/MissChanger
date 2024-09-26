@@ -38,8 +38,6 @@ All parts are designed to be print with the following parameters:
 
 #### Steps:
 
-
-
 #### Note:
 
 * Follow this video guide for the dock assembly: [MissChanger - Build Guide - Dock](https://youtu.be/sSsay7bBFj0)
@@ -60,8 +58,6 @@ All parts are designed to be print with the following parameters:
 - See the wiring diagram, back and basement view in section 3.5
 
 ### 3.3. Tool-head and Endstops Assembly
-
-
 
 #### BOM:
 
@@ -134,9 +130,9 @@ All parts are designed to be print with the following parameters:
 
 * It is important to set up the software using the instruction in this repository (see the **README.md** in the parent folder of this one)
 
-* Nudge assembly video: [Nudge Probe - Integrated Speedbuild](https://youtu.be/6eRomxUo7TI)
+* Nudge assembly video: [Nudge Probe - Integrated Speedbuild](https://youtu.be/6eRomxUo7TI) 
 
-* Probe mount assembly:  [MissChanger - Build Guide - Nudge probe mount](https://youtu.be/ucKVRpfPakY)
+* Probe mount assembly:  [MissChanger - Build Guide - Nudge probe mount](https://youtu.be/ucKVRpfPakY) 
 
 ### 3.5. Wiring
 
