@@ -50,29 +50,15 @@ Other recommended software:
 
 ### v1
 
-- [x] ~~Lock in the Tap&Change and dock design for all future versions.~~ - v1.1 is the final version for the Tap&Change system for the Stealthburner.
+- [x] ~~Lock in the Tap&Change and dock design for all future versions~~ - v1.1. is the final version for the Tap&Change system for the Stealthburner
 
-- [ ] Print capability test, material combination:
-  
-  - [x] ~~ABS~~
-  
-  - [ ] ASA
-  
-  - [x] ~~PLA~~
-  
-  - [x] ~~PETG~~
-  
-  - [ ] TPU
-  
-  - [ ] PET
-  
-  - [ ] PC
+- [ ] Print capability test, material combination
 
 ### v2
 
 - [ ] Trident compatibility (i.e. additional calibration probe mount design)
 
-- [ ] Regain lost z build volume, with a top hat.
+- [ ] Regain lost z build volume
 
 - [x] ~~Increase space between the toolhead and the front doors and compatibility with user mods - with a new dock that integrates into a "fridge door" of 20x20mm aluminium extrusion~~ - A much simpler solution has been adopted into v1.1, i.e. 3D-printed spacers. This solution will be carry forward to v2.
 
