@@ -24,7 +24,7 @@ This document aims to outline the lesson learned in trying to combine different 
 | ---- | --- | --- | ---- | --- | --- | --- |
 | ABS  | n/a |     |      |     |     |     |
 | ASA  |     | n/a |      |     |     |     |
-| PETG |     | 3   | n/a  |     |     |     |
+| PETG | 3   |     | n/a  |     |     |     |
 | PET  |     |     |      | n/a |     |     |
 | PLA  | 2   |     | 1    |     | n/a |     |
 | TPU  |     |     |      |     |     | n/a |
@@ -51,9 +51,13 @@ This document aims to outline the lesson learned in trying to combine different 
 
 * The need for a chamber and carbon filter for ABS printing is a large technical challenge to over comes. This is because PLA cannot be print in a chamber of 40°C or above.
 
+### 3 - PETG and ABS
+
+* As shown by [JanTec Engineering](https://www.youtube.com/@JanTecEngineering) in [this YouTube video](https://youtu.be/KnvEhYCimKc?si=OjUVotaZ15H8OHvi), PETG and ABS adhere with each other, but not as well as PLA-ABS.
+
 ## Material Specific
 
-## PLA
+### PLA
 
 1. This is the easiest material to work with.
 
@@ -61,7 +65,7 @@ This document aims to outline the lesson learned in trying to combine different 
 
 3. The speed profile for PLA is difference than that of PETG and other material. The max flow rate is not as high.
 
-## PETG
+### PETG
 
 1. PETG has a very high tendency to string. this leads to:
    
