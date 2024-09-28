@@ -74,7 +74,7 @@ Other recommended software:
 
 - [ ] Regain lost z build volume, with a top hat.
 
-- [x] ~~Increase space between the toolhead and the front doors and compatibility with user mods - with a new dock that integrates into a "fridge door" of 20x20mm aluminium extrusion~~ - A much simpler solution has been adopted, i.e. 3D-printed spacers.
+- [x] ~~Increase space between the toolhead and the front doors and compatibility with user mods - with a new dock that integrates into a "fridge door" of 20x20mm aluminium extrusion~~ - A much simpler solution has been adopted into v1.1, i.e. 3D-printed spacers. This solution will be carry forward to v2.
 
 ## Other information
 
@@ -135,8 +135,6 @@ Nevertheless, this behaviour can be change in the config, by bring the settings 
 2. The following mods are not needed but is recommended to enhance the capability of MissChanger:
    
    1. [Nevermore StealthMax](https://github.com/nevermore3d/StealthMax) - to regulate the chamber temperature, to allow PETG/PLA printing with the door closed; which will allow them to be combined with ABS.
-   
-   2. 
 
 3. The following mods are either not recommended or known to be not compatible with MissChanger:
    
