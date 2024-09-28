@@ -4,7 +4,7 @@ These folder contains all the .step files that are produced for this project.
 
 ## v1 - MVP (Minimum Viable Product)
 
-The purpose of **v1** is to provide the option with the bare minimum hardware required to have the MissChanger up and run. This series is for those who are price conscious or do not need a dedicated tool-changer all the time, as the most expensive part of the build will be the toolheads themselves.
+The purpose of **v1** is to provide the option with the bare minimum hardware required to have the MissChanger up and run. This series is for those who are price conscious or do not need a dedicated tool-changer all the time. The most expensive part of a v1 build will be the toolheads themselves.
 
 ## v2 - Tool-changer focused design
 
