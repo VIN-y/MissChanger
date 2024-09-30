@@ -134,5 +134,5 @@ Nevertheless, this behaviour can be change in the config, by bring the settings 
 
 If you have any question, you can reach me:
 
-* `@vin` in the [Voron Toolchangers](https://discord.gg/Gt5XCCwv) discord
+* `@vin` in the [Voron Toolchangers](https://discord.gg/qrb6HXNYxs) discord
 * `@vinny_69 V2.6365` in the [VORONDesign](https://discord.gg/voron) discord
