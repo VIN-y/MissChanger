@@ -8,7 +8,17 @@ This document will not guide you through the set up of CAN bus or the physical m
 
 ## 2. Hardware
 
-Assembly Manual: [MissChanger_Assembly_Manual_v1.1.pdf](./MissChanger_Assembly_Manual_v1.1.pdf) 
+### 2.1. MissChanger Core
+
+The following manual is for the core components that are needed to get MissChanger up and running.
+
+MissChanger Assembly Manual: [MissChanger_Assembly_Manual_v1.1.pdf](./MissChanger_Assembly_Manual_v1.1.pdf) 
+
+### 2.2. Optional
+
+These following attachments are extras that will expand the capability of tool-changer system. Nevertheless, they were developed by others and does not share the same design language as MissChanger (i.e. difference print parameters).
+
+* Nevermore Stealth Max (with MissChanger channel switcher mod)
 
 ## 3. Software
 
