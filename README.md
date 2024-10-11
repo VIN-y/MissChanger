@@ -34,13 +34,13 @@ MissChanger aims to be a tool-changing upgrade that is compatible with both Voro
 
 ## Assembly
 
-BOM, STLs, and instructions for each version of are in their associated sub-folder in the [STLs and Instructions](./STLs%20and%20Instructions) folder.
+BOM, STLs, and instructions for each version of are in their associated sub-folder in the [STL_Config_Instructions](./STL_Config_Instructions) folder.
 
 ## Software
 
-The plugin for MissChanger is a fork of [klipper-toolchanger](https://github.com/viesturz/klipper-toolchanger), for [Tapchanger](https://github.com/viesturz/tapchanger), and it is available via GitHub at [VIN-y/klipper-toolchanger](https://github.com/VIN-y/klipper-toolchanger). Installation and configuration steps are outlined in the [STLs and Instructions](./STLs%20and%20Instructions) folder.
+The plugin for MissChanger is a fork of [klipper-toolchanger](https://github.com/viesturz/klipper-toolchanger), for [Tapchanger](https://github.com/viesturz/tapchanger), and it is available via GitHub at [VIN-y/klipper-toolchanger](https://github.com/VIN-y/klipper-toolchanger). Installation and configuration steps are outlined in the [STL_Config_Instructions](./STL_Config_Instructions) folder. Sample config files and their descriptions are also available in the folder. 
 
-Sample config files and their descriptions are available in the [Software](./Software) folder. MissChanger deviate greatly from the design of Tapchanger and Draftshift (Stealthchanger); thus, it's config files are not compatible upstream.
+MissChanger deviate greatly from the design of Tapchanger and Draftshift (Stealthchanger); thus, it's config files are not compatible upstream.
 
 Other recommended software:
 
@@ -54,13 +54,15 @@ Other recommended software:
 
 - [ ] Print capability test, material combination
 
+- [ ] Compatibility with smaller Vorons
+
+- [ ] Trident compatibility
+
 ### v2
 
-- [ ] Trident compatibility (i.e. additional calibration probe mount design)
+- [ ] Support for additional toolheads
 
-- [ ] Regain lost z build volume
-
-- [x] ~~Increase space between the toolhead and the front doors and compatibility with user mods - with a new dock that integrates into a "fridge door" of 20x20mm aluminium extrusion~~ - A much simpler solution has been adopted into v1.1, i.e. 3D-printed spacers. This solution will be carry forward to v2.
+- [ ] Support for different type of probe
 
 ## Other information
 
@@ -121,6 +123,7 @@ Nevertheless, this behaviour can be change in the config, by bring the settings 
 2. The following mods are not needed but is recommended to enhance the capability of MissChanger:
    
    1. [Nevermore StealthMax](https://github.com/nevermore3d/StealthMax) - to regulate the chamber temperature, to allow PETG/PLA printing with the door closed; which will allow them to be combined with ABS.
+   2. [Spool Holder](https://www.printables.com/model/872144-spool-holder-for-2020-aluminium-extrusion) - to hold the spools on top of the machine. There are many ways to get this done, and it depends on the people's specific use-cases. The design linked here is just of my (the developer) own creation.
 
 3. The following mods are either not recommended or known to be not compatible with MissChanger:
    
