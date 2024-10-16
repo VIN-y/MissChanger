@@ -6,7 +6,7 @@ Each versions are enclosed in their own folder. These folder should contains all
 
 # Design Record
 
-These folder contains all the STL files for this project, for their respective version.
+These folders contain all the STL files for this project, for their respective version.
 
 ## v1 - MVP (Minimum Viable Product)
 
@@ -18,12 +18,12 @@ The purpose of **v2** is to overcomes the inherent flaws of **v1** noted above. 
 
 ## Versions Summary
 
-| Version | Status    | Remarks                                                                                                                                                               |
-| ------- | --------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| v0.0    | Abandoned | The design has been proven to lack durability in the testing phase.                                                                                                   |
-| v1.0    | Abandoned | Although functional, several reliability and usability problems have been found.                                                                                      |
-| v1.1    | Alpha     | Fixes problems found in v1.0.<br/>Tool-changer reliability proven and will be carried forward, unless stated otherwise.<br/>Chamber temperature management is needed. |
-|         |           |                                                                                                                                                                       |
+| Version | Status    | Stopping Point | Remarks                                                                                                                                                               |
+|:-------:|:---------:|:--------------:| --------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| v0.0    | Abandoned | Bleeding       | The design has been proven to lack durability in the testing phase.                                                                                                   |
+| v1.0    | Abandoned | Beta           | Although functional, several reliability and usability problems have been found.                                                                                      |
+| v1.1    | Alpha     | Alpha          | Fixes problems found in v1.0.<br/>Tool-changer reliability proven and will be carried forward, unless stated otherwise.<br/>Chamber temperature management is needed. |
+|         |           |                |                                                                                                                                                                       |
 
 ## Design History
 
@@ -70,6 +70,8 @@ Nevertheless, the tests have also reveals the following cons:
 - The PTFE tube influences the curve of the umbilical more than everything else, beside the top panel
 
 - Input shaper result is worse than that of the original Voron Tap
+
+- This version was quick to be pushed to beta, because there was only one MissChanger in the work. Future versions will be given more time at each tier, as more people get on board with the project
 
 ### v1.1 - Fixing problems with v1.0 and further testings
 
