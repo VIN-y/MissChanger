@@ -33,7 +33,7 @@ This was the original idea for MissChanger, which was developed up to the point 
 
 No further work will be done for this design, and documentations are not available.
 
-### v1.0 - Beta
+### v1.0 - First Beta
 
 This is the first version of MissChanger for others to pick-up and build upon. Through testing, it shows the following pros:
 
@@ -71,7 +71,7 @@ Nevertheless, the tests have also reveals the following cons:
 
 - Input shaper result is worse than that of the original Voron Tap
 
-#### v1.1 - Alpha
+### v1.1 - Fixing problems with v1.0 and further testings
 
 - Migrate the project files to Ondsel, the CAD software, and tighten up part-to-part tolerances
 
