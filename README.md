@@ -21,7 +21,7 @@ MissChanger aims to be a tool-changing upgrade that is compatible with both Voro
 
 #### Printers:
 
-- Voron 2.4 printer
+- Voron 2.4 printer 350
 
 #### Toolheads:
 
