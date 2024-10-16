@@ -6,7 +6,7 @@ Each versions are enclosed in their own folder. These folder should contains all
 
 # Design Record
 
-These folder contains all the .step files that are produced for this project.
+These folder contains all the STL files for this project, for their respective version.
 
 ## v1 - MVP (Minimum Viable Product)
 
