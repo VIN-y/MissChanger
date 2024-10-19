@@ -52,7 +52,7 @@ Other recommended software:
 
 - [x] ~~Lock in the Tap&Change and dock design for all future versions~~ - v1.1. is the final version for the Tap&Change system for the Stealthburner
 
-- [x] ~~Print capability test, material combination~~ - Tests with the three most common materials are done.
+- [x] ~~Print capability test, material combination~~ - Tests with the three most common materials are done
 
 - [ ] Compatibility with smaller Vorons
 
@@ -72,13 +72,13 @@ Other recommended software:
 | --------- | -------------------------------------------------------------------------------------------- |
 | Release   | Finalised.<br>All relevant components and documentations are finished and tested.            |
 | Beta      | All relevant components are locked in.<br/>However, without substantial testing or feedback. |
-| Alpha     | CAD designs locked in <br>No (or incomplete) documentations                                  |
+| Alpha     | CAD designs locked in.<br>No (or incomplete) documentations.                                 |
 | Bleeding  | Everything are subjected to changes.                                                         |
-| Abandoned | Old design that is no longer persuaded.                                                      |
+| Abandoned | Old design that is no longer being persuaded.                                                |
 
 Note: 
 
-* The .step and CAD project files for that of all but the most recent version will not be included in the repo, due to the storage constrains of GitHub.
+* The .step and CAD project files for all but the most recent version will not be included in the repo, due to the storage/transfer limits of GitHub.
 
 * With user feedback and further testing, the relevant version might be updated to the next tier. However, if significant changes are required, another version will be made and start at the bleeding state; and the current version will no longer be persuaded (i.e. abandoned).
 
