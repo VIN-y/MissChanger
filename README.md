@@ -52,7 +52,7 @@ Other recommended software:
 
 - [x] ~~Lock in the Tap&Change and dock design for all future versions~~ - v1.1. is the final version for the Tap&Change system for the Stealthburner
 
-- [x] Print capability test, material combination
+- [x] ~~Print capability test, material combination~~ - Tests with the three most common materials are done.
 
 - [ ] Compatibility with smaller Vorons
 
