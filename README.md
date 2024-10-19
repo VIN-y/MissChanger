@@ -52,7 +52,7 @@ Other recommended software:
 
 - [x] ~~Lock in the Tap&Change and dock design for all future versions~~ - v1.1. is the final version for the Tap&Change system for the Stealthburner
 
-- [ ] Print capability test, material combination
+- [x] Print capability test, material combination
 
 - [ ] Compatibility with smaller Vorons
 
@@ -68,15 +68,19 @@ Other recommended software:
 
 ### Status definition
 
-| Terms     |                                                                                                                                       |
-| --------- | ------------------------------------------------------------------------------------------------------------------------------------- |
-| Release   | Finalised.<br>All relevant components and documentations are finished and tested.                                                     |
-| Beta      | All relevant components are locked in and packaged, see [Releases](./Releases).<br/>However, without substantial testing or feedback. |
-| Alpha     | Functionally working.<br>CAD designs are locked <br>No (or incomplete) documentations                                                 |
-| Bleeding  | Everything are subjected to changes.                                                                                                  |
-| Abandoned | Old design that is no longer persuaded.                                                                                               |
+| Terms     |                                                                                              |
+| --------- | -------------------------------------------------------------------------------------------- |
+| Release   | Finalised.<br>All relevant components and documentations are finished and tested.            |
+| Beta      | All relevant components are locked in.<br/>However, without substantial testing or feedback. |
+| Alpha     | CAD designs locked in <br>No (or incomplete) documentations                                  |
+| Bleeding  | Everything are subjected to changes.                                                         |
+| Abandoned | Old design that is no longer persuaded.                                                      |
 
-Note: With user feedback and further testing, the relevant version might be updated to the next tier. However, if significant changes are required, another version will be made and start at the bleeding state; and the current version will no longer be persuaded (abandoned).
+Note: 
+
+* The .step and CAD project files for that of all but the most recent version will not be included in the repo, due to the storage constrains of GitHub.
+
+* With user feedback and further testing, the relevant version might be updated to the next tier. However, if significant changes are required, another version will be made and start at the bleeding state; and the current version will no longer be persuaded (i.e. abandoned).
 
 ### Offset Types
 
