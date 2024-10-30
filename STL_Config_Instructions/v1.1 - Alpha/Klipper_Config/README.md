@@ -1,3 +1,0 @@
-# Configs Descriptions
-
-TBD

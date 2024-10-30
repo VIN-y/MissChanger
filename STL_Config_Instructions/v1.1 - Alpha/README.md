@@ -2,9 +2,9 @@
 
 ## 1. Introduction
 
-Although the setting up the config for MissChanger will change some aspects of your printer, it is still recommended that you start the project with a functional printer with Voron-Tap, then add MissChanger and one toolhead at a time.
+Although the setting up the config for MissChanger will change some aspects of your printer, it is still recommended that you start the project with a functional printer with Voron-Tap, then add MissChanger and one tool-head at a time.
 
-This document will not guide you through the set up of CAN bus or the physical mounting of the related hardware (i.e. U2C and toolhead board), please refer to the manufacture’s manual for that.
+This document will not guide you through the set up of CAN bus or the physical mounting of the related hardware (i.e. U2C and tool-head board), please refer to the manufacture’s manual for that.
 
 ## 2. Hardware
 
@@ -48,9 +48,9 @@ install_script: install.sh
 
 ### 3.2. Configuration
 
-The configuration files can be found in the [Klipper_Config](./Klipper_Config) folder, where further descriptions of each config file can also be found. If you are comfortable with it, you are welcome to dig through and play the configs files in whichever order you refer. Nevertheless, the following are the recommended steps to get the software up-and-running.
+The configuration files can be found in the [Klipper_Config](./Klipper_Config) folder, where further descriptions of each config file can also be found. If you are comfortable with it, you are welcome to dig through and play the configs files in whichever order you refer. Nevertheless, the following are the recommended steps to get the software up-and-running. The guide bellow will also make it easier for you to get support.
 
-#### Step 1: Back-up your system
+#### Step 1: Back-up your running system
 
 Through your web interface:
 
@@ -58,19 +58,31 @@ Through your web interface:
 
 2. Download it to your computer
 
-#### Step 2: Create the 'Session Variables' section in `printer.cfg`
+#### Step 2: Create the 'Other' and 'Session Variables' section in `printer.cfg`
 
-This section need to be placed just before the 'SAVE_CONFIG' section, as shown in the sample `printer.cfg`. The content of the session variable section is as follow:
+These sections need to be placed just before the 'SAVE_CONFIG' section, as shown in the sample `printer.cfg`. Everything below the `Section Variable marker` will be swap in and out upon `A_CONFIG_TOGGLE`.
+
+The content of the sections is as follow:
 
 ```
+####################################################################################
+##                             Others
+####################################################################################
+[skew_correction]
+[exclude_object]
+[input_shaper]
 [config_switch]
+[display_status]
+[pause_resume]
+[virtual_sdcard]
+path: ~/printer_data/gcodes
 
 ####################################################################################
-#                          Session Variables
+##                          Session Variables
 ####################################################################################
-#;<-------------------------------------------------------------
+#;<    # Section Variable marker
+#---------------------------------------------------------------
 [include toolchanger-nozzle_clean.cfg]
-[include macro-print-multi.cfg]
 [include ./T0-SB2209-Revo-LDO.cfg]
 [include ./T1-SB2209-Revo-LDO.cfg]
 [include ./T2-RP2040-Dragon-Step.cfg]
@@ -79,7 +91,7 @@ This section need to be placed just before the 'SAVE_CONFIG' section, as shown i
 speed: 200                   # Calibration speed
 horizontal_move_z: 10        # Z-axis movement speed
 mesh_min: 30,130             # Minimum calibration point coordinates x, y
-mesh_max: 320, 320           # Maximum calibration point coordinates x, y  #350mm=320,320
+mesh_max: 320, 320           # Maximum calibration point coordinates x, y. 350mm=320,320
 probe_count: 11,11           # Number of sampling points (7X7 is 49 points)
 mesh_pps: 2,2                # Number of supplementary sampling points
 algorithm: bicubic           # algorithmic model
@@ -97,11 +109,11 @@ points:
     300,300
     300,130
 
-speed: 150                          # Levelling speed
-horizontal_move_z: 15               # Z-axis starting height
-retries: 10                         # Number of out-of-tolerance retries
-retry_tolerance: 0.0075             # Sampling tolerance
-max_adjust: 20                      # Maximum adjustment stroke for levelling
+speed: 150                   # Levelling speed
+horizontal_move_z: 15        # Z-axis starting height
+retries: 10                  # Number of out-of-tolerance retries
+retry_tolerance: 0.0075      # Sampling tolerance
+max_adjust: 20               # Maximum adjustment stroke for levelling
 #---------------------------------------------------------------
 [gcode_macro _home]
 variable_xh: 175.0
@@ -110,23 +122,13 @@ variable_zh: 10.0
 variable_dock: True
 gcode:
     RESPOND TYPE=echo MSG='Print area centre: {xh}, {yh}, {zh}'
-    RESPOND TYPE=echo MSG='Number of TH: {no_of_toolhead}'
-
-#---------------------------------------------------------------
-[gcode_macro _WIPE_TOWER_LOCATION]
-variable_wx: 0.0
-variable_wy: 0.0
-gcode:
-    RESPOND TYPE=echo MSG="WIPE_TOWER_X = {wx}"
-    RESPOND TYPE=echo MSG="WIPE_TOWER_Y = {wy}"
+    RESPOND TYPE=echo MSG='Number of TH: {no_of_tool-head}'
 ```
 
-In addition
+If a function settings were already existing somewhere else, the old function will need to be removed, or transfer to the new location. The critical settings that needs to be changed are as follow:
 
-* For the `[quad_gantry_level]`, increase the y position of the  front 2 `points:` to 130, as shown, to avoid crashing into the dock.
-* For the `[bed_mesh]`, make sure that `mesh_min: 30,130` , as shown, to avoid crashing into the dock.
-
-*Note: As you may have notice, this section includes `[include]` functions, which is typically placed at the top of the file, and the `[quad_gantry_level]` and `[bed_mesh]` function, which you should already have in your `printer.cfg` and need to be moved down.* 
+* `[quad_gantry_level]`, increase the y position of the  front 2 `points:` to 130, as shown, to avoid crashing into the dock.
+* `[bed_mesh]`, make sure that `mesh_min: 30,130` , as shown, to avoid crashing into the dock.
 
 #### Step 3: Add the necessary config
 
@@ -134,38 +136,64 @@ The following files are contains the key settings and macros that are needed for
 
 * `toolchanger.cfg`
 
-* `toolchanger-calibrate_offsets.cfg`
+* `toolchanger-calibrate.cfg`
 
 * `toolchanger-homing.cfg` 
 
 * `toolchanger-nozzle_clean.cfg`
-1. Include these ones under the <u>'Session Variables'</u> section in your `printer.cfg`:
+1. Include this ones to the top of your `printer.cfg`:
 
 ```
 [include toolchanger.cfg]
 [include toolchanger-homing.cfg]
-[include toolchanger-calibrate_offsets.cfg]
+[include toolchanger-calibrate.cfg]
 ```
 
-2. Include this ones to <u>the top</u> of your `printer.cfg`:
+2. Include these ones under the 'Session Variables' section in your `printer.cfg`:
 
 ```
 [include toolchanger-nozzle_clean.cfg]
 ```
 
-3. Also in `printer.cfg`, disable `[safe_z_home]` (commented-out or deleted).
+3. Add the 'Global Variables' macro in `printer.cfg`. The `[gcode_macro _global_variable]` can be found in `printer.cfg`, at the top of the file. Each variable has been given a short description on what they do and some variable can be used to disable functionalities, such that you will not need to comb through the configs to find and edit them out. The macro is as follow:
+   
+   ```
+   ####################################################################################
+   ##                             Global Variables
+   ####################################################################################
+   [gcode_macro _global_variable]
+   description: Global variables that is used through out the configs
+   variable_calibration_probe_x: 241.76         # X aproximate position of the Nudge probe. CHANGE TO MATCH YOUR SET-UP
+   variable_calibration_probe_y: 330.28         # Y aproximate position of the Nudge probe. CHANGE TO MATCH YOUR SET-UP
+   variable_calibration_safe_z: 60.00           # Z aproximate safe position of the Nudge probe. KEEP CONSERVATIVE TO AVOID COLLISION
+   variable_clean_dock_x: 175                   # X aproximate position of the cleaning dock. CHANGE TO MATCH YOUR SET-UP. Set to "0" to disable
+   variable_clean_temp: 200                     # Nozzle clean temperature
+   variable_clean_threshold: 150.0              # The minimum perimeter of the print, below which the printing material will not be considered
+   variable_heatsoak_temp: 45                   # Chamber temperature target for heat soak. REQUIRES [temperature_sensor Chamber] below. Set to "0" to disable
+   variable_printing: 0                         # Printing indicator
+   variable_skew_compensation: 1                # "0" to disable, "1" to enable
+   variable_thermo_expand_offset: -0.080        # Maximum z offset for thermal expansion compensation. REQUIRES [temperature_sensor Chamber] below
+   variable_thermo_expand_temp_high: 50         # Chamber temp to apply maximum z offset for thermal expansion compensation. REQUIRES [temperature_sensor Chamber]
+   variable_thermo_expand_temp_low: 35          # Chamber temp start applying thermal expansion compensation. REQUIRES [temperature_sensor Chamber]. Set to "0" to disable
+   variable_wipe_x: 0.0                         # Wipe tower x position
+   variable_wipe_y: 0.0                         # Wipe tower y position
+   gcode:                                       # This is here to appease klipper
+   ```
+   
+   
+4. Also in `printer.cfg`, disable `[safe_z_home]` (comment-out or delete)
 
 *Note: Further configuration in the `calibrate-offsets.cfg`  will be needed to calibrate the calibration probe, see **section 4**.* 
 
-#### Step 4: Make the reference toolhead config file
+#### Step 4: Make the reference tool-head config file
 
 Use the `T0-SB2209-Revo-LDO.cfg` as references.
 
-1. Transfer the items relating to the toolhead from your `printer.cfg` to a separate file:
+1. Transfer the items relating to the tool-head from your `printer.cfg` to a separate file:
    
-   * `[mcu EBBCan0]` - the MCU for your toolhead, named to your liking, i.e. EBBCan0.
+   * `[mcu EBBCan0]` - the MCU for your tool-head, named to your liking, i.e. EBBCan0.
    
-   * `[adxl345]` - The accelerometer on the toolhead.
+   * `[adxl345]` - The accelerometer on the tool-head.
    
    * `[resonance_tester]` 
    
@@ -191,7 +219,7 @@ Use the `T0-SB2209-Revo-LDO.cfg` as references.
    
    * `[tool T0]` - associate the items above to T0 and provide tool specific variables (which will need to be adjusted later).
 
-3. Include toolhead config in the session variables are in `printer.cfg`, as shown in the code block in **step 2**.
+3. Include tool-head config in the session variables are in `printer.cfg`, as shown in the code block in **step 2**.
 
 4. Copy and paste the following section into the `printer.cfg` under the "SAVE_CONFIG" section, if they are not already there.
    
@@ -210,7 +238,7 @@ Use the `T0-SB2209-Revo-LDO.cfg` as references.
 
 #### Step 5: Calibrate and test T0
 
-1. Remove the dock and any attached toolhead other than T0 (for safety reason).
+1. Remove the dock and any attached tool-head other than T0 (for safety reason).
 
 2. Run `FIRMWARE_RESTART` , and fix any problem that arise ;)
 
@@ -232,19 +260,19 @@ Use the `T0-SB2209-Revo-LDO.cfg` as references.
 
 8. (optional) Calibrate input shaper, see **section 4.2.** 
 
-#### Step 6: Make the next toolhead and its config file
+#### Step 6: Make the next tool-head and its config file
 
-1. The hardware assembly for all toolheads are the same
+1. The hardware assembly for all tool-heads are the same
 
-2. Mount the dock and temporary mount the new toolhead to the dock - CAUTION: do not try to make the print pick up the tool yet.
+2. Mount the dock and temporary mount the new tool-head to the dock - CAUTION: do not try to make the print pick up the tool yet.
 
-3. Use `T1-SB2209-Revo-LDO.cfg` config file as references. Make, calibrate and test the config files for the other toolheads.
+3. Use `T1-SB2209-Revo-LDO.cfg` config file as references. Make, calibrate and test the config files for the other tool-heads.
 
-4. Replace the `canbus_uuid` for that of your particular toolhead.
+4. Replace the `canbus_uuid` for that of your particular tool-head.
 
-5. Include toolhead config in the session variables are in `printer.cfg`, as shown in the code block in **step 2**.
+5. Include tool-head config in the session variables are in `printer.cfg`, as shown in the code block in **step 2**.
 
-6. Copy and paste the following section into the `printer.cfg` under the "SAVE_CONFIG" section, if they are not already there. Swap out `[tool T1]`, `[tool_probe T1]`, and `[extruder1]` for the relevant toolhead.
+6. Copy and paste the following section into the `printer.cfg` under the "SAVE_CONFIG" section, if they are not already there. Swap out `[tool T1]`, `[tool_probe T1]`, and `[extruder1]` for the relevant tool-head.
    
    ```
    #*# [tool T1]
@@ -264,9 +292,21 @@ Use the `T0-SB2209-Revo-LDO.cfg` as references.
 
 7. Save & Restart
 
-#### Step 7: Calibrate and test the new toolhead
+#### Step 7: Calibrate and test the new tool-head
 
-1. Disable the motors and push the toolhead toward the back - To account for the front of the gantry over sagging
+NOTE: if this is the first tool-head you made that is not the reference tool-head. Then you will need to test the max available y of your set up.
+
+1. Run `G28`
+
+2. Manually nudge the tool-head to right behind a docked tool, but not touching
+
+3. Note down the Y position of that location
+
+4. If the y location is greater than 120, then you will need to update the `params_safe_y` in `[toolchanger]` in `toolchanger.cfg`
+
+Otherwise:
+
+1. Disable the motors and push the tool-head toward the back - To account for the front of the gantry over sagging
 
 2. Run `G28` and `QUAD_GANTRY_LEVEL`
 
@@ -307,10 +347,10 @@ This section assumes that the new tool-head has been assembled, wired up, and ha
 5. Set the dock at the empty position, i.e. at the bottom of the ramp.
    ![](./images/20240730_194812.jpg)
 
-6. Use the web interface, nudge the toolhead into the correct x-position. This can be tested by nudging the y-position in and out to see which side of the toolhead touch the dock first. Then adjusts it, such that both side of the dock would touch the toolhead at the same time.
+6. Use the web interface, nudge the tool-head into the correct x-position. This can be tested by nudging the y-position in and out to see which side of thetool-headd touch the dock first. Then adjusts it, such that both side of the dock would touch thtool-headad at the same time.
    ![](./images/20240730_195442.jpg)
 
-7. Copy and paste the current x-coordinate into the `params_park_x:` of the config file of the current toolhead
+7. Copy and paste the current x-coordinate into the `params_park_x:` of the config file of the current tool-head
 
 8. Save it, **BUT DON'T RESTART**
 
@@ -324,7 +364,7 @@ This section assumes that the new tool-head has been assembled, wired up, and ha
     G90
     ```
 
-11. Copy and paste the current y-coordinate into the `params_park_y:` of the config file of the current toolhead
+11. Copy and paste the current y-coordinate into the `params_park_y:` of the config file of the current tool-head
 
 12. Save it
 
@@ -334,21 +374,21 @@ This section assumes that the new tool-head has been assembled, wired up, and ha
 
 ### 4.2. Input Shaper (optional)
 
-*Note: To avoid Klippers from throwing errors, the parameters for input shaper are pre-populated in* `toolchanger.cfg` *and in each toolhead config files. Nevertheless, it is best to calibrate it for each available toolhead.*
+*Note: To avoid Klippers from throwing errors, the parameters for input shaper are pre-populated in* `toolchanger.cfg` *and in each tool-head config files. Nevertheless, it is best to calibrate it for each availabletool-headd.*
 
-1. Enable (un-comment) the `[adxl345]` and `[resonance_tester]` in the config of the toolhead that is to be calibrated
+1. Enable (un-comment) the `[adxl345]` and `[resonance_tester]` in the config of the tool-head that is to be calibrated
 
-2. Disable (comment out) the `[adxl345]` and `[resonance_tester]` in the config of the other toolheads
+2. Disable (comment out) the `[adxl345]` and `[resonance_tester]` in the config of the other tool-heads
 
 3. Save & Restart
 
-4. Mount the toolhead that is to be calibrated
+4. Mount the tool-head that is to be calibrated
 
 5. Run `G28` and `QUAD_GANTRY_LEVEL`
 
 6. Run `SHAPER_CALIBRATE` - **BUT, DO NOT SAVE**
 
-7. From the console output, save the following parameters into the toolhead config (at the bottom of the `[tool Tx]` section)
+7. From the console output, save the following parameters into the tool-head config (at the bottom of the `[tool Tx]` section)
    
    ```
    params_input_shaper_type_x: ...
@@ -363,9 +403,9 @@ This section assumes that the new tool-head has been assembled, wired up, and ha
 
 ### 4.3. Calibrate Offsets
 
-#### 4.3.1. Calibrate Reference Toolhead
+#### 4.3.1. Calibrate Reference tool-head
 
-1. Mount toolhead T0
+1. Mount tool-head T0
 
 2. Go to T0 config file
    
@@ -416,7 +456,7 @@ At this stage, you should have:
 
 - T0 z_offset calibrated
 
-This section will guide you through the calibration of the `trigger_to_bottom_z` for the probe, which will allow you to automate the z_offsets of the toolheads that are not T0. This should be your go to variable to adjust whenever you ran into z-offset issue.
+This section will guide you through the calibration of the `trigger_to_bottom_z` for the probe, which will allow you to automate the z_offsets of the tool-heads that are not T0. This should be your go to variable to adjust whenever you ran into z-offset issue.
 
 #### Steps and note:
 
@@ -430,7 +470,7 @@ This section will guide you through the calibration of the `trigger_to_bottom_z`
 
 5. Save and restart
 
-6. Mount toolhead **T0** and make sure it's nozzle is clean
+6. Mount tool-head **T0** and make sure it's nozzle is clean
 
 7. **<mark>!!! MAKE SURE THE NUDGE PROBE IS NOT MOUNTED !!!</mark>** 
 
@@ -448,21 +488,21 @@ Your Nudge probe is ready.
 
 *Note: It is worth mentions that there are other ways to calibrate your offsets beside the Nudge, such as the visual based solution from [Ember](https://www.emberprototypes.com/products/cxc) or the calibration print that you can get from [Printables](https://www.printables.com/model/201707-x-y-and-z-calibration-tool-for-idex-dual-extruder-). Each with their pros and cons, in term of accuracy and cost. However, Nudge is currently the only way to automatically calibrate all relevant offsets.*
 
-#### 4.3.3. Other toolhead(s)
+#### 4.3.3. Other tool-head(s)
 
 #### Steps and note:
 
-1. Mount toolhead T0 and make sure it's nozzle is clean
+1. Mount tool-head T0 and make sure it's nozzle is clean
 
 2. <mark>**!!! MAKE SURE THE NUDGE PROBE IS NOT MOUNTED !!!**</mark> 
 
-3. Heat all toolhead to 150C and wait ~3 mins for them to stabilised - some hotends have large heat block, which may not be fully thermally expanded.
+3. Heat all tool-head to 150C and wait ~3 mins for them to stabilised - some hotends have large heat block, which may not be fully thermally expanded.
 
 4. Run `G28` and `QUAD_GANTRY_LEVEL`
 
 5. Make sure all nozzles are clean
 
-6. Go to each toolhead config, comment out:
+6. Go to each tool-head config, comment out:
    
    - gcode_x_offset
    

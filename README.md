@@ -30,7 +30,7 @@ MissChanger aims to be a tool-changing upgrade that is compatible with both Voro
 #### Hotends:
 
 - Revo-Voron
-- Phaetus Dragon
+- Phaetus Dragon - Not recommended, due to the large heater block causing slow heat-up and cool-down. This is not ideal, since it is beneficial to lower the tool temperature when it is docked for a long period of time.
 
 ## Assembly
 
@@ -52,7 +52,7 @@ Other recommended software:
 
 - [x] ~~Lock in the Tap&Change and dock design for all future versions~~ - v1.1. is the final version for the Tap&Change system for the Stealthburner
 
-- [x] ~~Print capability test, material combination~~ - Tests with the three most common materials are done
+- [x] ~~Print capability test, material combination~~ - Tested with the three most common materials
 
 - [ ] Compatibility with smaller Vorons
 
@@ -68,7 +68,7 @@ Other recommended software:
 
 ### Status definition
 
-| Terms     |                                                                                              |
+| Terms     | Description                                                                                  |
 | --------- | -------------------------------------------------------------------------------------------- |
 | Release   | Finalised.<br>All relevant components and documentations are finished and tested.            |
 | Beta      | All relevant components are locked in.<br/>However, without substantial testing or feedback. |
@@ -78,7 +78,7 @@ Other recommended software:
 
 Note: 
 
-* The .step and CAD project files for all but the most recent version will not be included in the repo, due to the storage/transfer limits of GitHub.
+* The .step and CAD project files for all but the most recent version will not be included in this repository, due to the storage/transfer limits of GitHub.
 
 * With user feedback and further testing, the relevant version might be updated to the next tier. However, if significant changes are required, another version will be made and start at the bleeding state; and the current version will no longer be persuaded (i.e. abandoned).
 
@@ -128,8 +128,9 @@ Nevertheless, this behaviour can be change in the config, by bring the settings 
 
 2. The following mods are not needed but is recommended to enhance the capability of MissChanger:
    
-   1. [Nevermore StealthMax](https://github.com/nevermore3d/StealthMax) - to regulate the chamber temperature, to allow PETG/PLA printing with the door closed; which will allow them to be combined with ABS.
-   2. [Spool Holder](https://www.printables.com/model/872144-spool-holder-for-2020-aluminium-extrusion) - to hold the spools on top of the machine. There are many ways to get this done, and it depends on the people's specific use-cases. The design linked here is just of my (the developer) own creation.
+   1. [Calilantern Calibration Tool](https://vector3d.shop/products/calilantern-calibration) - MissChanger requires relatively high dimensional-accurate printed parts, to mate with each others. Therefore, it is recommended that you take the extra steps to calibrate your printer before starting the build.
+   2. [Nevermore StealthMax](https://github.com/nevermore3d/StealthMax) - to regulate the chamber temperature, to allow PETG / PLA printing with the door closed; allowing them to be combined with ABS.
+   3. [Spool Holder](https://www.printables.com/model/872144-spool-holder-for-2020-aluminium-extrusion) - to hold the spools on top of the machine. There are many ways to get this done, and it depends on the people's specific use-cases. The design linked here is just of my (the developer) own creation.
 
 3. The following mods are either not recommended or known to be not compatible with MissChanger:
    
