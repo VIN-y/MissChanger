@@ -142,18 +142,18 @@ The following files are contains the key settings and macros that are needed for
 
 * `toolchanger-nozzle_clean.cfg`
 1. Include this ones to the top of your `printer.cfg`:
-
-```
-[include toolchanger.cfg]
-[include toolchanger-homing.cfg]
-[include toolchanger-calibrate.cfg]
-```
+   
+   ```
+   [include toolchanger.cfg]
+   [include toolchanger-homing.cfg]
+   [include toolchanger-calibrate.cfg]
+   ```
 
 2. Include these ones under the 'Session Variables' section in your `printer.cfg`:
-
-```
-[include toolchanger-nozzle_clean.cfg]
-```
+   
+   ```
+   [include toolchanger-nozzle_clean.cfg]
+   ```
 
 3. Add the 'Global Variables' macro in `printer.cfg`. The `[gcode_macro _global_variable]` can be found in `printer.cfg`, at the top of the file. Each variable has been given a short description on what they do and some variable can be used to disable functionalities, such that you will not need to comb through the configs to find and edit them out. The macro is as follow:
    
@@ -179,8 +179,7 @@ The following files are contains the key settings and macros that are needed for
    variable_wipe_y: 0.0                         # Wipe tower y position
    gcode:                                       # This is here to appease klipper
    ```
-   
-   
+
 4. Also in `printer.cfg`, disable `[safe_z_home]` (comment-out or delete)
 
 *Note: Further configuration in the `calibrate-offsets.cfg`  will be needed to calibrate the calibration probe, see **section 4**.* 
@@ -318,19 +317,15 @@ Otherwise:
 
 #### Step 8: Other macros
 
-* `macro-general_0.cfg`
+* `macro-general.cfg`
 
-* `macro-general_1.cfg`
-
-* `macro-print-multi.cfg`
-
-* `macro-print-single.cfg`
+* `macro-print.cfg`
 
 * etc.
 
 These configs tends to be points of customisation for many. Therefore, the included files are intended to be inspirations for your own macros. They contains commands and functionalities that may not be relevant to user's printer, i.e. lighting, skew profile, chamber thermistor.
 
-## 4. Software Calibration
+## 4. Calibration
 
 This section assumes that the new tool-head has been assembled, wired up, and has been recognised by Klipper.
 
