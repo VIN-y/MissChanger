@@ -12,7 +12,7 @@ This document will not guide you through the set up of CAN bus or the physical m
 
 The following manual is for the core components that are needed to get MissChanger up and running.
 
-MissChanger Assembly Manual: [MissChanger_Assembly_Manual_v1.1.pdf](./MissChanger_Assembly_Manual_v1.1.pdf) 
+MissChanger Assembly Manual: [MissChanger_Assembly_Manual.pdf](./MissChanger_Assembly_Manual.pdf) 
 
 ### 2.2. Optional
 
