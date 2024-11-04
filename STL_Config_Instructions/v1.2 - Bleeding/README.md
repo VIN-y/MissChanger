@@ -305,15 +305,19 @@ NOTE: if this is the first tool-head you made that is not the reference tool-hea
 
 Otherwise:
 
-1. Disable the motors and push the tool-head toward the back - To account for the front of the gantry over sagging
+1. PID tune the hotend
 
-2. Run `G28` and `QUAD_GANTRY_LEVEL`
+2. Save & Restart
 
-3. Calibrate the park position, see **section 4.1.** 
+3. Disable the motors and push the tool-head toward the back - To account for the front of the gantry over sagging
 
-4. Calibrate the `z_offset`, see **section 4.3.** 
+4. Run `G28` and `QUAD_GANTRY_LEVEL`
 
-5. (optional) Calibrate input shaper, see **section 4.2.** 
+5. Calibrate the park position, see **section 4.1.** 
+
+6. Calibrate the `z_offset`, see **section 4.3.** 
+
+7. (optional) Calibrate input shaper, see **section 4.2.** 
 
 #### Step 8: Other macros
 

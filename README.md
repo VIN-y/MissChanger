@@ -56,6 +56,8 @@ Other recommended software:
 
 - [ ] Compatibility with smaller Vorons
 
+- [ ] USB tool-head support
+
 - [ ] Trident compatibility
 
 ### v2
@@ -131,6 +133,7 @@ Nevertheless, this behaviour can be change in the config, by bring the settings 
    1. [Calilantern Calibration Tool](https://vector3d.shop/products/calilantern-calibration) - MissChanger requires relatively high dimensional-accurate printed parts, to mate with each others. Therefore, it is recommended that you take the extra steps to calibrate your printer before starting the build.
    2. [Nevermore StealthMax](https://github.com/nevermore3d/StealthMax) - to regulate the chamber temperature, to allow PETG / PLA printing with the door closed; allowing them to be combined with ABS.
    3. [Spool Holder](https://www.printables.com/model/872144-spool-holder-for-2020-aluminium-extrusion) - to hold the spools on top of the machine. There are many ways to get this done, and it depends on the people's specific use-cases. The design linked here is just of my (the developer) own creation.
+   4. [Inverted z-chain](https://www.printables.com/model/445298-inverted-z-chain-for-voron) - This is for the Voron 2.4 300mm, or smaller. To clear the space in front of the back gantry extrusion for the umbilicals.
 
 3. The following mods are either not recommended or known to be not compatible with MissChanger:
    
