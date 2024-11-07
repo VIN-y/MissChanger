@@ -14,11 +14,13 @@ The following manual is for the core components that are needed to get MissChang
 
 MissChanger Assembly Manual: [MissChanger_Assembly_Manual.pdf](./MissChanger_Assembly_Manual.pdf) 
 
+For the Voron 2.4 300mm, or smaller, you will also need: [Inverted z-chain](https://www.printables.com/model/445298-inverted-z-chain-for-voron). To clear the space in front of the back gantry extrusion for the umbilicals.
+
 ### 2.2. Optional
 
 These following attachments are extras that will expand the capability of tool-changer system. Nevertheless, they were developed by others and does not share the same design language as MissChanger (i.e. difference print parameters).
 
-* Nevermore Stealth Max (with MissChanger channel switcher user mod) - instruction is TBD 
+* Nevermore Stealth Max (with MissChanger channel switcher user mod)
 * DC Barrel Panel Mount - for cable management of the Nevermore Stealth Max
 
 ## 3. Software
@@ -346,7 +348,7 @@ This section assumes that the new tool-head has been assembled, wired up, and ha
 5. Set the dock at the empty position, i.e. at the bottom of the ramp.
    ![](./images/20240730_194812.jpg)
 
-6. Use the web interface, nudge the tool-head into the correct x-position. This can be tested by nudging the y-position in and out to see which side of thetool-headd touch the dock first. Then adjusts it, such that both side of the dock would touch thtool-headad at the same time.
+6. Use the web interface, nudge the tool-head into the correct x-position. This can be tested by nudging the y-position in and out to see which side of the tool-head touch the dock first. Then adjusts it, such that both side of the dock would touch the tool-head at the same time.
    ![](./images/20240730_195442.jpg)
 
 7. Copy and paste the current x-coordinate into the `params_park_x:` of the config file of the current tool-head
@@ -373,7 +375,7 @@ This section assumes that the new tool-head has been assembled, wired up, and ha
 
 ### 4.2. Input Shaper (optional)
 
-*Note: To avoid Klippers from throwing errors, the parameters for input shaper are pre-populated in* `toolchanger.cfg` *and in each tool-head config files. Nevertheless, it is best to calibrate it for each availabletool-headd.*
+*Note: To avoid Klipper from throwing errors, the parameters for input shaper are pre-populated in* `toolchanger.cfg` *and in each tool-head config files. Nevertheless, it is best to calibrate it for each available tool-head.*
 
 1. Enable (un-comment) the `[adxl345]` and `[resonance_tester]` in the config of the tool-head that is to be calibrated
 
@@ -495,7 +497,7 @@ Your Nudge probe is ready.
 
 2. <mark>**!!! MAKE SURE THE NUDGE PROBE IS NOT MOUNTED !!!**</mark> 
 
-3. Heat all tool-head to 150C and wait ~3 mins for them to stabilised - some hotends have large heat block, which may not be fully thermally expanded.
+3. Heat all tool-head to 150°C and wait ~3 mins for them to stabilised - some hot-ends have large heat block, which may not be fully thermally expanded.
 
 4. Run `G28` and `QUAD_GANTRY_LEVEL`
 
@@ -521,9 +523,23 @@ Your Nudge probe is ready.
 
 ## 5. Slicer Profile
 
+### Custom Start G-code
+
+Copy and paste the following code into your slicer.
+
+```
+PRINT_START BED_TEMP=[first_layer_bed_temperature] FIRST_LAYER_PRINT_SIZE=[first_layer_print_size] TOOL=[initial_tool] TOOL_TEMP={first_layer_temperature[initial_tool]} {if is_extruder_used[0]}T0_TEMP={first_layer_temperature[0]} T0_Fil={filament_type[0]}{endif} {if is_extruder_used[1]}T1_TEMP={first_layer_temperature[1]} T1_Fil={filament_type[1]}{endif} {if is_extruder_used[2]}T2_TEMP={first_layer_temperature[2]} T2_Fil={filament_type[2]}{endif} {if is_extruder_used[3]}T3_TEMP={first_layer_temperature[3]} T3_Fil={filament_type[3]}{endif} {if has_wipe_tower}WIPE_TOWER_X=[wipe_tower_x] WIPE_TOWER_Y=[wipe_tower_y]{endif}
+```
+
+Like so:
+
+![](./images/Screenshot%20from%202024-11-06%2023-12-57.png)
+
+### Speed profile
+
 The printer bed shape need to be set as shown below, to avoid collisions with the dock during printing.
 
-*Note: It can be seen here that the max print height was set to 235mm. This is recommended for new machines to avoid umbilical tangling. However, if you are willing to do some tuning to the tension of the umbilical or add a top hat to the system, the max print height can be increased to 250mm and 300mm, respectively.*
+*Note: It can be seen here that the max print height was set to 235mm. This is recommended for new machines to avoid umbilical tangling. However, if you are willing to do some tuning to the tension of the umbilical or add a top hat to the system, the max print height can be increased to 250mm or 300mm.*
 
 ![](./images/Slicer_bed_shape.png)
 
