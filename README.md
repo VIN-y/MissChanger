@@ -5,7 +5,7 @@ A Stealth Burner tool-change system for Voron 2.4 and Trident.
 * This project was inspired by [Stealthchanger](https://github.com/Stealthchanger/Toolchanger) and [TapChanger](https://github.com/viesturz/tapchanger/) 
 - The Center_Tap for the Tap&Change system is from [Voron-Tap](https://github.com/VoronDesign/Voron-Tap/) 
 
-- The endstops assembly is a remix of that from [MrTeliP](https://www.printables.com/model/325765-voron-24r2-pg7-cable-gland-and-endstop) 
+- The end-stops assembly is a remix of that from [MrTeliP](https://www.printables.com/model/325765-voron-24r2-pg7-cable-gland-and-endstop) 
 
 - The exhaust cover is a remix of that from [Fiction](https://github.com/VoronDesign/VoronUsers/tree/main/printer_mods/Fiction/Exhaust_cover) 
 
@@ -25,9 +25,11 @@ MissChanger aims to be a tool-changing upgrade that is compatible with both Voro
 
 #### Toolheads:
 
-- Stealth Burner toolhead (up to 5, for the 350mm version)
+- Stealth Burner (up to 5, for the 350mm version) 
 
 #### Hotends:
+
+Any hot-ends that does not require a custom, extended main-body for the Stealth Burner should works just fine. Nevertheless, the follows are those that has been tested on the reference machine:
 
 - Revo-Voron
 - Phaetus Dragon - Not recommended, due to the large heater block causing slow heat-up and cool-down. This is not ideal, since it is beneficial to lower the tool temperature when it is docked for a long period of time.
@@ -50,7 +52,7 @@ Other recommended software:
 
 ### v1
 
-- [x] ~~Lock in the Tap&Change and dock design for all future versions~~ - v1.1. is the final version for the Tap&Change system for the Stealthburner
+- [x] ~~Lock in the Tap&Change and dock design for all future versions~~ - v1.1. is the final version for the Tap&Change system for the Stealth Burner
 
 - [x] ~~Print capability test, material combination~~ - Tested with the three most common materials
 
@@ -62,7 +64,7 @@ Other recommended software:
 
 ### v2
 
-- [ ] Support for additional toolheads
+- [ ] Support for additional tool-heads
 
 - [ ] Support for different type of probe
 
@@ -96,7 +98,7 @@ For the purpose of the tool-changer:
 
 - **x_offset** and **y_offset** will not be used
 
-- **z_offset** is to be calibrated for all toolheads
+- **z_offset** is to be calibrated for all tool-heads
 
 - **gcode_x_offset** / **gcode_y_offset** / **gcode_z_offset** are used to account for the XYZ different between the nozzles, based on a reference nozzle
 
@@ -104,7 +106,7 @@ For the purpose of the tool-changer:
 
 <mark>This is **an important point** to keep in mind.</mark> It is important to know how your build area is set up, to avoid collisions and potential damages.
 
-MissChanger use the same build area configuration as the origin Voron 350mm, see the code block below. This build area set up stay the same between the single-toolhead  and the multi-toolheads mode, providing consistency. No matter which mode you are in, `G1 X{number} Y{number}`  will bring the gantry to the same spot above the build plate. Also, the creator's (that is me) finds negative coordinates confusing.
+MissChanger use the same build area configuration as the origin Voron 350mm, see the code block below. This build area set up stay the same between the single tool-head  and the multi tool-heads mode, providing consistency. No matter which mode you are in, `G1 X{number} Y{number}`  will bring the gantry to the same spot above the build plate. Also, the creator's (that is me) finds negative coordinates confusing.
 
 ```
 [stepper_x]
@@ -126,7 +128,7 @@ Nevertheless, this behaviour can be change in the config, by bring the settings 
 
 ## Recommendations
 
-1. Keep toolheads as similar as possible. - The more variations there are between toolheads (i.e. control board, hotend system, etc.), the more tuning will be need for each of them.
+1. Keep tool-heads as similar as possible. - The more variations there are between tool-heads (i.e. control board, hot-end system, etc.), the more tuning will be need for each of them.
 
 2. The following mods are not needed but is recommended to enhance the capability of MissChanger:
    
