@@ -8,20 +8,23 @@ This document will not guide you through the set up of CAN bus or the physical m
 
 ## 2. Hardware
 
-### 2.1. MissChanger Core
+### 2.1. MissChanger Core Assembly
 
 The following manual is for the core components that are needed to get MissChanger up and running.
 
 MissChanger Assembly Manual: [MissChanger_Assembly_Manual.pdf](./MissChanger_Assembly_Manual.pdf) 
 
-For the Voron 2.4 300mm, or smaller, you will also need: [Inverted z-chain](https://www.printables.com/model/445298-inverted-z-chain-for-voron). To clear the space in front of the back gantry extrusion for the umbilicals.
-
-### 2.2. Optional
+### 2.2. Situational / Optional / Mods
 
 These following attachments are extras that will expand the capability of tool-changer system. Nevertheless, they were developed by others and does not share the same design language as MissChanger (i.e. difference print parameters).
 
-* Nevermore Stealth Max (with MissChanger channel switcher user mod)
-* DC Barrel Panel Mount - for cable management of the Nevermore Stealth Max
+| Mod                                                                                                                                                    | Description                                                                                                                   |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------- |
+| [Nevermore Stealth Max](./6_Optionals/Nevermore_StealthMax) + [DC Barrel Panel Mount](./6_Optionals/DC_Barrel_Panel_Mount)                             | - With modded flow chamber<br>- Cable management for Nevermore Stealth Max                                                    |
+| [Galileo 2 + LDO Nitehawk SB USB cable strain relief](https://www.printables.com/model/936670-galileo-2-ldo-nitehawk-sb-usb-cable-strain-relief/files) | For Galileo 2 + LDO Nitehawk SB USB                                                                                           |
+| [Inverted z-chain](https://www.printables.com/model/445298-inverted-z-chain-for-voron)                                                                 | Recommended for the Voron 2.4 300mm, or smaller. To clear the space in front of the back gantry extrusion for the umbilicals. |
+
+* 
 
 ## 3. Software
 
@@ -525,7 +528,7 @@ Your Nudge probe is ready.
 
 ### Custom Start G-code
 
-Copy and paste the following code into your slicer.
+Copy and paste the following code into your slicer. Note: It need to stay as a single line of gcode.
 
 ```
 PRINT_START BED_TEMP=[first_layer_bed_temperature] FIRST_LAYER_PRINT_SIZE=[first_layer_print_size] TOOL=[initial_tool] TOOL_TEMP={first_layer_temperature[initial_tool]} {if is_extruder_used[0]}T0_TEMP={first_layer_temperature[0]} T0_Fil={filament_type[0]}{endif} {if is_extruder_used[1]}T1_TEMP={first_layer_temperature[1]} T1_Fil={filament_type[1]}{endif} {if is_extruder_used[2]}T2_TEMP={first_layer_temperature[2]} T2_Fil={filament_type[2]}{endif} {if is_extruder_used[3]}T3_TEMP={first_layer_temperature[3]} T3_Fil={filament_type[3]}{endif} {if has_wipe_tower}WIPE_TOWER_X=[wipe_tower_x] WIPE_TOWER_Y=[wipe_tower_y]{endif}
@@ -534,6 +537,10 @@ PRINT_START BED_TEMP=[first_layer_bed_temperature] FIRST_LAYER_PRINT_SIZE=[first
 Like so:
 
 ![](./images/Screenshot%20from%202024-11-06%2023-12-57.png)
+
+Also. Disable the following option:
+
+![](./images/Screenshot%20from%202024-11-08%2018-20-55.png)
 
 ### Speed profile
 
