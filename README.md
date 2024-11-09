@@ -29,7 +29,7 @@ MissChanger aims to be a tool-changing upgrade that is compatible with both Voro
 
 #### Hotends:
 
-Any hot-ends that does not require a custom, extended main-body for the Stealth Burner should works just fine. Nevertheless, the follows are those that has been tested on the reference machine:
+Any hot-ends that does not require a custom/extended main-body for the Stealth Burner should works just fine. Nevertheless, the follows are those that has been tested on the reference machine:
 
 - Revo-Voron
 - Phaetus Dragon - Not recommended, due to the large heater block causing slow heat-up and cool-down. This is not ideal, since it is beneficial to lower the tool temperature when it is docked for a long period of time.
