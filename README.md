@@ -11,17 +11,26 @@ A Stealth Burner tool-change system for Voron 2.4 and Trident.
 
 - The Nudge calibration switch is from [zruncho3d](https://github.com/zruncho3d/nudge) 
 
-![20240223_185152.jpg](./images/20240921_201730.jpg)
+- The [Nevermore StealthMax](https://github.com/nevermore3d/StealthMax) is optional
+
+![20240223_185152.jpg](./images/20241109_231817.jpg)
 
 ## Description
 
-MissChanger aims to be a tool-changing upgrade that is compatible with both Voron Trident and Voron 2.4 (Trident compatibility is pending). While also retaining the MGN9H tapping system of Voron-Tap. In addition, MissChanger is designed with the ability to quickly and toollessly convert between tool changer mode and single nozzle mode (for when you need the full print volume of the stock printer).
+MissChanger aims to be a tool-changing upgrade that is compatible with both Voron Trident and Voron 2.4 (Trident compatibility is pending). While also retaining the MGN9H tapping system of Voron-Tap.
+
+Other features of MissChanger includes:
+
+* The ability to quickly (< 60 sec) and toollessly convert between tool changer mode and single nozzle mode (for when you need the full print volume of the stock printer).
+
+* Nozzle brush dock. For cleaning the PETG ooze and build-up after tool-change.
 
 ## Compatibility
 
 #### Printers:
 
-- Voron 2.4 printer 350
+- Voron 2.4 350 (up to 5 SBs)
+- Voron 2.4 300 (up to 4 SBs)
 
 #### Toolheads:
 
@@ -56,7 +65,7 @@ Other recommended software:
 
 - [x] ~~Print capability test, material combination~~ - Tested with the three most common materials
 
-- [ ] Compatibility with smaller Vorons
+- [x] Compatibility with smaller Vorons - Have been shown to be compatible with the Voron 2.4 300, via a different assembly configuration (shown in the manual). This configuration should also be compatible with the 250 Vorons.
 
 - [ ] USB tool-head support
 
@@ -151,3 +160,7 @@ If you have any question, you can reach me:
 
 * `@vin` in the [Voron Toolchangers](https://discord.gg/qrb6HXNYxs) discord
 * `@vinny_69 V2.6365` in the [VORONDesign](https://discord.gg/voron) discord
+
+## Contributors
+
+* `@psychosis5150` in the [Voron Toolchangers](https://discord.gg/qrb6HXNYxs) discord

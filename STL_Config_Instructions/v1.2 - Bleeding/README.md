@@ -24,9 +24,7 @@ These following attachments are extras that will expand the capability of tool-c
 | [Galileo 2 + LDO Nitehawk SB USB cable strain relief](https://www.printables.com/model/936670-galileo-2-ldo-nitehawk-sb-usb-cable-strain-relief/files) | For Galileo 2 + LDO Nitehawk SB USB                                                                                           |
 | [Inverted z-chain](https://www.printables.com/model/445298-inverted-z-chain-for-voron)                                                                 | Recommended for the Voron 2.4 300mm, or smaller. To clear the space in front of the back gantry extrusion for the umbilicals. |
 
-* 
-
-## 3. Software
+* ## 3. Software
 
 This section aims to provide a guide through the installation process of the software and setup the config.
 
@@ -542,13 +540,21 @@ Also. Disable the following option:
 
 ![](./images/Screenshot%20from%202024-11-08%2018-20-55.png)
 
-### Speed profile
+### Slicer Bed Shape
 
 The printer bed shape need to be set as shown below, to avoid collisions with the dock during printing.
 
 *Note: It can be seen here that the max print height was set to 235mm. This is recommended for new machines to avoid umbilical tangling. However, if you are willing to do some tuning to the tension of the umbilical or add a top hat to the system, the max print height can be increased to 250mm or 300mm.*
 
+#### For printers with 350mm beds:
+
 ![](./images/Slicer_bed_shape.png)
+
+#### For printers with 300mm beds:
+
+![](./images/300mm_Bed_Shape.png)
+
+### Speed profile
 
 Although, you might want to tune your own speed profile for the best performance. Here is a slow and reliable profile to get you started with.
 
