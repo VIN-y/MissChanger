@@ -160,6 +160,7 @@ If you have any question, you can reach me:
 
 * `@vin` in the [Voron Toolchangers](https://discord.gg/qrb6HXNYxs) discord
 * `@vinny_69 V2.6365` in the [VORONDesign](https://discord.gg/voron) discord
+* [@vin-y.bsky.social](https://bsky.app/profile/vin-y.bsky.social) on Bluesky
 
 ## Contributors
 
