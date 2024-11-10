@@ -53,7 +53,7 @@ The plugin for MissChanger is a fork of [klipper-toolchanger](https://github.com
 
 MissChanger deviate greatly from the design of Tapchanger and Draftshift (Stealthchanger); thus, it's config files are not compatible upstream.
 
-Other recommended software:
+### Other recommended software:
 
 - [KIAUH](https://github.com/dw-0/kiauh) - For the purpose of managing Klipper updates, to handle any potential incompatibility issues, whenever there is a major Klipper update.
 
@@ -65,7 +65,7 @@ Other recommended software:
 
 - [x] ~~Print capability test, material combination~~ - Tested with the three most common materials
 
-- [x] Compatibility with smaller Vorons - Have been shown to be compatible with the Voron 2.4 300, via a different assembly configuration (shown in the manual). This configuration should also be compatible with the 250 Vorons.
+- [x] ~~Compatibility with smaller Vorons~~ - Have been shown to be compatible with the Voron 2.4 300, via a different assembly configuration (shown in the manual). This configuration should also be compatible with the 250 Vorons.
 
 - [ ] USB tool-head support
 
