@@ -32,6 +32,8 @@ Other features of MissChanger includes:
 - Voron 2.4 350 (up to 5 SBs)
 - Voron 2.4 300 (up to 4 SBs)
 
+For those who want to adapt MissChanger to you own system. The Bar-Ends are 28 mm each, and each dock are 80mm in width.
+
 #### Toolheads:
 
 - Stealth Burner (up to 5, for the 350mm version) 
