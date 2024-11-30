@@ -11,6 +11,8 @@ A Stealth Burner tool-change system for Voron 2.4 and Trident.
 
 - The Nudge calibration switch is from [zruncho3d](https://github.com/zruncho3d/nudge) 
 
+- The G2E umbilical mount is a remix of that from [Iconic FAB](https://www.printables.com/model/936670-galileo-2-ldo-nitehawk-sb-usb-cable-strain-relief) 
+
 - The [Nevermore StealthMax](https://github.com/nevermore3d/StealthMax) is optional
 
 ![20240223_185152.jpg](./images/20241109_231817.jpg)
@@ -32,7 +34,7 @@ Other features of MissChanger includes:
 - Voron 2.4 350 (up to 5 SBs)
 - Voron 2.4 300 (up to 4 SBs)
 
-For those who want to adapt MissChanger to you own system. The Bar-Ends are 28 mm each, and each dock are 80mm in width.
+For those who want to adapt MissChanger to you own system. The Bar-Ends are 28mm each, and each dock is 80mm in width. All will be riding in the grove of the 2020 aluminium extrusion frame.
 
 #### Toolheads:
 

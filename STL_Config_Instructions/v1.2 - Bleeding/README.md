@@ -18,13 +18,13 @@ MissChanger Assembly Manual: [MissChanger_Assembly_Manual.pdf](./MissChanger_Ass
 
 These following attachments are extras that will expand the capability of tool-changer system. Nevertheless, they were developed by others and does not share the same design language as MissChanger (i.e. difference print parameters).
 
-| Mod                                                                                                                                                    | Description                                                                                                                   |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------- |
-| [Nevermore Stealth Max](./6_Optionals/Nevermore_StealthMax) + [DC Barrel Panel Mount](./6_Optionals/DC_Barrel_Panel_Mount)                             | - With modded flow chamber<br>- Cable management for Nevermore Stealth Max                                                    |
-| [Galileo 2 + LDO Nitehawk SB USB cable strain relief](https://www.printables.com/model/936670-galileo-2-ldo-nitehawk-sb-usb-cable-strain-relief/files) | For Galileo 2 + LDO Nitehawk SB USB                                                                                           |
-| [Inverted z-chain](https://www.printables.com/model/445298-inverted-z-chain-for-voron)                                                                 | Recommended for the Voron 2.4 300mm, or smaller. To clear the space in front of the back gantry extrusion for the umbilicals. |
+| Mod                                                                                                                        | Description                                                                                                                   |
+| -------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------- |
+| [Nevermore Stealth Max](./6_Optionals/Nevermore_StealthMax) + [DC Barrel Panel Mount](./6_Optionals/DC_Barrel_Panel_Mount) | - With modded flow chamber<br>- Cable management for Nevermore Stealth Max                                                    |
+| [Galileo 2 + LDO Nitehawk SB USB cable strain relief](./5_Others/G2E-umbilical_anchor)                                     | For Galileo 2 + LDO Nitehawk SB USB                                                                                           |
+| [Inverted z-chain](https://www.printables.com/model/445298-inverted-z-chain-for-voron)                                     | Recommended for the Voron 2.4 300mm, or smaller. To clear the space in front of the back gantry extrusion for the umbilicals. |
 
-* ## 3. Software
+## 3. Software
 
 This section aims to provide a guide through the installation process of the software and setup the config.
 
@@ -480,7 +480,7 @@ This section will guide you through the calibration of the `trigger_to_bottom_z`
 
 9. Mount the Nudge probe
 
-10. Run `CALIBRATE_NPO` - **BUT, DO NOT SAVE**
+10. Run `CALIBRATE_NPO TOOL=0` - **BUT, DO NOT SAVE**
 
 11. Look at the proposed offset and compare it to the recorded `z_offset` from step 1. Take the different and put it in the `trigger_to_bottom_z:` in `[tools_calibrate]`. Be mindful of the direction, remember: **Decrease -> higher nozzle**.
 
@@ -522,7 +522,47 @@ Your Nudge probe is ready.
 
 10. Run `SAVE_CONFIG`
 
-## 5. Slicer Profile
+11. Run `CALIBRATE_NPO` - the process is automatic, and you can specify a specific tool-head
+
+12. Run `SAVE_CONFIG`
+
+## 5. Test Calibrated values
+
+### 5.1. Offsets
+
+It is important to test if the `z_offset` and `gcode_z_offset` are set-up and applied correctly. A miss-configured `z_offset`/`gcode_z_offset` can cause the nozzle to be dragged on the bed, risking damage. Please follow the steps below to test the config, before you start printing.
+
+#### Part 1: Check the z_offset of T0
+
+1. Make sure the printer is cold (ambient temperature).
+
+2. Run `G28` and `QUAD_GANTRY_LEVEL` with T0
+
+3. Run `G1 X175 Y235 Z0.1 F9000`; i.e. move to the centre of the bed and 0.1mm above it.
+
+4. Test the z-offset with the paper test. - If it is good then you set-up `trigger_to_bottom_z` correctly.
+
+5. If it does not work. 1, adjust `trigger_to_bottom_z` accordingly.
+
+6. If it does not work. 2, then, rerun `CALIBRATE_NPO`.
+
+7. If it does not work. 3, retry step 1 to 4.
+
+#### Part 2: Check the gcode_z_offset of the other tools
+
+1. Goes through step 1 to 4 of part 1, above.
+
+2. Run `SELECT_TOOL T={TOOL} RESTORE_AXIS=XYZ` - swapping `{TOOL}` or the tool number of the tool-head to be tested.
+
+3. Test the z-offset with the paper test. - If it is good then your calibration is good.
+
+4. If it does not work. rerun `CALIBRATE_OFFSETS` for that tool-head (or all of them).
+
+#### Part 3: gcode_x_offset and gcode_y_offset
+
+To validate `gcode_x_offset` and `gcode_y_offset`, you just need to print something and see if they are set-up and applied correctly. Alternatively, you can also buy and use [Ember Camera Assisted XY](https://www.emberprototypes.com/products/cxc) to validate them.
+
+## 6. Slicer Profile
 
 ### Custom Start G-code
 
