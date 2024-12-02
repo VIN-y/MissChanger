@@ -44,8 +44,8 @@ For those who want to adapt MissChanger to you own system. The Bar-Ends are 28mm
 
 Any hot-ends that does not require a custom/extended main-body for the Stealth Burner should works just fine. Nevertheless, the follows are those that has been tested on the reference machine:
 
-- Revo-Voron
-- Phaetus Dragon - Not recommended, due to the large heater block causing slow heat-up and cool-down. This is not ideal, since it is beneficial to lower the tool temperature when it is docked for a long period of time.
+- Revo-Voron - Recommended.
+- Phaetus Dragon - Not recommended. Due to the large heater block causing slow heat-up and cool-down. This is not ideal, since it is beneficial to lower the tool temperature when it is docked for a long period of time. In addition, the cold side of the hot-end is inadequate to cool PLA in a ~30°C+ chamber, eventually causing heat creep if the heater is constantly on.
 
 ## Assembly
 
@@ -69,7 +69,7 @@ MissChanger deviate greatly from the design of Tapchanger and Draftshift (Stealt
 
 - [x] ~~Print capability test, material combination~~ - Tested with the three most common materials
 
-- [x] ~~Compatibility with smaller Vorons~~ - Have been shown to be compatible with the Voron 2.4 300, via a different assembly configuration (shown in the manual). This configuration should also be compatible with the 250 Vorons.
+- [x] ~~Compatibility with smaller Vorons~~ - Have been shown to be compatible with the Voron 2.4 300, via a different assembly configuration (shown in the manual), which should also be compatible with the 250 Vorons.
 
 - [ ] USB tool-head support
 
