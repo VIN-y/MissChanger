@@ -45,7 +45,12 @@ For those who want to adapt MissChanger to you own system. The Bar-Ends are 28mm
 Any hot-ends that does not require a custom/extended main-body for the Stealth Burner should works just fine. Nevertheless, the follows are those that has been tested on the reference machine:
 
 - Revo-Voron - Recommended.
-- Phaetus Dragon - Not recommended. Due to the large heater block causing slow heat-up and cool-down. This is not ideal, since it is beneficial to lower the tool temperature when it is docked for a long period of time. In addition, the cold side of the hot-end is inadequate to cool PLA in a ~30°C+ chamber, eventually causing heat creep if the heater is constantly on.
+  - It is officially supported for the Stealth Burner.
+  - It has the the right amount of thermal mass to keep the nozzle temperature stable, while still have decent heat-up and cool-down time.
+- Phaetus Dragon - Not recommended.
+  - The heater block causing slow heat-up and cool-down. This is not ideal, since it is beneficial to lower the tool temperature when it is docked for a long period of time.
+  - The cold side of the hot-end is inadequate to cool PLA in a 30°C+ chamber, eventually causing heat creep if the heater is constantly on.
+  - Close proximity between the heater block to the plastic causing deformation. This does not resulted in critical failures, but the affected parts will not work on any other assembly.
 
 ## Assembly
 

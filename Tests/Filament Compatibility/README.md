@@ -1,18 +1,24 @@
 # Material Test
 
-This document aims to outline the lesson learned in trying to combine different materials in a print. It not an exhausted list of the characteristics of the materials, but a list of notes for what material can be combined and tips to get it done. 
+This document aims to outline the lesson learned in trying to combine different materials in a print. It not an exhausted list of the characteristics of the materials, but a list of notes for what material can be combined and tips to get it done.
+
+## Additional sources
+
+1. [Jantec - YouTube](https://youtu.be/KnvEhYCimKc?si=OjUVotaZ15H8OHvi) 
+
+2. [Made with Layers (Thomas Sanladerer) - YouTube](https://youtu.be/5VV2fbJ0apg?si=wMI8C-MYduEpZvwh) 
 
 ## General Information
 
-1. The shared resources for all toolhead are: chamber and bed. This limits:
+1. The shared resources for all tool-head are: chamber and bed. This limits:
    
    - The material combination. In which, low temp filament cannot be used in a hot chamber. The heated chamber that ABS like to have, 40°C and above, will cause PLA and PETG to soften and clog in the extruder or in cold side of the nozzle.
    
    - The bed temperature have to be a compromised value to fit the materials being combined.
    
-   - z-offset on the same toolhead will change depending on whether it is in an enclosure or not, due to thermal expansion of the frame.
+   - z-offset on the same tool-head will change depending on whether it is in an enclosure or not, due to thermal expansion of the frame.
 
-2. Due to the order of tool changes in Prusa Slicer, a "PAUSE" operation might happen before the expected layer. This is because the slicer aims to minimise the number of tool changes, it will print the next layer with the currently initialised toolhead first, before tool-change.
+2. Due to the order of tool changes in Prusa Slicer, a "PAUSE" operation might happen before the expected layer. This is because the slicer aims to minimise the number of tool changes, it will print the next layer with the currently initialised tool-head first, before tool-change.
 
 3. There is no logic to what the bed temp should be for a multi-material print in the slicer. It just pick that of the first material being extruded.
 
@@ -53,11 +59,14 @@ This document aims to outline the lesson learned in trying to combine different 
   
   * The chamber temperature for PLA/PETG is very not ideal for ABS. This leads to warping of parts, and more importantly warping of the wipe tower. Thus, multi-material with ABS-PLA/PETG is a very un-reliable.
 
+* Confictingly [Made with Layers (Thomas Sanladerer) - YouTube](https://www.youtube.com/@MadeWithLayers) shown the opposite result between PLA-and-ABS versus PETG-and-ABS. This might comes down to the specific filament brands.
+
 * The need for a chamber and carbon filter for ABS printing is a large technical challenge to over comes. This is because PLA cannot be print in a chamber of 40°C or above.
 
 ### 3 - PETG and ABS
 
 * As shown by [JanTec Engineering](https://www.youtube.com/@JanTecEngineering) in [this YouTube video](https://youtu.be/KnvEhYCimKc?si=OjUVotaZ15H8OHvi), PETG and ABS does adhere with each other, but not as well as PLA-ABS. Coupling the PLA-ABS result above. PETG might be the best support material for ABS, assuming that the chamber temperature challenge can be overcame.
+* Confictingly [Made with Layers (Thomas Sanladerer) - YouTube](https://www.youtube.com/@MadeWithLayers) shown the opposite result between PLA-and-ABS versus PETG-and-ABS. This might comes down to the specific filament brands. 
 * For the PETG support material. Even though their bond is relatively weak, PETG-ABS bond is still noticeable. It will still be challenging to remove PETG support if it is printed on top of ABS. Thus, it is advised to the make the interface layer between PETG and ABS out of PLA.
 
 ## Material Specific
@@ -82,7 +91,7 @@ This document aims to outline the lesson learned in trying to combine different 
    
    * **Mitigation 1**, dry filament. This is more important for a tool-changer than it is for single nozzle prints.
    
-   * **Mitigation 2**, cleaning. The PETG toolhead will benefit from a nozzle scrub between tool-change.
+   * **Mitigation 2**, cleaning. The PETG tool-head will benefit from a nozzle scrub between tool-change.
    
    * **Mitigation 3**, wipe tower. PETG will benefit from additional wipe distance.
    
@@ -98,6 +107,6 @@ This document aims to outline the lesson learned in trying to combine different 
 
 ### ABS
 
-1. Warping is a major issue for combining ABS with materials like PLA/PETG. Crucially, this problem will often occur on the wipe tower, making ABS multi-material extremely hit-or-miss.
+1. Warping is a major issue for combining ABS with materials like PLA/PETG. Crucially, this problem will often occur on the wipe tower, making ABS multi-material extremely h
 
-![](./images/20241025_211109.jpg)
+![](./images/ABS_warping_1.jpg)
