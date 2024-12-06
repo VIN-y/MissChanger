@@ -336,7 +336,7 @@ These configs tends to be points of customisation for many. Therefore, the inclu
 
 This section assumes that the new tool-head has been assembled, wired up, and has been recognised by Klipper.
 
-### 4.1. Park position calibration
+### 4.1. <mark>Park position calibration</mark>
 
 1. Run `G28` and `QUAD_GANTRY_LEVEL`  - if not already done
 
@@ -405,25 +405,25 @@ This section assumes that the new tool-head has been assembled, wired up, and ha
 
 ### 4.3. Calibrate Offsets
 
-#### 4.3.1. Calibrate Reference tool-head
+#### 4.3.1. Calibrate Reference Z-Offset
 
 1. Mount tool-head T0
 
-2. Go to T0 config file
+2. Go to T0 config file. Make sure:
    
-   - Comment out the `z_offset` under `[tool_probe T0]`  - if it is not already is
+   - `z_offset` under `[tool_probe T0]` is commented out
    
-   - Set every other offsets to 0
+   - Every other offsets to `0`; i.e. `x_offset` and `y_offset`
    
-   - Save it, **BUT DON'T RESTART**
+   - Save it, **BUT DON'T RESTART** 
 
-3. Run `G28` and `QUAD_GANTRY_LEVEL`
+3. Run `G28` and `QUAD_GANTRY_LEVEL` 
 
 4. Run `PROBE_CALIBRATE` on the console and go through the process with the normal paper test
 
 5. Run `SAVE_CONFIG` - which will restart your printer
 
-6. Go back to `printer.cfg`
+6. Go to `printer.cfg`
 
 7. Copy the z-offset value from:
    
@@ -439,52 +439,66 @@ This section assumes that the new tool-head has been assembled, wired up, and ha
    #*# z_offset = {value}
    ```
 
-8. Delete (It will not be used by the system regardless of whether it is there or not):
+8. Delete:
    
    ```
    #*# [tool_probe_endstop]
    #*# z_offset = {value}
    ```
+   
+   *Note: It will not be used regardless of whether it is there or not.*
 
 9. Save & Restart
 
-*Note: it is key that you get the z_offset correct for the T0, as it will be used to extrapolate other offsets later on. Therefore, it is worth diverge from the instruction, if you have a preferred way to set your the z-offset.*
+*Note: It is key that you get the z_offset correct for the T0, as it will be used to extrapolate other offsets later on. Therefore, it is worth diverge from the instruction, if you have a preferred way to set your the z-offset.*
 
-#### 4.3.2. Nudge Probe Calibration
+#### 4.3.2. Nudge Probe Setup & Calibration
 
 At this stage, you should have:
 
 - The Nudge probe assembled, tested, and installed
 
-- T0 z_offset calibrated
+- T0 z-offset calibrated
 
-This section will guide you through the calibration of the `trigger_to_bottom_z` for the probe, which will allow you to automate the z_offsets of the tool-heads that are not T0. This should be your go to variable to adjust whenever you ran into z-offset issue.
+This section will guide you through the calibration of the machine specific variable `trigger_to_bottom_z`, which will allow you to automate the z-offset of the tool-heads that are not T0. 
 
-#### Steps and note:
+*Note: This should be your go to variable to adjust whenever you ran into z-offset issue.*
 
-1. Go to `printer.cfg` and record the `z-offset` for `#*# [tool_probe T0]`, which should be at (or near) the bottom of the file
+#### Setup:
 
-2. Open `calibrate-offsets.cfg`
+1. Open<mark> `calibrate-offsets.cfg`</mark>
 
-3. Set it to the correct `pin:` in `[tools_calibrate]`
+2. Setup `[tools_calibrate]` with the correct `pin`
 
-4. Set the approximate XY location of the Nudge pin in `[gcode_macro _CALIBRATE_MOVE_OVER_PROBE]`
+3.  Save and restart
 
-5. Save and restart
+4. Open `printer.cfg` 
 
-6. Mount tool-head **T0** and make sure it's nozzle is clean
+5. Set the approximate X and Y location of the Nudge pin in `[gcode_macro _global_variable]` 
 
-7. **<mark>!!! MAKE SURE THE NUDGE PROBE IS NOT MOUNTED !!!</mark>** 
+6. Save and restart
 
-8. Run `G28` and `QUAD_GANTRY_LEVEL`
+#### Steps:
 
-9. Mount the Nudge probe
+1. Go to `printer.cfg` and record the `z-offset` for `[tool_probe T0]`, which should be at (or near) the bottom of the file
 
-10. Run `CALIBRATE_NPO TOOL=0` - **BUT, DO NOT SAVE**
+2. Mount tool-head **T0** and make sure it's nozzle is clean
 
-11. Look at the proposed offset and compare it to the recorded `z_offset` from step 1. Take the different and put it in the `trigger_to_bottom_z:` in `[tools_calibrate]`. Be mindful of the direction, remember: **Decrease -> higher nozzle**.
+3. **<mark>!!! MAKE SURE THE NUDGE PROBE IS NOT MOUNTED !!!</mark>** 
 
-12. Restart and repeat steps 8-10 until the proposed z-offset to be +-0.01mm of the recorded `z_offset` in **step 1**
+4. Run `G28` and `QUAD_GANTRY_LEVEL`
+
+5. Mount the Nudge probe
+
+6. Run `CALIBRATE_NPO TOOL=0` - **BUT, DO NOT SAVE**
+
+7. Look at the proposed offset on the console and compare it to the recorded `z_offset` from **step 1**. Take the different and put it in the `trigger_to_bottom_z:` in `[tools_calibrate]`.
+   
+   *Note: Be mindful of the direction, remember: **Decrease -> higher nozzle**.*
+
+8. Save and restart
+
+9. Restart and repeat steps 1-8 until the proposed z-offset to be +-0.01mm of the recorded `z_offset` in **step 1**
 
 Your Nudge probe is ready. 
 
@@ -492,39 +506,41 @@ Your Nudge probe is ready.
 
 #### 4.3.3. Other tool-head(s)
 
-#### Steps and note:
+#### Steps:
 
-1. Mount tool-head T0 and make sure it's nozzle is clean
+1. <mark>**!!! MAKE SURE THE NUDGE PROBE IS NOT MOUNTED !!!**</mark>
 
-2. <mark>**!!! MAKE SURE THE NUDGE PROBE IS NOT MOUNTED !!!**</mark> 
+2. Mount tool-head T0
 
-3. Heat all tool-head to 150°C and wait ~3 mins for them to stabilised - some hot-ends have large heat block, which may not be fully thermally expanded.
+3. Make sure all tool-heads are cold (near room temperature)
 
-4. Run `G28` and `QUAD_GANTRY_LEVEL`
+4. Make sure all nozzles are clean
 
-5. Make sure all nozzles are clean
+5. Run `G28` and `QUAD_GANTRY_LEVEL`
 
-6. Go to each tool-head config, comment out:
+6. Make sure all tool-head config file (except T0) has the following variable disabled (commented out):
    
-   - gcode_x_offset
+   - `gcode_x_offset` 
    
-   - gcode_y_offset
+   - `gcode_y_offset` 
    
-   - gcode_z_offset
+   - `gcode_z_offset` 
    
-   - z_offset
+   - `z_offset` 
 
 7. Save it, **BUT DON'T RESTART**
 
 8. Mount the Nudge probe
 
-9. Run `CALIBRATE_OFFSETS` - the process is automatic, and you can specify a specific tool-head
+9. Run `CALIBRATE_OFFSETS` - the process is automatic, but you can specify a specific tool-head
 
 10. Run `SAVE_CONFIG`
 
-11. Run `CALIBRATE_NPO` - the process is automatic, and you can specify a specific tool-head
+11. Repeat **step 1** to **step 8** 
 
-12. Run `SAVE_CONFIG`
+12. Run `CALIBRATE_NPO` - the process is automatic, and you can specify a specific tool-head
+
+13. Run `SAVE_CONFIG`
 
 ## 5. Test Calibrated values
 
@@ -534,25 +550,29 @@ It is important to test if the `z_offset` and `gcode_z_offset` are set-up and ap
 
 #### Part 1: Check the z_offset of T0
 
-1. Make sure the printer is cold (ambient temperature).
+1. Make sure the printer is cold (near ambient temperature).
 
 2. Run `G28` and `QUAD_GANTRY_LEVEL` with T0
 
-3. Run `G1 X175 Y235 Z0.1 F9000`; i.e. move to the centre of the bed and 0.1mm above it.
+3. Run `G1 X175 Y235 Z10 F9000` 
 
-4. Test the z-offset with the paper test. - If it is good then you set-up `trigger_to_bottom_z` correctly.
+4. Run `G1 Z0.1 F9000` 
 
-5. If it does not work. 1, adjust `trigger_to_bottom_z` accordingly.
+5. Test the z-offset with the paper test. - If it is good then you set-up `trigger_to_bottom_z` correctly.
 
-6. If it does not work. 2, then, rerun `CALIBRATE_NPO`.
+6. If it does not work. 1, baby step the z position to correction.
 
-7. If it does not work. 3, retry step 1 to 4.
+7. If it does not work. 2, adjust `trigger_to_bottom_z` accordingly using the baby stepped amount.
+
+8. If it does not work. 3, then, rerun `CALIBRATE_NPO`.
+
+9. If it does not work. 4, retry step 1 to 4.
 
 #### Part 2: Check the gcode_z_offset of the other tools
 
 1. Goes through step 1 to 4 of part 1, above.
 
-2. Run `SELECT_TOOL T={TOOL} RESTORE_AXIS=XYZ` - swapping `{TOOL}` or the tool number of the tool-head to be tested.
+2. Run `SELECT_TOOL T={TOOL} RESTORE_AXIS=XYZ` - swapping `{TOOL}` for the tool number to be tested.
 
 3. Test the z-offset with the paper test. - If it is good then your calibration is good.
 

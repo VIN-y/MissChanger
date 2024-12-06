@@ -100,3 +100,7 @@ Nevertheless, the tests have also reveals the following cons:
 * Remigrating the project back to FreeCAD. This is because Ondsel ran out of funding and shutdown.
 
 * USB tool-heads seems to be favoured by the community over CAN. Therefore, v1.2 will be making an effort to be compatible with USB controller boards.
+
+* Bug fixes and revamp software stack.
+
+* Update the design of the Nudge Mount, for broader compatibility.
