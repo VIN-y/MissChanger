@@ -171,8 +171,6 @@ Nevertheless, this behaviour can be change in the config, by bring the settings 
 
 ![](./images/20241017_132023.jpg)
 
-
-
 ## Support
 
 If you have any question, you can reach me:
