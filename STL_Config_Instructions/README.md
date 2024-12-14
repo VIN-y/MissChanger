@@ -99,11 +99,15 @@ Nevertheless, the tests have also reveals the following cons:
 
 * Remigrating the project back to FreeCAD. This is because Ondsel ran out of funding and shutdown.
 
-* USB tool-heads seems to be favoured by the community over CAN. Therefore, v1.2 will be making an effort to be compatible with USB controller boards.
+* USB tool-heads seems to be favoured by the community over CAN. Therefore, v1.2 has added official Nitehawk SB USB tool-head board.
 
 * Voron 2.4 300 compatibility established, tested by `@psychosis5150`.
 
 * Update the design of the Nudge Mount, for broader compatibility and increase durability.
+
+* Update XLR panel design for better compatibility and alignment.
+
+* Add official support for the G2E.
 
 * Bug fixes and revamp software stack:
   
