@@ -76,7 +76,7 @@ MissChanger deviate greatly from the design of Tapchanger and Draftshift (Stealt
 
 - [x] ~~Compatibility with smaller Vorons~~ - Have been shown to be compatible with the Voron 2.4 300, via a different assembly configuration (shown in the manual), which should also be compatible with the 250 Vorons.
 
-- [ ] USB tool-head support
+- [x] ~~USB tool-head support~~ - Nitehawk SB USB tool-head board.
 
 - [ ] Trident compatibility
 
