@@ -23,7 +23,7 @@ The purpose of **v2** is to overcomes the inherent flaws of **v1** noted above. 
 | v0.0    | Abandoned | Bleeding       | The design has been proven to lack durability in the testing phase.                                                                                                                                       |
 | v1.0    | Abandoned | Beta           | Although functional, several reliability and usability problems have been found.                                                                                                                          |
 | v1.1    | Abandoned | Alpha          | Fixes problems found in v1.0.<br/>Tool-changer reliability proven and will be carried forward, unless stated otherwise.<br/>The Nevermore StealthMax is added as optional chamber temperature management. |
-| v1.2    | Bleeding  |                | Adding support for Voron 2.4 300mm.<br/>Adding support for USB tool-heads.                                                                                                                                |
+| v1.2    | Bleeding  |                | Adding support for Voron 2.4 300mm.<br/>Adding support for USB tool-heads.<br/>Revamp software stack and bug fixes.                                                                                       |
 
 ## Design History
 
@@ -95,12 +95,22 @@ Nevertheless, the tests have also reveals the following cons:
 
 - Multi-material experiments show that the tool-changer will benefit from chamber temperature management. Lower chamber temperature will allow ABS to be combined with PLA/PETG. However, the result is mixed, as many ABS print came out poorly due to the lower chamber temperature.
 
-### v1.2 - Voron 2.4 300 compatibility and USB tool-heads
+### v1.2 - Polish hardware and revamp software
 
 * Remigrating the project back to FreeCAD. This is because Ondsel ran out of funding and shutdown.
 
 * USB tool-heads seems to be favoured by the community over CAN. Therefore, v1.2 will be making an effort to be compatible with USB controller boards.
 
-* Bug fixes and revamp software stack.
+* Voron 2.4 300 compatibility established, tested by `@psychosis5150`.
 
-* Update the design of the Nudge Mount, for broader compatibility.
+* Update the design of the Nudge Mount, for broader compatibility and increase durability.
+
+* Bug fixes and revamp software stack:
+  
+  * Deprecate `multi-fan` to re-enable the ability to control the part cooling fan with the GUIs.
+  
+  * Establish the structure of the software stack, to have a low barrier of entry while still allow customisation.
+  
+  * Revamp the routine, to avoid firmware crashing or unsafe movement during pick-up.
+  
+  * Fixed the bug where the gcode_z_offset not correctly clear out after tool-change.
