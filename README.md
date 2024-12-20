@@ -13,7 +13,7 @@ A Stealth Burner tool-change system for Voron 2.4 and Trident.
 
 - The G2E umbilical mount is a remix of that from [Iconic FAB](https://www.printables.com/model/936670-galileo-2-ldo-nitehawk-sb-usb-cable-strain-relief) 
 
-- The [Nevermore StealthMax](https://github.com/nevermore3d/StealthMax) is optional
+- The [Nevermore StealthMax](https://github.com/nevermore3d/StealthMax) is optional, and has been modified
 
 ![20240223_185152.jpg](./images/20241109_231817.jpg)
 

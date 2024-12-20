@@ -118,3 +118,7 @@ Nevertheless, the tests have also reveals the following cons:
   * Revamp the routine, to avoid firmware crashing or unsafe movement during pick-up.
   
   * Fixed the bug where the gcode_z_offset not correctly clear out after tool-change.
+  
+  * Add a `PROBE` step before starting the `_CALIBRATE_NPO` and `_CALIBRATE_OFFSETS`.
+  
+  * Fix the bug where the QGL failed to be detected in `PRINT_START`.

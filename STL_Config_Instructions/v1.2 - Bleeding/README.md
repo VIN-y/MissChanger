@@ -33,25 +33,18 @@ This section aims to provide a guide through the installation process of the sof
 To install the [VIN-y/klipper-toolchanger](https://github.com/VIN-y/klipper-toolchanger) plugin, run the following installation script using the following command over SSH. This script will download this GitHub repository to your RaspberryPi home directory, and symlink the files in the Klipper extra folder.
 
 ```
-wget -O - https://raw.githubusercontent.com/VIN-y/klipper-toolchanger/main/install.sh | bash
+wget -O - https://raw.githubusercontent.com/VIN-y/klipper-toolchanger/main/scripts/install.sh | bash
 ```
 
-Then, add the following to your `moonraker.conf` to enable automatic updates:
-
-```
-[update_manager klipper-toolchanger]
-type: git_repo
-channel: dev
-path: ~/klipper-toolchanger
-origin: https://github.com/VIN-y/klipper-toolchanger.git
-managed_services: klipper
-primary_branch: main
-install_script: install.sh
-```
+*Note: You will need a `FIRMWARE_RESTART` whenever there is an update for the add-on.*
 
 ### 3.2. Configuration
 
-The configuration files can be found in the [Klipper_Config](./Klipper_Config) folder, where further descriptions of each config file can also be found. If you are comfortable with it, you are welcome to dig through and play the configs files in whichever order you refer. Nevertheless, the following are the recommended steps to get the software up-and-running. The guide bellow will also make it easier for you to get support.
+The **sample configuration files** can be found in the [Klipper_Config](./Klipper_Config) folder, where further descriptions of the software stack can also be found. If you are comfortable with it, you are welcome to by-pass the default macros and play with the configs files to your liking. 
+
+Nevertheless, the following are the recommended steps to get the software up-and-running using the default set of macros. Following the guide bellow will make it easier for you to get support, and the default macro will be managed and updated together with the software stack.
+
+<mark>Stop point</mark>
 
 #### Step 1: Back-up your running system
 
@@ -470,7 +463,7 @@ This section will guide you through the calibration of the machine specific vari
 
 2. Setup `[tools_calibrate]` with the correct `pin`
 
-3.  Save and restart
+3. Save and restart
 
 4. Open `printer.cfg` 
 
