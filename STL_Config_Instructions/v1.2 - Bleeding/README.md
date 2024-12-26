@@ -525,7 +525,9 @@ This section will guide you through the calibration of the machine specific vari
 
 8. Save and restart
 
-9. Restart and repeat steps 1-8 until the proposed z-offset to be +-0.01mm of the recorded `z_offset` in **step 1**
+9. Restart and repeat steps 1-8 until the proposed z-offset to be +-0.01mm of the recorded `z_offset` in **step 1**.
+
+10. Run `CALIBRATE_OFFSETS TOOL=0` 2-3 more times to make sure the measured value is consistence.
 
 Your calibration probe is ready.
 
@@ -619,7 +621,9 @@ To validate `gcode_x_offset` and `gcode_y_offset`, you just need to print someth
 
 ## Custom Start G-code
 
-Copy and paste the following code into your slicer. Note: It need to stay as a single line of gcode.
+Copy and paste the following code into your slicer.
+
+*Note: It need to stay as a single line of gcode.*
 
 ```
 PRINT_START BED_TEMP=[first_layer_bed_temperature] FIRST_LAYER_PRINT_SIZE=[first_layer_print_size] FIRST_LAYER_HEIGHT=[first_layer_height] TOOL=[initial_tool] TOOL_TEMP={first_layer_temperature[initial_tool]} {if is_extruder_used[0]}T0_TEMP={first_layer_temperature[0]} T0_Fil={filament_type[0]}{endif} {if is_extruder_used[1]}T1_TEMP={first_layer_temperature[1]} T1_Fil={filament_type[1]}{endif} {if is_extruder_used[2]}T2_TEMP={first_layer_temperature[2]} T2_Fil={filament_type[2]}{endif} {if is_extruder_used[3]}T3_TEMP={first_layer_temperature[3]} T3_Fil={filament_type[3]}{endif}
