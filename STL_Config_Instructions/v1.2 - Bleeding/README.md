@@ -111,7 +111,7 @@ These sections need to be placed just before the **SAVE_CONFIG** section, as sho
 
 If a function settings were already existing somewhere else, the old function will need to be removed, or transfer to the new location. The critical settings that needs to be changed are as follow:
 
-- `[quad_gantry_level]`, increase the y position of the front 2 `points:` to 130, as shown, to avoid crashing into the dock.
+- `[quad_gantry_level]`, increase the y position of the front 2 `points:` to `130`, as shown, to avoid crashing into the dock.
 - `[bed_mesh]`, make sure that `mesh_min: 30,130` , as shown, to avoid crashing into the dock.
 - `[gcode_macro _home]` need to adjusted with the appropriate `xh` and `yh` which represent the centre of the built area.
 - `variable_dock` is the indicator of which config is being used, is to be toggled in and out. 
@@ -150,7 +150,7 @@ bicubic_tension: 0.2         # Algorithmic interpolation don't move
 gantry_corners:
     -60,-10
     410,420
-#  Probe points
+#  Probe points for 350mm Build
 points:
     50,130
     50,300
@@ -355,7 +355,29 @@ These configs tends to be points of customisation for many. Therefore, the inclu
 
 ### Step 9: Single tool-head config
 
-<mark>TBD</mark>
+1. Run `SAVE_CONFIG_MODE` to save the current setup.
+
+2. Check if the save was made correctly, in the **config** folder.
+
+3. In the Section Variable section in **printer.cfg**:
+   
+   1. Comment out all included tool-head configs other than T0
+   
+   2. Under `[gcode_macro _home]`:
+      
+      1. Set an appropriate `xh` and `yh` which represent the centre of the new built area.
+      
+      2. Set `variable_dock` to `False`
+   
+   3. Revert to `[bed_mesh]` and `[quad_gantry_level]` to the original values of the stock machine (without the tool-changer bits)
+   
+   4. Delete the all `[tool T(x)]`, `[tool_probe T(x)]`, and `[extruder(x)]` under the `SAVE_CONFIG` section. EXCEPT: `[tool_probe T0]` and `[extruder]`.
+
+4. Save, but no restart is needed.
+
+5. Run `SAVE_CONFIG_MODE` and check if the file is correctly saved.
+
+Now, the `CONFIG_TOGGLE` macro will allow you to toggle between these 2 configs. 
 
 # 4. Calibration
 
