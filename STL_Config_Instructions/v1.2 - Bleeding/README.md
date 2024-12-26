@@ -146,23 +146,22 @@ algorithm: bicubic           # algorithmic model
 bicubic_tension: 0.2         # Algorithmic interpolation don't move
 #---------------------------------------------------------------
 [quad_gantry_level]
-#	Gantry Corners for 350mm Build
+#    Gantry Corners for 350mm Build
 gantry_corners:
-	-60,-10
-	410,420
+    -60,-10
+    410,420
 #  Probe points
 points:
-	50,130
-	50,300
-	300,300
-	300,130
+    50,130
+    50,300
+    300,300
+    300,130
 
 speed: 150                   # Levelling speed
 horizontal_move_z: 15        # Z-axis starting height
 retries: 10                  # Number of out-of-tolerance retries
 retry_tolerance: 0.0075      # Sampling tolerance
 max_adjust: 20               # Maximum adjustment stroke for levelling
-
 ```
 
 4. If it exist in **printer.cfg**, disable `[safe_z_home]` (comment-out or delete)
@@ -354,6 +353,10 @@ Otherwise:
 
 These configs tends to be points of customisation for many. Therefore, the included files are intended to be inspirations for your own macros. They contains commands and functionalities that may not be needed or are relevant to your printer.
 
+### Step 9: Single tool-head config
+
+<mark>TBD</mark>
+
 # 4. Calibration
 
 This section assumes that the new tool-head has been assembled, wired up, and has been recognised by Klipper.
@@ -490,7 +493,7 @@ This section will guide you through the calibration of the machine specific vari
 
 ### Setup:
 
-1. Open<mark> `calibrate-offsets.cfg`</mark>
+1. Open `misschanger_settings.cfg`
 
 2. Setup `[tools_calibrate]` with the correct `pin`
 
@@ -498,7 +501,7 @@ This section will guide you through the calibration of the machine specific vari
 
 4. Open `printer.cfg` 
 
-5. Set the approximate X and Y location of the Nudge pin in `[gcode_macro _global_variable]` 
+5. Set the approximate X and Y location of the Nudge pin in `[gcode_macro _static_variable]` 
 
 6. Save and restart
 
@@ -508,13 +511,13 @@ This section will guide you through the calibration of the machine specific vari
 
 2. Mount tool-head **T0** and make sure it's nozzle is clean
 
-3. **<mark>!!! MAKE SURE THE NUDGE PROBE IS NOT MOUNTED !!!</mark>** 
+3. **<mark>!!! MAKE SURE THE CALIBRATION PROBE IS NOT MOUNTED !!!</mark>** 
 
 4. Run `G28` and `QUAD_GANTRY_LEVEL`
 
-5. Mount the Nudge probe
+5. Mount the calibration probe
 
-6. Run `CALIBRATE_NPO TOOL=0` - **BUT, DO NOT SAVE**
+6. Run `CALIBRATE_OFFSETS TOOL=0` - **BUT, DO NOT SAVE**
 
 7. Look at the proposed offset on the console and compare it to the recorded `z_offset` from **step 1**. Take the different and put it in the `trigger_to_bottom_z:` in `[tools_calibrate]`.
    
@@ -524,25 +527,21 @@ This section will guide you through the calibration of the machine specific vari
 
 9. Restart and repeat steps 1-8 until the proposed z-offset to be +-0.01mm of the recorded `z_offset` in **step 1**
 
-Your Nudge probe is ready. 
+Your calibration probe is ready.
 
-*Note: It is worth mentions that there are other ways to calibrate your offsets beside the Nudge, such as the visual based solution from [Ember](https://www.emberprototypes.com/products/cxc) or the calibration print that you can get from [Printables](https://www.printables.com/model/201707-x-y-and-z-calibration-tool-for-idex-dual-extruder-). Each with their pros and cons, in term of accuracy and cost. However, Nudge is currently the only way to automatically calibrate all relevant offsets.*
+*Note: It is worth mentions that there are other ways to calibrate your offsets, such as the visual based solution from [Ember](https://www.emberprototypes.com/products/cxc) or the calibration print that you can get from [Printables](https://www.printables.com/model/201707-x-y-and-z-calibration-tool-for-idex-dual-extruder-). Each with their pros and cons, in term of accuracy and cost. However,  a physical contact probe is currently the only way to automatically calibrate all relevant offsets.*
 
 ### 4.3.3. Other tool-head(s)
 
 ### Steps:
 
-1. <mark>**!!! MAKE SURE THE NUDGE PROBE IS NOT MOUNTED !!!**</mark>
+1. <mark>**!!! MAKE SURE THE CALIBRATION PROBE IS NOT MOUNTED !!!**</mark>
 
-2. Mount tool-head T0
+2. Make sure all tool-heads are cold (near room temperature)
 
-3. Make sure all tool-heads are cold (near room temperature)
+3. Make sure all nozzles are clean
 
-4. Make sure all nozzles are clean
-
-5. Run `G28` and `QUAD_GANTRY_LEVEL`
-
-6. Make sure all tool-head config file (except T0) has the following variable disabled (commented out):
+4. Make sure all tool-head config file (except T0) has the following variable disabled (commented out):
    
    - `gcode_x_offset` 
    
@@ -552,7 +551,11 @@ Your Nudge probe is ready.
    
    - `z_offset` 
 
-7. Save it, **BUT DON'T RESTART**
+5. Save it, **BUT DON'T RESTART**
+
+6. Mount tool-head T0
+
+7. Run `G28` and `QUAD_GANTRY_LEVEL`
 
 8. Mount the Nudge probe
 
@@ -560,11 +563,15 @@ Your Nudge probe is ready.
 
 10. Run `SAVE_CONFIG`
 
-11. Repeat **step 1** to **step 8** 
+If you has the set `variable_calibration_abs_z_seperately` to `1` in `[gcode_macro _static_variable]` in **printer.cfg** (for the Nudge probe).
 
-12. Run `CALIBRATE_NPO` - the process is automatic, and you can specify a specific tool-head
+1. Mount tool-head T0
 
-13. Run `SAVE_CONFIG`
+2. Run `G28` and `QUAD_GANTRY_LEVEL` 
+
+3. Run `CALIBRATE_ABSOLUTE_Z` 
+
+4. Run `SAVE_CONFIG`
 
 # 5. Test and Troubleshoot
 
@@ -578,29 +585,31 @@ It is important to test if the `z_offset` and `gcode_z_offset` are set-up and ap
 
 2. Run `G28` and `QUAD_GANTRY_LEVEL` with T0
 
-3. Run `G1 X175 Y235 Z10 F9000` 
+3. Run `G1 X175 Y235 Z10 F9000` (centre of print area)
 
-4. Run `G1 Z0.1 F9000` 
+4. Run `G1 Z0 F9000` 
 
 5. Test the z-offset with the paper test. - If it is good then you set-up `trigger_to_bottom_z` correctly.
 
-6. If it does not work. 1, baby step the z position to correction.
-
-7. If it does not work. 2, adjust `trigger_to_bottom_z` accordingly using the baby stepped amount.
-
-8. If it does not work. 3, then, rerun `CALIBRATE_NPO`.
-
-9. If it does not work. 4, retry step 1 to 4.
+6. If it does not work:
+   
+   1. baby step the z position to correction.
+   
+   2. adjust `trigger_to_bottom_z` accordingly using the baby stepped amount.
+   
+   3. then, rerun `CALIBRATE_OFFSETS TOOL=0`.
+   
+   4. retry step 1 to 4.
 
 ### Part 2: Check the gcode_z_offset of the other tools
 
-1. Goes through step 1 to 4 of part 1, above.
+1. Goes through step 1 and 2 of part 1, above.
 
-2. Run `SELECT_TOOL T={TOOL} RESTORE_AXIS=XYZ` - swapping `{TOOL}` for the tool number to be tested.
+2. Switch to next tool, via the web UI or Klipper Screen.
 
-3. Test the z-offset with the paper test. - If it is good then your calibration is good.
+3. Goes through step 3 to 6 of part 1, above.
 
-4. If it does not work. rerun `CALIBRATE_OFFSETS` for that tool-head (or all of them).
+4. If it does not work. rerun `CALIBRATE_OFFSETS TOOL=[x]` for that tool-head (or all of them).
 
 ### Part 3: gcode_x_offset and gcode_y_offset
 
@@ -613,12 +622,10 @@ To validate `gcode_x_offset` and `gcode_y_offset`, you just need to print someth
 Copy and paste the following code into your slicer. Note: It need to stay as a single line of gcode.
 
 ```
-PRINT_START BED_TEMP=[first_layer_bed_temperature] FIRST_LAYER_PRINT_SIZE=[first_layer_print_size] TOOL=[initial_tool] TOOL_TEMP={first_layer_temperature[initial_tool]} {if is_extruder_used[0]}T0_TEMP={first_layer_temperature[0]} T0_Fil={filament_type[0]}{endif} {if is_extruder_used[1]}T1_TEMP={first_layer_temperature[1]} T1_Fil={filament_type[1]}{endif} {if is_extruder_used[2]}T2_TEMP={first_layer_temperature[2]} T2_Fil={filament_type[2]}{endif} {if is_extruder_used[3]}T3_TEMP={first_layer_temperature[3]} T3_Fil={filament_type[3]}{endif} {if has_wipe_tower}WIPE_TOWER_X=[wipe_tower_x] WIPE_TOWER_Y=[wipe_tower_y]{endif}
+PRINT_START BED_TEMP=[first_layer_bed_temperature] FIRST_LAYER_PRINT_SIZE=[first_layer_print_size] FIRST_LAYER_HEIGHT=[first_layer_height] TOOL=[initial_tool] TOOL_TEMP={first_layer_temperature[initial_tool]} {if is_extruder_used[0]}T0_TEMP={first_layer_temperature[0]} T0_Fil={filament_type[0]}{endif} {if is_extruder_used[1]}T1_TEMP={first_layer_temperature[1]} T1_Fil={filament_type[1]}{endif} {if is_extruder_used[2]}T2_TEMP={first_layer_temperature[2]} T2_Fil={filament_type[2]}{endif} {if is_extruder_used[3]}T3_TEMP={first_layer_temperature[3]} T3_Fil={filament_type[3]}{endif}
 ```
 
-Like so:
-
-![](./images/Screenshot%20from%202024-11-06%2023-12-57.png)
+![](./images/Screenshot%20from%202024-12-26%2002-07-41.png)
 
 Also. Disable the following option:
 
@@ -627,6 +634,8 @@ Also. Disable the following option:
 ## Slicer Bed Shape
 
 The printer bed shape need to be set as shown below, to avoid collisions with the dock during printing.
+
+Depending on the umbilical mounting solution on the tool-head side, the lost y can be between 120mm to 140mm.
 
 *Note: It can be seen here that the max print height was set to 235mm. This is recommended for new machines to avoid umbilical tangling. However, if you are willing to do some tuning to the tension of the umbilical or add a top hat to the system, the max print height can be increased to 250mm or 300mm.*
 
@@ -637,6 +646,16 @@ The printer bed shape need to be set as shown below, to avoid collisions with th
 ### For printers with 300mm beds:
 
 ![](./images/300mm_Bed_Shape.png)
+
+## Multiple Extruder
+
+Enable **Ooze Prevention**.
+
+This setting will allow you to reduce the docked nozzle temperature, to prevent over cooking the filament.
+
+Even if you don't want it to drop the temperature, still enable it, then set the `Temperature variation` to 0°C or 1°C. This setting will emit a nozzle heating command after tool-change, effectively act as reheat command for when the system is recovering from a failed tool-change.
+
+![](./images/Screenshot%20from%202024-12-26%2002-09-59.png)
 
 ## Speed profile
 
