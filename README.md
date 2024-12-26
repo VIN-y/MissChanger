@@ -36,11 +36,11 @@ Other features of MissChanger includes:
 
 For those who want to adapt MissChanger to you own system. The Bar-Ends are 28mm each, and each dock is 80mm in width. All will be riding in the grove of the 2020 aluminium extrusion frame.
 
-#### Toolheads:
+#### Toolhead:
 
 - Stealth Burner (up to 5, for the 350mm version) 
 
-#### Hotends:
+#### Hotend:
 
 Any hot-ends that does not require a custom/extended main-body for the Stealth Burner should works just fine. Nevertheless, the follows are those that has been tested on the reference machine:
 
@@ -51,6 +51,18 @@ Any hot-ends that does not require a custom/extended main-body for the Stealth B
   - The heater block causing slow heat-up and cool-down. This is not ideal, since it is beneficial to lower the tool temperature when it is docked for a long period of time.
   - The cold side of the hot-end is inadequate to cool PLA in a 30°C+ chamber, eventually causing heat creep if the heater is constantly on.
   - Close proximity between the heater block to the plastic causing deformation. This does not resulted in critical failures, but the affected parts will not work on any other assembly.
+
+#### Extruder:
+
+All extruder that is compatible with the Stealth Burner should works just fine. Nevertheless, any added dimensions on top of the ClockWork 2 might resulted in less print area or space for other tool-heads. In addition, the chosen 
+
+* ClockWork 2 (CW2) - Default
+  
+  * All quoted clearance dimensions are in reference to this extruder.
+
+* Galileo 2 Extruder (G2E)
+  
+  * The thumbscrew stick out ~8mm to the left. Thus, taking up more docking space than default.
 
 ## Assembly
 

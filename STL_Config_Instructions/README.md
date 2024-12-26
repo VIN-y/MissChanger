@@ -10,7 +10,8 @@ These folders contain all the STL files for this project, for their respective v
 
 ## v1 - MVP (Minimum Viable Product)
 
-The purpose of **v1** is to provide the option with the bare minimum hardware required to have the MissChanger up and run. This series is for those who are price conscious or do not need a dedicated tool-changer all the time. The most expensive part of a v1 build will be the tool-heads themselves.
+The purpose of **v1** is to provide the option with the bare minimum hardware required to have the MissChanger up and run. This series is for those who are price conscious / do not need a dedicated tool-changer all the time / do not want to gut their current Voron printer.
+The most expensive part of a v1 build will be the tool-heads themselves.
 
 ## v2 - Tool-changer focused design
 
@@ -121,4 +122,10 @@ Nevertheless, the tests have also reveals the following cons:
   
   * Add a `PROBE` step before starting the `_CALIBRATE_NPO` and `_CALIBRATE_OFFSETS`.
   
-  * Fix the bug where the QGL failed to be detected in `PRINT_START`.
+  * Fix the bug where the QGL failure is not detected in `PRINT_START`.
+  
+  * Fix compatibility issue with PrusaSlicer 2.9.0, where the XY coordinate of the wipe tower is no longer get emitted.
+  
+  * Fix the bug with part cooling fan speed being stuck at random values midway through the print.
+  
+  * Introducing the Lubedballs probe, as an alternative to the Nudge probe. It is intended as an easier system to build. Nevertheless, long term testing is needed.
