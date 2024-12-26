@@ -41,7 +41,7 @@ wget -O - https://raw.githubusercontent.com/VIN-y/klipper-toolchanger/main/scrip
 
 The **sample configuration files** can be found in the [Klipper_Config](./Klipper_Config) folder, where further descriptions of the software stack can also be found.
 
-If you are comfortable with it, you are welcome to by-pass the default macros and play with the configs files to your liking. This can be done by copy-paste the relevant macro config file, in the [klipper-toolchanger](https://github.com/VIN-y/klipper-toolchanger/tree/main/macros) repository, to your printer and `inlcuded` it into your **printer.cfg** accordingly.
+If you are comfortable with it, you are welcome to by-pass the default macros and play with the configs files to your liking. This can be done by copy-paste the relevant macro config file, in the [klipper-toolchanger](https://github.com/VIN-y/klipper-toolchanger/tree/main/macros) repository, or download them straight from your web interface, to your printer and `inlcuded` it back into your **printer.cfg**.
 
 Nevertheless, the following are the recommended steps to get the software up-and-running using the default set of macros. Following the guide bellow will make it easier for you to get support, and the default macro will be managed and updated together with the software stack.
 
