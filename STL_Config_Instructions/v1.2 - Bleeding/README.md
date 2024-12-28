@@ -10,7 +10,9 @@ This document will not guide you through the set up of CAN bus or the physical m
 
 The following manual is for the core components that are needed to get MissChanger up and running.
 
-MissChanger Assembly Manual: [MissChanger_Assembly_Manual.pdf](./MissChanger_Assembly_Manual.pdf) 
+MissChanger Assembly Manual: [MissChanger_Assembly_Manual.pdf](https://drive.google.com/file/d/1eaQFss-dNTrsd0szFfekPIvOhySu3Ro8/view?usp=sharing).
+
+Note: The hardware manual is hosted on Google Drive 
 
 ## 2.2. Situational / Optional / Mods
 
@@ -28,20 +30,20 @@ This section aims to provide a guide through the installation process of the sof
 
 ## 3.1. Installation
 
-To install the [VIN-y/klipper-toolchanger](https://github.com/VIN-y/klipper-toolchanger) plugin, run the following installation script using the following command over SSH. This script will download this GitHub repository to your RaspberryPi home directory, and symlink the files in the Klipper extra folder.
+To install the [klipper-toolchanger](https://github.com/VIN-y/klipper-toolchanger) plugin, run the following installation script using the following command over SSH. This script will download this GitHub repository to your RaspberryPi home directory, and symlink the files in the Klipper extra folder.
 
 ```
 wget -O - https://raw.githubusercontent.com/VIN-y/klipper-toolchanger/main/scripts/install.sh | bash
 ```
 
 *Note 1: You will need a `FIRMWARE_RESTART` whenever there is an update for the add-on.*
-*Note 2: This command can also be used for a clean install of the extenstion.*
+*Note 2: This command can also be used for a clean install of the extension.*
 
 ## 3.2. Configuration
 
 The **sample configuration files** can be found in the [Klipper_Config](./Klipper_Config) folder, where further descriptions of the software stack can also be found.
 
-If you are comfortable with it, you are welcome to by-pass the default macros and play with the configs files to your liking. This can be done by copy-paste the relevant macro config file, in the [klipper-toolchanger](https://github.com/VIN-y/klipper-toolchanger/tree/main/macros) repository, or download them straight from your web interface, to your printer and `inlcuded` it back into your **printer.cfg**.
+If you are comfortable with it, you are welcome to by-pass the default macros and play with the configs files to your liking. This can be done by copy-paste the relevant macro config file, in the [klipper-toolchanger](https://github.com/VIN-y/klipper-toolchanger/tree/main/macros) repository (or download them straight from your web interface) and `inlcuded` it back into your **printer.cfg**. If you found any errors or room  for improvement, feel free to reach out to me to get it fixed, via a GitHub or otherwise.
 
 Nevertheless, the following are the recommended steps to get the software up-and-running using the default set of macros. Following the guide bellow will make it easier for you to get support, and the default macro will be managed and updated together with the software stack.
 
@@ -55,7 +57,7 @@ Through your web interface:
 
 ### Step 2: Set up printer.cfg
 
-You can check the sample **printer.cfg** in [Klipper_Config](./Klipper_Config) folder as reference. However, be careful of copy-paste directly from there, because there are variables that might incompatible with yours printer.
+You can check the sample **printer.cfg** in [Klipper_Config](./Klipper_Config) folder as reference. However, be careful of copy-paste directly from there, because there are variables that might incompatible with yours printer. The following code blocks will intentionally have all optional functionalities (i.e. nozzle cleaning, active chamber thermal control, exhaust fans, etc.)
 
 1. `includes` the following at the start of the **printer.cfg** file.
 
@@ -88,8 +90,9 @@ description: Global static variables that is used through out the configs
 variable_calibration_probe_x: 242.237500     # X aproximate position of the Nudge probe. CHANGE TO MATCH YOUR SET-UP
 variable_calibration_probe_y: 329.825000     # Y aproximate position of the Nudge probe. CHANGE TO MATCH YOUR SET-UP
 variable_calibration_safe_z: 60.00           # Z aproximate safe position of the Nudge probe. KEEP CONSERVATIVE TO AVOID COLLISION
-variable_calibration_min_z: 20.00            # Z aproximate probe position of the Nudge probe.
+variable_calibration_min_z: 40.00            # Z aproximate probe position of the Nudge probe.
 variable_calibration_abs_z_seperately: 0     # "0" = False / "1" = True. For, the Nudge probe this should be '1'
+variable_final_lift_z: 3                     # This must be the same as "final_lift_z" in [tools_calibrate] in misschanger_settings.cfg
 ## Cleaning dock
 variable_clean_dock_x: 0                     # X aproximate position of the cleaning dock. CHANGE TO MATCH YOUR SET-UP. Set to "0" to disable
 variable_clean_temp: 200                     # Nozzle clean temperature
@@ -97,7 +100,7 @@ variable_clean_threshold: 125.0              # The minimum perimeter of the prin
 ## Always on crash detection
 variable_alway_on_crash_detection: 1         # "0" = False / "1" = True
 ## For heatsoak macro
-variable_heatsoak_temp: 50                   # Chamber temperature target for heat soak. REQUIRES [temperature_sensor Chamber] below. Set to "0" to disable
+variable_heatsoak_temp: 0                    # Chamber temperature target for heat soak. REQUIRES [temperature_sensor Chamber] below. Set to "0" to disable
 ## Dynamic thermal expansion compensation
 variable_thermo_expand_offset: -0.080        # Maximum z offset for thermal expansion compensation. REQUIRES [temperature_sensor Chamber] below
 variable_thermo_expand_temp_high: 70         # Chamber temp to apply maximum z offset for thermal expansion compensation. REQUIRES [temperature_sensor Chamber]
@@ -255,7 +258,7 @@ Use the `T0-SB2209-Revo-LDO.cfg` as references.
    
    * `[tool_probe]` 
      
-     * <mark>!!!NOTE!!!</mark> that the `activate_gcode:` for the item has been replace with the macro `_TAP_PROBE_ACTIVATE`, with the flag `HEATER=extruder`. This flag <mark>NEED TO BE SET TO THE RIGHT "EXTRUDER"</mark>. Failure to do so, may result in <mark>DANGEROUS THERMAL RUNAWAY</mark>.
+     * <mark>!!!NOTE!!!</mark> that the `activate_gcode:` for the item has been replace with the macro `_TAP_PROBE_ACTIVATE`, with the flag `HEATER=extruder`. This flag <mark>NEED TO BE SET TO THE RIGHT "EXTRUDER"</mark>. Failure to do so, may result in damage bed surface.
 
 2. Replace `[fan]` with `[fan_generic T0_partfan]`
 

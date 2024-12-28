@@ -116,7 +116,9 @@ Nevertheless, the tests have also reveals the following cons:
   
   * Establish the structure of the software stack, to have a low barrier of entry while still allow customisation.
   
-  * Revamp the routine, to avoid firmware crashing or unsafe movement during pick-up.
+  * Revamp the tool-change routine, to avoid firmware crashing or unsafe movement during pick-up.
+  
+  * Add fail to drop-off detection.
   
   * Fixed the bug where the gcode_z_offset not correctly clear out after tool-change.
   
@@ -127,5 +129,7 @@ Nevertheless, the tests have also reveals the following cons:
   * Fix compatibility issue with PrusaSlicer 2.9.0, where the XY coordinate of the wipe tower is no longer get emitted.
   
   * Fix the bug with part cooling fan speed being stuck at random values midway through the print.
+
+* Introducing the Lubedballs probe, as an alternative to the Nudge probe. It is intended as an easier system to build. Nevertheless, long term testing is needed.
   
-  * Introducing the Lubedballs probe, as an alternative to the Nudge probe. It is intended as an easier system to build. Nevertheless, long term testing is needed.
+  * 
