@@ -12,7 +12,7 @@ The following manual is for the core components that are needed to get MissChang
 
 MissChanger Assembly Manual: [MissChanger_Assembly_Manual.pdf](https://drive.google.com/file/d/1eaQFss-dNTrsd0szFfekPIvOhySu3Ro8/view?usp=sharing).
 
-Note: The hardware manual is hosted on Google Drive 
+*Note: Due to the size of the documentation, the hardware manual is hosted on Google Drive and will need to be downloaded to be viewed.*
 
 ## 2.2. Situational / Optional / Mods
 
