@@ -110,6 +110,8 @@ Nevertheless, the tests have also reveals the following cons:
 
 * Add official support for the G2E.
 
+* Introducing the Lubedballs probe, as an alternative to the Nudge probe. Intended as an easier system to build.
+
 * Bug fixes and revamp software stack:
   
   * Deprecate `multi-fan` to re-enable the ability to control the part cooling fan with the GUIs.
@@ -122,14 +124,14 @@ Nevertheless, the tests have also reveals the following cons:
   
   * Fixed the bug where the gcode_z_offset not correctly clear out after tool-change.
   
-  * Add a `PROBE` step before starting the `_CALIBRATE_NPO` and `_CALIBRATE_OFFSETS`.
+  * Revamped `CALIBRATE_OFFSETS` routine:
+    
+    * To check for proper probe placement before starting the session.
+    
+    * Add an option to run the routine with or without absolute z calibration. For over sensitive probes.
   
   * Fix the bug where the QGL failure is not detected in `PRINT_START`.
   
   * Fix compatibility issue with PrusaSlicer 2.9.0, where the XY coordinate of the wipe tower is no longer get emitted.
   
   * Fix the bug with part cooling fan speed being stuck at random values midway through the print.
-
-* Introducing the Lubedballs probe, as an alternative to the Nudge probe. It is intended as an easier system to build. Nevertheless, long term testing is needed.
-  
-  * 
