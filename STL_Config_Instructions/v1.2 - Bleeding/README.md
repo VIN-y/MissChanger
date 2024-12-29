@@ -10,9 +10,7 @@ This document will not guide you through the set up of CAN bus or the physical m
 
 The following manual is for the core components that are needed to get MissChanger up and running.
 
-MissChanger Assembly Manual: [MissChanger_Assembly_Manual.pdf](https://drive.google.com/file/d/1eaQFss-dNTrsd0szFfekPIvOhySu3Ro8/view?usp=sharing).
-
-*Note: Due to the size of the documentation, the hardware manual is hosted on Google Drive and will need to be downloaded to be viewed.*
+MissChanger Assembly Manual: [MissChanger_Assembly_Manual](./MissChanger_Assembly_Manual.pdf).
 
 ## 2.2. Situational / Optional / Mods
 
