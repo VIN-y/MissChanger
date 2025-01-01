@@ -39,13 +39,13 @@ rm -rf klipper-toolchanger/
 
 Installation.
 
-1. For normal use:
+1. For normal use: (TBD)
 
 ```
 wget -O - https://raw.githubusercontent.com/VIN-y/klipper-toolchanger/main/scripts/install.sh | bash
 ```
 
-2. For Beta test:
+2. For Beta test: (TBD)
 
 ```
 wget -O - https://raw.githubusercontent.com/VIN-y/klipper-toolchanger/beta/scripts/install.sh | bash
