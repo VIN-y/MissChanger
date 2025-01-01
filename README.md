@@ -134,7 +134,9 @@ For the purpose of the tool-changer:
 
 ### Build area set up
 
-<mark>This is **an important point** to keep in mind.</mark> It is important to know how your build area is set up, to avoid collisions and potential damages.
+<mark>This is **an important point** to keep in mind.</mark>
+
+It is important to know how your build area is set up, to avoid collisions and potential damages.
 
 MissChanger use the same build area configuration as the origin Voron 350mm, see the code block below. This build area set up stay the same between the single tool-head  and the multi tool-heads mode, providing consistency. No matter which mode you are in, `G1 X{number} Y{number}`  will bring the gantry to the same spot above the build plate. Also, the creator's (that is me) finds negative coordinates confusing.
 
@@ -158,18 +160,22 @@ Nevertheless, this behaviour can be change in the config, by bring the settings 
 
 ## Recommendations
 
-1. Keep tool-heads as similar as possible. - The more variations there are between tool-heads (i.e. control board, hot-end system, etc.), the more tuning will be need for each of them.
+1. Keep tool-heads as similar as possible. 
+   
+   1. The more variations there are between tool-heads (i.e. control board, hot-end system, etc.), the more tuning will be need for each of them.
+   
+   2. Meaningful variants includes: extruder, nozzle size, nozzle material.
 
-2. The following mods are not needed but is recommended to enhance the capability of MissChanger:
+2. The following mods are not needed but is **recommended** to enhance the capability of MissChanger:
    
    1. [Calilantern Calibration Tool](https://vector3d.shop/products/calilantern-calibration) - MissChanger requires relatively high dimensional-accurate printed parts, to mate with each others. Therefore, it is recommended that you take the extra steps to calibrate your printer before starting the build.
    2. [Nevermore StealthMax](https://github.com/nevermore3d/StealthMax) - to regulate the chamber temperature, to allow PETG / PLA printing with the door closed; allowing them to be combined with ABS.
    3. [Spool Holder](https://www.printables.com/model/872144-spool-holder-for-2020-aluminium-extrusion) - to hold the spools on top of the machine. There are many ways to get this done, and it depends on the people's specific use-cases. The design linked here is just of my (the developer) own creation.
    4. [Inverted z-chain](https://www.printables.com/model/445298-inverted-z-chain-for-voron) - This is for the Voron 2.4 300mm, or smaller. To clear the space in front of the back gantry extrusion for the umbilicals.
 
-3. The following mods are either not recommended or known to be not compatible with MissChanger:
+3. The following mods are either **not recommended** or known to be not compatible with MissChanger:
    
-   1. GE5C bearing z mount - This mod offer too much flexibility to the gantry, allowing it to sag when the z motors are disabled/un-powered.
+   1. GE5C bearing z mount - This mod offer too much flexibility to the gantry, allowing it to sag when the z motors are disabled/un-powered. Nevertheless, it's inclusion will not stop cause catastrophic problems. You will just need to be careful. 
    
    2. Beefy front idlers - The cut off on the dock can only fit the stock front idlers.
    
@@ -182,6 +188,18 @@ Nevertheless, this behaviour can be change in the config, by bring the settings 
 ![](./images/20240618_152001.jpg)
 
 ![](./images/20241017_132023.jpg)
+
+## Mods
+
+Community members are encouraged to modify the the CAD where they see fit. They can contribute back to the project by either:
+
+1. Creating a Pull Request, and add the modded files into the [UserMods](./UserMods) folder.
+
+2. Reach out and send me the STEP files.
+
+Modded items are not tested or officially supported. However, if it contains good ideas, it will be implemented into the official design down the line. The originator of the ideas will be included in the list bellow as a contributor.
+
+... So, don't give yourself a weird name, please.
 
 ## Support
 

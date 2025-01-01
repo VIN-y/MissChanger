@@ -35,7 +35,6 @@ wget -O - https://raw.githubusercontent.com/VIN-y/klipper-toolchanger/main/scrip
 ```
 
 *Note 1: You will need a `FIRMWARE_RESTART` whenever there is an update for the add-on.*
-*Note 2: This command can also be used for a clean install of the extension.*
 
 ## 3.2. Configuration
 
@@ -70,6 +69,12 @@ You can check the sample **printer.cfg** in [Klipper_Config](./Klipper_Config) f
 [include misschanger_macros/toolchanger.cfg]
 ## misschanger settings
 [include misschanger_settings.cfg]
+```
+
+Optional:
+
+```
+[include misschanger_macros/tool_calibrate_extra.cfg]    # For the Nudge probe
 ```
 
 2. Add **Global Variables**.
