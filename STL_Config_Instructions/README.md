@@ -24,7 +24,7 @@ The purpose of **v2** is to overcomes the inherent flaws of **v1** noted above. 
 | v0.0    | Abandoned | Bleeding       | The design has been proven to lack durability in the testing phase.                                                                                                                                       |
 | v1.0    | Abandoned | Beta           | Although functional, several reliability and usability problems have been found.                                                                                                                          |
 | v1.1    | Abandoned | Alpha          | Fixes problems found in v1.0.<br/>Tool-changer reliability proven and will be carried forward, unless stated otherwise.<br/>The Nevermore StealthMax is added as optional chamber temperature management. |
-| v1.2    | Bleeding  |                | Adding support for Voron 2.4 300mm.<br/>Adding support for USB tool-heads.<br/>Revamp software stack and bug fixes.                                                                                       |
+| v1.2    | Alpha     | ...            | Adding support for Voron 2.4 300mm.<br/>Adding support for USB tool-heads.<br/>Revamp software stack and bug fixes.                                                                                       |
 
 ## Design History
 
@@ -129,6 +129,8 @@ Nevertheless, the tests have also reveals the following cons:
     * To check for proper probe placement before starting the session.
     
     * Add an option to run the routine with or without absolute z calibration. For over sensitive probes.
+  
+  * Add a macro to calibrate trigger bottom. So the printer don't need to be restarted and homed multiple times during calibration.
   
   * Fix the bug where the QGL failure is not detected in `PRINT_START`.
   

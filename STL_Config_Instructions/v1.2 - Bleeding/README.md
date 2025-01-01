@@ -30,8 +30,22 @@ This section aims to provide a guide through the installation process of the sof
 
 To install the [klipper-toolchanger](https://github.com/VIN-y/klipper-toolchanger) plugin, run the following installation script using the following command over SSH. This script will download this GitHub repository to your RaspberryPi home directory, and symlink the files in the Klipper extra folder.
 
+1. For normal use:
+
 ```
 wget -O - https://raw.githubusercontent.com/VIN-y/klipper-toolchanger/main/scripts/install.sh | bash
+```
+
+2. For Beta test:
+
+```
+wget -O - https://raw.githubusercontent.com/VIN-y/klipper-toolchanger/beta/scripts/install.sh | bash
+```
+
+3. For Alpha test:
+
+```
+wget -O - https://raw.githubusercontent.com/VIN-y/klipper-toolchanger/alpha/scripts/install.sh | bash
 ```
 
 *Note 1: You will need a `FIRMWARE_RESTART` whenever there is an update for the add-on.*
