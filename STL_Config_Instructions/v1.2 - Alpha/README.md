@@ -48,6 +48,13 @@ wget -O - https://raw.githubusercontent.com/VIN-y/klipper-toolchanger/beta/scrip
 wget -O - https://raw.githubusercontent.com/VIN-y/klipper-toolchanger/alpha/scripts/install.sh | bash
 ```
 
+For those who are switching branch. You will need to run the following commands to clean out the old files:
+
+```
+cd ~
+rm -rf klipper-toolchanger/
+```
+
 *Note 1: You will need a `FIRMWARE_RESTART` whenever there is an update for the add-on.*
 
 ## 3.2. Configuration
