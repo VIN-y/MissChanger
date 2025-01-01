@@ -502,7 +502,7 @@ This section assumes that the new tool-head has been assembled, wired up, and ha
 
 *Note: It is key that you get the z_offset correct for the T0, as it will be used to extrapolate other offsets later on. Therefore, it is worth diverge from the instruction, if you have a preferred way to set your the z-offset.*
 
-### 4.3.2. Nudge Probe Setup & Calibration
+### 4.3.2. Calibration Probe Setup
 
 At this stage, you should have:
 
@@ -534,21 +534,19 @@ This section will guide you through the calibration of the machine specific vari
 
 2. Mount tool-head **T0** and make sure it's nozzle is clean
 
-3. **<mark>!!! MAKE SURE THE CALIBRATION PROBE IS NOT MOUNTED !!!</mark>** 
+3. Run `G28` and `QUAD_GANTRY_LEVEL`
 
-4. Run `G28` and `QUAD_GANTRY_LEVEL`
+4. Mount the calibration probe
 
-5. Mount the calibration probe
+5. Run `CALIBRATE_TRIGGER_BOTTOM`
 
-6. Run `CALIBRATE_OFFSETS TOOL=0` - **BUT, DO NOT SAVE**
+6. Copy the proposed offset on the console to the `trigger_to_bottom_z:` in `[tools_calibrate]`.
 
-7. Look at the proposed offset on the console and compare it to the recorded `z_offset` from **step 1**. Take the different and put it in the `trigger_to_bottom_z:` in `[tools_calibrate]`.
-   
-   *Note: Be mindful of the direction, remember: **Decrease -> higher nozzle**.*
+7. Save and restart
 
-8. Save and restart
+8. Run `CALIBRATE_OFFSETS TOOL=0` - But, **DON'T RESTART**
 
-9. Restart and repeat steps 1-8 until the proposed z-offset to be +-0.01mm of the recorded `z_offset` in **step 1**.
+9. Check if proposed z-offset to be +-0.01mm of the recorded `z_offset` in **step 1**.
 
 10. Run `CALIBRATE_OFFSETS TOOL=0` 2-3 more times to make sure the measured value is consistence.
 
