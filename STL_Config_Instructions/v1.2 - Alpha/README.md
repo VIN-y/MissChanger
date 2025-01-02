@@ -720,7 +720,13 @@ It is important to test if the `z_offset` and `gcode_z_offset` are set-up and ap
 
 To validate `gcode_x_offset` and `gcode_y_offset`, you just need to print something and see if they are set-up and applied correctly. Alternatively, you can also buy and use [Ember Camera Assisted XY](https://www.emberprototypes.com/products/cxc) to validate them.
 
-# 6. Slicer Profile
+# 6. Tool-change Tuning
+
+The speed and path of the default tool-change routine, in `misschanger_settings.cfg` is not tuned for reliability. It is slower and has more steps than needed. The `params_path_speed` can be increased and some of the "Wiggle wiggle", in the path, can be disable. For example:
+
+![](./images/Screenshot%20from%202025-01-02%2020-38-41.png)
+
+# 7. Slicer Profile
 
 ## Custom Start G-code
 
