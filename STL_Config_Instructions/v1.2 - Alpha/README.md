@@ -474,23 +474,33 @@ This section assumes that the new tool-head has been assembled, wired up, and ha
 
 3. Run `STOP_TOOL_PROBE_CRASH_DETECTION` 
 
-4. On the web interface, in `Setting > Control` add `0.1` and remove `100` in the `Move distance increments X & Y axes (in mm)` 
+4. Loosen the bolts on the bottom of the dock of the relevant dock (so it will spin around the bar)
+
+5. On the web interface, in `Setting > Control` add `0.1` and remove `100` in the `Move distance increments X & Y axes (in mm)` 
    
    *Note: This is temporary for this step only, and can be reverted later.*
 
-5. Set the dock at the empty position, i.e. at the bottom of the ramp.
+6. Set the dock at the empty position, i.e. at the bottom of the ramp.
    ![](./images/20240730_194812.jpg)
 
-6. Use the web interface, nudge the tool-head into the correct x-position. This can be tested by nudging the y-position in and out to see which side of the tool-head touch the dock first. Then adjusts it, such that both side of the dock would touch the tool-head at the same time.
+7. Use the web interface, nudge the tool-head into the correct x-position. This can be tested by nudging the y-position in and out to see which side of the tool-head touch the dock first. Then adjusts it, such that both side of the dock would touch the tool-head at the same time.
    ![](./images/20240730_195442.jpg)
 
-7. Copy and paste the current x-coordinate into the `params_park_x:` of the config file of the current tool-head
+8. Copy and paste the current x-coordinate into the `params_park_x:` of the config file of the current tool-head
 
-8. Save it, **BUT DON'T RESTART**
+9. Save it, **BUT DON'T RESTART**
 
-9. Nudge the y-position until the dock is at the peak of the ramp. - The dock is tough enough to handle a bit of pressure from the gantry. So you can keep nudging the y-position until the dock flex a bit, then back it off.
+10. Nudge the y-position until the dock until the dock is fully seated.
+    
+    1. Make sure that the whole dock-bar is not lifted.
+    
+    2. Make sure the tool-head is fully seated before it is lifted. Check it by nudging it back and fort 10mm.
 
-10. Run:
+11. Tighten the bolts on the bottom of the dock (locking it in place)
+
+12. Nudge the y-position until the dock is at the peak of the ramp. The dock is tough enough to handle a bit of pressure from the gantry. So you can keep nudging the y-position until the dock flex a bit, then back it off.
+
+13. Run:
     
     ```
     G91
@@ -498,13 +508,13 @@ This section assumes that the new tool-head has been assembled, wired up, and ha
     G90
     ```
 
-11. Copy and paste the current y-coordinate into the `params_park_y:` of the config file of the current tool-head
+14. Copy and paste the current y-coordinate into the `params_park_y:` of the config file of the current tool-head
 
-12. Save it
+15. Save it
 
-13. Run `FIRMWARE_RESTART`
+16. Run `FIRMWARE_RESTART`
 
-14. Run the `TEST_DOCKING` macro
+17. Run the `TEST_DOCKING` macro
 
 ## 4.2. Input Shaper (optional)
 
