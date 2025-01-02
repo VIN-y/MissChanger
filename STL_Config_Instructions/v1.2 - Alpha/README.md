@@ -722,7 +722,9 @@ To validate `gcode_x_offset` and `gcode_y_offset`, you just need to print someth
 
 # 6. Tool-change Tuning
 
-The speed and path of the default tool-change routine, in `misschanger_settings.cfg` is not tuned for reliability. It is slower and has more steps than needed. The `params_path_speed` can be increased and some of the "Wiggle wiggle", in the path, can be disable. For example:
+The speed and path of the default tool-change routine, in `misschanger_settings.cfg` is not tuned for reliability. It is slower and has more steps than needed.
+
+For a smooth running MissChanger. The `params_path_speed` can be increased and some of the "Wiggle wiggle", in the path, can be disable. For example:
 
 ![](./images/Screenshot%20from%202025-01-02%2020-38-41.png)
 
