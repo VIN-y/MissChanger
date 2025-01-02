@@ -16,11 +16,11 @@ MissChanger Assembly Manual: [MissChanger_Assembly_Manual](./MissChanger_Assembl
 
 These following attachments are extras that will expand the capability of tool-changer system. Nevertheless, they were developed by others and does not share the same design language as MissChanger (i.e. difference print parameters).
 
-| Mod                                                                                                                        | Description                                                                                                                   |
-| -------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------- |
-| [Nevermore Stealth Max](./6_Optionals/Nevermore_StealthMax) + [DC Barrel Panel Mount](./6_Optionals/DC_Barrel_Panel_Mount) | - With modded flow chamber<br>- Cable management for Nevermore Stealth Max                                                    |
-| [Galileo 2 + LDO Nitehawk SB USB cable strain relief](./5_Others/G2E-umbilical_anchor)                                     | For Galileo 2 + LDO Nitehawk SB USB                                                                                           |
-| [Inverted z-chain](https://www.printables.com/model/445298-inverted-z-chain-for-voron)                                     | Recommended for the Voron 2.4 300mm, or smaller. To clear the space in front of the back gantry extrusion for the umbilicals. |
+| Mod                                                                                                                            | Description                                                                                                                   |
+| ------------------------------------------------------------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------- |
+| [Nevermore Stealth Max](./6_Optionals/Nevermore_StealthMax)<br> + [DC Barrel Panel Mount](./6_Optionals/DC_Barrel_Panel_Mount) | - With modded flow chamber<br>- Cable management for Nevermore Stealth Max                                                    |
+| [Galileo 2 + LDO Nitehawk SB USB cable strain relief](./5_Others/G2E-umbilical_anchor)                                         | For Galileo 2 + LDO Nitehawk SB USB                                                                                           |
+| [Inverted z-chain](https://www.printables.com/model/445298-inverted-z-chain-for-voron)                                         | Recommended for the Voron 2.4 300mm, or smaller. To clear the space in front of the back gantry extrusion for the umbilicals. |
 
 # 3. Software
 
@@ -30,14 +30,14 @@ This section aims to provide a guide through the installation process of the sof
 
 To install the [klipper-toolchanger](https://github.com/VIN-y/klipper-toolchanger) plugin, run the following installation script using the following command over SSH. This script will download this GitHub repository to your RaspberryPi home directory, and symlink the files in the Klipper extra folder.
 
-Before installation. For those who are switching branch. You will need to run the following commands to clean out the old files before installing:
+Before installation. For those who are switching branch. You will need to run the following commands to clean out the old files before installing. Alternatively, you can run the uninstall script in below, in **section 3.1.2**.
 
 ```
 cd ~
 rm -rf klipper-toolchanger/
 ```
 
-Installation.
+### 3.1.1. Install
 
 1. For normal use: (TBD)
 
@@ -59,13 +59,67 @@ wget -O - https://raw.githubusercontent.com/VIN-y/klipper-toolchanger/alpha/scri
 
 *Note 1: You will need a `FIRMWARE_RESTART` whenever there is an update for the add-on.*
 
+### 3.1.2. Uninstall
+
+Some manual change will still need to be done in the user space (i.e. the section that is accessible via the web interface). This includes:
+
+* The `config` folder
+
+* The `misschanger_settings.cfg` file
+
+* Irrelevant tool-head config file
+
+* Irrelevant settings in `printer.cfg`
+
+* `moonraker.conf` registry
+
+These settings / files / folders tend to contain information and calibration values specific to your printer. Thus, it advised that you create a backup before deletion.
+
+To fully uninstall the back-end, run one of the following command over SSH. Make sure to select the link that is relevant to the version that is currently install on the printer.
+
+1. For normal use: (TBD)
+
+```
+wget -O - https://raw.githubusercontent.com/VIN-y/klipper-toolchanger/main/scripts/uninstall.sh | bash
+```
+
+2. For Beta test: (TBD)
+
+```
+wget -O - https://raw.githubusercontent.com/VIN-y/klipper-toolchanger/beta/scripts/uninstall.sh | bash
+```
+
+3. For Alpha test:
+
+```
+wget -O - https://raw.githubusercontent.com/VIN-y/klipper-toolchanger/alpha/scripts/uninstall.sh | bash
+```
+
 ## 3.2. Configuration
 
 The **sample configuration files** can be found in the [Klipper_Config](./Klipper_Config) folder, where further descriptions of the software stack can also be found.
 
-If you are comfortable with it, you are welcome to by-pass the default macros and play with the configs files to your liking. This can be done by copy-paste the relevant macro config file, in the [klipper-toolchanger](https://github.com/VIN-y/klipper-toolchanger/tree/main/macros) repository (or download them straight from your web interface) and `inlcuded` it back into your **printer.cfg**. A [code stack breakdown](./code_stack_breakdown.pdf) is also provided. If you found any errors or room  for improvement, feel free to reach out to me to get it fixed, via a GitHub or otherwise.
+If you are comfortable with it, you are welcome to by-pass the default macros and play with the configs files to your liking, following **step -1**. If you found any errors or room  for improvement, feel free to reach out to me to get it fixed, via a GitHub or otherwise.
 
-Nevertheless, the following are the recommended steps to get the software up-and-running using the default set of macros. Following the guide bellow will make it easier for you to get support. The default macros will be managed and updated together with the software stack.
+Nevertheless, the following are the recommended steps to get the software up-and-running using the default set of macros. Following the guide (starting from **step 1**) bellow will make it easier for you to get support. The default macros will be managed and updated together with the software stack.
+
+### Step -1: Customisation
+
+For building your custom macro:
+
+1. Check where the relevant macro is saved, using the [code stack breakdown](./code_stack_breakdown.pdf) 
+
+2. Download the relevant macro config file, in the [klipper-toolchanger](https://github.com/VIN-y/klipper-toolchanger/tree/main/macros) repository (or straight from your web interface)
+
+3. Imported the config file back using the web interface
+
+4. `inlcuded` it back into **printer.cfg** 
+
+5. Comment-out (or delete) the reference to the file that the new config replaces, in **printer.cfg**
+
+6. Save and Restart
+
+7. Start editing the file to your liking
 
 ### Step 1: Back-up your running system
 
