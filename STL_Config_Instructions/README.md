@@ -114,6 +114,8 @@ Nevertheless, the tests have also reveals the following cons:
 
 * Bug fixes and revamp software stack:
   
+  * Re-based back-end to [DraftShift/klipper-toolchanger](https://github.com/DraftShift/klipper-toolchanger) - This fork faster moving and has more features on top of [viesturz/klipper-toolchanger](https://github.com/viesturz/klipper-toolchanger). Nevertheless, it is noted that Viesturz is still slowly adding features to his extension. Therefore, future updates to [VIN-y/klipper-toolchanger](https://github.com/VIN-y/klipper-toolchanger) (for MissChanger) may adopt features from either of the for mention repository, where they may fit for the project.
+  
   * Deprecate `multi-fan` to re-enable the ability to control the part cooling fan with the GUIs.
   
   * Establish the structure of the software stack, to have a low barrier of entry while still allow customisation.
