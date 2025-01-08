@@ -175,7 +175,7 @@ Nevertheless, this behaviour can be change in the config, by bring the settings 
 
 3. The following mods are either **not recommended** or known to be not compatible with MissChanger:
    
-   1. GE5C bearing z mount - This mod offer too much flexibility to the gantry, allowing it to sag when the z motors are disabled/un-powered. Nevertheless, it's inclusion will not stop cause catastrophic problems. You will just need to be careful. 
+   1. GE5C bearing z mount - This mod offer too much flexibility to the gantry, allowing it to sag when the z motors are disabled/un-powered. Nevertheless, it's inclusion will not cause catastrophic problems. You will just need to be careful. (I personally could not be bothered enough to remove mine) 
    
    2. Beefy front idlers - The cut off on the dock can only fit the stock front idlers.
    
