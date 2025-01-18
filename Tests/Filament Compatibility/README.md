@@ -26,14 +26,15 @@ This document aims to outline the lesson learned in trying to combine different 
 
 ## Combination Matrix
 
-|      | ABS | ASA | PETG | PET | PLA | TPU |
-| ---- | --- | --- | ---- | --- | --- | --- |
-| ABS  | n/a | n/a | n/a  | n/a | n/a | n/a |
-| ASA  |     | n/a | n/a  | n/a | n/a | n/a |
-| PETG | 3   |     | n/a  | n/a | n/a | n/a |
-| PET  |     |     |      | n/a | n/a | n/a |
-| PLA  | 2   |     | 1    |     | n/a | n/a |
-| TPU  |     |     |      |     |     | n/a |
+|      | ABS | ASA | PETG | PET | PLA | TPU | PC  |
+| ---- | --- | --- | ---- | --- | --- | --- | --- |
+| ABS  | n/a | n/a | n/a  | n/a | n/a | n/a | n/a |
+| ASA  |     | n/a | n/a  | n/a | n/a | n/a | n/a |
+| PETG | 3   |     | n/a  | n/a | n/a | n/a | n/a |
+| PET  |     |     |      | n/a | n/a | n/a | n/a |
+| PLA  | 2   |     | 1    |     | n/a | n/a | n/a |
+| TPU  | 6   |     | 4    |     | 5   | n/a | n/a |
+| PC   |     |     |      |     |     |     | n/a |
 
 ### 1 - PLA and PETG
 
@@ -68,6 +69,18 @@ This document aims to outline the lesson learned in trying to combine different 
 * As shown by [JanTec Engineering](https://www.youtube.com/@JanTecEngineering) in [this YouTube video](https://youtu.be/KnvEhYCimKc?si=OjUVotaZ15H8OHvi), PETG and ABS does adhere with each other, but not as well as PLA-ABS. Coupling the PLA-ABS result above. PETG might be the best support material for ABS, assuming that the chamber temperature challenge can be overcame.
 * Confictingly [Made with Layers (Thomas Sanladerer) - YouTube](https://www.youtube.com/@MadeWithLayers) shown the opposite result between PLA-and-ABS versus PETG-and-ABS. This might comes down to the specific filament brands. 
 * For the PETG support material. Even though their bond is relatively weak, PETG-ABS bond is still noticeable. It will still be challenging to remove PETG support if it is printed on top of ABS. Thus, it is advised to the make the interface layer between PETG and ABS out of PLA.
+
+### 4 - TPU and PETG
+
+TBD
+
+### 5 - TPU and PLA
+
+TBD
+
+### 6 - TPU and ABS
+
+TBD
 
 ## Material Specific
 
@@ -107,6 +120,10 @@ This document aims to outline the lesson learned in trying to combine different 
 
 ### ABS
 
-1. Warping is a major issue for combining ABS with materials like PLA/PETG. Crucially, this problem will often occur on the wipe tower, making ABS multi-material extremely h
+1. Warping is a major issue for combining ABS with materials like PLA/PETG. Crucially, this problem will often occur on the wipe tower, making ABS multi-material extremely unreliable.
 
 ![](./images/ABS_warping_1.jpg)
+
+### TPU
+
+TBD
