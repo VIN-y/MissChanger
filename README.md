@@ -19,7 +19,7 @@ A Stealth Burner tool-change system for Voron 2.4 and Trident.
 
 ## Description
 
-MissChanger aims to be a tool-changing upgrade that is compatible with both Voron Trident and Voron 2.4 (Trident compatibility is pending). While also retaining the MGN9H tapping system of Voron-Tap.
+MissChanger aims to be a tool-changing upgrade that is compatible with both Voron Trident and Voron 2.4 (Trident compatibility is pending). While also retaining the accuracy and reliability of the MGN9H tapping system of Voron-Tap.
 
 Other features of MissChanger includes:
 
