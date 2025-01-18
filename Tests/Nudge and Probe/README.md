@@ -1,5 +1,13 @@
 # Offset Precision Test
 
+## 0. Revision and Update
+
+### 16.05.25 - New Probe, New Software
+
+Through long term testing, it has been shown that the Nudge probe, made with standard ABS and stainless steel screws.
+
+There for an alternative, and new default probe for MissChanger has been introduced, the Lubeballs probe. The STLs for Lubeballs is included from v1.2 onward.
+
 ## 1. Background
 
 Calibration is the one of the most importance step to be done once the printer is built. For a tool-changer is a daunting task, as not only there are more nozzle whose z-offset needs to be calibrated, there is also the need to calibrate the XYZ offsets between every toolhead, against the reference (T0).
@@ -149,10 +157,8 @@ Nozzle heating also have a notable impact on the probe-offset; unless, the chamb
 
 Nozzle heating introduces significant error to the calibration process. Comparing data from As and Bs with Cs and Ds.
 
-Tool change using MissChanger, resulted in small but consistence errors in the probe offset in any heated condition. However, the variation are sufficiently small (~ 0.01 mm at most, between the average of case B1 and B2). Thus, it is not expected to be significantly impact print quality. Nevertheless, the most accurate results for TC is when no heater was on, see the different between case A1 and A2, suggesting that this is best condition for run the calibration of multiple toolhead. calibration in this condition does not take into consideration of thermal expansion. However, that can be dial into the `trigger_to_bottom_z` under `[tools_calibrate]` in `calibrate-offsets.cfg`.
+Tool change using MissChanger, resulted in small but consistence errors in the probe offset in any heated condition. However, the variation are sufficiently small (~ 0.01 mm at most, between the average of case B1 and B2). Thus, it is not expected to be significantly impact print quality. Nevertheless, the most accurate results for tool calibration is when no heater is on, see the different between case A1 and A2, suggesting that this is best condition for run the calibration of multiple tool-head. calibration in this condition does not take into consideration of thermal expansion. However, that can be dial into the `trigger_to_bottom_z` under `[tools_calibrate]` in `calibrate-offsets.cfg`.
 
 ## 7. Conclusion
 
 From the result and discuss above, it can be concluded the best calibration condition for the equipment outlined in section 2 is that of a cold bed and nozzles.
-
-*Note: The full recommended* `calibrate-offsets.cfg` *is available at [link-to-folder](https://github.com/VIN-y/MissChanger/blob/main/Software/Functions%20and%20Marcros/calibrate-offsets.cfg).*
