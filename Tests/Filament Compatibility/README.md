@@ -29,11 +29,11 @@ This document aims to outline the lesson learned in trying to combine different 
 |      | ABS | ASA | PETG | PET | PLA | TPU | PC  |
 | ---- | --- | --- | ---- | --- | --- | --- | --- |
 | ABS  | n/a | n/a | n/a  | n/a | n/a | n/a | n/a |
-| ASA  |     | n/a | n/a  | n/a | n/a | n/a | n/a |
+| ASA  | 8   | n/a | n/a  | n/a | n/a | n/a | n/a |
 | PETG | 3   |     | n/a  | n/a | n/a | n/a | n/a |
 | PET  |     |     |      | n/a | n/a | n/a | n/a |
 | PLA  | 2   |     | 1    |     | n/a | n/a | n/a |
-| TPU  | 6   |     | 4    |     | 5   | n/a | n/a |
+| TPU  | 6   | 7   | 4    |     | 5   | n/a | n/a |
 | PC   |     |     |      |     |     |     | n/a |
 
 ### 1 - PLA and PETG
@@ -72,15 +72,29 @@ This document aims to outline the lesson learned in trying to combine different 
 
 ### 4 - TPU and PETG
 
-TBD
+* Very few drawbacks has been observed.
+
+* The key problem is stringing of both materials.
 
 ### 5 - TPU and PLA
 
-TBD
+* Very few drawbacks has been observed.
 
 ### 6 - TPU and ABS
 
-TBD
+* This combination runs into the same problem as PLA and ABS, just at a higher temperature. TPU starts running into heat creep issue at 40°C+.
+
+### 7 - TPU and ASA
+
+* Unlike ABS. ASA does not strictly required a hot chamber, and can be printed at 25°C to 35°C, matching that of TPU.
+
+* Very few drawbacks has been observed.
+
+### 8 - ABS and ASA
+
+* These two material are almost identical. They will adhere to each other almost as good adhere to themselves.
+
+* However. The different thermal expansion characteristic of the two materials may cause problems if not accounted for.
 
 ## Material Specific
 
@@ -126,4 +140,8 @@ TBD
 
 ### TPU
 
-TBD
+1. TPU has a very high tendency to string during retraction. This is very important as there is a big/long retraction between tool changes.
+
+2. The material cannot be printed in a 40°C+ chamber.
+
+3. Due to stringing issues. This material require very low flow rate, ~5 mm^3/s.
