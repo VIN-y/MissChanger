@@ -82,7 +82,7 @@ This document aims to outline the lesson learned in trying to combine different 
 
 ### 6 - TPU and ABS
 
-* This combination runs into the same problem as PLA and ABS, just at a higher temperature. TPU starts running into heat creep issue at 40°C+.
+* This combination runs into the same problem as PLA and ABS, just at a higher temperature. TPU starts running into heat creep issue at ~40°C and above.
 
 ### 7 - TPU and ASA
 
@@ -106,7 +106,9 @@ This document aims to outline the lesson learned in trying to combine different 
 
 3. The speed profile for PLA is difference than that of PETG and other material. The max flow rate is not as high.
 
-4. The material cannot be printed continuously in a chamber 35°C or above. However, in a chamber at ~35°C it can still be printed in quick pulses, where the nozzle will heat up and and print then immediately turn off when docked.
+4. Heat creep chamber temperature ~35°C or above.
+   
+   * However, in a chamber at ~35°C it can still be printed in quick pulses, where the nozzle will heat up for a short print, then immediately turn off when docked.
 
 ### PETG
 
@@ -130,7 +132,9 @@ This document aims to outline the lesson learned in trying to combine different 
 
 4. This material is much more hydroscopic than ABS and PLA. This even more of a problem for a tool-changer than it is for a single tool-head system, as the material required to start and stop flowing dozen/hundred of times through out the print. Thus, the same spool of PETG that works fine for single material printing may not work at all for multi-material printing.
 
-5. The material cannot be printed continuously in a chamber 40°C or above.
+5. Heat creep chamber temperature ~40°C or above.
+
+6. Maximum volumetric speed ~7 (mm^3/s).
 
 ### ABS
 
@@ -138,10 +142,18 @@ This document aims to outline the lesson learned in trying to combine different 
 
 ![](./images/ABS_warping_1.jpg)
 
+2. Optimum chamber temperature ~65°C.
+
+3. Heat creep chamber temperature ~70°C or above.
+
+### ASA
+
+1. Heat creep chamber temperature ~70°C or above.
+
 ### TPU
 
 1. TPU has a very high tendency to string during retraction. This is very important as there is a big/long retraction between tool changes.
 
-2. The material cannot be printed in a 40°C+ chamber.
+2. Heat creep chamber temperature ~40°C or above.
 
-3. Due to stringing issues. This material require very low flow rate, ~5 mm^3/s.
+3. Maximum volumetric speed ~5 (mm^3/s). Due to stringing issues.

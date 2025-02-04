@@ -249,11 +249,7 @@ max_adjust: 20               # Maximum adjustment stroke for levelling
 
 4. If it exist in **printer.cfg**, disable `[safe_z_home]` (comment-out or delete)
 
-5. Add relevant variable under **SAVE_CONFIG**.
-
-`[tool_probe T0]` and  `[extruder]` is needed no matter what your setup is. As, it is the reference / default tool-head.
-
-For each additional tool-head, you will need an associated set of  `[tool t(x)]`, `[tool_probe T(x)]`, and `[extruder(x)]`. **It is recommended** to add and test the tool-head, one at a time.
+5. Add relevant variable (see the code snippet below) under **SAVE_CONFIG**. `[tool_probe T0]` and  `[extruder]` is needed no matter what your setup is. As, it is the reference / default tool-head. For each additional tool-head, you will need an associated set of  `[tool t(x)]`, `[tool_probe T(x)]`, and `[extruder(x)]`. **It is recommended** to add and test the tool-head, one at a time.
 
 *NOTE 1: Your printer will be throwing error beyond this point, until the software is fully setup.* 
 
@@ -598,11 +594,11 @@ This section assumes that the new tool-head has been assembled, wired up, and ha
 
 At this stage, you should have:
 
-- The Nudge probe assembled, tested, and installed
+- The calibration probe assembled, tested, and installed
 
 - T0 z-offset calibrated
 
-This section will guide you through the calibration of the machine specific variable `trigger_to_bottom_z`, which will allow you to automate the z-offset of the tool-heads that are not T0. 
+This section will guide you through the calibration of the machine specific variable `trigger_to_bottom_z`, which will allow you to automate the z-offset of the tool-heads that are not T0.
 
 *Note: This should be your go to variable to adjust whenever you ran into z-offset issue.*
 
@@ -630,7 +626,7 @@ This section will guide you through the calibration of the machine specific vari
 
 4. Mount the calibration probe
 
-5. Run `CALIBRATE_TRIGGER_BOTTOM`
+5. Run `CALIBRATE_TRIGGER_BOTTOM`. If it is a fresh calibration probe, it is worth redoing this step until the suggested value is consistent at +/- 0.005mm. 
 
 6. Copy the proposed offset on the console to the `trigger_to_bottom_z:` in `[tools_calibrate]`.
 
