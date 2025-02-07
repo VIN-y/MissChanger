@@ -23,7 +23,7 @@ MissChanger aims to be a tool-changing upgrade that is compatible with both Voro
 
 Other features of MissChanger includes:
 
-* The ability to quickly (< 60 sec) and toollessly convert between tool changer mode and single nozzle mode (for when you need the full print volume of the stock printer).
+* The ability to quickly and toollessly convert between tool changer mode and single nozzle mode (for when you need the full print volume of the stock printer).
 
 * Nozzle brush dock. For cleaning the PETG ooze and build-up after tool-change.
 
