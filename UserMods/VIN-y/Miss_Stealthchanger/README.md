@@ -1,6 +1,6 @@
 # Miss Stealthchanger
 
-This is a mod to the Stealthchanger v1.1 to make it compatible with MissChanger's docking system.
+This is a mod to the Stealthchanger v1.1 to make it compatible with MissChanger's docking system. See it working via this [YouTube video](https://youtube.com/shorts/WBkSGx4JyOY?si=XXWXMF8TNKqw9jsA).
 
 ## Software:
 
