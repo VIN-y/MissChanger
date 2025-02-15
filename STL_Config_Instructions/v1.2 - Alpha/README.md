@@ -472,17 +472,17 @@ The following steps are for the burn-in of the Tap&Change mechanism. This is so 
 
 3. Run `G28`
 
-4. Bring the toolhead to 10 mm above the centre of the bed
+4. Bring the tool-head to 10 mm above the centre of the bed
 
 5. Turn on the bed heater
 
 6. Turn on the chamber fan (if exist)
 
-7. Wait until the tool-head (i.e. "Extruder") temperature reached ~45°C
+7. Wait until the tool-head (i.e. "Extruder") temperature reached ~40°C
 
-8. Run `SHAPER_CALIBRATE` - Note: This is only meant to shake the toolhead around in its mount. Do not save the input shaper result.
+8. Run `SHAPER_CALIBRATE` - Note: This is only meant to shake the tool-head around in its mount. Do not save the input shaper result.
 
-9. Repeat step 4 - 8, and increase the toolhead temperature if needed. Until, the toolhead can fall into the mount on it's own weight.
+9. Repeat step 4 - 8 until, the tool-head can fall into the mount on it's own weight.
 
 ## 4.1. Park position calibration
 
