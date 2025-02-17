@@ -512,7 +512,9 @@ The following steps are for the burn-in of the Tap&Change mechanism. This is so 
     
     1. Make sure that the whole dock-bar is not lifted.
     
-    2. Make sure the tool-head is fully seated before it is lifted. Check it by nudging it back and fort 10mm.
+    2. Make sure the tool-head is fully seated before it starts being lifted. Check it by nudging it back and fort 10mm.
+    
+    3. If step 10.1 and 10.2 is not met. Adjust the Bar Ends spacers to fit. TIP: the distance for the spacers should be the same for both side.
 
 11. Tighten the bolts on the bottom of the dock (locking it in place)
 
