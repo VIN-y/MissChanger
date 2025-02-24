@@ -58,9 +58,9 @@ This document aims to outline the lesson learned in trying to combine different 
   
   * As PLA-ABS bond is still not as good as ABS-ABS. It is still possible to peel off the PLA-ABS layer by hand.
   
-  * The chamber temperature for PLA/PETG is very not ideal for ABS. This leads to warping of parts, and more importantly warping of the wipe tower. Thus, multi-material with ABS-PLA/PETG is a very un-reliable.
+  * The chamber temperature for PLA/PETG is very not ideal for ABS. This leads to warping of parts, and more importantly warping of the wipe tower. Thus, multi-material with ABS-PLA/PETG is not reliable at high speed.
 
-* Confictingly [Made with Layers (Thomas Sanladerer) - YouTube](https://www.youtube.com/@MadeWithLayers) shown the opposite result between PLA-and-ABS versus PETG-and-ABS. This might comes down to the specific filament brands.
+* Confictingly [Made with Layers (Thomas Sanladerer) - YouTube](https://www.youtube.com/@MadeWithLayers) shown the opposite result between PLA-and-ABS versus PETG-and-ABS. This might comes down to the specific filament brands and print conditions.
 
 * The need for a chamber and carbon filter for ABS printing is a large technical challenge to over comes. This is because PLA cannot be print in a chamber of 40°C or above.
 
@@ -83,18 +83,19 @@ This document aims to outline the lesson learned in trying to combine different 
 ### 6 - TPU and ABS
 
 * This combination runs into the same problem as PLA and ABS, just at a higher temperature. TPU starts running into heat creep issue at ~40°C and above.
+* TPU is prone to stringing and blobbing. These strings and blobs have been seen sticking to the hot ABS nozzle and burn out, due to the much higher temperature. The amount of material burned is not dangerous, but the residual is extremely difficult to remove. Thus, it is advised to enable mid-print clean for the ABS nozzle if possible. For MissChanger, this is done with installing the cleaning dock.
 
 ### 7 - TPU and ASA
 
 * Unlike ABS. ASA does not strictly required a hot chamber, and can be printed at 25°C to 35°C, matching that of TPU.
 
-* Very few drawbacks has been observed.
+* TPU is prone to stringing and blobbing. Much like ABS, but lesser so (because of the lower nozzle temp). It is advised to enable mid-print clean for the ASA nozzle if possible.
 
 ### 8 - ABS and ASA
 
 * These two material are almost identical. They will adhere to each other almost as good adhere to themselves.
 
-* However. The different thermal expansion characteristic of the two materials may cause problems if not accounted for.
+* However. The different thermal expansion / shrinkage characteristic of the two materials may cause problems if not accounted for.
 
 ## Material Specific
 
@@ -138,7 +139,7 @@ This document aims to outline the lesson learned in trying to combine different 
 
 ### ABS
 
-1. Warping is a major issue for combining ABS with materials like PLA/PETG. Crucially, this problem will often occur on the wipe tower, making ABS multi-material extremely unreliable.
+1. Warping is a major issue for combining ABS with materials like PLA/PETG. Crucially, this problem will often occur on the wipe tower, making ABS multi-material unreliable at high speed.
 
 ![](./images/ABS_warping_1.jpg)
 
@@ -152,7 +153,7 @@ This document aims to outline the lesson learned in trying to combine different 
 
 ### TPU
 
-1. TPU has a very high tendency to string during retraction. This is very important as there is a big/long retraction between tool changes.
+1. TPU has a very high tendency to string during retraction. This is very important as there is a big/long retraction between tool changes. A wipe tower is needed to catch the strings and blobs.
 
 2. Heat creep chamber temperature ~40°C or above.
 
