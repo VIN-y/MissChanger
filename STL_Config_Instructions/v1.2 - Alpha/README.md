@@ -708,6 +708,26 @@ If you has the set `variable_calibration_abs_z_seperately` to `1` in `[gcode_mac
 
 4. Run `SAVE_CONFIG`
 
+### 4.3.4. Clean dock
+
+#### Steps:
+
+1. Install the clean dock in your prefer slot on the gantry
+
+2. Approximate the x position of the centre of the dock (where the brush is)
+
+3. Add the aforementioned x position into `printer.cfg`. In `variable_clean_dock_x` under `[gcode_macro _static_variable]`.
+
+#### Optional steps, for auto mid-print clean:
+
+1. Set-up the `variable_clean_threshold` under `[gcode_macro _static_variable]`. "150" means that the print need to take up ~50% of the bed before trigger mid-clean print.
+
+2.  List the materials that need to have their associated tool-head cleaned in `misschanger_settings.cfg`. For example:
+   
+   ```
+   params_need_clean_materials: ['PETG', 'ABS']
+   ```
+
 # 5. Test and Troubleshoot
 
 ## 5.1. Offsets
