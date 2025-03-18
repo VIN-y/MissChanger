@@ -94,13 +94,13 @@ Nevertheless, the tests have also reveals the following cons:
 
 - Testing has shown that the better air flow control can significantly increase the utilisation of the bed heater for chamber heating.
 
-- Multi-material experiments show that the tool-changer will benefit from chamber temperature management. Lower chamber temperature will allow ABS to be combined with PLA/PETG. However, the result is mixed, as many ABS print came out poorly due to the lower chamber temperature.
+- Multi-material experiments show that the tool-changer will benefit from chamber temperature management. Lower chamber temperature will allow ABS to be combined with PLA / PETG. However, the result is mixed, as many ABS print came out poorly due to the lower chamber temperature.
 
 ### v1.2 - Polish hardware and revamp software
 
-* Remigrating the project back to FreeCAD. This is because Ondsel ran out of funding and shutdown.
+* Remigrating the project back to FreeCAD, because Ondsel ran out of funding and shutdown.
 
-* USB tool-heads seems to be favoured by the community over CAN. Therefore, v1.2 has added official Nitehawk SB USB tool-head board.
+* Added official Nitehawk SB USB tool-head board.
 
 * Voron 2.4 300 compatibility established, tested by `@psychosis5150`.
 
@@ -111,6 +111,8 @@ Nevertheless, the tests have also reveals the following cons:
 * Add official support for the G2E.
 
 * Introducing the Lubedballs probe, as an alternative to the Nudge probe. Intended as an easier system to build.
+
+* Fix some compatibility issue for Voron Trident.
 
 * Bug fixes and revamp software stack:
   
@@ -136,6 +138,6 @@ Nevertheless, the tests have also reveals the following cons:
   
   * Fix the bug where the QGL failure is not detected in `PRINT_START`.
   
-  * Fix compatibility issue with PrusaSlicer 2.9.0, where the XY coordinate of the wipe tower is no longer get emitted.
+  * Fix compatibility issue with PrusaSlicer 2.9.0+, where the XY coordinate of the wipe tower is no longer get emitted.
   
   * Fix the bug with part cooling fan speed being stuck at random values midway through the print.

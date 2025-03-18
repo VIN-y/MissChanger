@@ -722,10 +722,10 @@ If you has the set `variable_calibration_abs_z_seperately` to `1` in `[gcode_mac
 
 1. Set-up the `variable_clean_threshold` under `[gcode_macro _static_variable]`. "150" means that the print need to take up ~50% of the bed before trigger mid-clean print.
 
-2.  List the materials that need to have their associated tool-head cleaned in `misschanger_settings.cfg`. For example:
+2. List the materials that need to have their associated tool-head cleaned in `misschanger_settings.cfg`. For example:
    
    ```
-   params_need_clean_materials: ['PETG', 'ABS']
+   params_need_clean_materials: ['PETG', 'FLEX']
    ```
 
 # 5. Test and Troubleshoot
