@@ -581,9 +581,9 @@ The following steps are for the burn-in of the Tap&Change mechanism. This is so 
 
 3. Run `G28` and `QUAD_GANTRY_LEVEL` 
 
-4. Run `PROBE_CALIBRATE` on the console and go through the process with the normal paper test
+4. Run `PROBE_CALIBRATE` on the console and go through the process with <u>the normal paper test</u>.
 
-5. Run `SAVE_CONFIG` - which will restart your printer
+5. <u></u>Run `SAVE_CONFIG` - which will restart your printer
 
 6. Go to `printer.cfg`
 
