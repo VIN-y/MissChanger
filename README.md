@@ -203,7 +203,9 @@ Modded items are not tested or officially supported. However, if it contains goo
 
 ## Support
 
-If you have any question, you can reach me:
+If you have any question, please FIRST check the [MissChanger Wiki](https://github.com/VIN-y/MissChanger/wiki)
+
+If you still have any question, you can reach me at:
 
 * `@vin` in the [Voron Toolchangers](https://discord.gg/qrb6HXNYxs) discord
 * `@vinny_69 V2.6365` in the [VORONDesign](https://discord.gg/voron) discord
