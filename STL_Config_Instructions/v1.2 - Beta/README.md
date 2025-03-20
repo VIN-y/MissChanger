@@ -85,7 +85,7 @@ rm -rf klipper-toolchanger/
 wget -O - https://raw.githubusercontent.com/VIN-y/klipper-toolchanger/main/scripts/install.sh | bash
 ```
 
-2. For Beta test: (TBD)
+2. For Beta test:
 
 ```
 wget -O - https://raw.githubusercontent.com/VIN-y/klipper-toolchanger/beta/scripts/install.sh | bash
@@ -123,7 +123,7 @@ To fully uninstall the back-end, run one of the following command over SSH. Make
 wget -O - https://raw.githubusercontent.com/VIN-y/klipper-toolchanger/main/scripts/uninstall.sh | bash
 ```
 
-2. For Beta test: (TBD)
+2. For Beta test:
 
 ```
 wget -O - https://raw.githubusercontent.com/VIN-y/klipper-toolchanger/beta/scripts/uninstall.sh | bash
@@ -866,7 +866,7 @@ Enable **Ooze Prevention**.
 
 This setting will allow you to reduce the docked nozzle temperature, to prevent over cooking the filament.
 
-Even if you don't want it to drop the temperature, still enable it, then set the `Temperature variation` to 0°C or 1°C. This setting will emit a nozzle heating command after tool-change, effectively act as reheat command for when the system is recovering from a failed tool-change.
+Even if you don't want it to drop the temperature, still enable it, then set the `Temperature variation` to -25°C. This setting will emit a nozzle heating command after tool-change, effectively act as reheat command for when the system is recovering from a failed tool-change.
 
 ![](./images/Screenshot%20from%202024-12-26%2002-09-59.png)
 
