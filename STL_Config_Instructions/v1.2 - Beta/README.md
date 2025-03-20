@@ -1,8 +1,36 @@
 # Table of content
 
-1. [Introduction](#introduction)
+1. [Introduction](#1-introduction) 
 
-2. [Hardware](#Hardware)
+2. [Hardware](#2-hardware) 
+   
+   2.1. [MissChanger Core Assembly](#21-misschanger-core-assembly)
+   
+   2.2. [Situational / Optional / Mods](#22-situational--optional--mods) 
+
+3. [Software](#2-software) 
+   
+   3.1. [Installation](#31-installation) 
+   
+   3.2. [Configuration](#32-configuration) 
+
+4. [Calibration](#4-calibration) 
+   
+   4.0. [Tap&Change burn-in](#40-tapchange-burn-in) 
+   
+   4.1. [Park position calibration](#41-park-position-calibration) 
+   
+   4.2. [Input Shaper (optional)](#42-input-shaper-optional) 
+   
+   4.3. [Calibrate offsets](#43-calibrate-offsets) 
+
+5. [Test and Troubleshoot](#5-test-and-troubleshoot) 
+   
+   5.1. [Offsets](#51-offsets) 
+
+6. [Tool-change Tuning](#6-tool-change-tuning) 
+
+7. [Slicer Profile](#7-slicer-profile) 
 
 # 1. Introduction
 
@@ -484,7 +512,7 @@ The following steps are for the burn-in of the Tap&Change mechanism. This is so 
 
 6. Turn on the chamber fan (if exist)
 
-7. Wait until the tool-head (i.e. "Extruder") temperature reached ~40°C
+7. Wait until the tool-head (i.e. "Extruder") temperature reached ~40°C (or ~10 mins if you don't have a chamber temperature sensor)
 
 8. Run `SHAPER_CALIBRATE` - Note: This is only meant to shake the tool-head around in its mount. Do not save the input shaper result.
 
@@ -571,9 +599,9 @@ The following steps are for the burn-in of the Tap&Change mechanism. This is so 
 
 8. Save & Restart
 
-## 4.3. Calibrate Offsets
+## 4.3. Calibrate offsets
 
-### 4.3.1. Calibrate Reference Z-Offset
+### 4.3.1. Calibrate reference z-offset
 
 1. Mount tool-head T0
 
@@ -620,7 +648,7 @@ The following steps are for the burn-in of the Tap&Change mechanism. This is so 
 
 *Note: It is key that you get the z_offset correct for the T0, as it will be used to extrapolate other offsets later on. Therefore, it is worth diverge from the instruction, if you have a preferred way to set your the z-offset.*
 
-### 4.3.2. Calibration Probe Setup
+### 4.3.2. Calibration probe setup
 
 At this stage, you should have:
 
