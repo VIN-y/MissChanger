@@ -24,7 +24,7 @@ The purpose of **v2** is to overcomes the inherent flaws of **v1** noted above. 
 | v0.0    | Abandoned | Bleeding       | The design has been proven to lack durability in the testing phase.                                                                                                                                       |
 | v1.0    | Abandoned | Beta           | Although functional, several reliability and usability problems have been found.                                                                                                                          |
 | v1.1    | Abandoned | Alpha          | Fixes problems found in v1.0.<br/>Tool-changer reliability proven and will be carried forward, unless stated otherwise.<br/>The Nevermore StealthMax is added as optional chamber temperature management. |
-| v1.2    | Alpha     | ...            | Add support for Voron 2.4 300mm.<br/>Add support for USB tool-heads.<br/>Add G2E official support<br/>Revamp software stack and bug fixes.                                                                |
+| v1.2    | Beta      | ...            | Add support for Voron 2.4 300mm.<br/>Add support for USB tool-heads.<br/>Add G2E official support.<br/>Revamp software stack and bug fixes.<br/>Preliminary Trident support.                              |
 
 ## Design History
 

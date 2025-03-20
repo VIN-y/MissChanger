@@ -1,3 +1,9 @@
+# Table of content
+
+1. [Introduction](#introduction)
+
+2. [Hardware](#Hardware)
+
 # 1. Introduction
 
 Although the setting up the config for MissChanger will change some aspects of your printer, it is still recommended that you start the project with a functional printer with Voron-Tap, then add MissChanger and one tool-head at a time.
