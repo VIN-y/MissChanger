@@ -32,11 +32,15 @@
 
 7. [Slicer Profile](#7-slicer-profile) 
 
+---
+
 # 1. Introduction
 
 Although the setting up the config for MissChanger will change some aspects of your printer, it is still recommended that you start the project with a functional printer with Voron-Tap, then add MissChanger and one tool-head at a time.
 
 This document will not guide you through the set up of CAN bus or the physical mounting of the related hardware (i.e. U2C and tool-head board), please refer to the manufacture’s manual for that.
+
+---
 
 # 2. Hardware
 
@@ -55,6 +59,8 @@ These following attachments are extras that will expand the capability of tool-c
 | [Nevermore Stealth Max](./6_Optionals/Nevermore_StealthMax)<br> + [DC Barrel Panel Mount](./6_Optionals/DC_Barrel_Panel_Mount) | - With modded flow chamber<br>- Cable management for Nevermore Stealth Max                                                    |
 | [Galileo 2 + LDO Nitehawk SB USB cable strain relief](./5_Others/G2E-umbilical_anchor)                                         | For Galileo 2 + LDO Nitehawk SB USB                                                                                           |
 | [Inverted z-chain](https://www.printables.com/model/445298-inverted-z-chain-for-voron)                                         | Recommended for the Voron 2.4 300mm, or smaller. To clear the space in front of the back gantry extrusion for the umbilicals. |
+
+---
 
 # 3. Software
 
@@ -490,7 +496,9 @@ These configs tends to be points of customisation for many. Therefore, the inclu
 
 5. Run `SAVE_CONFIG_MODE` and check if the file is correctly saved.
 
-Now, the `CONFIG_TOGGLE` macro will allow you to toggle between these 2 configs. 
+Now, the `CONFIG_TOGGLE` macro will allow you to toggle between these 2 configs.
+
+---
 
 # 4. Calibration
 
@@ -762,6 +770,8 @@ If you has the set `variable_calibration_abs_z_seperately` to `1` in `[gcode_mac
    params_need_clean_materials: ['PETG', 'FLEX']
    ```
 
+---
+
 # 5. Test and Troubleshoot
 
 ## 5.1. Offsets
@@ -804,6 +814,8 @@ It is important to test if the `z_offset` and `gcode_z_offset` are set-up and ap
 
 To validate `gcode_x_offset` and `gcode_y_offset`, you just need to print something and see if they are set-up and applied correctly. Alternatively, you can also buy and use [Ember Camera Assisted XY](https://www.emberprototypes.com/products/cxc) to validate them.
 
+---
+
 # 6. Tool-change Tuning
 
 The speed and path of the default tool-change routine, in `misschanger_settings.cfg` is not tuned for reliability. It is slower and has more steps than needed.
@@ -811,6 +823,8 @@ The speed and path of the default tool-change routine, in `misschanger_settings.
 For a smooth running MissChanger. The `params_path_speed` can be increased and some of the "Wiggle wiggle", in the path, can be disable. For example:
 
 ![](./images/Screenshot%20from%202025-01-02%2020-38-41.png)
+
+---
 
 # 7. Slicer Profile
 
