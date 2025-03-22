@@ -19,20 +19,84 @@ The purpose of **v2** is to overcomes the inherent flaws of **v1** noted above. 
 
 ## Versions Summary
 
-| Version | Status    | Stopping Point | Remarks                                                                                                                                                                                                   |
-|:-------:|:---------:|:--------------:| --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| v0.0    | Abandoned | Bleeding       | The design has been proven to lack durability in the testing phase.                                                                                                                                       |
-| v1.0    | Abandoned | Beta           | Although functional, several reliability and usability problems have been found.                                                                                                                          |
-| v1.1    | Abandoned | Alpha          | Fixes problems found in v1.0.<br/>Tool-changer reliability proven and will be carried forward, unless stated otherwise.<br/>The Nevermore StealthMax is added as optional chamber temperature management. |
-| v1.2    | Beta      | ...            | Add support for Voron 2.4 300mm.<br/>Add support for USB tool-heads.<br/>Add G2E official support.<br/>Revamp software stack and bug fixes.<br/>Preliminary Trident support.                              |
+| Version | Status    | Stopping Point | Remarks                                                                                                                                                                                                              |
+|:-------:|:---------:|:--------------:| -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| v0.0    | Abandoned | Bleeding       | The design has been proven to lack durability in the testing phase.                                                                                                                                                  |
+| v1.0    | Abandoned | Beta           | Although functional, several reliability and usability problems were found.                                                                                                                                          |
+| v1.1    | Abandoned | Alpha          | Fixes problems found in v1.0.<br/>Tool-changer reliability tested and proven. It will be carried forward, unless stated otherwise.<br/>The Nevermore StealthMax is added as optional chamber temperature management. |
+| v1.2    | Beta      | ...            | Add support for Voron 2.4 300mm.<br/>Add support for USB tool-heads.<br/>Add G2E official support.<br/>Revamp software stack and bug fixes.<br/>Preliminary Trident support.                                         |
 
 ## Design History
 
-### v0.0 - Original idea
+### v1.2 - Polish hardware and revamp software
 
-This was the original idea for MissChanger, which was developed up to the point where it can be used for test prints. It was discovered that the mechanism would wears down after ~2000 cycles and lost the precision needed for Quad Gantry Level.
+- Remigrating the project back to FreeCAD, because Ondsel ran out of funding and shutdown.
 
-No further work will be done for this design, and documentations are not available.
+- Added official Nitehawk SB USB tool-head board.
+
+- Voron 2.4 300 compatibility established, tested by `@psychosis5150`.
+
+- Update the design of the Nudge Mount, for broader compatibility and increase durability.
+
+- Update XLR panel design for better compatibility and alignment.
+
+- Add official support for the G2E.
+
+- Introducing the Lubedballs probe, as an alternative to the Nudge probe. Intended as an easier system to build.
+
+- Fix some compatibility issue for Voron Trident.
+
+- Bug fixes and revamp software stack:
+  
+  - Added changes from [DraftShift/klipper-toolchanger](https://github.com/DraftShift/klipper-toolchanger). This fork faster moving and has more features on top of [viesturz/klipper-toolchanger](https://github.com/viesturz/klipper-toolchanger). Nevertheless, it is noted that Viesturz is still slowly adding features to his extension. Therefore, future updates to [VIN-y/klipper-toolchanger](https://github.com/VIN-y/klipper-toolchanger) (for MissChanger) may adopt features from either of the for mention repository, where they may fit for the project.
+  
+  - Deprecate `multi-fan` to re-enable the ability to control the part cooling fan with the GUIs.
+  
+  - Establish the structure of the software stack, to have a low barrier of entry while still allow customisation.
+  
+  - Revamp the tool-change routine, to avoid firmware crashing or unsafe movement during pick-up.
+  
+  - Add fail to drop-off detection.
+  
+  - Fixed the bug where the `gcode_z_offset` not correctly clear out after tool-change.
+  
+  - Revamped `CALIBRATE_OFFSETS` routine:
+    
+    - To check for proper probe placement before starting the session.
+    
+    - Add an option to run the routine with or without absolute z calibration. For over sensitive probes.
+  
+  - Add a macro to calibrate trigger bottom. So the printer don't need to be restarted and homed multiple times during calibration.
+  
+  - Fix the bug where the QGL failure is not detected in `PRINT_START`.
+  
+  - Fix compatibility issue with PrusaSlicer 2.9.0+, where the XY coordinate of the wipe tower is no longer get emitted.
+  
+  - Fix the bug with part cooling fan speed being stuck at random values midway through the print.
+  
+  - Add the function to save z_offset baby-steps.
+
+### v1.1 - Fixing problems with v1.0 and further testings
+
+- Migrate the project files to Ondsel, the CAD software, and tighten up part-to-part tolerances
+
+- Adds magnets to the docking system to hold onto the tool-head more securely when docked
+
+- Increase wall thickness of the Tap&Change pieces, making it more durable
+
+- Add door buffer, for clearance of the docked tool-heads.
+
+- Add silicon liner layer for nozzle plug, to avoid PETG-caused damage.
+
+- Passed reliability test with 4100 continuous tool-changes at random z-positions
+
+- Adds support for the Nevermore StealthMax, with a modified flow chamber with output switch.
+
+- User feedback. A design flaw has been discovered in the XLR Panels, which cause slight incompatibility with smaller Voron.
+
+- Testing has shown that the better air flow control can significantly increase the utilisation of the bed heater for chamber heating.
+
+- Multi-material experiments show that the tool-changer will benefit from chamber temperature management. Lower chamber temperature will allow ABS to be combined with PLA / PETG. However, the result is mixed, as many ABS print came out poorly due to the lower chamber temperature.
 
 ### v1.0 - First Beta
 
@@ -74,70 +138,8 @@ Nevertheless, the tests have also reveals the following cons:
 
 - This version was quick to be pushed to beta, because there was only one MissChanger in the work. Future versions will be given more time at each tier, as more people get on board with the project
 
-### v1.1 - Fixing problems with v1.0 and further testings
+### v0.0 - Original idea
 
-- Migrate the project files to Ondsel, the CAD software, and tighten up part-to-part tolerances
-
-- Adds magnets to the docking system to hold onto the tool-head more securely when docked
-
-- Increase wall thickness of the Tap&Change pieces, making it more durable
-
-- Add door buffer, for clearance of the docked tool-heads.
-
-- Add silicon liner layer for nozzle plug, to avoid PETG-caused damage.
-
-- Passed reliability test with 4100 continuous tool-changes at random z-positions
-
-- Adds support for the Nevermore StealthMax, with a modified flow chamber with output switch.
-
-- User feedback. A design flaw has been discovered in the XLR Panels, which cause slight incompatibility with smaller Voron.
-
-- Testing has shown that the better air flow control can significantly increase the utilisation of the bed heater for chamber heating.
-
-- Multi-material experiments show that the tool-changer will benefit from chamber temperature management. Lower chamber temperature will allow ABS to be combined with PLA / PETG. However, the result is mixed, as many ABS print came out poorly due to the lower chamber temperature.
-
-### v1.2 - Polish hardware and revamp software
-
-* Remigrating the project back to FreeCAD, because Ondsel ran out of funding and shutdown.
-
-* Added official Nitehawk SB USB tool-head board.
-
-* Voron 2.4 300 compatibility established, tested by `@psychosis5150`.
-
-* Update the design of the Nudge Mount, for broader compatibility and increase durability.
-
-* Update XLR panel design for better compatibility and alignment.
-
-* Add official support for the G2E.
-
-* Introducing the Lubedballs probe, as an alternative to the Nudge probe. Intended as an easier system to build.
-
-* Fix some compatibility issue for Voron Trident.
-
-* Bug fixes and revamp software stack:
+* This was the original idea for MissChanger, which was developed up to the point where it can be used for test prints. It was discovered that the mechanism would wears down after ~2000 cycles and lost the precision needed for Quad Gantry Level.
   
-  * Re-based back-end to [DraftShift/klipper-toolchanger](https://github.com/DraftShift/klipper-toolchanger) - This fork faster moving and has more features on top of [viesturz/klipper-toolchanger](https://github.com/viesturz/klipper-toolchanger). Nevertheless, it is noted that Viesturz is still slowly adding features to his extension. Therefore, future updates to [VIN-y/klipper-toolchanger](https://github.com/VIN-y/klipper-toolchanger) (for MissChanger) may adopt features from either of the for mention repository, where they may fit for the project.
-  
-  * Deprecate `multi-fan` to re-enable the ability to control the part cooling fan with the GUIs.
-  
-  * Establish the structure of the software stack, to have a low barrier of entry while still allow customisation.
-  
-  * Revamp the tool-change routine, to avoid firmware crashing or unsafe movement during pick-up.
-  
-  * Add fail to drop-off detection.
-  
-  * Fixed the bug where the gcode_z_offset not correctly clear out after tool-change.
-  
-  * Revamped `CALIBRATE_OFFSETS` routine:
-    
-    * To check for proper probe placement before starting the session.
-    
-    * Add an option to run the routine with or without absolute z calibration. For over sensitive probes.
-  
-  * Add a macro to calibrate trigger bottom. So the printer don't need to be restarted and homed multiple times during calibration.
-  
-  * Fix the bug where the QGL failure is not detected in `PRINT_START`.
-  
-  * Fix compatibility issue with PrusaSlicer 2.9.0+, where the XY coordinate of the wipe tower is no longer get emitted.
-  
-  * Fix the bug with part cooling fan speed being stuck at random values midway through the print.
+  No further work will be done for this design, and documentations are not available.
