@@ -77,6 +77,7 @@ MissChanger deviate greatly from the design of Tapchanger and Draftshift (Stealt
 ### Other recommended software:
 
 - [KIAUH](https://github.com/dw-0/kiauh) - For the purpose of managing Klipper updates, to handle any potential incompatibility issues, whenever there is a major Klipper update.
+- [Klipper-Backup](https://github.com/Staubgeborener/Klipper-Backup) - Klipper-Backup is a script for manual or automated GitHub backups. It's Lightweight, pragmatic and comfortable.
 
 ## Roadmap
 
