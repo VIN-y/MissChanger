@@ -2,7 +2,7 @@
 
 This folder contains the STLs, config files, and instructions for both the latest and past version of MissChanger.
 
-Each versions are enclosed in their own folder. These folder should contains all the information that is available and relevant to that version of the system. Nevertheless, this directory structure was not fully fleshed out until v1.1. Therefore, the documentation for versions that are older than v1.1. might not be functional.
+Each versions are enclosed in their own folder in the [MissChanger Archive](https://drive.proton.me/urls/3CDH12JTMW#YhJ5K3t4AadW). These folder should contains all the information that is available and relevant to that version of the system. Nevertheless, this directory structure was not fully fleshed out until v1.1, and CAD models reservation were not properly done until v1.2. Therefore, the documentation for versions that are older than v1.1 might not be functional, and no CAD file older than v1.2. is avaliable.
 
 # Design Record
 
