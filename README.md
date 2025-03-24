@@ -112,22 +112,6 @@ Note:
 
 * With user feedback and further testing, the relevant version might be updated to the next tier. However, if significant changes are required, another version will be made and start at the bleeding state; and the current version will no longer be persuaded (i.e. abandoned).
 
-### Offset Types
-
-There are 2 type of offsets for each tool-head:
-
-- **x_offset** / **y_offset** / **z_offset** - which are the default offsets that most people are used to, which will be referred to as probe offset moving forward. They are sort of like hard-coded values (they are not); in that, they are pretty hard to work with downstream, i.e. in the configs
-
-- **gcode_x_offset** / **gcode_y_offset** / **gcode_z_offset** - these are like for on-the-fly adjustment to for the gcode. This the stuff you adjust when you do baby-stepping mid-print
-
-For the purpose of the tool-changer:
-
-- **x_offset** and **y_offset** will not be used
-
-- **z_offset** is to be calibrated for all tool-heads
-
-- **gcode_x_offset** / **gcode_y_offset** / **gcode_z_offset** are used to account for the XYZ different between the nozzles, based on a reference nozzle
-
 ## Recommendations
 
 1. Keep tool-heads as similar as possible. 
