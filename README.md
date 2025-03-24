@@ -84,20 +84,15 @@ MissChanger deviate greatly from the design of Tapchanger and Draftshift (Stealt
 ### v1
 
 - [x] ~~Lock in the Tap&Change and dock design for all future versions~~ - v1.1. is the final version for the Tap&Change system for the Stealth Burner
-
 - [x] ~~Print capability test, material combination~~ - Tested with the three most common materials
-
 - [x] ~~Compatibility with smaller Vorons~~ - Have been shown to be compatible with the Voron 2.4 300, via a different assembly configuration (shown in the manual), which should also be compatible with the 250 Vorons.
-
 - [x] ~~USB tool-head support~~ - Nitehawk SB USB tool-head board.
+- [ ] Trident compatibility
 
 ### v2
 
-- [ ] Trident compatibility
-
-- [ ] Support for additional tool-heads
-
-- [ ] Support for different type of probe
+- [ ] Trident compatibility - v2 will be built directly on a Trident
+- [ ] Support for additional tool-heads - TBD
 
 ## Other information
 
