@@ -128,32 +128,6 @@ For the purpose of the tool-changer:
 
 - **gcode_x_offset** / **gcode_y_offset** / **gcode_z_offset** are used to account for the XYZ different between the nozzles, based on a reference nozzle
 
-### Build area set up
-
-<mark>This is **an important point** to keep in mind.</mark>
-
-It is important to know how your build area is set up, to avoid collisions and potential damages.
-
-MissChanger use the same build area configuration as the origin Voron 350mm, see the code block below. This build area set up stay the same between the single tool-head  and the multi tool-heads mode, providing consistency. No matter which mode you are in, `G1 X{number} Y{number}`  will bring the gantry to the same spot above the build plate. Also, the creator's (that is me) finds negative coordinates confusing.
-
-```
-[stepper_x]
-...
-position_min: 0               # X-axis minimum travel - software limit
-position_endstop: 350         # Mechanical reset point coordinates for X-axis (change to 350 for 350 models)
-position_max: 350             # X-axis maximum travel - software limit (change to 350 for 350 models)
-...
-
-[stepper_y]
-...
-position_min: 0               # Y-axis minimum travel - software limit
-position_endstop: 350         # Mechanical reset point coordinates for Y-axis (change to 350 for 350 models)
-position_max: 350             # Y-axis maximum travel - software limit (change to 350 for 350 models)
-...
-```
-
-Nevertheless, this behaviour can be change in the config, by bring the settings for `[stepper_x]` and `[stepper_y]` under the `Session Variables` section.
-
 ## Recommendations
 
 1. Keep tool-heads as similar as possible. 
