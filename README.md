@@ -91,9 +91,9 @@ MissChanger deviate greatly from the design of Tapchanger and Draftshift (Stealt
 
 - [x] ~~USB tool-head support~~ - Nitehawk SB USB tool-head board.
 
-- [ ] Trident compatibility
-
 ### v2
+
+- [ ] Trident compatibility
 
 - [ ] Support for additional tool-heads
 
