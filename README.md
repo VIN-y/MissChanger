@@ -25,7 +25,7 @@ Other features of MissChanger includes:
 
 * The ability to quickly and toollessly convert between tool changer mode and single nozzle mode (for when you need the full print volume of the stock printer).
 
-* Nozzle brush dock. For cleaning the PETG ooze and build-up after tool-change.
+* Nozzle brush dock. For cleaning the ooze and build-up after tool-change.
 
 ## Compatibility
 
@@ -84,20 +84,15 @@ MissChanger deviate greatly from the design of Tapchanger and Draftshift (Stealt
 ### v1
 
 - [x] ~~Lock in the Tap&Change and dock design for all future versions~~ - v1.1. is the final version for the Tap&Change system for the Stealth Burner
-
 - [x] ~~Print capability test, material combination~~ - Tested with the three most common materials
-
 - [x] ~~Compatibility with smaller Vorons~~ - Have been shown to be compatible with the Voron 2.4 300, via a different assembly configuration (shown in the manual), which should also be compatible with the 250 Vorons.
-
 - [x] ~~USB tool-head support~~ - Nitehawk SB USB tool-head board.
-
 - [ ] Trident compatibility
 
 ### v2
 
-- [ ] Support for additional tool-heads
-
-- [ ] Support for different type of probe
+- [ ] Trident compatibility - v2 will be built directly on a Trident
+- [ ] Support for additional tool-heads - TBD
 
 ## Other information
 
@@ -116,48 +111,6 @@ Note:
 * The .step and CAD project files for all but the most recent version will not be included in this repository, due to the storage/transfer limits of GitHub.
 
 * With user feedback and further testing, the relevant version might be updated to the next tier. However, if significant changes are required, another version will be made and start at the bleeding state; and the current version will no longer be persuaded (i.e. abandoned).
-
-### Offset Types
-
-There are 2 type of offsets for each tool-head:
-
-- **x_offset** / **y_offset** / **z_offset** - which are the default offsets that most people are used to, which will be referred to as probe offset moving forward. They are sort of like hard-coded values (they are not); in that, they are pretty hard to work with downstream, i.e. in the configs
-
-- **gcode_x_offset** / **gcode_y_offset** / **gcode_z_offset** - these are like for on-the-fly adjustment to for the gcode. This the stuff you adjust when you do baby-stepping mid-print
-
-For the purpose of the tool-changer:
-
-- **x_offset** and **y_offset** will not be used
-
-- **z_offset** is to be calibrated for all tool-heads
-
-- **gcode_x_offset** / **gcode_y_offset** / **gcode_z_offset** are used to account for the XYZ different between the nozzles, based on a reference nozzle
-
-### Build area set up
-
-<mark>This is **an important point** to keep in mind.</mark>
-
-It is important to know how your build area is set up, to avoid collisions and potential damages.
-
-MissChanger use the same build area configuration as the origin Voron 350mm, see the code block below. This build area set up stay the same between the single tool-head  and the multi tool-heads mode, providing consistency. No matter which mode you are in, `G1 X{number} Y{number}`  will bring the gantry to the same spot above the build plate. Also, the creator's (that is me) finds negative coordinates confusing.
-
-```
-[stepper_x]
-...
-position_min: 0               # X-axis minimum travel - software limit
-position_endstop: 350         # Mechanical reset point coordinates for X-axis (change to 350 for 350 models)
-position_max: 350             # X-axis maximum travel - software limit (change to 350 for 350 models)
-...
-
-[stepper_y]
-...
-position_min: 0               # Y-axis minimum travel - software limit
-position_endstop: 350         # Mechanical reset point coordinates for Y-axis (change to 350 for 350 models)
-position_max: 350             # Y-axis maximum travel - software limit (change to 350 for 350 models)
-...
-```
-
-Nevertheless, this behaviour can be change in the config, by bring the settings for `[stepper_x]` and `[stepper_y]` under the `Session Variables` section.
 
 ## Recommendations
 
