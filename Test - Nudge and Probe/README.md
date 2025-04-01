@@ -4,13 +4,13 @@
 
 ### 16.05.25 - New Probe, New Software
 
-Through long term testing, it has been shown that the Nudge probe, made with standard ABS and stainless steel screws.
+Through long term testing, it has been shown that the Nudge probe, made with standard ABS and stainless steel screws are too sensitive for the use of MissChanger. More specifically, the ABS part would deforms over time in the heated chamber. In addition, the long stroke needed for the absolute z_offset calibration will throw the pin out of position; and, it will fail to return to the triggered state.
 
-There for an alternative, and new default probe for MissChanger has been introduced, the Lubeballs probe. The STLs for Lubeballs is included from v1.2 onward.
+An alternative for MissChanger has been introduced, the Lubeballs probe. The STLs for Lubeballs is included from v1.2 onward. However, the Nudge probe remains to be the recommended probe for Trident builds, due to the lack of a mechanical probe mount on that platform.
 
 ## 1. Background
 
-Calibration is the one of the most importance step to be done once the printer is built. For a tool-changer is a daunting task, as not only there are more nozzle whose z-offset needs to be calibrated, there is also the need to calibrate the XYZ offsets between every toolhead, against the reference (T0).
+Calibration is the one of the most importance step to be done once the printer is built. For a tool-changer is a daunting task, as not only there are more nozzle whose z-offset needs to be calibrated, there is also the need to calibrate the XYZ offsets between every tool-head, against the reference (T0).
 
 For the purpose of MissChanger, the [Nudge](https://github.com/zruncho3d/nudge) (made by [zruncho3d](https://github.com/zruncho3d)) probe have been used to automate the calibration for all of the offsets above. This hardware was chosen for its simplicity, affordability and high repeat-ability (± 0.01 mm).
 
@@ -87,11 +87,13 @@ The back-end python code provides the essential routines for the calibration pro
 
 #### 4.2.2. Configuration
 
-To provide flexibility and ease of use, some variables are exposed to the user which can be configured under `[tool_calibrate]`,  in the `calibrate-offsets.cfg`.\
+**Update: These calibration commands are no longer functional, due to the software stack revamping of v1.2. However, the result of the analysis is the same.**
+
+To provide flexibility and ease of use, some variables are exposed to the user which can be configured under `[tool_calibrate]`,  in the `calibrate-offsets.cfg`.
 
 Furthermore, the user will need to define the approximate position of the  probe in the hidden macro. `[gcode_macro _CALIBRATE_MOVE_OVER_PROBE]`. 
 
-Last, but not least, are the macros: `CALIBRATE_OFFSETS` and `CALIBRATE_NPO`; which are used for configuring the full calibration routine for all offsets and (specifically) the probe offset, respectively. These macros are adapted from Viesturz's sample macros: `CALIBRATE_TOOL_OFFSETS` and `CALIBRATE_NOZZLE_PROBE_OFFSET`.*
+Last, but not least, are the macros: `CALIBRATE_OFFSETS` and `CALIBRATE_NPO`; which are used for configuring the full calibration routine for all offsets and (specifically) the probe offset, respectively. These macros are adapted from Viesturz's sample macros: `CALIBRATE_TOOL_OFFSETS` and `CALIBRATE_NOZZLE_PROBE_OFFSET`.
 
 ## 5. Test
 
