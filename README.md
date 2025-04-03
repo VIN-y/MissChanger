@@ -2,7 +2,7 @@
 
 A Stealth Burner tool-change system for Voron 2.4 and Trident.
 
-![20240223_185152.jpg](./images/20241109_231817.jpg)
+![](./images/20250403_205054.jpg)
 
 ## Description
 
