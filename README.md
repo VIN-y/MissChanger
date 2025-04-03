@@ -60,7 +60,9 @@ BOM, STLs, and instructions for each version of are in their associated sub-fold
 
 The plugin for MissChanger is a fork of [klipper-toolchanger](https://github.com/viesturz/klipper-toolchanger), for [Tapchanger](https://github.com/viesturz/tapchanger), and it is available via GitHub at [VIN-y/klipper-toolchanger](https://github.com/VIN-y/klipper-toolchanger). MissChanger deviate greatly from the design of Tapchanger and Draftshift (Stealthchanger); thus, it's config files are not compatible upstream.
 
-Installation and configuration steps are outlined in the [STL_Config_Instructions](./STL_Config_Instructions) folder. Sample config files and their descriptions are also available in the folder. 
+For the latest **Alpha**, installation and configuration steps are outlined in the [STL_Config_Instructions](./STL_Config_Instructions) folder in their respective sub-folder, with sample config files and descriptions.
+
+For **Beta** and **Release**. All instructions are locked and packaged into the .zip file, in [Releases](https://github.com/VIN-y/MissChanger/releases).
 
 ### Recommended software:
 
