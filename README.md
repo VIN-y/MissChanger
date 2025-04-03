@@ -2,19 +2,6 @@
 
 A Stealth Burner tool-change system for Voron 2.4 and Trident.
 
-* This project was inspired by [Stealthchanger](https://github.com/Stealthchanger/Toolchanger) and [TapChanger](https://github.com/viesturz/tapchanger/) 
-- The Center_Tap for the Tap&Change system is from [Voron-Tap](https://github.com/VoronDesign/Voron-Tap/) 
-
-- The end-stops assembly is a remix of that from [MrTeliP](https://www.printables.com/model/325765-voron-24r2-pg7-cable-gland-and-endstop) 
-
-- The exhaust cover is a remix of that from [Fiction](https://github.com/VoronDesign/VoronUsers/tree/main/printer_mods/Fiction/Exhaust_cover) 
-
-- The Nudge calibration switch is from [zruncho3d](https://github.com/zruncho3d/nudge) 
-
-- The G2E umbilical mount is a remix of that from [Iconic FAB](https://www.printables.com/model/936670-galileo-2-ldo-nitehawk-sb-usb-cable-strain-relief) 
-
-- The [Nevermore StealthMax](https://github.com/nevermore3d/StealthMax) is optional, and has been modified
-
 ![20240223_185152.jpg](./images/20241109_231817.jpg)
 
 ## Description
@@ -38,7 +25,7 @@ For those who want to adapt MissChanger to you own system. The Bar-Ends are 28mm
 
 #### Toolhead:
 
-- Stealth Burner (up to 5, for the 350mm version) 
+- Stealth Burner (up to 5, for the 350mm version) - v1
 
 #### Hotend:
 
@@ -54,8 +41,9 @@ Any hot-ends that does not require a custom/extended main-body for the Stealth B
 
 #### Extruder:
 
-All extruder that is compatible with the Stealth Burner should works just fine. Nevertheless, any added dimensions on top of the ClockWork 2 might resulted in less print area or space for other tool-heads. In addition, the chosen 
+All extruder that is compatible with the Stealth Burner should works just fine. Nevertheless, any added dimensions on top of the ClockWork 2 might resulted in less print area or space for other tool-heads.
 
+1. v1:
 * ClockWork 2 (CW2) - Default
   
   * All quoted clearance dimensions are in reference to this extruder.
@@ -66,15 +54,15 @@ All extruder that is compatible with the Stealth Burner should works just fine. 
 
 ## Assembly
 
-BOM, STLs, and instructions for each version of are in their associated sub-folder in the [STL_Config_Instructions](./STL_Config_Instructions) folder.
+BOM, STLs, and instructions for each version of are in their associated sub-folder in the [STL_Config_Instructions](./STL_Config_Instructions) folder (for the latest and relevant versions), or [MissChanger Archive](https://drive.proton.me/urls/3CDH12JTMW#YhJ5K3t4AadW) (for past versions).
 
 ## Software
 
-The plugin for MissChanger is a fork of [klipper-toolchanger](https://github.com/viesturz/klipper-toolchanger), for [Tapchanger](https://github.com/viesturz/tapchanger), and it is available via GitHub at [VIN-y/klipper-toolchanger](https://github.com/VIN-y/klipper-toolchanger). Installation and configuration steps are outlined in the [STL_Config_Instructions](./STL_Config_Instructions) folder. Sample config files and their descriptions are also available in the folder. 
+The plugin for MissChanger is a fork of [klipper-toolchanger](https://github.com/viesturz/klipper-toolchanger), for [Tapchanger](https://github.com/viesturz/tapchanger), and it is available via GitHub at [VIN-y/klipper-toolchanger](https://github.com/VIN-y/klipper-toolchanger). MissChanger deviate greatly from the design of Tapchanger and Draftshift (Stealthchanger); thus, it's config files are not compatible upstream.
 
-MissChanger deviate greatly from the design of Tapchanger and Draftshift (Stealthchanger); thus, it's config files are not compatible upstream.
+Installation and configuration steps are outlined in the [STL_Config_Instructions](./STL_Config_Instructions) folder. Sample config files and their descriptions are also available in the folder. 
 
-### Other recommended software:
+### Recommended software:
 
 - [KIAUH](https://github.com/dw-0/kiauh) - For the purpose of managing Klipper updates, to handle any potential incompatibility issues, whenever there is a major Klipper update.
 - [Klipper-Backup](https://github.com/Staubgeborener/Klipper-Backup) - Klipper-Backup is a script for manual or automated GitHub backups. It's Lightweight, pragmatic and comfortable.
