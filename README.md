@@ -86,13 +86,13 @@ Installation and configuration steps are outlined in the [STL_Config_Instruction
 
 ### Status definition
 
-| Terms     | Description                                                                                  |
-| --------- | -------------------------------------------------------------------------------------------- |
-| Release   | Finalised.<br>All relevant components and documentations are finished and tested.            |
-| Beta      | All relevant components are locked in.<br/>However, without substantial testing or feedback. |
-| Alpha     | CAD designs locked in.<br>No (or incomplete) documentations.                                 |
-| Bleeding  | Everything are subjected to changes.                                                         |
-| Abandoned | Old design that is no longer being persuaded.                                                |
+| Terms     | Description                                                                                                      |
+| --------- | ---------------------------------------------------------------------------------------------------------------- |
+| Release   | Finalised.<br>All relevant components and documentations are finished and tested.                                |
+| Beta      | All relevant components are locked into a release package.<br/>However, without substantial testing or feedback. |
+| Alpha     | CAD designs locked in.<br>No (or incomplete) documentations.                                                     |
+| Bleeding  | Everything are subjected to changes.                                                                             |
+| Abandoned | Old design that is no longer being persuaded.                                                                    |
 
 Note: 
 
