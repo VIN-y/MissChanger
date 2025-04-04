@@ -54,13 +54,13 @@ All extruder that is compatible with the Stealth Burner should works just fine. 
 
 ## Assembly
 
-BOM, STLs, and instructions for each version of are in their associated sub-folder in the [STL_Config_Instructions](./STL_Config_Instructions) folder (for the latest and relevant versions), or [MissChanger Archive](https://drive.proton.me/urls/3CDH12JTMW#YhJ5K3t4AadW) (for past versions).
+BOM, STLs, and instructions for each version of are in their associated sub-folder in the [STL_&_Instructions](./STL_&_Instructions) folder (for the latest and relevant versions), or [MissChanger Archive](https://drive.proton.me/urls/3CDH12JTMW#YhJ5K3t4AadW) (for past versions).
 
 ## Software
 
 The plugin for MissChanger is a fork of [klipper-toolchanger](https://github.com/viesturz/klipper-toolchanger), for [Tapchanger](https://github.com/viesturz/tapchanger), and it is available via GitHub at [VIN-y/klipper-toolchanger](https://github.com/VIN-y/klipper-toolchanger). MissChanger deviate greatly from the design of Tapchanger and Draftshift (Stealthchanger); thus, it's config files are not compatible upstream.
 
-For the latest **Alpha**, installation and configuration steps are outlined in the [STL_Config_Instructions](./STL_Config_Instructions) folder in their respective sub-folder, with sample config files and descriptions.
+For the latest **Alpha**, installation and configuration steps are outlined in the [STL_&_Instructions](./STL_&_Instructions) folder in their respective sub-folder, with sample config files and descriptions.
 
 For **Beta** and **Release**. All instructions are locked and packaged into the .zip file, in [Releases](https://github.com/VIN-y/MissChanger/releases).
 
