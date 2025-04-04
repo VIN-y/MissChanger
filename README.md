@@ -2,7 +2,7 @@
 
 A Stealth Burner tool-change system for Voron 2.4 and Trident.
 
-![](./images/20250403_205054.jpg)
+![](./images/Front_Page/20250403_205054.jpg)
 
 ## Description
 
@@ -127,11 +127,11 @@ Note:
 
 ## Sample
 
-![](./images/20240608_131513.jpg)
+![](./images/Front_Page/20240608_131513.jpg)
 
-![](./images/20240618_152001.jpg)
+![](./images/Front_Page/20240618_152001.jpg)
 
-![](./images/20241017_132023.jpg)
+![](./images/Front_Page/20241017_132023.jpg)
 
 ## Mods
 
@@ -158,4 +158,4 @@ If you still have any question, you can reach me at:
 ## Contributors
 
 * `@psychosis5150` in the [Voron Toolchangers](https://discord.gg/qrb6HXNYxs) discord
-* `@pendorbound` in the [Voron Toolchangers](https://discord.gg/qrb6HXNYxs) discord
+* 
