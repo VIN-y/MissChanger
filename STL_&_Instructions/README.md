@@ -4,20 +4,7 @@ This folder contains the STLs, config files, and instructions for both the lates
 
 Each versions are enclosed in their own folder in the [MissChanger Archive](https://drive.proton.me/urls/3CDH12JTMW#YhJ5K3t4AadW). These folder should contains all the information that is available and relevant to that version of the system. Nevertheless, this directory structure was not fully fleshed out until v1.1, and CAD models reservation were not properly done until v1.2. Therefore, the documentation for versions that are older than v1.1 might not be functional, and no CAD file older than v1.2. is avaliable.
 
-# Design Record
-
-These folders contain all the STL files for this project, for their respective version.
-
-## v1 - MVP (Minimum Viable Product)
-
-The purpose of **v1** is to provide the option with the bare minimum hardware required to have the MissChanger up and run. This series is for those who are price conscious / do not need a dedicated tool-changer all the time / do not want to gut their current Voron printer.
-The most expensive part of a v1 build will be the tool-heads themselves.
-
-## v2 - Tool-changer focused design
-
-The purpose of **v2** is to overcomes the inherent flaws of **v1** noted above. However, this will be increase the price of the system, with more components added.
-
-## Versions Summary
+# Summary
 
 | Version | Status    | Stopping Point | Remarks                                                                                                                                                                                                              |
 |:-------:|:---------:|:--------------:| -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -26,7 +13,7 @@ The purpose of **v2** is to overcomes the inherent flaws of **v1** noted above. 
 | v1.1    | Abandoned | Alpha          | Fixes problems found in v1.0.<br/>Tool-changer reliability tested and proven. It will be carried forward, unless stated otherwise.<br/>The Nevermore StealthMax is added as optional chamber temperature management. |
 | v1.2    | Beta      | ...            | Add support for Voron 2.4 300mm.<br/>Add support for USB tool-heads.<br/>Add G2E official support.<br/>Revamp software stack and bug fixes.<br/>Preliminary Trident support.                                         |
 
-## Design History
+# Change Log
 
 ### v1.2 - Polish hardware and revamp software
 
