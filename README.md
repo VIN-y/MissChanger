@@ -43,7 +43,8 @@ Any hot-ends that does not require a custom/extended main-body for the Stealth B
 
 All extruder that is compatible with the Stealth Burner should works just fine. Nevertheless, any added dimensions on top of the ClockWork 2 might resulted in less print area or space for other tool-heads.
 
-1. v1:
+**For v1:** 
+
 * ClockWork 2 (CW2) - Default
   
   * All quoted clearance dimensions are in reference to this extruder.
