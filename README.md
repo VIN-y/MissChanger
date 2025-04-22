@@ -18,7 +18,7 @@ Other features of MissChanger includes:
 
 #### Klipper:
 
-**NOTICE: Klipper incompatibility problem**
+<mark>**NOTICE: Klipper incompatibility problem**<mark>
 
 Kliper versions above v0.13.0-35 is currently not compatible with the MissChanger klipper-toolchanger add-on.
 
