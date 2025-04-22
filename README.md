@@ -16,6 +16,14 @@ Other features of MissChanger includes:
 
 ## Compatibility
 
+#### Klipper:
+
+**NOTICE: Klipper incompatibility problem**
+
+Kliper versions above v0.13.0-35 is currently not compatible with the MissChanger klipper-toolchanger add-on.
+
+Please use KIAUH to revert (rollback) the commits to that version.
+
 #### Printers:
 
 - Voron 2.4 350 (up to 5 SBs)
