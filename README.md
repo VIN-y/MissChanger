@@ -18,11 +18,13 @@ Other features of MissChanger includes:
 
 #### Klipper:
 
-<mark>**NOTICE: Klipper incompatibility problem**<mark>
+<mark>**NOTICE: Klipper incompatibility problem with the beta branch**<mark>
 
 Kliper versions above v0.13.0-35 is currently not compatible with the MissChanger klipper-toolchanger add-on.
 
 Please use KIAUH to revert (rollback) the commits to that version.
+
+The issue will be fixed in the next update.
 
 #### Printers:
 
