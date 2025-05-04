@@ -38,21 +38,15 @@ Although the setting up the config for MissChanger will change some aspects of y
 
 This document will not guide you through the set up of CAN bus or the physical mounting of the related hardware (i.e. U2C and tool-head board), please refer to the manufacture’s manual for that.
 
-# 2. Hardware
+# 2. Versions
 
-## 2.1. MissChanger Core Assembly
+There are 3 versions for the software, the configs for which are placed in the relevant folder:
 
-The core assembly and the associated manual can be found on the 
+* [Alpha](./Alpha)
 
-## 2.2. Situational / Optional / Mods
+* [Beta](./Beta)
 
-These following attachments are extras that will expand the capability of tool-changer system. Nevertheless, they were developed by others and does not share the same design language as MissChanger (i.e. difference print parameters).
-
-| Mod                                                                                                                            | Description                                                                                                                   |
-| ------------------------------------------------------------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------- |
-| [Nevermore Stealth Max](./6_Optionals/Nevermore_StealthMax)<br> + [DC Barrel Panel Mount](./6_Optionals/DC_Barrel_Panel_Mount) | - With modded flow chamber<br>- Cable management for Nevermore Stealth Max                                                    |
-| [Galileo 2 + LDO Nitehawk SB USB cable strain relief](./5_Others/G2E-umbilical_anchor)                                         | For Galileo 2 + LDO Nitehawk SB USB                                                                                           |
-| [Inverted z-chain](https://www.printables.com/model/445298-inverted-z-chain-for-voron)                                         | Recommended for the Voron 2.4 300mm, or smaller. To clear the space in front of the back gantry extrusion for the umbilicals. |
+* [Main](./Main) - empty (there is no functional main branch at the moment)
 
 # 3. Software
 
@@ -66,7 +60,7 @@ Before installation. For those who are switching branch. You will need to run th
 
 ### 3.1.1. Install
 
-1. For normal use: (TBD, intentionally broken command)
+1. For normal use: <mark>**!!! Does not work !!!**</mark>
 
 ```
 wget -O - https://raw.githubusercontent.com/VIN-y/klipper-toolchanger/main/scripts/install.sh | bash
@@ -102,7 +96,7 @@ Some manual change will still need to be done in the user space (i.e. the sectio
 
 To fully uninstall the back-end, run one of the following command over SSH. Make sure to select the link that is relevant to the version that is currently install on the printer.
 
-1. For normal use: (TBD, intentionally broken command)
+1. For normal use: <mark>**!!! Does not work !!!**</mark>
 
 ```
 wget -O - https://raw.githubusercontent.com/VIN-y/klipper-toolchanger/main/scripts/uninstall.sh | bash
@@ -122,13 +116,15 @@ wget -O - https://raw.githubusercontent.com/VIN-y/klipper-toolchanger/alpha/scri
 
 ## 3.2. Configuration
 
-The **sample configuration files** can be found in the [Sample_Config](./Sample_Config) folder, where further descriptions of the software stack can also be found.
+The **sample configuration files** can be found in the relevant folder above.
 
-If you are comfortable with it, you are welcome to by-pass the default macros and play with the configs files to your liking, following **step -1**. If you found any errors or room  for improvement, feel free to reach out to me to get it fixed, via a GitHub or otherwise.
+The following, starting from **Step 1**, are the recommended steps to get the software up-and-running using the default set of macros. Following the guide will make it easier for you to get support.
 
-Nevertheless, the following are the recommended steps to get the software up-and-running using the default set of macros. Following the guide (starting from **step 1**) bellow will make it easier for you to get support. The default macros will be managed and updated together with the software stack.
+The default macros will be managed and updated together with the software stack.
 
-### Step -1: Customisation
+### Step 0: Customisation
+
+If you are comfortable with it, you are welcome to by-pass the default macros and play with the configs files to your liking. If you found any errors or room for improvement, feel free to reach out to me to get it fixed, via a GitHub or otherwise.
 
 For building your custom macro:
 
@@ -156,30 +152,31 @@ Through your web interface:
 
 ### Step 2: Set up printer.cfg
 
-You can check the sample `printer.cfg` in [Sample_Config](./Sample_Config) folder as reference.
+You can check the sample `printer.cfg` in relevant folder above as reference.
 
 Each variable has been given a short description on what they do and some variable can be used to disable functionalities, such that you will not need to comb through the configs to find and edit them out.
 
 #### Notes:
 
 1. Add the **Section Variables** section.
+   
+   These sections need to be placed just before the **SAVE_CONFIG** section, as shown in the sample **printer.cfg**. Everything below the `Section Variable marker` will be swap in and out upon the `CONFIG_TOGGLE` macro. If a function settings were already existing somewhere else, the old function will need to be transfer to the new location and updated.
+   
+   The critical settings that needs to be changed are as follow:
+- `[quad_gantry_level]`, or `z_tilt` (for Trident), increase the y position of the front 2 `points:` to `130`, to avoid crashing into the dock.
 
-These sections need to be placed just before the **SAVE_CONFIG** section, as shown in the sample **printer.cfg**. Everything below the `Section Variable marker` will be swap in and out upon `A_CONFIG_TOGGLE`.
-
-If a function settings were already existing somewhere else, the old function will need to be removed, or transfer to the new location. The critical settings that needs to be changed are as follow:
-
-- `[quad_gantry_level]`, increase the y position of the front 2 `points:` to `130`, as shown, to avoid crashing into the dock.
-
-- `[bed_mesh]`, make sure that `mesh_min: 30,130` , as shown, to avoid crashing into the dock.
+- `[bed_mesh]`, make sure that `mesh_min: 30,130` , to avoid crashing into the dock.
 
 - `[gcode_macro _home]` need to adjusted with the appropriate `xh` and `yh` which represent the centre of the built area.
 
 - `variable_dock` is the indicator of which config is being used, is to be toggled in and out.
 2. If it exist in **printer.cfg**, disable `[safe_z_home]` (comment-out or delete)
 
-3. Add relevant variable (see the code snippet below) under **SAVE_CONFIG**. `[tool_probe T0]` and  `[extruder]` is needed no matter what your setup is. As, it is the reference / default tool-head. For each additional tool-head, you will need an associated set of  `[tool t(x)]`, `[tool_probe T(x)]`, and `[extruder(x)]`. **It is recommended** to add and test the tool-head, one at a time.
+3. Add relevant variable (see the code snippet below) under **SAVE_CONFIG**. `[tool_probe T0]` and  `[extruder]` is needed no matter what your setup is. As, it is the reference / default tool-head. 
 
-*NOTE 1: Your printer will be throwing error beyond this point, until the software is fully setup.* 
+4. For each additional tool-head, you will need an associated set of  `[tool t(x)]`, `[tool_probe T(x)]`, and `[extruder(x)]`. **It is RECOMMENDED** to add and test the tool-head, one at a time.
+
+*NOTE 1: Your printer will be throwing error at this point, until the software is fully setup.* 
 
 *NOTE 2: The variables will need to be calibrated to match your hardware.*
 
@@ -209,7 +206,7 @@ Use the `T0-SB2209-Revo-LDO.cfg` in [Sample_Config](./Sample_Config) folder as r
    
    * `[tool_probe]` 
      
-     * <mark>!!!NOTE!!!</mark> that the `activate_gcode:` for the item has been replace with the macro `_TAP_PROBE_ACTIVATE`, with the flag `HEATER=extruder`. This flag <mark>NEED TO BE SET TO THE RIGHT "EXTRUDER"</mark>. Failure to do so, may result in damage bed surface.
+     <mark>NOTE:</mark> the `activate_gcode:` for the item has been replace with the macro `_TAP_PROBE_ACTIVATE`, with the flag `HEATER=extruder`. This flag <mark>NEED TO BE SET TO THE RIGHT "EXTRUDER"</mark>. Failure to do so, may result in damage bed surface.
 
 2. Replace `[fan]` with `[fan_generic T0_partfan]`
 
@@ -219,7 +216,7 @@ Use the `T0-SB2209-Revo-LDO.cfg` in [Sample_Config](./Sample_Config) folder as r
    
    * `[tool T0]` - associate the items above to T0 and provide tool specific variables (which will need to be adjusted later).
 
-4. Include tool-head config in the session variables are in `printer.cfg`, as shown in the code block in **Step 2.3**.
+4. Include tool-head config in the session variables are in `printer.cfg`, as shown in the relevant sample config.
 
 *Note: At this point, the printer should be able to have a firmware restart without (or with minor) errors.* 
 

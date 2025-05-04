@@ -2,18 +2,41 @@
 
 This folder contains the STLs, config files, and instructions for both the latest and past version of MissChanger.
 
-Each versions are enclosed in their own folder in the [MissChanger Archive](https://drive.proton.me/urls/3CDH12JTMW#YhJ5K3t4AadW). These folder should contains all the information that is available and relevant to that version of the system. Nevertheless, this directory structure was not fully fleshed out until v1.1, and CAD models reservation were not properly done until v1.2. Therefore, the documentation for versions that are older than v1.1 might not be functional, and no CAD file older than v1.2. is avaliable.
+Each versions are enclosed in their own folder in the [MissChanger Archive](https://drive.proton.me/urls/3CDH12JTMW#YhJ5K3t4AadW). These folder should contains all the information that is available and relevant to that version of the system. Nevertheless, this directory structure was not fully fleshed out until v1.1, and CAD models reservation were not properly done until v1.2. Therefore, the documentation for versions that are older than v1.1 might not be functional, and no CAD file older than v1.2. is available.
+
+## Situational / Optional / Mods
+
+These following attachments are extras that will expand the capability of tool-changer system. Nevertheless, they were developed by others and does not share the same design language as MissChanger (i.e. difference print parameters).
+
+| Mod                                                                                                                            | Description                                                                                                                   |
+| ------------------------------------------------------------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------- |
+| [Nevermore Stealth Max](./6_Optionals/Nevermore_StealthMax)<br> + [DC Barrel Panel Mount](./6_Optionals/DC_Barrel_Panel_Mount) | - With modded flow chamber<br>- Cable management for Nevermore Stealth Max                                                    |
+| [Galileo 2 + LDO Nitehawk SB USB cable strain relief](./5_Others/G2E-umbilical_anchor)                                         | For Galileo 2 + LDO Nitehawk SB USB                                                                                           |
+| [Inverted z-chain](https://www.printables.com/model/445298-inverted-z-chain-for-voron)                                         | Recommended for the Voron 2.4 300mm, or smaller. To clear the space in front of the back gantry extrusion for the umbilicals. |
 
 # Summary
 
-| Version | Status    | Stopping Point | Remarks                                                                                                                                                                                                              |
-|:-------:|:---------:|:--------------:| -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| v0.0    | Abandoned | Bleeding       | The design has been proven to lack durability in the testing phase.                                                                                                                                                  |
-| v1.0    | Abandoned | Beta           | Although functional, several reliability and usability problems were found.                                                                                                                                          |
-| v1.1    | Abandoned | Alpha          | Fixes problems found in v1.0.<br/>Tool-changer reliability tested and proven. It will be carried forward, unless stated otherwise.<br/>The Nevermore StealthMax is added as optional chamber temperature management. |
-| v1.2    | Beta      | ...            | Add support for Voron 2.4 300mm.<br/>Add support for USB tool-heads.<br/>Add G2E official support.<br/>Revamp software stack and bug fixes.<br/>Preliminary Trident support.                                         |
+| Version | Status    | Stopping Point | Remarks                                                                                                                                                                                                                                              |
+|:-------:|:---------:|:--------------:| ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| v0.0    | Abandoned | Bleeding       | The design has been proven to lack durability in the testing phase.                                                                                                                                                                                  |
+| v1.0    | Abandoned | Beta           | Although functional, several reliability and usability problems were found.                                                                                                                                                                          |
+| v1.1    | Abandoned | Alpha          | Fixes problems found in v1.0.<br/>Tool-changer reliability tested and proven. It will be carried forward, unless stated otherwise.<br/>The Nevermore StealthMax is added as optional chamber temperature management.                                 |
+| v1.2    | Abandoned | Beta           | Add support for Voron 2.4 300mm.<br/>Add support for USB tool-heads.<br/>Add G2E official support.<br/>Revamp software stack and bug fixes.<br/>Preliminary Trident support.                                                                         |
+| v1.2.1  | Beta      | ...            | Klipper compatibility fix.<br/>Move fan control to the the back-end, for smoother operation.<br/>Add more user controllable variables.<br/>Separate the `Klipper_Config`, to allows for software hot fix without the need to create another release. |
 
 # Change Log
+
+### v1.2.1 - Hot fix and add features
+
+* Klipper compatibility fix.
+
+* Move fan control to the the back-end, for smoother operation.
+
+* Add more user controllable variables.
+
+* 
+
+* Separate the `Klipper_Config`, to allows for software hot fix without the need to create another release.
 
 ### v1.2 - Polish hardware and revamp software
 
