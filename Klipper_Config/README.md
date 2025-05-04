@@ -44,7 +44,7 @@ There are 3 versions for the software, the configs for which are placed in the r
 
 * [Alpha](./Alpha)
 
-## NOTICE: Klipper incompatibility problem
+### NOTICE: Klipper incompatibility problem
 
 Kliper versions above **v0.13.0-35** is currently not compatible with the MissChanger klipper-toolchanger add-on beta (and main). Please use KIAUH to revert (rollback) the commits to that version.
 
