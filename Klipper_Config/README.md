@@ -32,35 +32,27 @@
 
 7. [Slicer Profile](#7-slicer-profile) 
 
----
-
 # 1. Introduction
 
 Although the setting up the config for MissChanger will change some aspects of your printer, it is still recommended that you start the project with a functional printer with Voron-Tap, then add MissChanger and one tool-head at a time.
 
 This document will not guide you through the set up of CAN bus or the physical mounting of the related hardware (i.e. U2C and tool-head board), please refer to the manufacture’s manual for that.
 
----
+# 2. Versions
 
-# 2. Hardware
+There are 3 versions for the software, the configs for which are placed in the relevant folder:
 
-## 2.1. MissChanger Core Assembly
+* [Main](./Main) - empty (there is no functional main branch at the moment)
 
-The following manual is for the core components that are needed to get MissChanger up and running.
+* [Beta](./Beta)
 
-MissChanger Assembly Manual: [MissChanger_Assembly_Manual](./MissChanger_Assembly_Manual.pdf).
+* [Alpha](./Alpha)
 
-## 2.2. Situational / Optional / Mods
+## NOTICE: Klipper incompatibility problem
 
-These following attachments are extras that will expand the capability of tool-changer system. Nevertheless, they were developed by others and does not share the same design language as MissChanger (i.e. difference print parameters).
+Kliper versions above **v0.13.0-35** is currently not compatible with the MissChanger klipper-toolchanger add-on beta (and main). Please use KIAUH to revert (rollback) the commits to that version.
 
-| Mod                                                                                                                            | Description                                                                                                                   |
-| ------------------------------------------------------------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------- |
-| [Nevermore Stealth Max](./6_Optionals/Nevermore_StealthMax)<br> + [DC Barrel Panel Mount](./6_Optionals/DC_Barrel_Panel_Mount) | - With modded flow chamber<br>- Cable management for Nevermore Stealth Max                                                    |
-| [Galileo 2 + LDO Nitehawk SB USB cable strain relief](./5_Others/G2E-umbilical_anchor)                                         | For Galileo 2 + LDO Nitehawk SB USB                                                                                           |
-| [Inverted z-chain](https://www.printables.com/model/445298-inverted-z-chain-for-voron)                                         | Recommended for the Voron 2.4 300mm, or smaller. To clear the space in front of the back gantry extrusion for the umbilicals. |
-
----
+The issue will be fixed in the next update.
 
 # 3. Software
 
@@ -70,16 +62,11 @@ This section aims to provide a guide through the installation process of the sof
 
 To install the [klipper-toolchanger](https://github.com/VIN-y/klipper-toolchanger) plugin, run the following installation script using the following command over SSH. This script will download this GitHub repository to your RaspberryPi home directory, and symlink the files in the Klipper extra folder.
 
-Before installation. For those who are switching branch. You will need to run the following commands to clean out the old files before installing. Alternatively, you can run the uninstall script in below, in **section 3.1.2**.
-
-```
-cd ~
-rm -rf klipper-toolchanger/
-```
+Before installation. For those who are switching branch. You will need to run the uninstall script in below, in **section 3.1.2**.
 
 ### 3.1.1. Install
 
-1. For normal use: (TBD, intentionally broken command)
+1. For normal use: <mark>**!!! Does not work !!!**</mark>
 
 ```
 wget -O - https://raw.githubusercontent.com/VIN-y/klipper-toolchanger/main/scripts/install.sh | bash
@@ -101,7 +88,7 @@ wget -O - https://raw.githubusercontent.com/VIN-y/klipper-toolchanger/alpha/scri
 
 ### 3.1.2. Uninstall
 
-Some manual change will still need to be done in the user space (i.e. the section that is accessible via the web interface). This includes:
+Some manual change will still need to be done in the user space (i.e. the section that is accessible via the web interface). These settings / files / folders tend to contain information and calibration values specific to your printer. Thus, it advised that you create a backup before deletion. This includes:
 
 * The `config` folder
 
@@ -113,11 +100,9 @@ Some manual change will still need to be done in the user space (i.e. the sectio
 
 * `moonraker.conf` registry
 
-These settings / files / folders tend to contain information and calibration values specific to your printer. Thus, it advised that you create a backup before deletion.
-
 To fully uninstall the back-end, run one of the following command over SSH. Make sure to select the link that is relevant to the version that is currently install on the printer.
 
-1. For normal use: (TBD, intentionally broken command)
+1. For normal use: <mark>**!!! Does not work !!!**</mark>
 
 ```
 wget -O - https://raw.githubusercontent.com/VIN-y/klipper-toolchanger/main/scripts/uninstall.sh | bash
@@ -137,13 +122,15 @@ wget -O - https://raw.githubusercontent.com/VIN-y/klipper-toolchanger/alpha/scri
 
 ## 3.2. Configuration
 
-The **sample configuration files** can be found in the [Klipper_Config](./Klipper_Config) folder, where further descriptions of the software stack can also be found.
+The **sample configuration files** can be found in the relevant folder above.
 
-If you are comfortable with it, you are welcome to by-pass the default macros and play with the configs files to your liking, following **step -1**. If you found any errors or room  for improvement, feel free to reach out to me to get it fixed, via a GitHub or otherwise.
+The following, starting from **Step 1**, are the recommended steps to get the software up-and-running using the default set of macros. Following the guide will make it easier for you to get support.
 
-Nevertheless, the following are the recommended steps to get the software up-and-running using the default set of macros. Following the guide (starting from **step 1**) bellow will make it easier for you to get support. The default macros will be managed and updated together with the software stack.
+The default macros will be managed and updated together with the software stack.
 
-### Step -1: Customisation
+### Step 0: Customisation
+
+If you are comfortable with it, you are welcome to by-pass the default macros and play with the configs files to your liking. If you found any errors or room for improvement, feel free to reach out to me to get it fixed, via a GitHub or otherwise.
 
 For building your custom macro:
 
@@ -171,186 +158,37 @@ Through your web interface:
 
 ### Step 2: Set up printer.cfg
 
-You can check the sample **printer.cfg** in [Klipper_Config](./Klipper_Config) folder as reference. However, be careful of copy-paste directly from there, because there are variables that might incompatible with yours printer. The following code blocks will intentionally have all optional functionalities (i.e. nozzle cleaning, active chamber thermal control, exhaust fans, etc.)
-
-1. `includes` the following at the start of the **printer.cfg** file.
-
-```
-## Linked default marcros
-[include misschanger_macros/config_switch.cfg]
-[include misschanger_macros/homing.cfg]
-[include misschanger_macros/nozzle_clean.cfg]
-[include misschanger_macros/overwrite.cfg]
-[include misschanger_macros/print_time_default.cfg]
-[include misschanger_macros/tool_calibrate.cfg]
-[include misschanger_macros/toolchanger.cfg]
-## misschanger settings
-[include misschanger_settings.cfg]
-```
-
-Optional:
-
-```
-[include misschanger_macros/tool_calibrate_extra.cfg]    # For the Nudge probe
-```
-
-2. Add **Global Variables**.
+You can check the sample `printer.cfg` in relevant folder above as reference.
 
 Each variable has been given a short description on what they do and some variable can be used to disable functionalities, such that you will not need to comb through the configs to find and edit them out.
 
-```
-####################################################################################
-##                             Global Variables
-####################################################################################
-[config_switch]
-#--------------------------------------------------------------------
-[gcode_macro _static_variable]
-description: Global static variables that is used through out the configs
-## Tool-head calibration
-variable_calibration_probe_x: 242.237500     # X aproximate position of the Nudge probe. CHANGE TO MATCH YOUR SET-UP
-variable_calibration_probe_y: 329.825000     # Y aproximate position of the Nudge probe. CHANGE TO MATCH YOUR SET-UP
-variable_calibration_safe_z: 60.00           # Z aproximate safe position of the Nudge probe. KEEP CONSERVATIVE TO AVOID COLLISION
-variable_calibration_min_z: 40.00            # Z aproximate probe position of the Nudge probe.
-variable_calibration_abs_z_seperately: 0     # "0" = False / "1" = True. For, the Nudge probe this should be '1'
-variable_final_lift_z: 3                     # This must be the same as "final_lift_z" in [tools_calibrate] in misschanger_settings.cfg
-## Cleaning dock
-variable_clean_dock_x: 0                     # X aproximate position of the cleaning dock. CHANGE TO MATCH YOUR SET-UP. Set to "0" to disable
-variable_clean_temp: 200                     # Nozzle clean temperature
-variable_clean_threshold: 125.0              # The minimum perimeter of the print, below which the printing material will not be considered
-## Always on crash detection
-variable_alway_on_crash_detection: 1         # "0" = False / "1" = True
-## For heatsoak macro
-variable_heatsoak_temp: 0                    # Chamber temperature target for heat soak. REQUIRES [temperature_sensor Chamber] below. Set to "0" to disable
-## Dynamic thermal expansion compensation
-variable_thermo_expand_offset: -0.080        # Maximum z offset for thermal expansion compensation. REQUIRES [temperature_sensor Chamber] below
-variable_thermo_expand_temp_high: 70         # Chamber temp to apply maximum z offset for thermal expansion compensation. REQUIRES [temperature_sensor Chamber]
-variable_thermo_expand_temp_low: 0           # Chamber temp start applying thermal expansion compensation. REQUIRES [temperature_sensor Chamber]. Set to "0" to disable
-gcode:                                       # This is here to appease klipper
-```
+#### Notes:
 
-3. Add the **Section Variables** section.
+1. Add the **Section Variables** section.
+   
+   These sections need to be placed just before the **SAVE_CONFIG** section, as shown in the sample **printer.cfg**. Everything below the `Section Variable marker` will be swap in and out upon the `CONFIG_TOGGLE` macro. If a function settings were already existing somewhere else, the old function will need to be transfer to the new location and updated.
+   
+   The critical settings that needs to be changed are as follow:
+- `[quad_gantry_level]`, or `z_tilt` (for Trident), increase the y position of the front 2 `points:` to `130`, to avoid crashing into the dock.
 
-These sections need to be placed just before the **SAVE_CONFIG** section, as shown in the sample **printer.cfg**. Everything below the `Section Variable marker` will be swap in and out upon `A_CONFIG_TOGGLE`.
+- `[bed_mesh]`, make sure that `mesh_min: 30,130` , to avoid crashing into the dock.
 
-If a function settings were already existing somewhere else, the old function will need to be removed, or transfer to the new location. The critical settings that needs to be changed are as follow:
-
-- `[quad_gantry_level]`, increase the y position of the front 2 `points:` to `130`, as shown, to avoid crashing into the dock.
-- `[bed_mesh]`, make sure that `mesh_min: 30,130` , as shown, to avoid crashing into the dock.
 - `[gcode_macro _home]` need to adjusted with the appropriate `xh` and `yh` which represent the centre of the built area.
-- `variable_dock` is the indicator of which config is being used, is to be toggled in and out. 
 
-```
-####################################################################################
-##                          Session Variables
-####################################################################################
-#;<    # Section Variable marker
-#---------------------------------------------------------------
-[include ./T0-SB2209-Revo-LDO.cfg]
-[include ./T1-SB2209-Revo-LDO.cfg]
-[include ./T2-Nitehawk-Revo-G2E.cfg]
-[include ./T3-Nitehawk-Revo-LDO.cfg]
-#---------------------------------------------------------------
-[gcode_macro _home]
-variable_xh: 175.0
-variable_yh: 235.0
-variable_safe_z: 60.0
-# Dock is installed: True or False
-variable_dock: True
-gcode:
-#---------------------------------------------------------------
-[bed_mesh]
-speed: 200                   # Calibration speed
-horizontal_move_z: 10        # Z-axis movement speed
-mesh_min: 30,130             # Minimum calibration point coordinates x, y
-mesh_max: 320, 320           # Maximum calibration point coordinates x, y. 350mm=320,320
-probe_count: 11,11           # Number of sampling points (7X7 is 49 points)
-mesh_pps: 2,2                # Number of supplementary sampling points
-algorithm: bicubic           # algorithmic model
-bicubic_tension: 0.2         # Algorithmic interpolation don't move
-#---------------------------------------------------------------
-[quad_gantry_level]
-#    Gantry Corners for 350mm Build
-gantry_corners:
-    -60,-10
-    410,420
-#  Probe points for 350mm Build
-points:
-    50,130
-    50,300
-    300,300
-    300,130
+- `variable_dock` is the indicator of which config is being used, is to be toggled in and out.
+2. If it exist in **printer.cfg**, disable `[safe_z_home]` (comment-out or delete)
 
-speed: 150                   # Levelling speed
-horizontal_move_z: 15        # Z-axis starting height
-retries: 10                  # Number of out-of-tolerance retries
-retry_tolerance: 0.0075      # Sampling tolerance
-max_adjust: 20               # Maximum adjustment stroke for levelling
-```
+3. Add relevant variable (see the code snippet below) under **SAVE_CONFIG**. `[tool_probe T0]` and  `[extruder]` is needed no matter what your setup is. As, it is the reference / default tool-head. 
 
-4. If it exist in **printer.cfg**, disable `[safe_z_home]` (comment-out or delete)
+4. For each additional tool-head, you will need an associated set of  `[tool t(x)]`, `[tool_probe T(x)]`, and `[extruder(x)]`. **It is RECOMMENDED** to add and test the tool-head, one at a time.
 
-5. Add relevant variable (see the code snippet below) under **SAVE_CONFIG**. `[tool_probe T0]` and  `[extruder]` is needed no matter what your setup is. As, it is the reference / default tool-head. For each additional tool-head, you will need an associated set of  `[tool t(x)]`, `[tool_probe T(x)]`, and `[extruder(x)]`. **It is recommended** to add and test the tool-head, one at a time.
+*NOTE 1: Your printer will be throwing error at this point, until the software is fully setup.* 
 
-*NOTE 1: Your printer will be throwing error beyond this point, until the software is fully setup.* 
-
-*NOTE 2: The variables in this section will need to be calibrated to match your hardware.* 
-
-```
-#*# [tool_probe T0]
-#*# z_offset = -0.600000
-#*#
-#*# [extruder]
-#*# control = pid
-#*# pid_kp = 35.987
-#*# pid_ki = 4.284
-#*# pid_kd = 75.574
-#*#
-#*# [tool T1]
-#*# gcode_x_offset = 0.259375
-#*# gcode_y_offset = 0.256250
-#*# gcode_z_offset = 0.490000
-#*#
-#*# [tool_probe T1]
-#*# z_offset = -0.738
-#*#
-#*# [extruder1]
-#*# control = pid
-#*# pid_kp = 33.912
-#*# pid_ki = 3.325
-#*# pid_kd = 86.477
-#*#
-#*# [tool T2]
-#*# gcode_x_offset = 0.087500
-#*# gcode_y_offset = 0.912500
-#*# gcode_z_offset = 0.207500
-#*#
-#*# [tool_probe T2]
-#*# z_offset = -1.173
-#*#
-#*# [extruder2]
-#*# control = pid
-#*# pid_kp = 27.329
-#*# pid_ki = 1.804
-#*# pid_kd = 103.505
-#*#
-#*# [tool T3]
-#*# gcode_x_offset = 0.156250
-#*# gcode_y_offset = 0.925000
-#*# gcode_z_offset = 0.080000
-#*#
-#*# [tool_probe T3]
-#*# z_offset = -1.2105
-#*#
-#*# [extruder3]
-#*# control = pid
-#*# pid_kp = 34.630
-#*# pid_ki = 3.785
-#*# pid_kd = 79.217
-```
+*NOTE 2: The variables will need to be calibrated to match your hardware.*
 
 ### Step 3: Make the reference tool-head config file
 
-Use the `T0-SB2209-Revo-LDO.cfg` as references.
+Use the `T0-SB2209-Revo-LDO.cfg` in [Sample_Config](./Sample_Config) folder as references.
 
 1. Transfer the items relating to the tool-head from your `printer.cfg` to a separate file:
    
@@ -374,7 +212,7 @@ Use the `T0-SB2209-Revo-LDO.cfg` as references.
    
    * `[tool_probe]` 
      
-     * <mark>!!!NOTE!!!</mark> that the `activate_gcode:` for the item has been replace with the macro `_TAP_PROBE_ACTIVATE`, with the flag `HEATER=extruder`. This flag <mark>NEED TO BE SET TO THE RIGHT "EXTRUDER"</mark>. Failure to do so, may result in damage bed surface.
+     <mark>NOTE:</mark> the `activate_gcode:` for the item has been replace with the macro `_TAP_PROBE_ACTIVATE`, with the flag `HEATER=extruder`. This flag <mark>NEED TO BE SET TO THE RIGHT "EXTRUDER"</mark>. Failure to do so, may result in damage bed surface.
 
 2. Replace `[fan]` with `[fan_generic T0_partfan]`
 
@@ -384,7 +222,7 @@ Use the `T0-SB2209-Revo-LDO.cfg` as references.
    
    * `[tool T0]` - associate the items above to T0 and provide tool specific variables (which will need to be adjusted later).
 
-4. Include tool-head config in the session variables are in `printer.cfg`, as shown in the code block in **Step 2.3**.
+4. Include tool-head config in the session variables are in `printer.cfg`, as shown in the relevant sample config.
 
 *Note: At this point, the printer should be able to have a firmware restart without (or with minor) errors.* 
 
@@ -497,8 +335,6 @@ These configs tends to be points of customisation for many. Therefore, the inclu
 5. Run `SAVE_CONFIG_MODE` and check if the file is correctly saved.
 
 Now, the `CONFIG_TOGGLE` macro will allow you to toggle between these 2 configs.
-
----
 
 # 4. Calibration
 
@@ -770,8 +606,6 @@ If you has the set `variable_calibration_abs_z_seperately` to `1` in `[gcode_mac
    params_need_clean_materials: ['PETG', 'FLEX']
    ```
 
----
-
 # 5. Test and Troubleshoot
 
 ## 5.1. Offsets
@@ -814,17 +648,11 @@ It is important to test if the `z_offset` and `gcode_z_offset` are set-up and ap
 
 To validate `gcode_x_offset` and `gcode_y_offset`, you just need to print something and see if they are set-up and applied correctly. Alternatively, you can also buy and use [Ember Camera Assisted XY](https://www.emberprototypes.com/products/cxc) to validate them.
 
----
-
 # 6. Tool-change Tuning
 
 The speed and path of the default tool-change routine, in `misschanger_settings.cfg` is not tuned for reliability. It is slower and has more steps than needed.
 
-For a smooth running MissChanger. The `params_path_speed` can be increased and some of the "Wiggle wiggle", in the path, can be disable. For example:
-
-![](./images/Screenshot%20from%202025-01-02%2020-38-41.png)
-
----
+For a smooth running MissChanger. The `params_path_speed` can be increased and some of the "Wiggle wiggle", in the path, can be disable.
 
 # 7. Slicer Profile
 
