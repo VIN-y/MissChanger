@@ -2,11 +2,7 @@
 
 1. [Introduction](#1-introduction) 
 
-2. [Hardware](#2-hardware) 
-   
-   2.1. [MissChanger Core Assembly](#21-misschanger-core-assembly)
-   
-   2.2. [Situational / Optional / Mods](#22-situational--optional--mods) 
+2. [Versions](#2-versions) 
 
 3. [Software](#2-software) 
    
@@ -48,7 +44,7 @@ There are 3 versions for the software, the configs for which are placed in the r
 
 * [Alpha](./Alpha)
 
-## NOTICE: Klipper incompatibility problem
+### NOTICE: Klipper incompatibility problem
 
 Kliper versions above **v0.13.0-35** is currently not compatible with the MissChanger klipper-toolchanger add-on beta (and main). Please use KIAUH to revert (rollback) the commits to that version.
 
