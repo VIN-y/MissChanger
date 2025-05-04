@@ -2,11 +2,7 @@
 
 1. [Introduction](#1-introduction) 
 
-2. [Hardware](#2-hardware) 
-   
-   2.1. [MissChanger Core Assembly](#21-misschanger-core-assembly)
-   
-   2.2. [Situational / Optional / Mods](#22-situational--optional--mods) 
+2. [Versions](#2-versions) 
 
 3. [Software](#2-software) 
    
