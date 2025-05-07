@@ -16,8 +16,6 @@ Other features of MissChanger includes:
 
 ## Compatibility
 
-# 
-
 #### Printers:
 
 - Voron 2.4 350 (up to 5 SBs)
