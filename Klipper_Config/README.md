@@ -146,9 +146,11 @@ For building your custom macro:
 
 ### Step 0: Pre-configuration
 
-These are settings that are in the default Klipper, that need to be enabled:
+These are settings that are in the default Klipper, that should to be enabled:
 
-1. [Exclude Object](https://youtu.be/QTwRZ_M159Q?si=oV987KDLM-wXsYoE) - video guide by [ModBot](https://www.youtube.com/@ModBotArmy) 
+1. [exclude_object] - [Exclude Object](https://youtu.be/QTwRZ_M159Q?si=oV987KDLM-wXsYoE), video guide by [ModBot](https://www.youtube.com/@ModBotArmy) 
+2. [skew_correction] - calibrate with [Vector3D CaliLantern](https://vector3d.shop/products/calilantern-calibration) 
+3. [input_shaper] - see section **4.2.** 
 
 ### Step 1: Back-up your running system
 
