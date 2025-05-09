@@ -118,7 +118,7 @@ The following, starting from **Step 1**, are the recommended steps to get the so
 
 The default macros will be managed and updated together with the software stack.
 
-### Step 0: Customisation
+### Step -1: Customisation
 
 If you are comfortable with it, you are welcome to by-pass the default macros and play with the configs files to your liking. If you found any errors or room for improvement, feel free to reach out to me to get it fixed, via a GitHub or otherwise.
 
@@ -138,6 +138,14 @@ For building your custom macro:
 
 7. Start editing the file to your liking
 
+### Step 0: Pre-configuration
+
+These are settings that are in the default Klipper, that should to be enabled:
+
+1. [exclude_object] - [Exclude Object](https://youtu.be/QTwRZ_M159Q?si=oV987KDLM-wXsYoE), video guide by [ModBot](https://www.youtube.com/@ModBotArmy) 
+2. [skew_correction] - calibrate with [Vector3D CaliLantern](https://vector3d.shop/products/calilantern-calibration) 
+3. [input_shaper] - see section **4.2.** 
+
 ### Step 1: Back-up your running system
 
 Through your web interface:
@@ -156,7 +164,7 @@ Each variable has been given a short description on what they do and some variab
 
 1. Add the **Section Variables** section.
    
-   These sections need to be placed just before the **SAVE_CONFIG** section, as shown in the sample **printer.cfg**. Everything below the `Section Variable marker` will be swap in and out upon the `CONFIG_TOGGLE` macro. If a function settings were already existing somewhere else, the old function will need to be transfer to the new location and updated.
+   These sections need to be placed just before the **SAVE_CONFIG** section, as shown in the sample `printer.cfg`. Everything below the `Section Variable marker` will be swap in and out upon the `CONFIG_TOGGLE` macro. If a function settings were already existing somewhere else, the old function will need to be transfer to the new location and updated.
    
    The critical settings that needs to be changed are as follow:
 - `[quad_gantry_level]`, or `z_tilt` (for Trident), increase the y position of the front 2 `points:` to `130`, to avoid crashing into the dock.
@@ -646,14 +654,14 @@ For a smooth running MissChanger. The `params_path_speed` can be increased and s
 
 # 7. Slicer Profile
 
-## Custom Start G-code
+## 7.1. Custom Start G-code
 
 Copy and paste the following code into your slicer.
 
 *Note: It need to stay as a single line of gcode.*
 
 ```
-PRINT_START BED_TEMP=[first_layer_bed_temperature] FIRST_LAYER_PRINT_SIZE=[first_layer_print_size] FIRST_LAYER_HEIGHT=[first_layer_height] TOOL=[initial_tool] TOOL_TEMP={first_layer_temperature[initial_tool]} {if is_extruder_used[0]}T0_TEMP={first_layer_temperature[0]} T0_Fil={filament_type[0]}{endif} {if is_extruder_used[1]}T1_TEMP={first_layer_temperature[1]} T1_Fil={filament_type[1]}{endif} {if is_extruder_used[2]}T2_TEMP={first_layer_temperature[2]} T2_Fil={filament_type[2]}{endif} {if is_extruder_used[3]}T3_TEMP={first_layer_temperature[3]} T3_Fil={filament_type[3]}{endif}
+PRINT_START BED_TEMP=[first_layer_bed_temperature] FIRST_LAYER_PRINT_SIZE=[first_layer_print_size] TOOL=[initial_tool] TOOL_TEMP={first_layer_temperature[initial_tool]} {if is_extruder_used[0]}T0_TEMP={first_layer_temperature[0]} T0_Fil={filament_type[0]}{endif} {if is_extruder_used[1]}T1_TEMP={first_layer_temperature[1]} T1_Fil={filament_type[1]}{endif} {if is_extruder_used[2]}T2_TEMP={first_layer_temperature[2]} T2_Fil={filament_type[2]}{endif} {if is_extruder_used[3]}T3_TEMP={first_layer_temperature[3]} T3_Fil={filament_type[3]}{endif}
 ```
 
 ![](./images/start_gcode.png)
@@ -662,7 +670,7 @@ Also. Disable the following option:
 
 ![](./images/Temp_emits.png)
 
-## Slicer Bed Shape
+## 7.2. Slicer Bed Shape
 
 The printer bed shape need to be set as shown below, to avoid collisions with the dock during printing.
 
@@ -678,17 +686,17 @@ Depending on the umbilical mounting solution on the tool-head side, the lost y c
 
 ![](./images/Slicer_bed_shape_300.png)
 
-## Multiple Extruder
+## 7.3. Multiple Extruders
 
 Enable **Ooze Prevention**.
 
-This setting will allow you to reduce the docked nozzle temperature, to prevent over cooking the filament.
+This setting will allow you to reduce the docked nozzle temperature, to prevent over cooking the filament. Furthermore, it will effectively act as reheat command for when the system is recovering from a failed tool-change.
 
-Even if you don't want it to drop the temperature, still enable it, then set the `Temperature variation` to -25°C. This setting will emit a nozzle heating command after tool-change, effectively act as reheat command for when the system is recovering from a failed tool-change.
+Even if you don't want it to drop the temperature, still enable it, then set the `Temperature variation` to -25°C. This setting will emit a nozzle heating command after tool-change.
 
 ![](./images/Ooze_prevention.png)
 
-## Speed profile
+## 7.4. Speed profile
 
 Although, you might want to tune your own speed profile for the best performance. Here is a slow and reliable profile to get you started with.
 
