@@ -136,9 +136,9 @@ For building your custom macro:
 
 3. Imported the config file back using the web interface
 
-4. `inlcuded` it back into **printer.cfg** 
+4. `inlcuded` it back into`printer.cfg`
 
-5. Comment-out (or delete) the reference to the file that the new config replaces, in **printer.cfg**
+5. Comment-out (or delete) the reference to the file that the new config replaces, in `printer.cfg`
 
 6. Save and Restart
 
@@ -151,6 +151,7 @@ These are settings that are in the default Klipper, that should to be enabled:
 1. [exclude_object] - [Exclude Object](https://youtu.be/QTwRZ_M159Q?si=oV987KDLM-wXsYoE), video guide by [ModBot](https://www.youtube.com/@ModBotArmy) 
 2. [skew_correction] - calibrate with [Vector3D CaliLantern](https://vector3d.shop/products/calilantern-calibration) 
 3. [input_shaper] - see section **4.2.** 
+4. [bed_mesh] - This should has already been configured. However, make sure that there is a bed mesh profile named "default", for the PRINT_START to fallback to if needed.
 
 ### Step 1: Back-up your running system
 
