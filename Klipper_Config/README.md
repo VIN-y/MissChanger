@@ -660,7 +660,7 @@ For a smooth running MissChanger. The `params_path_speed` can be increased and s
 
 # 7. Slicer Profile
 
-## Custom Start G-code
+## 7.1. Custom Start G-code
 
 Copy and paste the following code into your slicer.
 
@@ -676,7 +676,7 @@ Also. Disable the following option:
 
 ![](./images/Temp_emits.png)
 
-## Slicer Bed Shape
+## 7.2. Slicer Bed Shape
 
 The printer bed shape need to be set as shown below, to avoid collisions with the dock during printing.
 
@@ -692,7 +692,7 @@ Depending on the umbilical mounting solution on the tool-head side, the lost y c
 
 ![](./images/Slicer_bed_shape_300.png)
 
-## Multiple Extruders
+## 7.3. Multiple Extruders
 
 Enable **Ooze Prevention**.
 
@@ -702,7 +702,7 @@ Even if you don't want it to drop the temperature, still enable it, then set the
 
 ![](./images/Ooze_prevention.png)
 
-## Speed profile
+## 7.4. Speed profile
 
 Although, you might want to tune your own speed profile for the best performance. Here is a slow and reliable profile to get you started with.
 
