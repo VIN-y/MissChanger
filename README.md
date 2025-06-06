@@ -61,7 +61,7 @@ BOM, STLs, and instructions for each version of are in their associated sub-fold
 
 **<u>Note:</u>**
 
-Through testing with material combinations such as ABS-PLA. The window for success for combinations of materials that need an enclosure and those that don't are extremely tight. Achieving it require additional hardware (for active chamber temperature control), compromises (such as: weaker layer adhesion, weaker bed adhesion, etc.), and trials-&-errors for every print.
+Through testing with material combinations such as ABS-PLA. The window for success for combination of materials that need an enclosure and those that don't are extremely tight. Achieving it require additional hardware (for active chamber temperature control), compromises (such as: weaker layer adhesion, weaker bed adhesion, etc.), and trials-&-errors for every print job.
 
 Therefore, it is advised to decide on whether the machine should or should not be enclosed before hand and stick with material combinations that has the same chamber requirements.
 
