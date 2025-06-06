@@ -165,4 +165,5 @@ If you still have any question, you can reach me at:
 ## Contributors
 
 * `@psychosis5150` in the [Voron Toolchangers](https://discord.gg/qrb6HXNYxs) discord
-* 
+* `@pendorbound` in the [Voron Toolchangers](https://discord.gg/qrb6HXNYxs) discord
+  
