@@ -57,6 +57,12 @@ All extruder that is compatible with the Stealth Burner should works just fine. 
 
 BOM, STLs, and instructions for each version of are in their associated sub-folder in the [STL_&_Assembly](./STL_&_Assembly) folder (for the latest and relevant versions), or [MissChanger Archive](https://drive.proton.me/urls/3CDH12JTMW#YhJ5K3t4AadW) (for past versions).
 
+**<u>Note:</u>**
+
+Through testing with material combinations such as ABS-PLA. The window for success for combination of materials that need an enclosure and those that don't are extremely tight. Achieving it require additional hardware (for active chamber temperature control), compromises (such as: weaker layer adhesion, weaker bed adhesion, etc.), and trials-&-errors for every print job.
+
+Therefore, it is advised to decide on whether the machine should or should not be enclosed before hand and stick with material combinations that has the same chamber requirements.
+
 ## Software
 
 The plugin for MissChanger is a fork of [klipper-toolchanger](https://github.com/viesturz/klipper-toolchanger), for [Tapchanger](https://github.com/viesturz/tapchanger), and it is available via GitHub at [VIN-y/klipper-toolchanger](https://github.com/VIN-y/klipper-toolchanger). MissChanger deviate greatly from the design of Tapchanger and Draftshift (Stealthchanger); thus, it's config files are not compatible upstream.
