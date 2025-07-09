@@ -34,8 +34,6 @@ These following attachments are extras that will expand the capability of tool-c
 
 * Add more user controllable variables.
 
-* 
-
 * Separate the `Klipper_Config`, to allows for software hot fix without the need to create another release.
 
 ### v1.2 - Polish hardware and revamp software
