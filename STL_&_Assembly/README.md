@@ -16,15 +16,22 @@ These following attachments are extras that will expand the capability of tool-c
 
 # Summary
 
-| Version | Status    | Stopping Point | Remarks                                                                                                                                                                                                                                              |
-|:-------:|:---------:|:--------------:| ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| v0.0    | Abandoned | Bleeding       | The design has been proven to lack durability in the testing phase.                                                                                                                                                                                  |
-| v1.0    | Abandoned | Beta           | Although functional, several reliability and usability problems were found.                                                                                                                                                                          |
-| v1.1    | Abandoned | Alpha          | Fixes problems found in v1.0.<br/>Tool-changer reliability tested and proven. It will be carried forward, unless stated otherwise.<br/>The Nevermore StealthMax is added as optional chamber temperature management.                                 |
-| v1.2    | Abandoned | Beta           | Add support for Voron 2.4 300mm.<br/>Add support for USB tool-heads.<br/>Add G2E official support.<br/>Revamp software stack and bug fixes.<br/>Preliminary Trident support.                                                                         |
-| v1.2.1  | Beta      | ...            | Klipper compatibility fix.<br/>Move fan control to the the back-end, for smoother operation.<br/>Add more user controllable variables.<br/>Separate the `Klipper_Config`, to allows for software hot fix without the need to create another release. |
+| Version | Status    | Remarks                                                                                                                                                                                                                                              |
+|:-------:|:---------:| ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| v0.0    | Abandoned | The design has been proven to lack durability in the testing phase.                                                                                                                                                                                  |
+| v1.0    | Beta      | Although functional, several reliability and usability problems were found.                                                                                                                                                                          |
+| v1.1    | Alpha     | Fixes problems found in v1.0.<br/>Tool-changer reliability tested and proven. It will be carried forward, unless stated otherwise.<br/>The Nevermore StealthMax is added as optional chamber temperature management.                                 |
+| v1.2    | Beta      | Add support for Voron 2.4 300mm.<br/>Add support for USB tool-heads.<br/>Add G2E official support.<br/>Revamp software stack and bug fixes.<br/>Preliminary Trident support.                                                                         |
+| v1.2.1  | Beta      | Klipper compatibility fix.<br/>Move fan control to the the back-end, for smoother operation.<br/>Add more user controllable variables.<br/>Separate the `Klipper_Config`, to allows for software hot fix without the need to create another release. |
+| v1.2.2  | Release   | Minor updates to CAD.<br/>Update documentations.                                                                                                                                                                                                     |
 
 # Change Log
+
+### v1.2.2 - minor update for Release 1
+
+- Update Endstops Assembly for easier post-processing.
+
+- Update documentation.
 
 ### v1.2.1 - Hot fix and add features
 

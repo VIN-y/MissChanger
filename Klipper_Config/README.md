@@ -38,11 +38,11 @@ This document will not guide you through the set up of CAN bus or the physical m
 
 There are 3 versions for the software, the configs for which are placed in the relevant folder:
 
-* [Main](./Main) - empty (there is no functional main branch at the moment)
+* [1_Main](./1_Main)
 
-* [Beta](./Beta)
+* [2_Beta](./2_Beta)
 
-* [Alpha](./Alpha)
+* [3_Alpha](./3_Alpha)
 
 # 3. Software
 
@@ -56,7 +56,7 @@ Before installation. For those who are switching branch. You will need to run th
 
 ### 3.1.1. Install
 
-1. For normal use: <mark>**!!! Does not work !!!**</mark>
+1. For normal use:
 
 ```
 wget -O - https://raw.githubusercontent.com/VIN-y/klipper-toolchanger/main/scripts/install.sh | bash
@@ -74,7 +74,7 @@ wget -O - https://raw.githubusercontent.com/VIN-y/klipper-toolchanger/beta/scrip
 wget -O - https://raw.githubusercontent.com/VIN-y/klipper-toolchanger/alpha/scripts/install.sh | bash
 ```
 
-*Note 1: You will need a `FIRMWARE_RESTART` whenever there is an update for the add-on.*
+*Note 1: You will need to reboot the printer whenever there is an update for the add-on.*
 
 ### 3.1.2. Uninstall
 
@@ -92,7 +92,7 @@ Some manual change will still need to be done in the user space (i.e. the sectio
 
 To fully uninstall the back-end, run one of the following command over SSH. Make sure to select the link that is relevant to the version that is currently install on the printer.
 
-1. For normal use: <mark>**!!! Does not work !!!**</mark>
+1. For normal use:
 
 ```
 wget -O - https://raw.githubusercontent.com/VIN-y/klipper-toolchanger/main/scripts/uninstall.sh | bash

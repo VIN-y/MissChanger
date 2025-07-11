@@ -25,7 +25,7 @@ For those who want to adapt MissChanger to you own system. The Bar-Ends are 28mm
 
 #### Toolhead:
 
-- Stealth Burner (up to 5, for the 350mm version) - v1
+- Stealth Burner
 
 #### Hotend:
 
@@ -41,7 +41,7 @@ Any hot-ends that does not require a custom/extended main-body for the Stealth B
 
 #### Extruder:
 
-All extruder that is compatible with the Stealth Burner should works just fine. Nevertheless, any added dimensions on top of the ClockWork 2 might resulted in less print area or space for other tool-heads.
+All extruder that is compatible with the Stealth Burner should works just fine. Nevertheless, any added dimensions on top of the Clockwork 2 might resulted in less print area or space for other tool-heads.
 
 **For v1:** 
 
@@ -55,21 +55,17 @@ All extruder that is compatible with the Stealth Burner should works just fine. 
 
 ## Assembly
 
-BOM, STLs, and instructions for each version of are in their associated sub-folder in the [STL_&_Assembly](./STL_&_Assembly) folder (for the latest and relevant versions), or [MissChanger Archive](https://drive.proton.me/urls/3CDH12JTMW#YhJ5K3t4AadW) (for past versions).
+BOM, STLs, and instructions are in the [STL_&_Assembly](./STL_&_Assembly) folder (for the latest and relevant versions), or [MissChanger Archive](https://drive.proton.me/urls/3CDH12JTMW#YhJ5K3t4AadW) (for past versions).
 
 **<u>Note:</u>**
 
-Through testing with material combinations such as ABS-PLA. The window for success for combination of materials that need an enclosure and those that don't are extremely tight. Achieving it require additional hardware (for active chamber temperature control), compromises (such as: weaker layer adhesion, weaker bed adhesion, etc.), and trials-&-errors for every print job.
-
-Therefore, it is advised to decide on whether the machine should or should not be enclosed before hand and stick with material combinations that has the same chamber requirements.
+Through testing with material combinations such as ABS-PLA. The window for success for combination of materials that need an enclosure and those that don't are extremely tight. Achieving it require additional hardware (for active chamber temperature control), compromises (such as: weaker layer adhesion, weaker bed adhesion, etc.), and trials-&-errors for every print job. Therefore, it is advised to decide on whether the machine should or should not be enclosed before hand and stick with material combinations that has the same chamber requirements.
 
 ## Software
 
 The plugin for MissChanger is a fork of [klipper-toolchanger](https://github.com/viesturz/klipper-toolchanger), for [Tapchanger](https://github.com/viesturz/tapchanger), and it is available via GitHub at [VIN-y/klipper-toolchanger](https://github.com/VIN-y/klipper-toolchanger). MissChanger deviate greatly from the design of Tapchanger and Draftshift (Stealthchanger); thus, it's config files are not compatible upstream.
 
-For the latest **Alpha**, installation and configuration steps are outlined in the [STL_&_Assembly](./STL_&_Assembly) folder in their respective sub-folder, with sample config files and descriptions.
-
-For **Beta** and **Release**. All instructions are locked and packaged into the .zip file, in [Releases](https://github.com/VIN-y/MissChanger/releases).
+For the latest **Alpha** / **Beta** / **Release** version. Set-up instructions are available here: [Klipper_Config](https://github.com/VIN-y/MissChanger/tree/main/Klipper_Config).
 
 ### Recommended software:
 
@@ -84,12 +80,12 @@ For **Beta** and **Release**. All instructions are locked and packaged into the 
 - [x] ~~Print capability test, material combination~~ - Tested with the three most common materials
 - [x] ~~Compatibility with smaller Vorons~~ - Have been shown to be compatible with the Voron 2.4 300, via a different assembly configuration (shown in the manual), which should also be compatible with the 250 Vorons.
 - [x] ~~USB tool-head support~~ - Nitehawk SB USB tool-head board.
-- [ ] Trident compatibility
+- [ ] Trident compatibility - Full compatibility will be done along side v2.
 
 ### v2
 
 - [ ] Trident compatibility - v2 will be built directly on a Trident
-- [ ] Support for additional tool-heads - TBD
+- [ ] Support for additional tool-heads - A4T
 
 ## Other information
 
@@ -166,4 +162,3 @@ If you still have any question, you can reach me at:
 
 * `@psychosis5150` in the [Voron Toolchangers](https://discord.gg/qrb6HXNYxs) discord
 * `@pendorbound` in the [Voron Toolchangers](https://discord.gg/qrb6HXNYxs) discord
-  
