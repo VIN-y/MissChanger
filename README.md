@@ -63,9 +63,9 @@ Through testing with material combinations such as ABS-PLA. The window for succe
 
 ## Software
 
-The plugin for MissChanger is a fork of [klipper-toolchanger](https://github.com/viesturz/klipper-toolchanger), for [Tapchanger](https://github.com/viesturz/tapchanger), and it is available via GitHub at [VIN-y/klipper-toolchanger](https://github.com/VIN-y/klipper-toolchanger). MissChanger deviate greatly from the design of Tapchanger and Draftshift (Stealthchanger); thus, it's config files are not compatible upstream.
+For the latest **Alpha** / **Beta** / **Release** version, instructions are available here: [Klipper_Config](https://github.com/VIN-y/MissChanger/tree/main/Klipper_Config).
 
-For the latest **Alpha** / **Beta** / **Release** version. Set-up instructions are available here: [Klipper_Config](https://github.com/VIN-y/MissChanger/tree/main/Klipper_Config).
+The plugin for MissChanger is a fork of [klipper-toolchanger](https://github.com/viesturz/klipper-toolchanger), for [Tapchanger](https://github.com/viesturz/tapchanger), and it is available via GitHub at [VIN-y/klipper-toolchanger](https://github.com/VIN-y/klipper-toolchanger). MissChanger deviate greatly from the design of Tapchanger and Draftshift (Stealthchanger); thus, it's config files are not compatible upstream.
 
 ### Recommended software:
 
