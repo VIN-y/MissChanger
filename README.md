@@ -21,7 +21,7 @@ Other features of MissChanger includes:
 - Voron 2.4 350 (up to 5 SBs)
 - Voron 2.4 300 (up to 4 SBs)
 
-For those who want to adapt MissChanger to you own system. The Bar-Ends are 28mm each, and each dock is 80mm in width. All will be riding in the grove of the 2020 aluminium extrusion frame.
+For those who want to adapt MissChanger to your own system. The Bar-Ends are 28mm each, and each dock is 80mm in width. All will be riding in the groove of the 2020 aluminium extrusion frame.
 
 #### Toolhead:
 
@@ -162,3 +162,4 @@ If you still have any question, you can reach me at:
 
 * `@psychosis5150` in the [Voron Toolchangers](https://discord.gg/qrb6HXNYxs) discord
 * `@pendorbound` in the [Voron Toolchangers](https://discord.gg/qrb6HXNYxs) discord
+
