@@ -1,4 +1,4 @@
-# Table of content
+# Table of Contents
 
 1. [Introduction](#1-introduction) 
 
@@ -30,7 +30,7 @@
 
 # 1. Introduction
 
-Although the setting up the config for MissChanger will change some aspects of your printer, it is still recommended that you start the project with a functional printer with Voron-Tap, then add MissChanger and one tool-head at a time.
+Although setting up the config for MissChanger will change some aspects of your printer, it is still recommended that you start the project with a functional printer with Voron-Tap, then add MissChanger and one tool-head at a time.
 
 This document will not guide you through the set up of CAN bus or the physical mounting of the related hardware (i.e. U2C and tool-head board), please refer to the manufacture’s manual for that.
 
@@ -52,7 +52,7 @@ This section aims to provide a guide through the installation process of the sof
 
 To install the [klipper-toolchanger](https://github.com/VIN-y/klipper-toolchanger) plugin, run the following installation script using the following command over SSH. This script will download this GitHub repository to your RaspberryPi home directory, and symlink the files in the Klipper extra folder.
 
-Before installation. For those who are switching branch. You will need to run the uninstall script in below, in **section 3.1.2**.
+Before installation. For those who are switching branches. You will need to run the uninstall script in below, in **section 3.1.2**.
 
 ### 3.1.1. Install
 
@@ -78,19 +78,19 @@ wget -O - https://raw.githubusercontent.com/VIN-y/klipper-toolchanger/alpha/scri
 
 ### 3.1.2. Uninstall
 
-Some manual change will still need to be done in the user space (i.e. the section that is accessible via the web interface). These settings / files / folders tend to contain information and calibration values specific to your printer. Thus, it advised that you create a backup before deletion. This includes:
+Some manual changes will still need to be done in the user space (i.e. the section that is accessible via the web interface). These settings / files / folders tend to contain information and calibration values specific to your printer. Thus, it is advised that you create a backup before deletion. This includes:
 
 * The `config` folder
 
 * The `misschanger_settings.cfg` file
 
-* Irrelevant tool-head config file
+* Relevant tool-head config file
 
-* Irrelevant settings in `printer.cfg`
+* Relevant settings in `printer.cfg`
 
 * `moonraker.conf` registry
 
-To fully uninstall the back-end, run one of the following command over SSH. Make sure to select the link that is relevant to the version that is currently install on the printer.
+To fully uninstall the back-end, run one of the following commands over SSH. Make sure to select the link that is relevant to the version that is currently installed on the printer.
 
 1. For normal use:
 
@@ -120,7 +120,7 @@ The default macros will be managed and updated together with the software stack.
 
 ### Step -1: Customisation
 
-If you are comfortable with it, you are welcome to by-pass the default macros and play with the configs files to your liking. If you found any errors or room for improvement, feel free to reach out to me to get it fixed, via a GitHub or otherwise.
+If you are comfortable with it, you are welcome to by-pass the default macros and play with the configs files to your liking. If you find any errors or room for improvement, feel free to reach out to me to get it fixed, via a GitHub pull request or otherwise.
 
 For building your custom macro:
 
@@ -128,9 +128,9 @@ For building your custom macro:
 
 2. Download the relevant macro config file, in the [klipper-toolchanger](https://github.com/VIN-y/klipper-toolchanger/tree/main/macros) repository (or straight from your web interface)
 
-3. Imported the config file back using the web interface
+3. Import the config file back using the web interface
 
-4. `inlcuded` it back into`printer.cfg`
+4. `include` it back into`printer.cfg`
 
 5. Comment-out (or delete) the reference to the file that the new config replaces, in `printer.cfg`
 
@@ -140,12 +140,12 @@ For building your custom macro:
 
 ### Step 0: Pre-configuration
 
-These are settings that are in the default Klipper, that should to be enabled:
+These are settings that are in the default Klipper that should to be enabled:
 
 1. [exclude_object] - [Exclude Object](https://youtu.be/QTwRZ_M159Q?si=oV987KDLM-wXsYoE), video guide by [ModBot](https://www.youtube.com/@ModBotArmy) 
 2. [skew_correction] - calibrate with [Vector3D CaliLantern](https://vector3d.shop/products/calilantern-calibration) 
 3. [input_shaper] - see section **4.2.** 
-4. [bed_mesh] - This should has already been configured. However, make sure that there is a bed mesh profile named "default", for the PRINT_START to fallback to if needed.
+4. [bed_mesh] - This should have already been configured. However, make sure that there is a bed mesh profile named "default", for the PRINT_START to fallback to if needed.
 
 ### Step 1: Back-up your running system
 
@@ -157,37 +157,37 @@ Through your web interface:
 
 ### Step 2: Set up printer.cfg
 
-You can check the sample `printer.cfg` in relevant folder above as reference.
+You can check the sample `printer.cfg` in the relevant folder above as reference.
 
-Each variable has been given a short description on what they do and some variable can be used to disable functionalities, such that you will not need to comb through the configs to find and edit them out.
+Each variable has been given a short description on what they do. Some variables can be used to disable functionalities, such that you will not need to comb through the configs to find and edit them out.
 
 #### Notes:
 
 1. Add the **Section Variables** section.
    
-   These sections need to be placed just before the **SAVE_CONFIG** section, as shown in the sample `printer.cfg`. Everything below the `Section Variable marker` will be swap in and out upon the `CONFIG_TOGGLE` macro. If a function settings were already existing somewhere else, the old function will need to be transfer to the new location and updated.
+   These sections need to be placed just before the **SAVE_CONFIG** section, as shown in the sample `printer.cfg`. Everything below the `Section Variable marker` will be swapped in and out upon the `CONFIG_TOGGLE` macro. If a function setting already exists somewhere else in printer.cfg, the old function will need to be transferred to the new location and updated.
    
-   The critical settings that needs to be changed are as follow:
+   The critical settings that need to be changed are as follow:
 - `[quad_gantry_level]`, or `z_tilt` (for Trident), increase the y position of the front 2 `points:` to `130`, to avoid crashing into the dock.
 
 - `[bed_mesh]`, make sure that `mesh_min: 30,130` , to avoid crashing into the dock.
 
-- `[gcode_macro _home]` need to adjusted with the appropriate `xh` and `yh` which represent the centre of the built area.
+- `[gcode_macro _home]` needs to adjusted with the appropriate `xh` and `yh` which represents the centre of the new build area (i.e. 150, 85 for a 300x300 bed).
 
 - `variable_dock` is the indicator of which config is being used, is to be toggled in and out.
-2. If it exist in **printer.cfg**, disable `[safe_z_home]` (comment-out or delete)
+2. If it exists in **printer.cfg**, disable `[safe_z_home]` (comment-out or delete)
 
-3. Add relevant variable (see the code snippet below) under **SAVE_CONFIG**. `[tool_probe T0]` and  `[extruder]` is needed no matter what your setup is. As, it is the reference / default tool-head. 
+3. Add relevant variable (see the code snippet below) under **SAVE_CONFIG**. `[tool_probe T0]` and  `[extruder]` are needed no matter what your setup as it is the reference / default tool-head. 
 
-4. For each additional tool-head, you will need an associated set of  `[tool t(x)]`, `[tool_probe T(x)]`, and `[extruder(x)]`. **It is RECOMMENDED** to add and test the tool-head, one at a time.
+4. For each additional tool-head, you will need an associated set of  `[tool t(x)]`, `[tool_probe T(x)]`, and `[extruder(x)]` sections. **It is RECOMMENDED** to add and test the tool-heads, one at a time.
 
-*NOTE 1: Your printer will be throwing error at this point, until the software is fully setup.* 
+*NOTE 1: Your printer will be throwing errors at this point, until the software is fully setup.* 
 
 *NOTE 2: The variables will need to be calibrated to match your hardware.*
 
 ### Step 3: Make the reference tool-head config file
 
-Use the `T0-SB2209-Revo-LDO.cfg` in [Sample_Config](./Sample_Config) folder as references.
+Use the `T0-SB2209-Revo-LDO.cfg` in [Sample_Config](./Sample_Config) folder as reference.
 
 1. Transfer the items relating to the tool-head from your `printer.cfg` to a separate file:
    
@@ -211,7 +211,7 @@ Use the `T0-SB2209-Revo-LDO.cfg` in [Sample_Config](./Sample_Config) folder as r
    
    * `[tool_probe]` 
      
-     <mark>NOTE:</mark> the `activate_gcode:` for the item has been replace with the macro `_TAP_PROBE_ACTIVATE`, with the flag `HEATER=extruder`. This flag <mark>NEED TO BE SET TO THE RIGHT "EXTRUDER"</mark>. Failure to do so, may result in damage bed surface.
+     <mark>NOTE:</mark> the `activate_gcode:` for the item has been replace with the macro `_TAP_PROBE_ACTIVATE`, with the flag `HEATER=extruder`. This flag <mark>NEEDS TO BE SET TO THE RIGHT "EXTRUDER"</mark>. Failure to do so may result in damage bed surface.
 
 2. Replace `[fan]` with `[fan_generic T0_partfan]`
 
@@ -227,17 +227,17 @@ Use the `T0-SB2209-Revo-LDO.cfg` in [Sample_Config](./Sample_Config) folder as r
 
 ### Step 5: Calibrate and test T0
 
-1. Remove the dock and any attached tool-head other than T0 (for safety reason).
+1.  For safety reasons, remove the dock and any attached tool-head other than T0.
 
-2. Run `FIRMWARE_RESTART`, and fix any problem that arise ;)
+2. Run `FIRMWARE_RESTART` and fix any problem that arise ;)
 
 3. Run `G28` and `QUAD_GANTRY_LEVEL` 
 
 4. Check that:
    
-   * The printer home Y before X
+   * The printer homes Y before X
    
-   * Quad gantry level front points are at Y130
+   * Quad gantry level front points are at Y = 130
    
    * Extruder PID is correctly set and applied (no error / no bouncing temperature)
 
@@ -259,13 +259,13 @@ Use the `T0-SB2209-Revo-LDO.cfg` in [Sample_Config](./Sample_Config) folder as r
 
 1. Follow the hardware assembly guide from the manufacture of the relevant hardware, i.e extruder, tool-head board, etc.
 
-2. Mount the dock and temporary mount the new tool-head to the dock.
+2. Mount the dock and temporarily mount the new tool-head to the dock.
    
-   <mark>CAUTION:</mark> **DO NOT** try to make the print pick up the tool yet.
+   <mark>CAUTION:</mark> **DO NOT** try to make the printer pick up the new tool yet.
 
 3. Use `T1-SB2209-Revo-LDO.cfg` (and others) config file as references. Make, calibrate, and test the config files for the other tool-heads.
 
-4. Include tool-head config in the session variables are in `printer.cfg`, as shown in the code block in **step 2.3**.
+4. Include tool-head config in the session variables in `printer.cfg`, as shown in the code block in **step 2.3**.
 
 5. Copy and paste the associated set of `[tool t(x)]`, `[tool_probe T(x)]`, and `[extruder(x)]` to the **SAVE_CONFIG** section, if they are not already there.
 
@@ -273,15 +273,15 @@ Use the `T0-SB2209-Revo-LDO.cfg` in [Sample_Config](./Sample_Config) folder as r
 
 ### Step 7: Calibrate and test tool-head
 
-If this is the first tool-head you made beside the reference tool-head. Then you will need to test the max available y of your set up:
+If this is the first tool-head you made beside the reference tool-head, then you will need to test the max y position of your set up:
 
 1. Run `G28`
 
-2. Manually nudge the tool-head to right behind a docked tool (via the web interface), but not touching
+2. Manually nudge the tool-head to right behind (but not touching) a docked tool (via the web interface), 
 
 3. Note down the Y position of that location
 
-4. If the y location is greater than 120 mm, then you will need to update the `params_safe_y` in `[toolchanger]` in `misschanger_settings.cfg`
+4. If the y location is greater than 120 mm, then you will need to update the `params_safe_y` value in `[toolchanger]` in `misschanger_settings.cfg`
 
 5. Save & Restart
 
@@ -307,7 +307,7 @@ Otherwise:
 
 * `macro-test.cfg`
 
-These configs tends to be points of customisation for many. Therefore, the included files are intended to be inspirations for your own macros. They contains commands and functionalities that may not be needed or are relevant to your printer.
+These configs tend to be points of customisation for many. Therefore, the included files are intended to be inspirations for your own macros. They contain commands and functionalities that may not be needed or are not relevant to your printer.
 
 ### Step 9: Single tool-head config
 
@@ -321,13 +321,13 @@ These configs tends to be points of customisation for many. Therefore, the inclu
    
    2. Under `[gcode_macro _home]`:
       
-      1. Set an appropriate `xh` and `yh` which represent the centre of the new built area.
+      1. Set an appropriate `xh` and `yh` which represent the centre of the new build area (i.e. 150, 85 for a 300x300 build plate).
       
       2. Set `variable_dock` to `False`
    
-   3. Revert to `[bed_mesh]` and `[quad_gantry_level]` to the original values of the stock machine (without the tool-changer bits)
+   3. Revert `[bed_mesh]` and `[quad_gantry_level]` to the original values of the stock machine (without the tool-changer bits)
    
-   4. Delete the all `[tool T(x)]`, `[tool_probe T(x)]`, and `[extruder(x)]` under the `SAVE_CONFIG` section. EXCEPT: `[tool_probe T0]` and `[extruder]`.
+   4. Delete all the `[tool T(x)]`, `[tool_probe T(x)]`, and `[extruder(x)]` sections EXCEPT the `[tool_probe T0]` and `[extruder]`sections. in the `SAVE_CONFIG` section. 
 
 4. Save, but no restart is needed.
 
@@ -359,7 +359,7 @@ The following steps are for the burn-in of the Tap&Change mechanism. This is so 
 
 8. Run `SHAPER_CALIBRATE` - Note: This is only meant to shake the tool-head around in its mount. Do not save the input shaper result.
 
-9. Repeat step 4 - 8 until, the tool-head can fall into the mount on it's own weight.
+9. Repeat step 4 - 8 until the tool-head can fall into the mount on it's own weight when manually removed and replaced.
 
 ## 4.1. Park position calibration
 
@@ -375,27 +375,27 @@ The following steps are for the burn-in of the Tap&Change mechanism. This is so 
    
    *Note: This is temporary for this step only, and can be reverted later.*
 
-6. Set the dock at the empty position, i.e. at the bottom of the ramp.
+6. Set the dock toolhead cradle at the 'empty' position in the dock assembly, i.e. at the bottom of the ramp.
    ![](./images/20240730_194812.jpg)
 
-7. Use the web interface, nudge the tool-head into the correct x-position. This can be tested by nudging the y-position in and out to see which side of the tool-head touch the dock first. Then adjusts it, such that both side of the dock would touch the tool-head at the same time.
+7. Use the web interface, nudge the tool-head into the correct x-position. This can be tested by nudging the y-position in and out to see which side of the tool-head touches the dock first. Then adjust the x-position such that both sides of the dock touch the tool-head at the same time.
    ![](./images/20240730_195442.jpg)
 
 8. Copy and paste the current x-coordinate into the `params_park_x:` of the config file of the current tool-head
 
 9. Save it, **BUT DON'T RESTART**
 
-10. Nudge the y-position until the dock until the dock is fully seated.
+10. Nudge the y-position until the toolhead is fully seated in the dock toolhead cradle.
     
-    1. Make sure that the whole dock-bar is not lifted.
+    1. Make sure that the whole dock-bar isn't being lifted up in the extrusion grooves.
     
-    2. Make sure the tool-head is fully seated before it starts being lifted. Check it by nudging it back and fort 10mm.
+    2. Make sure the toolhead is fully seated in the dock toolhead cradle before it starts being lifted up the ramp. Check it by nudging it back and forth 10mm.
     
-    3. If step 10.i and 10.ii is not met. Adjust the Bar Ends spacers to fit. TIP: the distance for the spacers should be the same for both side.
+    3. If step 10.1 and 10.2 are not met, adjust the Bar End spacers to fit. TIP: the distance for the spacers should be the same for both sides.
 
 11. Tighten the bolts on the bottom of the dock (locking it in place)
 
-12. Nudge the y-position until the dock is at the peak of the ramp. The dock is tough enough to handle a bit of pressure from the gantry. So you can keep nudging the y-position until the dock flex a bit, then back it off.
+12. Nudge the y-position until the dock is at the peak of the ramp. The dock is tough enough to handle a bit of pressure from the gantry so you can keep nudging the y-position until the dock flexes a bit, then back it off.
 
 13. Run:
     
@@ -415,7 +415,7 @@ The following steps are for the burn-in of the Tap&Change mechanism. This is so 
 
 ## 4.2. Input Shaper (optional)
 
-*Note: To avoid Klipper from throwing errors, the parameters for input shaper are pre-populated in* `toolchanger.cfg` *and in each tool-head config files. Nevertheless, it is best to calibrate it for each available tool-head.*
+*Note: To avoid Klipper from throwing errors, the parameters for input shaper are pre-populated in* `toolchanger.cfg` *and in each tool-head config file. Nevertheless, it is best to calibrate it for each available tool-head.*
 
 1. Enable (un-comment) the `[adxl345]` and `[resonance_tester]` in the config of the tool-head that is to be calibrated
 
@@ -489,7 +489,7 @@ The following steps are for the burn-in of the Tap&Change mechanism. This is so 
 
 9. Save & Restart
 
-*Note: It is key that you get the z_offset correct for the T0, as it will be used to extrapolate other offsets later on. Therefore, it is worth diverge from the instruction, if you have a preferred way to set your the z-offset.*
+*Note: It is key that you get the z_offset correct for the T0, as it will be used to extrapolate other offsets later on. Therefore, it is worth diverging from these instruction if you have a preferred way to set your the z-offset.*
 
 ### 4.3.2. Calibration probe setup
 
@@ -537,11 +537,11 @@ This section will guide you through the calibration of the machine specific vari
 
 9. Check if proposed z-offset to be +-0.01mm of the recorded `z_offset` in **step 1**.
 
-10. Run `CALIBRATE_OFFSETS TOOL=0` 2-3 more times to make sure the measured value is consistence.
+10. Run `CALIBRATE_OFFSETS TOOL=0` 2-3 more times to make sure the measured value is consistent.
 
 Your calibration probe is ready.
 
-*Note: It is worth mentions that there are other ways to calibrate your offsets, such as the visual based solution from [Ember](https://www.emberprototypes.com/products/cxc) or the calibration print that you can get from [Printables](https://www.printables.com/model/201707-x-y-and-z-calibration-tool-for-idex-dual-extruder-). Each with their pros and cons, in term of accuracy and cost. However,  a physical contact probe is currently the only way to automatically calibrate all relevant offsets.*
+*Note: It is worth mentioning that there are other ways to calibrate your offsets, such as the visual based solution from [Ember](https://www.emberprototypes.com/products/cxc) or the calibration print that you can get from [Printables](https://www.printables.com/model/201707-x-y-and-z-calibration-tool-for-idex-dual-extruder-). Each have their pros and cons in terms of accuracy and cost. However,  a physical contact probe is currently the only way to automatically calibrate all relevant offsets.*
 
 ### 4.3.3. Other tool-head(s)
 
@@ -553,7 +553,7 @@ Your calibration probe is ready.
 
 3. Make sure all nozzles are clean
 
-4. Make sure all tool-head config file (except T0) has the following variable disabled (commented out):
+4. Make sure all tool-head config file (except T0) has the following variables disabled (commented out):
    
    - `gcode_x_offset` 
    
@@ -589,7 +589,7 @@ If you has the set `variable_calibration_abs_z_seperately` to `1` in `[gcode_mac
 
 #### Steps:
 
-1. Install the clean dock in your prefer slot on the gantry
+1. Install the clean dock in your preferred slot on the gantry
 
 2. Approximate the x position of the centre of the dock (where the brush is)
 
@@ -597,7 +597,7 @@ If you has the set `variable_calibration_abs_z_seperately` to `1` in `[gcode_mac
 
 #### Optional steps, for auto mid-print clean:
 
-1. Set-up the `variable_clean_threshold` under `[gcode_macro _static_variable]`. "150" means that the print need to take up ~50% of the bed before trigger mid-clean print.
+1. Set-up the `variable_clean_threshold` under `[gcode_macro _static_variable]`. "150" means that the print needs to take up ~50% of the bed before triggering a mid-clean print.
 
 2. List the materials that need to have their associated tool-head cleaned in `misschanger_settings.cfg`. For example:
    
@@ -609,7 +609,7 @@ If you has the set `variable_calibration_abs_z_seperately` to `1` in `[gcode_mac
 
 ## 5.1. Offsets
 
-It is important to test if the `z_offset` and `gcode_z_offset` are set-up and applied correctly. A miss-configured `z_offset`/`gcode_z_offset` can cause the nozzle to be dragged on the bed, risking damage. Please follow the steps below to test the config, before you start printing.
+It is important to test if the `z_offset` and `gcode_z_offset` are set-up and applied correctly. A misconfigured `z_offset`/`gcode_z_offset` can cause the nozzle to be dragged on the bed, risking damage. Please follow the steps below to test the config, before you start printing.
 
 ### Part 1: Check the z_offset of T0
 
@@ -621,25 +621,25 @@ It is important to test if the `z_offset` and `gcode_z_offset` are set-up and ap
 
 4. Run `G1 Z0 F9000` 
 
-5. Test the z-offset with the paper test. - If it is good then you set-up `trigger_to_bottom_z` correctly.
+5. Test the z-offset with the paper test. - If it is good then you set up the `trigger_to_bottom_z` value correctly.
 
 6. If it does not work:
    
-   1. baby step the z position to correction.
+   1. baby step the z position to the correct position
    
    2. adjust `trigger_to_bottom_z` accordingly using the baby stepped amount.
    
    3. then, rerun `CALIBRATE_OFFSETS TOOL=0`.
    
-   4. retry step 1 to 4.
+   4. retry step 1 to 3 until the paper test succeeds.
 
 ### Part 2: Check the gcode_z_offset of the other tools
 
-1. Goes through step 1 and 2 of part 1, above.
+1. Go through step 1 and 2 of **Part 1**, above.
 
 2. Switch to next tool, via the web UI or Klipper Screen.
 
-3. Goes through step 3 to 6 of part 1, above.
+3. Go through step 3 to 6 of **Part 1**, above.
 
 4. If it does not work. rerun `CALIBRATE_OFFSETS TOOL=[x]` for that tool-head (or all of them).
 
@@ -649,7 +649,7 @@ To validate `gcode_x_offset` and `gcode_y_offset`, you just need to print someth
 
 # 6. Tool-change Tuning
 
-The speed and path of the default tool-change routine, in `misschanger_settings.cfg` is not tuned for reliability. It is slower and has more steps than needed.
+The speed and path of the default tool-change routine in `misschanger_settings.cfg` is tuned for reliability. It is slower and has more steps than needed.
 
 For a smooth running MissChanger. The `params_path_speed` can be increased and some of the "Wiggle wiggle", in the path, can be disable.
 
@@ -659,7 +659,7 @@ For a smooth running MissChanger. The `params_path_speed` can be increased and s
 
 Copy and paste the following code into your slicer.
 
-*Note: It need to stay as a single line of gcode.*
+*Note: It needs to stay as a single line of gcode.*
 
 ```
 PRINT_START BED_TEMP=[first_layer_bed_temperature] FIRST_LAYER_PRINT_SIZE=[first_layer_print_size] TOOL=[initial_tool] TOOL_TEMP={first_layer_temperature[initial_tool]} {if is_extruder_used[0]}T0_TEMP={first_layer_temperature[0]} T0_Fil={filament_type[0]}{endif} {if is_extruder_used[1]}T1_TEMP={first_layer_temperature[1]} T1_Fil={filament_type[1]}{endif} {if is_extruder_used[2]}T2_TEMP={first_layer_temperature[2]} T2_Fil={filament_type[2]}{endif} {if is_extruder_used[3]}T3_TEMP={first_layer_temperature[3]} T3_Fil={filament_type[3]}{endif} {if is_extruder_used[4]}T4_TEMP={first_layer_temperature[4]} T3_Fil={filament_type[4]}{endif} {if is_extruder_used[5]}T5_TEMP={first_layer_temperature[5]} T5_Fil={filament_type[5]}{endif}
@@ -673,7 +673,7 @@ Also. Disable the following option:
 
 ## 7.2. Slicer Bed Shape
 
-The printer bed shape need to be set as shown below, to avoid collisions with the dock during printing.
+The printer bed shape need to be set as shown below to avoid collisions with the dock during printing.
 
 Depending on the umbilical mounting solution on the tool-head side, the lost y can be between 120mm to 140mm.
 
