@@ -153,7 +153,7 @@ Through your web interface:
 
 ### Step 2: Set up printer.cfg
 
-You can check the sample `printer.cfg` in the relevant folder above as reference.
+You can check the sample `printer.cfg` in the relevant folder above as reference, and import `macro-general.cfg` and `macro-testing.cfg` if wanted (**Note:** exclude the relevant *.cfg if not used).
 
 Each variable has been given a short description on what they do. Some variables can be used to disable functionalities, such that you will not need to comb through the configs to find and edit them out.
 
