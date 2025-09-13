@@ -36,13 +36,9 @@ This document will not guide you through the set up of CAN bus or the physical m
 
 # 2. Versions
 
-There are 3 versions for the software, the configs for which are placed in the relevant folder:
+There are 3 versions for the software, the sample user configs for which are placed in the relevant folder: [1_Main](./1_Main) / [2_Beta](./2_Beta) / [3_Alpha](./3_Alpha).
 
-* [1_Main](./1_Main)
-
-* [2_Beta](./2_Beta)
-
-* [3_Alpha](./3_Alpha)
+**Note:** User configs are files that will needed to be set-up on the user's side.
 
 # 3. Software
 
