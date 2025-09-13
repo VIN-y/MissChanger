@@ -155,9 +155,7 @@ Through your web interface:
 
 You can check the sample `printer.cfg` in the relevant folder above as reference, and import `macro-general.cfg` and `macro-testing.cfg` if wanted (**Note:** exclude the relevant *.cfg if not used).
 
-Each variable has been given a short description on what they do. Some variables can be used to disable functionalities, such that you will not need to comb through the configs to find and edit them out.
-
-#### Notes:
+Each variable has been given a short description on what they do. Some variables can be used to disable functionalities, such that you will not need to comb through the configs to find and edit them out. The key sections are:
 
 1. Add the **Section Variables** section.
    
