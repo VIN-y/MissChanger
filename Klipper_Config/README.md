@@ -162,19 +162,19 @@ Each variable has been given a short description on what they do. Some variables
    These sections need to be placed just before the **SAVE_CONFIG** section, as shown in the sample `printer.cfg`. Everything below the `Section Variable marker` will be swapped in and out upon the `CONFIG_TOGGLE` macro. If a function setting already exists somewhere else in printer.cfg, the old function will need to be transferred to the new location and updated.
    
    The critical settings that need to be changed are as follows:
-- `[gcode_macro _home]` needs to adjusted with the appropriate `xh` and `yh` which represents the centre of the new build area (i.e. 150, 85 for a 300x300 bed).
+  - `[gcode_macro _home]` needs to adjusted with the appropriate `xh` and `yh` which represents the centre of the new build area (i.e. 150, 85 for a 300x300 bed).
   
-  - `variable_dock` is the indicator of which config is being used.
+    - `variable_dock` is the indicator of which config is being used.
     
-    - Before installing the dock and other tool-heads. Set this to `False`. Then, set up T0 (the reference tool-head), see **Step 3**. The `[quad_gantry_level]` or `z_tilt` (for Trident), and `[bed_mesh]` stay the same the same as stock.
+      - Before installing the dock and other tool-heads. Set this to `False`. Then, set up T0 (the reference tool-head), see **Step 3**. The `[quad_gantry_level]` or `z_tilt` (for Trident), and `[bed_mesh]` stay the same the same as stock.
     
-    - After T0 is operational, run `CONFIG TOGGLE`
+      - After T0 is operational, run `CONFIG TOGGLE`
     
-    - Then, install the physical dock. The `[quad_gantry_level]` or `z_tilt` (for Trident), and `[bed_mesh]` **MUST** be updated, as shown in the next 2 bullet points.
+      - Then, install the physical dock. The `[quad_gantry_level]` or `z_tilt` (for Trident), and `[bed_mesh]` **MUST** be updated, as shown in the next 2 bullet points.
 
-- `[quad_gantry_level]`, or `z_tilt` (for Trident), increase the y position of the front 2 `points:` to `130`, to avoid crashing into the dock.
+  - `[quad_gantry_level]`, or `z_tilt` (for Trident), increase the y position of the front 2 `points:` to `130`, to avoid crashing into the dock.
 
-- `[bed_mesh]`, make sure that `mesh_min: 30,130` , to avoid crashing into the dock.
+  - `[bed_mesh]`, make sure that `mesh_min: 30,130` , to avoid crashing into the dock.
 2. If it exists in **printer.cfg**, disable `[safe_z_home]` (comment-out or delete)
 
 3. Add relevant variable (see the code snippet below) under **SAVE_CONFIG**. `[tool_probe T0]` and  `[extruder]` are needed no matter what your setup as it is the reference / default tool-head. 
