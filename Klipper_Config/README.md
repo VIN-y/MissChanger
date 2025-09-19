@@ -28,17 +28,23 @@
 
 7. [Slicer Profile](#7-slicer-profile) 
 
+---
+
 # 1. Introduction
 
 Although setting up the config for MissChanger will change some aspects of your printer, it is still recommended that you start the project with a functional printer with Voron-Tap, then add MissChanger and one tool-head at a time.
 
 This document will not guide you through the set up of CAN bus or the physical mounting of the related hardware (i.e. U2C and tool-head board), please refer to the manufacture’s manual for that.
 
+---
+
 # 2. Versions
 
 There are 3 versions for the software, the sample user configs for which are placed in the relevant folder: [1_Main](./1_Main) / [2_Beta](./2_Beta) / [3_Alpha](./3_Alpha).
 
 **Note:** User configs are files that will needed to be set-up on the user's side.
+
+---
 
 # 3. Software
 
@@ -49,6 +55,8 @@ This section aims to provide a guide through the installation process of the sof
 To install the [klipper-toolchanger](https://github.com/VIN-y/klipper-toolchanger) plugin, run the following installation script using the following command over SSH. This script will download this GitHub repository to your RaspberryPi home directory, and symlink the files in the Klipper extra folder.
 
 Before installation. For those who are switching branches. You will need to run the uninstall script in below, in **section 3.1.2**.
+
+---
 
 ### 3.1.1. Install
 
@@ -71,6 +79,8 @@ wget -O - https://raw.githubusercontent.com/VIN-y/klipper-toolchanger/alpha/scri
 ```
 
 *Note 1: You will need to reboot the printer whenever there is an update for the add-on.*
+
+---
 
 ### 3.1.2. Uninstall
 
@@ -106,6 +116,8 @@ wget -O - https://raw.githubusercontent.com/VIN-y/klipper-toolchanger/beta/scrip
 wget -O - https://raw.githubusercontent.com/VIN-y/klipper-toolchanger/alpha/scripts/uninstall.sh | bash
 ```
 
+---
+
 ## 3.2. Configuration
 
 The **sample configuration files** can be found in the relevant folder above.
@@ -113,6 +125,8 @@ The **sample configuration files** can be found in the relevant folder above.
 The following, starting from **Step 1**, are the recommended steps to get the software up-and-running using the default set of macros. Following the guide will make it easier for you to get support.
 
 The default macros will be managed and updated together with the software stack.
+
+---
 
 ### Step -1: Customisation
 
@@ -134,6 +148,8 @@ For building your custom macro:
 
 7. Start editing the file to your liking
 
+---
+
 ### Step 0: Pre-configuration
 
 These are settings that are in the default Klipper that should to be enabled:
@@ -143,6 +159,8 @@ These are settings that are in the default Klipper that should to be enabled:
 3. [input_shaper] - see section **4.2.** 
 4. [bed_mesh] - This should have already been configured. However, make sure that there is a bed mesh profile named "default", for the PRINT_START to fallback to if needed.
 
+---
+
 ### Step 1: Back-up your running system
 
 Through your web interface:
@@ -150,6 +168,8 @@ Through your web interface:
 1. Select all of your config files
 
 2. Download it to your computer
+
+---
 
 ### Step 2: Set up printer.cfg
 
@@ -184,6 +204,8 @@ Each variable has been given a short description on what they do. Some variables
 *NOTE 1: Your printer will be throwing errors at this point, until the software is fully setup.* 
 
 *NOTE 2: The variables will need to be calibrated to match your hardware.*
+
+---
 
 ### Step 3: Make the reference tool-head config file
 
@@ -221,9 +243,15 @@ Use the `T0-SB2209-Revo-LDO.cfg` in [Sample_Config](./Sample_Config) folder as r
    
    * `[tool T0]` - associate the items above to T0 and provide tool specific variables (which will need to be adjusted later).
 
-4. Include tool-head config in the session variables are in `printer.cfg`, as shown in the relevant sample config.
+---
+
+### Step 4: 
+
+Include tool-head config in the session variables are in `printer.cfg`, as shown in the relevant sample config.
 
 *Note: At this point, the printer should be able to have a firmware restart without (or with minor) errors.* 
+
+---
 
 ### Step 5: Calibrate and test T0
 
@@ -255,6 +283,8 @@ Use the `T0-SB2209-Revo-LDO.cfg` in [Sample_Config](./Sample_Config) folder as r
 
 11. Save & Restart
 
+---
+
 ### Step 6: Make the next tool-head and its config file
 
 1. Follow the hardware assembly guide from the manufacture of the relevant hardware, i.e extruder, tool-head board, etc.
@@ -270,6 +300,8 @@ Use the `T0-SB2209-Revo-LDO.cfg` in [Sample_Config](./Sample_Config) folder as r
 5. Copy and paste the associated set of `[tool t(x)]`, `[tool_probe T(x)]`, and `[extruder(x)]` to the **SAVE_CONFIG** section, if they are not already there.
 
 6. Save & Restart
+
+---
 
 ### Step 7: Calibrate and test tool-head
 
@@ -301,6 +333,8 @@ Otherwise:
 
 7. (optional) Calibrate input shaper, see **section 4.2.** 
 
+---
+
 ### Step 8: Other macros
 
 * `macro-general.cfg`
@@ -308,6 +342,8 @@ Otherwise:
 * `macro-test.cfg`
 
 These configs tend to be points of customisation for many. Therefore, the included files are intended to be inspirations for your own macros. They contain commands and functionalities that may not be needed or are not relevant to your printer.
+
+---
 
 ### Step 9: Single tool-head config
 
@@ -335,6 +371,8 @@ These configs tend to be points of customisation for many. Therefore, the includ
 
 Now, the `CONFIG_TOGGLE` macro will allow you to toggle between these 2 configs.
 
+---
+
 # 4. Calibration
 
 This section assumes that the new tool-head has been assembled, wired up, and has been recognised by Klipper.
@@ -360,6 +398,8 @@ The following steps are for the burn-in of the Tap&Change mechanism. This is so 
 8. Run `SHAPER_CALIBRATE` - Note: This is only meant to shake the tool-head around in its mount. Do not save the input shaper result.
 
 9. Repeat step 4 - 8 until the tool-head can fall into the mount on it's own weight when manually removed and replaced.
+
+---
 
 ## 4.1. Park position calibration
 
@@ -413,6 +453,8 @@ The following steps are for the burn-in of the Tap&Change mechanism. This is so 
 
 17. Run the `TEST_DOCKING` macro
 
+---
+
 ## 4.2. Input Shaper (optional)
 
 *Note: To avoid Klipper from throwing errors, the parameters for input shaper are pre-populated in* `toolchanger.cfg` *and in each tool-head config file. Nevertheless, it is best to calibrate it for each available tool-head.*
@@ -441,6 +483,8 @@ The following steps are for the burn-in of the Tap&Change mechanism. This is so 
    ```
 
 8. Save & Restart
+
+---
 
 ## 4.3. Calibrate offsets
 
@@ -490,6 +534,8 @@ The following steps are for the burn-in of the Tap&Change mechanism. This is so 
 9. Save & Restart
 
 *Note: It is key that you get the z_offset correct for the T0, as it will be used to extrapolate other offsets later on. Therefore, it is worth diverging from these instruction if you have a preferred way to set your the z-offset.*
+
+---
 
 ### 4.3.2. Calibration probe setup
 
@@ -543,6 +589,8 @@ Your calibration probe is ready.
 
 *Note: It is worth mentioning that there are other ways to calibrate your offsets, such as the visual based solution from [Ember](https://www.emberprototypes.com/products/cxc) or the calibration print that you can get from [Printables](https://www.printables.com/model/201707-x-y-and-z-calibration-tool-for-idex-dual-extruder-). Each have their pros and cons in terms of accuracy and cost. However,  a physical contact probe is currently the only way to automatically calibrate all relevant offsets.*
 
+---
+
 ### 4.3.3. Other tool-head(s)
 
 ### Steps:
@@ -585,6 +633,8 @@ If you has the set `variable_calibration_abs_z_seperately` to `1` in `[gcode_mac
 
 4. Run `SAVE_CONFIG`
 
+---
+
 ### 4.3.4. Clean dock
 
 #### Steps:
@@ -604,6 +654,8 @@ If you has the set `variable_calibration_abs_z_seperately` to `1` in `[gcode_mac
    ```
    params_need_clean_materials: ['PETG', 'FLEX']
    ```
+
+---
 
 # 5. Test and Troubleshoot
 
@@ -647,11 +699,15 @@ It is important to test if the `z_offset` and `gcode_z_offset` are set-up and ap
 
 To validate `gcode_x_offset` and `gcode_y_offset`, you just need to print something and see if they are set-up and applied correctly. Alternatively, you can also buy and use [Ember Camera Assisted XY](https://www.emberprototypes.com/products/cxc) to validate them.
 
+---
+
 # 6. Tool-change Tuning
 
 The speed and path of the default tool-change routine in `misschanger_settings.cfg` is tuned for reliability. It is slower and has more steps than needed.
 
 For a smooth running MissChanger. The `params_path_speed` can be increased and some of the "Wiggle wiggle", in the path, can be disable.
+
+---
 
 # 7. Slicer Profile
 
