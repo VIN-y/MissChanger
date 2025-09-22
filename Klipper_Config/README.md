@@ -363,7 +363,8 @@ These configs tend to be points of customisation for many. Therefore, the includ
    
    3. Revert `[bed_mesh]` and `[quad_gantry_level]` to the original values of the stock machine (without the tool-changer bits)
    
-   4. Delete all the `[tool T(x)]`, `[tool_probe T(x)]`, and `[extruder(x)]` sections EXCEPT the `[tool_probe T0]` and `[extruder]`sections. in the `SAVE_CONFIG` section. 
+   4. Delete all `#*# [tool T(x)]`, `#*# [tool_probe T(x)]`, and `#*# [extruder(x)]` objects, under the `SAVE_CONFIG` section.
+       * **EXCEPT:** the `#*# [tool_probe T0]` and `#*# [extruder]` object.  
 
 4. Save, but no restart is needed.
 
