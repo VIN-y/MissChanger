@@ -192,10 +192,11 @@ Each variable has been given a short description on what they do. Some variables
         2. Set up T0 (the reference tool-head), see **Step 3**. The `[quad_gantry_level]` (or `z_tilt`, for Trident), and `[bed_mesh]` stay the same the same as stock.
     
         3. After T0 is operational, run `SAVE_CONFIG_MODE`
+        4. From the web interface, see if the everything below the `Section Variables` has been saved to a .cfg file in the "config" folder.
         
-        4. Change `variable_dock` to `True`
+        5. Change `variable_dock` to `True`
     
-        5. Install the physical dock. The `[quad_gantry_level]` or `z_tilt` (for Trident), and `[bed_mesh]` **MUST** be updated, as shown in the next 2 bullet points.
+        6. Install the physical dock. The `[quad_gantry_level]` or `z_tilt` (for Trident), and `[bed_mesh]` **MUST** be updated, as shown in the next 2 bullet points.
 
     - `[quad_gantry_level]`, or `z_tilt` (for Trident), increase the y position of the front 2 `points:` to `130`, to avoid crashing into the dock.
 
