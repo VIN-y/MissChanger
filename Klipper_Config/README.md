@@ -183,7 +183,7 @@ Each variable has been given a short description on what they do. Some variables
    These sections need to be placed just before the **SAVE_CONFIG** section, as shown in the sample `printer.cfg`. Everything below the `Section Variable marker` will be swapped in and out upon the `CONFIG_TOGGLE` macro. If a function setting already exists somewhere else in printer.cfg, the old function will need to be transferred to the new location and updated.
    
    The critical settings that need to be changed are as follows:
-    - `[gcode_macro _home]` needs to adjusted with the appropriate `xh` and `yh` which represents the centre of the new build area (i.e. 150 (x), 210(y) for a 300x300 bed).
+    - `[gcode_macro _home]` needs to adjusted with the appropriate `xh` and `yh` which represents the centre of the new build area (i.e. 150 (x), 210 (y) for a 300x300 bed).
   
       - `variable_dock` is the indicator of which config is being used.
     
