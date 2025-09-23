@@ -363,7 +363,7 @@ These configs tend to be points of customisation for many. Therefore, the includ
    
    2. Under `[gcode_macro _home]`:
       
-      1. Set an appropriate `xh` and `yh` which represent the centre of the new build area (i.e. 150, 85 for a 300x300 build plate).
+      1. Set an appropriate `xh` and `yh` which represent the centre of the new build area (i.e. 150 (x), 210 (y) for a 300x300 build plate).
       
       2. Set `variable_dock` to `False`
    
