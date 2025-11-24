@@ -10,9 +10,7 @@
    
    3.2. [Configuration](#32-configuration) 
 
-4. [Calibration](#4-calibration) 
-   
-   4.0. [Tap&Change burn-in](#40-tapchange-burn-in) 
+4. [Calibration](#4-calibration) 564324.0. [Tap&Change burn-in](#40-tapchange-burn-in) 
    
    4.1. [Park position calibration](#41-park-position-calibration) 
    
@@ -183,24 +181,27 @@ Each variable has been given a short description on what they do. Some variables
    These sections need to be placed just before the **SAVE_CONFIG** section, as shown in the sample `printer.cfg`. Everything below the `Section Variable marker` will be swapped in and out upon the `CONFIG_TOGGLE` macro. If a function setting already exists somewhere else in printer.cfg, the old function will need to be transferred to the new location and updated.
    
    The critical settings that need to be changed are as follows:
-    - `[gcode_macro _home]` needs to adjusted with the appropriate `xh` and `yh` which represents the centre of the new build area (i.e. 150 (x), 210 (y) for a 300x300 bed).
-  
-      - `variable_dock` is the indicator of which config is being used.
-    
-        1. Before installing the dock and other tool-heads, set `variable_dock` to `False`. 
-      
-        2. Set up T0 (the reference tool-head), see **Step 3**. The `[quad_gantry_level]` (or `z_tilt`, for Trident), and `[bed_mesh]` stay the same the same as stock.
-    
-        3. After T0 is operational, run `SAVE_CONFIG_MODE`
-        4. From the web interface, see if the everything below the `Section Variables` has been saved to a .cfg file in the "config" folder.
-        
-        5. Change `variable_dock` to `True`
-    
-        6. Install the physical dock. The `[quad_gantry_level]` or `z_tilt` (for Trident), and `[bed_mesh]` **MUST** be updated, as shown in the next 2 bullet points.
+   
+   - `[gcode_macro _home]` needs to adjusted with the appropriate `xh` and `yh` which represents the centre of the new build area (i.e. 150 (x), 210 (y) for a 300x300 bed).
+     
+     - `variable_dock` is the indicator of which config is being used.
+       
+       1. Before installing the dock and other tool-heads, set `variable_dock` to `False`. 
+       
+       2. Set up T0 (the reference tool-head), see **Step 3**. The `[quad_gantry_level]` (or `z_tilt`, for Trident), and `[bed_mesh]` stay the same the same as stock.
+       
+       3. After T0 is operational, run `SAVE_CONFIG_MODE`
+       
+       4. From the web interface, see if the everything below the `Section Variables` has been saved to a .cfg file in the "config" folder.
+       
+       5. Change `variable_dock` to `True`
+       
+       6. Install the physical dock. The `[quad_gantry_level]` or `z_tilt` (for Trident), and `[bed_mesh]` **MUST** be updated, as shown in the next 2 bullet points.
+   
+   - `[quad_gantry_level]`, or `z_tilt` (for Trident), increase the y position of the front 2 `points:` to `130`, to avoid crashing into the dock.
+   
+   - `[bed_mesh]`, make sure that `mesh_min: 30,130` , to avoid crashing into the dock.
 
-    - `[quad_gantry_level]`, or `z_tilt` (for Trident), increase the y position of the front 2 `points:` to `130`, to avoid crashing into the dock.
-
-    - `[bed_mesh]`, make sure that `mesh_min: 30,130` , to avoid crashing into the dock.
 2. If it exists in **printer.cfg**, disable `[safe_z_home]` (comment-out or delete)
 
 3. Add relevant variable (see the code snippet below) under **SAVE_CONFIG**. `[tool_probe T0]` and  `[extruder]` are needed no matter what your setup as it is the reference / default tool-head. 
@@ -251,7 +252,7 @@ Use the `T0-SB2209-Revo-LDO.cfg` in [Sample_Config](./Sample_Config) folder as r
 
 ---
 
-### Step 4: 
+### Step 4:
 
 Include tool-head config in the session variables are in `printer.cfg`, as shown in the relevant sample config.
 
@@ -370,7 +371,8 @@ These configs tend to be points of customisation for many. Therefore, the includ
    3. Revert `[bed_mesh]` and `[quad_gantry_level]` to the original values of the stock machine (without the tool-changer bits)
    
    4. Delete all `#*# [tool T(x)]`, `#*# [tool_probe T(x)]`, and `#*# [extruder(x)]` objects, under the `SAVE_CONFIG` section.
-       * **EXCEPT:** the `#*# [tool_probe T0]` and `#*# [extruder]` object.  
+      
+      * **EXCEPT:** the `#*# [tool_probe T0]` and `#*# [extruder]` object.  
 
 4. Save, but no restart is needed.
 
@@ -505,7 +507,9 @@ The following steps are for the burn-in of the Tap&Change mechanism. This is so 
    
    - Every other offsets to `0`; i.e. `x_offset` and `y_offset`
    
-   - Save it, **BUT DON'T RESTART** 
+   - Save it, **BUT DON'T RESTART**
+   
+   ![](./images/T0_z_offset.png)
 
 3. Run `G28` and `QUAD_GANTRY_LEVEL` 
 
@@ -554,8 +558,7 @@ At this stage, you should have:
 
 This section will guide you through the calibration of the machine specific variable `trigger_to_bottom_z`, which will allow you to automate the z-offset of the tool-heads that are not T0. *Note: This should be your go to variable to adjust whenever you ran into z-offset issue.*
 
-<img width="2118" height="724" alt="image" src="https://github.com/user-attachments/assets/f4cf9d55-c3dd-47af-a607-d507f0f4fbb2" />
-
+![](./images/trigger_to_bottom_z.png)
 
 ### Setup:
 
@@ -565,11 +568,15 @@ This section will guide you through the calibration of the machine specific vari
 
 3. Save and restart
 
-4. Test calibration probe
+4. Test calibration probe, by touching the it with your finger and run `TOOL_CALIBRATE_QUERY_PROBE`
+   
+   ![](./images/TOOL_CALIBRATE_QUERY_PROBE.png)
 
 5. Open `printer.cfg`
 
-6. Set the approximate X and Y location of the Nudge pin in `[gcode_macro _static_variable]` 
+6. Set the approximate X and Y location of the Nudge pin in `[gcode_macro _static_variable]`. Note: you can find out the XY position by homing and moving the tool-head in place with the web UI or Klipper Screen.
+   
+   ![](./images/variable_calibration_probe.png)
 
 7. Save and restart
 
@@ -579,23 +586,25 @@ This section will guide you through the calibration of the machine specific vari
 
 2. Mount tool-head **T0** and make sure it's nozzle is clean
 
-3. Run `G28` and `QUAD_GANTRY_LEVEL`
+3. <mark>**!!! MAKE SURE THE CALIBRATION PROBE IS NOT MOUNTED !!!**</mark>
 
-4. Mount the calibration probe
+4. Run `G28` and `QUAD_GANTRY_LEVEL`
 
-5. Run `CALIBRATE_TRIGGER_BOTTOM`. If it is a fresh calibration probe, it is worth redoing this step until the suggested value is consistent at +/- 0.005mm. 
+5. Mount the calibration probe to the bed.
 
-6. Copy the proposed offset on the console to the `trigger_to_bottom_z:` in `[tools_calibrate]`.
+6. Run `CALIBRATE_TRIGGER_BOTTOM`. If it is a fresh calibration probe, it is worth redoing this step until the suggested value is consistent at +/- 0.005mm. 
 
-7. Save and restart
+7. Copy the proposed offset on the console to the `trigger_to_bottom_z:` in `[tools_calibrate]`.
 
-8. Run `CALIBRATE_OFFSETS TOOL=0` - But, **DON'T RESTART**
+8. Save and restart
 
-9. Check if proposed z-offset to be +-0.01mm of the recorded `z_offset` in **step 1**.
+9. Run `CALIBRATE_OFFSETS TOOL=0` - But, **DON'T RESTART**
 
-10. Run `CALIBRATE_OFFSETS TOOL=0` 2-3 more times to make sure the measured value is consistent.
+10. Check if proposed z-offset to be +-0.01mm of the recorded `z_offset` in **step 1**.
 
-Your calibration probe is ready.
+11. Run `CALIBRATE_OFFSETS TOOL=0` 2-3 more times to make sure the measured value is consistent.
+
+**Your calibration probe is ready.**
 
 *Note: It is worth mentioning that there are other ways to calibrate your offsets, such as the visual based solution from [Ember](https://www.emberprototypes.com/products/cxc) or the calibration print that you can get from [Printables](https://www.printables.com/model/201707-x-y-and-z-calibration-tool-for-idex-dual-extruder-). Each have their pros and cons in terms of accuracy and cost. However,  a physical contact probe is currently the only way to automatically calibrate all relevant offsets.*
 
@@ -620,6 +629,8 @@ Your calibration probe is ready.
    - `gcode_z_offset` 
    
    - `z_offset` 
+   
+   ![](./images/gcode_offset.png)
 
 5. Save it, **BUT DON'T RESTART**
 
@@ -633,15 +644,17 @@ Your calibration probe is ready.
 
 10. Run `SAVE_CONFIG`
 
-If you has the set `variable_calibration_abs_z_seperately` to `1` in `[gcode_macro _static_variable]` in **printer.cfg** (for the Nudge probe).
+If you has the Nudge probe. There is a likelihood that the `CALIBRATE_OFFSETS` procedure cannot be completed. If so:
 
-1. Mount tool-head T0
+1.  set `variable_calibration_abs_z_seperately` to `1` in `[gcode_macro _static_variable]` in **printer.cfg**.![](./images/variable_calibration_abs_z_seperately.png)
 
-2. Run `G28` and `QUAD_GANTRY_LEVEL` 
+2. Mount tool-head T0
 
-3. Run `CALIBRATE_ABSOLUTE_Z` 
+3. Run `G28` and `QUAD_GANTRY_LEVEL` 
 
-4. Run `SAVE_CONFIG`
+4. Run `CALIBRATE_ABSOLUTE_Z` 
+
+5. Run `SAVE_CONFIG`
 
 ---
 
