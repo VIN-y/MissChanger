@@ -509,7 +509,7 @@ The following steps are for the burn-in of the Tap&Change mechanism. This is so 
 
 3. Run `G28` and `QUAD_GANTRY_LEVEL` 
 
-4. Run `PROBE_CALIBRATE` on the console and go through the process with <u>the normal paper test</u>.
+4. Run `PROBE_CALIBRATE` on the console and go through the process with the normal paper test.
 
 5. <u></u>Run `SAVE_CONFIG` - which will restart your printer
 
@@ -552,23 +552,26 @@ At this stage, you should have:
 
 - T0 z-offset calibrated
 
-This section will guide you through the calibration of the machine specific variable `trigger_to_bottom_z`, which will allow you to automate the z-offset of the tool-heads that are not T0.
+This section will guide you through the calibration of the machine specific variable `trigger_to_bottom_z`, which will allow you to automate the z-offset of the tool-heads that are not T0. *Note: This should be your go to variable to adjust whenever you ran into z-offset issue.*
 
-*Note: This should be your go to variable to adjust whenever you ran into z-offset issue.*
+<img width="2118" height="724" alt="image" src="https://github.com/user-attachments/assets/f4cf9d55-c3dd-47af-a607-d507f0f4fbb2" />
+
 
 ### Setup:
 
 1. Open `misschanger_settings.cfg`
 
-2. Setup `[tools_calibrate]` with the correct `pin`
+2. Setup `[tools_calibrate]` with the correct `pin`, for the LubeBalls (or Nudge)
 
 3. Save and restart
 
-4. Open `printer.cfg` 
+4. Test calibration probe
 
-5. Set the approximate X and Y location of the Nudge pin in `[gcode_macro _static_variable]` 
+5. Open `printer.cfg`
 
-6. Save and restart
+6. Set the approximate X and Y location of the Nudge pin in `[gcode_macro _static_variable]` 
+
+7. Save and restart
 
 ### Steps:
 
