@@ -10,7 +10,9 @@
    
    3.2. [Configuration](#32-configuration) 
 
-4. [Calibration](#4-calibration) 564324.0. [Tap&Change burn-in](#40-tapchange-burn-in) 
+4. [Calibration](#4-calibration) 
+   
+   4.0. [Tap&Change burn-in](#40-tapchange-burn-in) 
    
    4.1. [Park position calibration](#41-park-position-calibration) 
    
@@ -646,7 +648,7 @@ This section will guide you through the calibration of the machine specific vari
 
 If you has the Nudge probe. There is a likelihood that the `CALIBRATE_OFFSETS` procedure cannot be completed. If so:
 
-1.  set `variable_calibration_abs_z_seperately` to `1` in `[gcode_macro _static_variable]` in **printer.cfg**.![](./images/variable_calibration_abs_z_seperately.png)
+1. set `variable_calibration_abs_z_seperately` to `1` in `[gcode_macro _static_variable]` in **printer.cfg**.![](./images/variable_calibration_abs_z_seperately.png)
 
 2. Mount tool-head T0
 
