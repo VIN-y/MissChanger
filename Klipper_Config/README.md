@@ -206,9 +206,40 @@ Each variable has been given a short description on what they do. Some variables
 
 2. If it exists in **printer.cfg**, disable `[safe_z_home]` (comment-out or delete)
 
-3. Add relevant variable (see the code snippet below) under **SAVE_CONFIG**. `[tool_probe T0]` and  `[extruder]` are needed no matter what your setup as it is the reference / default tool-head. 
+3. Add relevant variable (see the code snippet below) under **SAVE_CONFIG**. `[tool_probe T0]` and  `[extruder]` are needed no matter what your setup as it is the reference / default tool-head.
+   
+   ```
+   #*# <---------------------- SAVE_CONFIG ---------------------->
+   #*# DO NOT EDIT THIS BLOCK OR BELOW. The contents are auto-generated.
+   #*#
+   #*# [tool_probe T0]
+   #*# z_offset = -0.817500
+   #*#
+   #*# [extruder]
+   #*# control = pid
+   #*# pid_kp = 39.282
+   #*# pid_ki = 4.365
+   #*# pid_kd = 88.386
+   #*#
+   ```
 
-4. For each additional tool-head, you will need an associated set of  `[tool t(x)]`, `[tool_probe T(x)]`, and `[extruder(x)]` sections. **It is RECOMMENDED** to add and test the tool-heads, one at a time.
+4. For each additional tool-head, you will need an associated set of  `[tool t(x)]`, `[tool_probe T(x)]`, and `[extruder(x)]` sections. **It is RECOMMENDED** to add and test the tool-heads, one at a time. For example:
+   
+   ```
+   #*# [tool T1]
+   #*# gcode_x_offset = -0.225000
+   #*# gcode_y_offset = 0.590625
+   #*# gcode_z_offset = 0.470000
+   #*#
+   #*# [tool_probe T1]
+   #*# z_offset = -0.622500
+   #*#
+   #*# [extruder1]
+   #*# control = pid
+   #*# pid_kp = 33.912
+   #*# pid_ki = 3.325
+   #*# pid_kd = 86.477
+   ```
 
 *NOTE 1: Your printer will be throwing errors at this point, until the software is fully setup.* 
 
@@ -640,13 +671,13 @@ This section will guide you through the calibration of the machine specific vari
 
 7. Run `G28` and `QUAD_GANTRY_LEVEL`
 
-8. Mount the Nudge probe
+8. Mount the calibration probe
 
 9. Run `CALIBRATE_OFFSETS` - the process is automatic, but you can specify a specific tool-head
 
 10. Run `SAVE_CONFIG`
 
-If you has the Nudge probe. There is a likelihood that the `CALIBRATE_OFFSETS` procedure cannot be completed. If so:
+If you has the calibration probe. There is a likelihood that the `CALIBRATE_OFFSETS` procedure cannot be completed. If so:
 
 1. set `variable_calibration_abs_z_seperately` to `1` in `[gcode_macro _static_variable]` in **printer.cfg**.![](./images/variable_calibration_abs_z_seperately.png)
 
