@@ -589,7 +589,7 @@ At this stage, you should have:
 
 - T0 z-offset calibrated
 
-This section will guide you through the calibration of the machine specific variable `trigger_to_bottom_z`, which will allow you to automate the z-offset of the tool-heads that are not T0. *Note: This should be your go to variable to adjust whenever you ran into z-offset issue.*
+This section will guide you through the calibration of the machine specific variable `trigger_to_bottom_z`, which will allow you to automate the z-offset and gcode-offsets of the tool-heads. *Note: This should be your go to variable to adjust whenever you ran into z-offset issue.*
 
 ![](./images/trigger_to_bottom_z.png)
 
@@ -607,7 +607,7 @@ This section will guide you through the calibration of the machine specific vari
 
 5. Open `printer.cfg`
 
-6. Set the approximate X and Y location of the Nudge pin in `[gcode_macro _static_variable]`. Note: you can find out the XY position by homing and moving the tool-head in place with the web UI or Klipper Screen.
+6. Set the approximate X and Y location of the calibration pin in `[gcode_macro _static_variable]`. Note: you can find out the XY position by homing and moving the tool-head in place with the web UI or Klipper Screen.
    
    ![](./images/variable_calibration_probe.png)
 
@@ -677,7 +677,7 @@ This section will guide you through the calibration of the machine specific vari
 
 10. Run `SAVE_CONFIG`
 
-If you has the calibration probe. There is a likelihood that the `CALIBRATE_OFFSETS` procedure cannot be completed. If so:
+If you has the Nudge probe. There is a likelihood that the `CALIBRATE_OFFSETS` procedure cannot be completed. If so:
 
 1. set `variable_calibration_abs_z_seperately` to `1` in `[gcode_macro _static_variable]` in **printer.cfg**.![](./images/variable_calibration_abs_z_seperately.png)
 
