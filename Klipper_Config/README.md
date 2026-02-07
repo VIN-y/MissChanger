@@ -1,34 +1,17 @@
-# Table of Contents
+# NOTICE
 
-1. [Introduction](#1-introduction) 
+## 260307 - Klipper compatibility problem
 
-2. [Versions](#2-versions) 
+There are some incompatibility problems with klipper at moment.
 
-3. [Software](#2-software) 
-   
-   3.1. [Installation](#31-installation) 
-   
-   3.2. [Configuration](#32-configuration) 
+To mitigate the problem, downgrade klipper using the follow command in ssh terminal:
 
-4. [Calibration](#4-calibration) 
-   
-   4.0. [Tap&Change burn-in](#40-tapchange-burn-in) 
-   
-   4.1. [Park position calibration](#41-park-position-calibration) 
-   
-   4.2. [Input Shaper (optional)](#42-input-shaper-optional) 
-   
-   4.3. [Calibrate offsets](#43-calibrate-offsets) 
-
-5. [Test and Troubleshoot](#5-test-and-troubleshoot) 
-   
-   5.1. [Offsets](#51-offsets) 
-
-6. [Tool-change Tuning](#6-tool-change-tuning) 
-
-7. [Slicer Profile](#7-slicer-profile) 
-
----
+```
+sudo service klipper stop
+cd ~/klipper
+git checkout e605fd18560fbb5a7413ca12b72325ad4e18de16
+sudo service klipper start
+```
 
 # 1. Introduction
 
