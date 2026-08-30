@@ -1,3 +1,16 @@
+# Updates
+
+## 260712. **MCv2**, A new version of MissChanger released on Gitlab and Printable
+
+The assembly guide and configuration is free and available in the [Gitlab wiki](https://gitlab.com/misschanger/misschanger-v2/-/wikis/home). For the full project description, have a look at the [Gitlab frontpage](https://gitlab.com/misschanger/misschanger-v2) or the [Printable description](https://www.printables.com/model/1778493-misschanger-v2).
+
+While the CAD file can be free or paid, depending on your needs, on Printable.
+
+| Price  | Include                       | Link                                                         |
+| ------ | ----------------------------- | ------------------------------------------------------------ |
+| $0.00  | .3mf                          | [MissChanger v2 \| Printables.com](https://www.printables.com/model/1533585-misschanger-v2) |
+| $25.00 | .step<br>native FreeCAD files | [MissChanger v2 \| Printables.com](https://www.printables.com/model/1778493-misschanger-v2) |
+
 # MissChanger
 
 A Stealth Burner tool-change system for Voron 2.4 and Trident.
