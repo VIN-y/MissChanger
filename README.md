@@ -97,8 +97,8 @@ The plugin for MissChanger is a fork of [klipper-toolchanger](https://github.com
 
 ### v2
 
-- [ ] Trident compatibility - v2 will be built directly on a Trident
-- [ ] Support for additional tool-heads - A4T
+- [x] Trident compatibility - v2 will be built directly on a Trident
+- [x] Support for additional tool-heads - A4T
 
 ## Other information
 
